@@ -29,6 +29,8 @@
     [self addCell:@"Foundation Example" class:@"JCFoundationExampleViewController"];
     [self addCell:@"UIKit Example" class:@"JCUIKitExampleViewController"];
     [self.view addSubview:self.tableView];
+    
+    [self test_String];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,6 +91,15 @@
 
 
 #pragma mark - Test Methods(测试方法)
+
+- (void)test_String {
+    NSString *string = @"   Lorem    Ipsum dolar  12345  sit  amet.     ";
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    string = [components componentsJoinedByString:@" "];
+    JCLog(@"string:%@",string);
+}
 
 /**
  *  测试数组遍历

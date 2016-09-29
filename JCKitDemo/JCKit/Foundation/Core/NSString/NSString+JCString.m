@@ -197,16 +197,40 @@
     return rect.size;
 }
 
+#pragma mark - 修剪字符串
+
+/**
+ 去掉头尾的空格
+ */
+- (NSString *)stringByTrimSpace {
+    NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    return [self stringByTrimmingCharactersInSet:set];
+}
+
 #pragma mark - 正则表达式
 
 /**
- *  正则表达式
+ *  根据正则表达式判断
  *  @param format 正则表达式的样式
  *  @return YES or NO
  */
 - (BOOL)evaluateWithFormat:(NSString *)format {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",format] ;
     return [predicate evaluateWithObject:self];
+}
+
+/**
+ 邮箱的正则表达式
+ */
+- (NSString *)regexpEmailFormat {
+    return @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+}
+
+/**
+ IP地址的正则表达式
+ */
+- (NSString *)regexpIpFormat {
+    return @"((2[0-4]\\\\d|25[0-5]|[01]?\\\\d\\\\d?)\\.){3}(2[0-4]\\\\d|25[0-5]|[01]?\\\\d\\\\d?)";
 }
 
 #pragma mark - 沙盒路径

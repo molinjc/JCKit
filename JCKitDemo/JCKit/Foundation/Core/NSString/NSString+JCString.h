@@ -69,6 +69,13 @@
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size;
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode;
 
+#pragma mark - 修剪字符串
+
+/**
+ 去掉头尾的空格
+ */
+- (NSString *)stringByTrimSpace;
+
 #pragma mark - 正则表达式
 
 /**
@@ -78,13 +85,23 @@
  */
 - (BOOL)evaluateWithFormat:(NSString *)format;
 
+/**
+ 邮箱的正则表达式
+ */
+- (NSString *)regexpEmailFormat;
+
+/**
+ IP地址的正则表达式
+ */
+- (NSString *)regexpIpFormat;
+
 #pragma mark - 沙盒路径
 
 + (NSString *)pathDocument;
 + (NSString *)pathCaches;
 + (NSString *)pathLibrary;
 
-#pragma mark - 
+#pragma mark - UUID
 
 + (NSString *)stringWithUUID;
 

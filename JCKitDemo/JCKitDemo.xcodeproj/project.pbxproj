@@ -193,6 +193,7 @@
 		252C11321D9B61DB00D2E8F0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				252C11801D9D165100D2E8F0 /* NSNumber */,
 				252C11461D9B640A00D2E8F0 /* NSString */,
 				252C11331D9B620000D2E8F0 /* NSData */,
 				252C11361D9B620000D2E8F0 /* NSDate */,
@@ -360,6 +361,13 @@
 				252C117E1D9CF86E00D2E8F0 /* UIImage+JCImage.m */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		252C11801D9D165100D2E8F0 /* NSNumber */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSNumber;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
