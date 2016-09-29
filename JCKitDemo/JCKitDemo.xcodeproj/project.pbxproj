@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		252C11001D9AA5EC00D2E8F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C10FF1D9AA5EC00D2E8F0 /* main.m */; };
+		252C11031D9AA5EC00D2E8F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11021D9AA5EC00D2E8F0 /* AppDelegate.m */; };
+		252C11061D9AA5EC00D2E8F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11051D9AA5EC00D2E8F0 /* ViewController.m */; };
+		252C11091D9AA5EC00D2E8F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252C11071D9AA5EC00D2E8F0 /* Main.storyboard */; };
+		252C110B1D9AA5EC00D2E8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252C110A1D9AA5EC00D2E8F0 /* Assets.xcassets */; };
+		252C110E1D9AA5EC00D2E8F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252C110C1D9AA5EC00D2E8F0 /* LaunchScreen.storyboard */; };
+		252C11271D9B59EF00D2E8F0 /* JCObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11221D9B59EF00D2E8F0 /* JCObserver.m */; };
+		252C11281D9B59EF00D2E8F0 /* NSObject+JCBind.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11241D9B59EF00D2E8F0 /* NSObject+JCBind.m */; };
+		252C11291D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11261D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.m */; };
+		252C112D1D9B5EBC00D2E8F0 /* NSObject+JCJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C112C1D9B5EBC00D2E8F0 /* NSObject+JCJSON.m */; };
+		252C113C1D9B620000D2E8F0 /* NSData+JCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11351D9B620000D2E8F0 /* NSData+JCData.m */; };
+		252C113D1D9B620000D2E8F0 /* NSDate+JCDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11381D9B620000D2E8F0 /* NSDate+JCDate.m */; };
+		252C113E1D9B620000D2E8F0 /* NSTimer+JCBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C113B1D9B620000D2E8F0 /* NSTimer+JCBlock.m */; };
+		252C11421D9B629D00D2E8F0 /* JCSQLite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11411D9B629D00D2E8F0 /* JCSQLite3.m */; };
+		252C11451D9B62E200D2E8F0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 252C11441D9B62E200D2E8F0 /* libsqlite3.tbd */; };
+		252C11491D9B641A00D2E8F0 /* NSString+JCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11481D9B641A00D2E8F0 /* NSString+JCString.m */; };
+		252C11541D9BBF8200D2E8F0 /* UIColor+JCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11531D9BBF8200D2E8F0 /* UIColor+JCColor.m */; };
+		252C11571D9BC87B00D2E8F0 /* UIColor+JCSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11561D9BC87B00D2E8F0 /* UIColor+JCSeries.m */; };
+		252C115B1D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C115A1D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.m */; };
+		252C115F1D9BD24700D2E8F0 /* UIScreen+JCScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C115E1D9BD24700D2E8F0 /* UIScreen+JCScale.m */; };
+		252C11631D9BD52100D2E8F0 /* UIDevice+JCDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11621D9BD52100D2E8F0 /* UIDevice+JCDevice.m */; };
+		252C116C1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C116B1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m */; };
+		252C116F1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C116E1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m */; };
+		252C11731D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11721D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m */; };
+		252C11771D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11761D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m */; };
+		252C117B1D9CEDB400D2E8F0 /* UIFont+JCScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C117A1D9CEDB400D2E8F0 /* UIFont+JCScale.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		252C10FB1D9AA5EC00D2E8F0 /* JCKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		252C10FF1D9AA5EC00D2E8F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		252C11011D9AA5EC00D2E8F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		252C11021D9AA5EC00D2E8F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		252C11041D9AA5EC00D2E8F0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		252C11051D9AA5EC00D2E8F0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		252C11081D9AA5EC00D2E8F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		252C110A1D9AA5EC00D2E8F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		252C110D1D9AA5EC00D2E8F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		252C110F1D9AA5EC00D2E8F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		252C11171D9AA67F00D2E8F0 /* JCKitMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCKitMacro.h; sourceTree = "<group>"; };
+		252C11211D9B59EF00D2E8F0 /* JCObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCObserver.h; sourceTree = "<group>"; };
+		252C11221D9B59EF00D2E8F0 /* JCObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCObserver.m; sourceTree = "<group>"; };
+		252C11231D9B59EF00D2E8F0 /* NSObject+JCBind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCBind.h"; sourceTree = "<group>"; };
+		252C11241D9B59EF00D2E8F0 /* NSObject+JCBind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JCBind.m"; sourceTree = "<group>"; };
+		252C11251D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCObserverKVO.h"; sourceTree = "<group>"; };
+		252C11261D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JCObserverKVO.m"; sourceTree = "<group>"; };
+		252C112B1D9B5EBC00D2E8F0 /* NSObject+JCJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCJSON.h"; sourceTree = "<group>"; };
+		252C112C1D9B5EBC00D2E8F0 /* NSObject+JCJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JCJSON.m"; sourceTree = "<group>"; };
+		252C11341D9B620000D2E8F0 /* NSData+JCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+JCData.h"; sourceTree = "<group>"; };
+		252C11351D9B620000D2E8F0 /* NSData+JCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+JCData.m"; sourceTree = "<group>"; };
+		252C11371D9B620000D2E8F0 /* NSDate+JCDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JCDate.h"; sourceTree = "<group>"; };
+		252C11381D9B620000D2E8F0 /* NSDate+JCDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JCDate.m"; sourceTree = "<group>"; };
+		252C113A1D9B620000D2E8F0 /* NSTimer+JCBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+JCBlock.h"; sourceTree = "<group>"; };
+		252C113B1D9B620000D2E8F0 /* NSTimer+JCBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+JCBlock.m"; sourceTree = "<group>"; };
+		252C11401D9B629D00D2E8F0 /* JCSQLite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSQLite3.h; sourceTree = "<group>"; };
+		252C11411D9B629D00D2E8F0 /* JCSQLite3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCSQLite3.m; sourceTree = "<group>"; };
+		252C11441D9B62E200D2E8F0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		252C11471D9B641A00D2E8F0 /* NSString+JCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JCString.h"; sourceTree = "<group>"; };
+		252C11481D9B641A00D2E8F0 /* NSString+JCString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JCString.m"; sourceTree = "<group>"; };
+		252C11521D9BBF8200D2E8F0 /* UIColor+JCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JCColor.h"; sourceTree = "<group>"; };
+		252C11531D9BBF8200D2E8F0 /* UIColor+JCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JCColor.m"; sourceTree = "<group>"; };
+		252C11551D9BC87B00D2E8F0 /* UIColor+JCSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JCSeries.h"; sourceTree = "<group>"; };
+		252C11561D9BC87B00D2E8F0 /* UIColor+JCSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JCSeries.m"; sourceTree = "<group>"; };
+		252C11591D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JCButtonSimplify.h"; sourceTree = "<group>"; };
+		252C115A1D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JCButtonSimplify.m"; sourceTree = "<group>"; };
+		252C115D1D9BD24700D2E8F0 /* UIScreen+JCScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+JCScale.h"; sourceTree = "<group>"; };
+		252C115E1D9BD24700D2E8F0 /* UIScreen+JCScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+JCScale.m"; sourceTree = "<group>"; };
+		252C11611D9BD52100D2E8F0 /* UIDevice+JCDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+JCDevice.h"; sourceTree = "<group>"; };
+		252C11621D9BD52100D2E8F0 /* UIDevice+JCDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+JCDevice.m"; sourceTree = "<group>"; };
+		252C116A1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCFoundationExampleViewController.h; sourceTree = "<group>"; };
+		252C116B1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCFoundationExampleViewController.m; sourceTree = "<group>"; };
+		252C116D1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCUIKitExampleViewController.h; sourceTree = "<group>"; };
+		252C116E1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCUIKitExampleViewController.m; sourceTree = "<group>"; };
+		252C11711D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCUIDeviceExampleViewController.h; sourceTree = "<group>"; };
+		252C11721D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCUIDeviceExampleViewController.m; sourceTree = "<group>"; };
+		252C11751D9CEB5C00D2E8F0 /* UIApplication+JCApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JCApplication.h"; sourceTree = "<group>"; };
+		252C11761D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JCApplication.m"; sourceTree = "<group>"; };
+		252C11791D9CEDB400D2E8F0 /* UIFont+JCScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+JCScale.h"; sourceTree = "<group>"; };
+		252C117A1D9CEDB400D2E8F0 /* UIFont+JCScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+JCScale.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		252C10F81D9AA5EC00D2E8F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				252C11451D9B62E200D2E8F0 /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		252C10F21D9AA5EC00D2E8F0 = {
+			isa = PBXGroup;
+			children = (
+				252C11431D9B62C800D2E8F0 /* Frameworks */,
+				252C11151D9AA60A00D2E8F0 /* JCKit */,
+				252C10FD1D9AA5EC00D2E8F0 /* JCKitDemo */,
+				252C10FC1D9AA5EC00D2E8F0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		252C10FC1D9AA5EC00D2E8F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				252C10FB1D9AA5EC00D2E8F0 /* JCKitDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		252C10FD1D9AA5EC00D2E8F0 /* JCKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				252C11661D9CBCCC00D2E8F0 /* UIKitDemo */,
+				252C11651D9CBCB600D2E8F0 /* FoundationDemo */,
+				252C11011D9AA5EC00D2E8F0 /* AppDelegate.h */,
+				252C11021D9AA5EC00D2E8F0 /* AppDelegate.m */,
+				252C11041D9AA5EC00D2E8F0 /* ViewController.h */,
+				252C11051D9AA5EC00D2E8F0 /* ViewController.m */,
+				252C10FE1D9AA5EC00D2E8F0 /* Supporting Files */,
+			);
+			path = JCKitDemo;
+			sourceTree = "<group>";
+		};
+		252C10FE1D9AA5EC00D2E8F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				252C11071D9AA5EC00D2E8F0 /* Main.storyboard */,
+				252C110A1D9AA5EC00D2E8F0 /* Assets.xcassets */,
+				252C110C1D9AA5EC00D2E8F0 /* LaunchScreen.storyboard */,
+				252C110F1D9AA5EC00D2E8F0 /* Info.plist */,
+				252C10FF1D9AA5EC00D2E8F0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		252C11151D9AA60A00D2E8F0 /* JCKit */ = {
+			isa = PBXGroup;
+			children = (
+				252C11501D9BBEF100D2E8F0 /* UIKit */,
+				252C11161D9AA66500D2E8F0 /* Foundation */,
+				252C11171D9AA67F00D2E8F0 /* JCKitMacro.h */,
+			);
+			path = JCKit;
+			sourceTree = "<group>";
+		};
+		252C11161D9AA66500D2E8F0 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				252C113F1D9B628F00D2E8F0 /* SQL */,
+				252C11321D9B61DB00D2E8F0 /* Core */,
+				252C112A1D9B5E6F00D2E8F0 /* Model */,
+				252C11201D9B59B600D2E8F0 /* KVO */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		252C11201D9B59B600D2E8F0 /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				252C11211D9B59EF00D2E8F0 /* JCObserver.h */,
+				252C11221D9B59EF00D2E8F0 /* JCObserver.m */,
+				252C11231D9B59EF00D2E8F0 /* NSObject+JCBind.h */,
+				252C11241D9B59EF00D2E8F0 /* NSObject+JCBind.m */,
+				252C11251D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.h */,
+				252C11261D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.m */,
+			);
+			path = KVO;
+			sourceTree = "<group>";
+		};
+		252C112A1D9B5E6F00D2E8F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				252C112B1D9B5EBC00D2E8F0 /* NSObject+JCJSON.h */,
+				252C112C1D9B5EBC00D2E8F0 /* NSObject+JCJSON.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		252C11321D9B61DB00D2E8F0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				252C11461D9B640A00D2E8F0 /* NSString */,
+				252C11331D9B620000D2E8F0 /* NSData */,
+				252C11361D9B620000D2E8F0 /* NSDate */,
+				252C11391D9B620000D2E8F0 /* NSTimer */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		252C11331D9B620000D2E8F0 /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				252C11341D9B620000D2E8F0 /* NSData+JCData.h */,
+				252C11351D9B620000D2E8F0 /* NSData+JCData.m */,
+			);
+			path = NSData;
+			sourceTree = "<group>";
+		};
+		252C11361D9B620000D2E8F0 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				252C11371D9B620000D2E8F0 /* NSDate+JCDate.h */,
+				252C11381D9B620000D2E8F0 /* NSDate+JCDate.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		252C11391D9B620000D2E8F0 /* NSTimer */ = {
+			isa = PBXGroup;
+			children = (
+				252C113A1D9B620000D2E8F0 /* NSTimer+JCBlock.h */,
+				252C113B1D9B620000D2E8F0 /* NSTimer+JCBlock.m */,
+			);
+			path = NSTimer;
+			sourceTree = "<group>";
+		};
+		252C113F1D9B628F00D2E8F0 /* SQL */ = {
+			isa = PBXGroup;
+			children = (
+				252C11401D9B629D00D2E8F0 /* JCSQLite3.h */,
+				252C11411D9B629D00D2E8F0 /* JCSQLite3.m */,
+			);
+			path = SQL;
+			sourceTree = "<group>";
+		};
+		252C11431D9B62C800D2E8F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				252C11441D9B62E200D2E8F0 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			path = JCKitDemo/Frameworks;
+			sourceTree = "<group>";
+		};
+		252C11461D9B640A00D2E8F0 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				252C11471D9B641A00D2E8F0 /* NSString+JCString.h */,
+				252C11481D9B641A00D2E8F0 /* NSString+JCString.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		252C11501D9BBEF100D2E8F0 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				252C117C1D9CF01F00D2E8F0 /* UIImage */,
+				252C11781D9CED8C00D2E8F0 /* UIFont */,
+				252C11741D9CEB3C00D2E8F0 /* UIApplication */,
+				252C11601D9BD51300D2E8F0 /* UIDevice */,
+				252C115C1D9BD23C00D2E8F0 /* UIScreen */,
+				252C11581D9BD1E800D2E8F0 /* UIButton */,
+				252C11511D9BBF6D00D2E8F0 /* UIColor */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		252C11511D9BBF6D00D2E8F0 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				252C11521D9BBF8200D2E8F0 /* UIColor+JCColor.h */,
+				252C11531D9BBF8200D2E8F0 /* UIColor+JCColor.m */,
+				252C11551D9BC87B00D2E8F0 /* UIColor+JCSeries.h */,
+				252C11561D9BC87B00D2E8F0 /* UIColor+JCSeries.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		252C11581D9BD1E800D2E8F0 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				252C11591D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.h */,
+				252C115A1D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.m */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		252C115C1D9BD23C00D2E8F0 /* UIScreen */ = {
+			isa = PBXGroup;
+			children = (
+				252C115D1D9BD24700D2E8F0 /* UIScreen+JCScale.h */,
+				252C115E1D9BD24700D2E8F0 /* UIScreen+JCScale.m */,
+			);
+			path = UIScreen;
+			sourceTree = "<group>";
+		};
+		252C11601D9BD51300D2E8F0 /* UIDevice */ = {
+			isa = PBXGroup;
+			children = (
+				252C11611D9BD52100D2E8F0 /* UIDevice+JCDevice.h */,
+				252C11621D9BD52100D2E8F0 /* UIDevice+JCDevice.m */,
+			);
+			path = UIDevice;
+			sourceTree = "<group>";
+		};
+		252C11651D9CBCB600D2E8F0 /* FoundationDemo */ = {
+			isa = PBXGroup;
+			children = (
+				252C116A1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.h */,
+				252C116B1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m */,
+			);
+			path = FoundationDemo;
+			sourceTree = "<group>";
+		};
+		252C11661D9CBCCC00D2E8F0 /* UIKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				252C11701D9CC19B00D2E8F0 /* UIDeviceExample */,
+				252C116D1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.h */,
+				252C116E1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m */,
+			);
+			path = UIKitDemo;
+			sourceTree = "<group>";
+		};
+		252C11701D9CC19B00D2E8F0 /* UIDeviceExample */ = {
+			isa = PBXGroup;
+			children = (
+				252C11711D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.h */,
+				252C11721D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m */,
+			);
+			path = UIDeviceExample;
+			sourceTree = "<group>";
+		};
+		252C11741D9CEB3C00D2E8F0 /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				252C11751D9CEB5C00D2E8F0 /* UIApplication+JCApplication.h */,
+				252C11761D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		252C11781D9CED8C00D2E8F0 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				252C11791D9CEDB400D2E8F0 /* UIFont+JCScale.h */,
+				252C117A1D9CEDB400D2E8F0 /* UIFont+JCScale.m */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		252C117C1D9CF01F00D2E8F0 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		252C10FA1D9AA5EC00D2E8F0 /* JCKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 252C11121D9AA5EC00D2E8F0 /* Build configuration list for PBXNativeTarget "JCKitDemo" */;
+			buildPhases = (
+				252C10F71D9AA5EC00D2E8F0 /* Sources */,
+				252C10F81D9AA5EC00D2E8F0 /* Frameworks */,
+				252C10F91D9AA5EC00D2E8F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JCKitDemo;
+			productName = JCKitDemo;
+			productReference = 252C10FB1D9AA5EC00D2E8F0 /* JCKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		252C10F31D9AA5EC00D2E8F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = molin;
+				TargetAttributes = {
+					252C10FA1D9AA5EC00D2E8F0 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 252C10F61D9AA5EC00D2E8F0 /* Build configuration list for PBXProject "JCKitDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 252C10F21D9AA5EC00D2E8F0;
+			productRefGroup = 252C10FC1D9AA5EC00D2E8F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				252C10FA1D9AA5EC00D2E8F0 /* JCKitDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		252C10F91D9AA5EC00D2E8F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				252C110E1D9AA5EC00D2E8F0 /* LaunchScreen.storyboard in Resources */,
+				252C110B1D9AA5EC00D2E8F0 /* Assets.xcassets in Resources */,
+				252C11091D9AA5EC00D2E8F0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		252C10F71D9AA5EC00D2E8F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				252C112D1D9B5EBC00D2E8F0 /* NSObject+JCJSON.m in Sources */,
+				252C11061D9AA5EC00D2E8F0 /* ViewController.m in Sources */,
+				252C117B1D9CEDB400D2E8F0 /* UIFont+JCScale.m in Sources */,
+				252C11421D9B629D00D2E8F0 /* JCSQLite3.m in Sources */,
+				252C11291D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.m in Sources */,
+				252C113E1D9B620000D2E8F0 /* NSTimer+JCBlock.m in Sources */,
+				252C11281D9B59EF00D2E8F0 /* NSObject+JCBind.m in Sources */,
+				252C11731D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m in Sources */,
+				252C11771D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m in Sources */,
+				252C11541D9BBF8200D2E8F0 /* UIColor+JCColor.m in Sources */,
+				252C113D1D9B620000D2E8F0 /* NSDate+JCDate.m in Sources */,
+				252C11031D9AA5EC00D2E8F0 /* AppDelegate.m in Sources */,
+				252C11271D9B59EF00D2E8F0 /* JCObserver.m in Sources */,
+				252C115B1D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.m in Sources */,
+				252C11631D9BD52100D2E8F0 /* UIDevice+JCDevice.m in Sources */,
+				252C115F1D9BD24700D2E8F0 /* UIScreen+JCScale.m in Sources */,
+				252C11491D9B641A00D2E8F0 /* NSString+JCString.m in Sources */,
+				252C116C1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m in Sources */,
+				252C116F1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m in Sources */,
+				252C11001D9AA5EC00D2E8F0 /* main.m in Sources */,
+				252C113C1D9B620000D2E8F0 /* NSData+JCData.m in Sources */,
+				252C11571D9BC87B00D2E8F0 /* UIColor+JCSeries.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		252C11071D9AA5EC00D2E8F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				252C11081D9AA5EC00D2E8F0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		252C110C1D9AA5EC00D2E8F0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				252C110D1D9AA5EC00D2E8F0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		252C11101D9AA5EC00D2E8F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		252C11111D9AA5EC00D2E8F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		252C11131D9AA5EC00D2E8F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = JCKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = molin.JCKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		252C11141D9AA5EC00D2E8F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = JCKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = molin.JCKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		252C10F61D9AA5EC00D2E8F0 /* Build configuration list for PBXProject "JCKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				252C11101D9AA5EC00D2E8F0 /* Debug */,
+				252C11111D9AA5EC00D2E8F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		252C11121D9AA5EC00D2E8F0 /* Build configuration list for PBXNativeTarget "JCKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				252C11131D9AA5EC00D2E8F0 /* Debug */,
+				252C11141D9AA5EC00D2E8F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 252C10F31D9AA5EC00D2E8F0 /* Project object */;
+}
