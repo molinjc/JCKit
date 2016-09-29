@@ -33,6 +33,7 @@
 		252C11731D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11721D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m */; };
 		252C11771D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11761D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m */; };
 		252C117B1D9CEDB400D2E8F0 /* UIFont+JCScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C117A1D9CEDB400D2E8F0 /* UIFont+JCScale.m */; };
+		252C117F1D9CF86E00D2E8F0 /* UIImage+JCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C117E1D9CF86E00D2E8F0 /* UIImage+JCImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		252C11761D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JCApplication.m"; sourceTree = "<group>"; };
 		252C11791D9CEDB400D2E8F0 /* UIFont+JCScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+JCScale.h"; sourceTree = "<group>"; };
 		252C117A1D9CEDB400D2E8F0 /* UIFont+JCScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+JCScale.m"; sourceTree = "<group>"; };
+		252C117D1D9CF86E00D2E8F0 /* UIImage+JCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCImage.h"; sourceTree = "<group>"; };
+		252C117E1D9CF86E00D2E8F0 /* UIImage+JCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +356,8 @@
 		252C117C1D9CF01F00D2E8F0 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				252C117D1D9CF86E00D2E8F0 /* UIImage+JCImage.h */,
+				252C117E1D9CF86E00D2E8F0 /* UIImage+JCImage.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252C117F1D9CF86E00D2E8F0 /* UIImage+JCImage.m in Sources */,
 				252C112D1D9B5EBC00D2E8F0 /* NSObject+JCJSON.m in Sources */,
 				252C11061D9AA5EC00D2E8F0 /* ViewController.m in Sources */,
 				252C117B1D9CEDB400D2E8F0 /* UIFont+JCScale.m in Sources */,
@@ -601,6 +607,7 @@
 				252C11141D9AA5EC00D2E8F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

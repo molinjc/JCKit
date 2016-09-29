@@ -16,7 +16,7 @@
 #define JCLog(string,...) NSLog(@"📍行号:%d,📍类与方法:%s,📍内容:%@",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__]);
 
 /**
- *  弱引用、强引用，成对用于block，
+ *  弱引用、强引用，成对用于block
  *  @autoreleasepool {} 加在前面，其实啥事都没干，只为了可以加@，用来显眼
  *  @param obj 要引用的对象
  */
@@ -28,6 +28,6 @@
  *  断言为真，则表明程序运行正常，而断言为假，则意味着它已经在代码中发现了意料之外的错误
  *  @param condition 判定的条件
  */
-#define JCAssert(condition) NSAssert((condition), @"📍行号:%d,📍类与方法:%s,📍不满足条件:%@ ",__LINE__,__func__, @#condition)
+#define JCAssert(condition) NSAssert((condition), @"📍行号:%d,📍类与方法:%s,😱😱不满足条件:%@☝️☝️ ",__LINE__,__func__, @#condition)
 
 #endif /* JCKitMacro_h */
