@@ -7,6 +7,8 @@
 //
 
 #import "UIImage+JCImage.h"
+#import "NSData+JCData.h"
+#import <ImageIO/ImageIO.h>
 
 @implementation UIImage (JCImage)
 
@@ -83,6 +85,124 @@
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+/**
+ 根据图片名设置图片方向
+ */
++ (UIImage *)imageNamed:(NSString *)name orientation:(UIImageOrientation)orientation {
+    UIImage *image = [UIImage imageNamed:name];
+    return [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:orientation];
+}
+
++ (UIImage *)imageNamed:(NSString *)name scale:(CGFloat)scale orientation:(UIImageOrientation)orientation {
+    UIImage *image = [UIImage imageNamed:name];
+    return [UIImage imageWithCGImage:image.CGImage scale:scale orientation:orientation];
+}
+
+/**
+ 根据图片路径设置图片方向
+ */
++ (UIImage *)imageWithContentsOfFile:(NSString *)path orientation:(UIImageOrientation)orientation {
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    return [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:orientation];
+}
+
++ (UIImage *)imageWithContentsOfFile:(NSString *)path scale:(CGFloat)scale orientation:(UIImageOrientation)orientation {
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    return [UIImage imageWithCGImage:image.CGImage scale:scale orientation:orientation];
+}
+
+/**
+ 设置图片方向
+ */
+- (UIImage *)orientation:(UIImageOrientation)orientation {
+    return [UIImage imageWithCGImage:self.CGImage scale:self.scale orientation:orientation];
+}
+
+@end
+
+@implementation UIImage (JCGIF)
+
+/**
+ 加载未知的Data(不知道是不是Gif)生成图片
+ */
++ (UIImage *)imageWithUnknownData:(NSData *)data {
+    NSString *imageContentType = data.imageDataContentType;
+    if ([imageContentType isEqualToString:@"image/gif"]) {
+        return [UIImage animatedGIFWithData:data];
+    }else {
+        return [UIImage imageWithData:data];
+    }
+}
+
+/**
+ 根据Gif图片名生成UImage对象
+ */
++ (UIImage *)animatedGIFNamed:(NSString *)name {
+    NSString *gifName = name;
+    if ([UIScreen mainScreen].scale > 1.0f) {
+        gifName = [name stringByAppendingString:@"@2x"];
+    }
+    NSString *retinaPath = [[NSBundle mainBundle] pathForResource:[name stringByAppendingString:@"@2x"] ofType:@"gif"];
+    NSData *data = [NSData dataWithContentsOfFile:retinaPath];
+    if (data) {
+        return [UIImage animatedGIFWithData:data];
+    }
+    return [UIImage imageNamed:name];
+}
+
+/**
+ 根据Gif图片的data数据生成UIImage对象
+ */
++ (UIImage *)animatedGIFWithData:(NSData *)data {
+    if (!data) {
+        return nil;
+    }
+    
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
+    size_t count = CGImageSourceGetCount(source);
+    UIImage *animatedImage;
+    
+    if (count <= 1) {
+        animatedImage = [[UIImage alloc] initWithData:data];
+    }else {
+        NSMutableArray *images = [NSMutableArray array];
+        NSTimeInterval duration = 0.0f;
+        for (size_t i=0; i<count; i++) {
+            CGImageRef image = CGImageSourceCreateImageAtIndex(source, i, NULL);
+            duration += [self frameDurationAtIndex:i source:source];
+            [images addObject:[UIImage imageWithCGImage:image scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp]];
+            CGImageRelease(image);
+        }
+        if (!duration) {
+            duration = (1.0 / 10.0) * count;
+        }
+        animatedImage = [UIImage animatedImageWithImages:images duration:duration];
+    }
+    CFRelease(source);
+    return animatedImage;
+}
+
++ (float)frameDurationAtIndex:(NSUInteger)index source:(CGImageSourceRef)source {
+    float frameDuration = 0.1f;
+    CFDictionaryRef cfFrameProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil);
+    NSDictionary *frameProperties = (__bridge NSDictionary *)cfFrameProperties;
+    NSDictionary *gifProperties = frameProperties[(NSString *)kCGImagePropertyGIFDictionary];
+    NSNumber *delayTimeUnclampedProp = gifProperties[(NSString *)kCGImagePropertyGIFUnclampedDelayTime];
+    if (delayTimeUnclampedProp) {
+        frameDuration = [delayTimeUnclampedProp floatValue];
+    } else {
+        NSNumber *delayTimeProp = gifProperties[(NSString *)kCGImagePropertyGIFDelayTime];
+        if (delayTimeProp) {
+            frameDuration = [delayTimeProp floatValue];
+        }
+    }
+    if (frameDuration < 0.011f) {
+        frameDuration = 0.100f;
+    }
+    CFRelease(cfFrameProperties);
+    return frameDuration;
 }
 
 @end

@@ -256,4 +256,27 @@
     return (__bridge_transfer NSString *)string;
 }
 
+#pragma mark - ASCII码比较
+
+/**
+ 根据每个字符的ASCII码总和相减来比较大小
+ >0:self大; =0:相等(一样); <0:string大
+ */
+- (int)compareASCII:(NSString *)string {
+    int ascii1 = self.stringASCIISum;
+    int ascii2 = string.stringASCIISum;
+    return ascii1 - ascii2;
+}
+
+/**
+ 字符串每个字符的ASCII码总和
+ */
+- (int)stringASCIISum {
+    int sum = 0;
+    for (int i=0; i<self.length; i++) {
+        sum += [self characterAtIndex:i];
+    }
+    return sum;
+}
+
 @end

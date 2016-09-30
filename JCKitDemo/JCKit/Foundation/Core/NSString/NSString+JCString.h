@@ -105,4 +105,17 @@
 
 + (NSString *)stringWithUUID;
 
+#pragma mark - ASCII码比较
+
+/**
+ 根据每个字符的ASCII码总和相减来比较大小
+ >0:self大; =0:相等(一样); <0:string大
+ */
+- (int)compareASCII:(NSString *)string;
+
+/**
+ 字符串每个字符的ASCII码总和
+ */
+- (int)stringASCIISum;
+
 @end

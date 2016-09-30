@@ -23,4 +23,9 @@
  */
 + (NSData *)compressedImage:(UIImage *)image limitSize:(NSInteger)size;
 
+/**
+ 图片的Data数据判断是哪个格式图片
+ */
+- (NSString *)imageDataContentType;
+
 @end

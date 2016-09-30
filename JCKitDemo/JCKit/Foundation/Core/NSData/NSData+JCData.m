@@ -30,4 +30,33 @@
     return UIImagePNGRepresentation(image);
 }
 
+/**
+ 图片的Data数据判断是哪个格式图片
+ */
+- (NSString *)imageDataContentType {
+    uint8_t c;
+    [self getBytes:&c length:1];
+    switch (c) {
+        case 0xFF:
+            return @"image/jpeg";
+        case 0x89:
+            return @"image/png";
+        case 0x47:
+            return @"image/gif";
+        case 0x49:
+        case 0x4D:
+            return @"image/tiff";
+        case 0x52:
+            if ([self length] < 12) {
+                return nil;
+            }
+            NSString *testString = [[NSString alloc] initWithData:[self subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+                return @"image/webp";
+            }
+            return nil;
+    }
+    return nil;
+}
+
 @end

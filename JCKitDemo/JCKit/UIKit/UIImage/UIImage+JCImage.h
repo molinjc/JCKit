@@ -36,4 +36,40 @@
  */
 + (UIImage *)imageWithView:(UIView *)view;
 
+/**
+ 根据图片名设置图片方向
+ */
++ (UIImage *)imageNamed:(NSString *)name orientation:(UIImageOrientation)orientation;
++ (UIImage *)imageNamed:(NSString *)name scale:(CGFloat)scale orientation:(UIImageOrientation)orientation;
+
+/**
+ 根据图片路径设置图片方向
+ */
++ (UIImage *)imageWithContentsOfFile:(NSString *)path orientation:(UIImageOrientation)orientation;
++ (UIImage *)imageWithContentsOfFile:(NSString *)path scale:(CGFloat)scale orientation:(UIImageOrientation)orientation;
+
+/**
+ 设置图片方向
+ */
+- (UIImage *)orientation:(UIImageOrientation)orientation;
+
+@end
+
+@interface UIImage (JCGIF)
+
+/**
+ 加载未知的Data(不知道是不是Gif)生成图片
+ */
++ (UIImage *)imageWithUnknownData:(NSData *)data;
+
+/**
+ 根据Gif图片名生成UImage对象
+ */
++ (UIImage *)animatedGIFNamed:(NSString *)name;
+
+/**
+ 根据Gif图片的data数据生成UIImage对象
+ */
++ (UIImage *)animatedGIFWithData:(NSData *)data;
+
 @end
