@@ -1,33 +1,29 @@
 //
-//  JCUIKitExampleViewController.m
+//  JCFontViewController.m
 //  JCKitDemo
 //
-//  Created by 林建川 on 16/9/29.
+//  Created by 林建川 on 16/9/30.
 //  Copyright © 2016年 molin. All rights reserved.
 //
 
-#import "JCUIKitExampleViewController.h"
+#import "JCFontViewController.h"
 
-@interface JCUIKitExampleViewController ()<UITableViewDelegate,
-                                           UITableViewDataSource>
+@interface JCFontViewController ()<UITableViewDelegate,
+                                   UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *titles;
-@property (nonatomic, strong) NSMutableArray *classNames;
-
 @end
 
-@implementation JCUIKitExampleViewController
+@implementation JCFontViewController
 
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titles = @[].mutableCopy;
-    self.classNames = @[].mutableCopy;
-    [self addCell:@"UIDevice Example" class:@"JCUIDeviceExampleViewController"];
-    [self addCell:@"UIFont" class:@"JCFontViewController"];
     [self.view addSubview:self.tableView];
+    [self getAllFont];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,18 +34,23 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Custom Methods(自定义方法，外部可调用)
 #pragma mark - Private Methods(自定义方法，只有自己调用)
 
-- (void)addCell:(NSString *)title class:(NSString *)className {
-    [self.titles addObject:title];
-    [self.classNames addObject:className];
+- (void)getAllFont {
+    NSArray *array = [UIFont familyNames];
+    NSString *familyName ;
+    for(familyName in array){
+        NSArray *names = [UIFont fontNamesForFamilyName:familyName];
+        [self.titles addObjectsFromArray:names];
+    }
+    NSLog(@"%@",self.titles);
+    [self.tableView reloadData];
 }
+
+#pragma mark - Custom Methods(自定义方法，外部可调用)
 
 #pragma mark - Custom Delegate(自定义的代理)
 #pragma mark - System Delegate(系统类的代理)
-
-#pragma mark - UITableViewDataSource or UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.titles.count;
@@ -61,18 +62,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YY"];
     }
     cell.textLabel.text = _titles[indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:_titles[indexPath.row] size:14];
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *className = self.classNames[indexPath.row];
-    Class class = NSClassFromString(className); // 根据给定的类名创建一个类
-    if (class) {
-        UIViewController *ctrl = class.new;  // 也可以用[class new],把类给UIViewController
-        ctrl.title = _titles[indexPath.row];
-        [self.navigationController pushViewController:ctrl animated:YES];
-    }
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Setter/Getter(懒加载)

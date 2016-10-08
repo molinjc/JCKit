@@ -118,4 +118,72 @@
  */
 - (int)stringASCIISum;
 
+#pragma mark - 字符串内容判断
+
+/**
+ 判断是否是为整数
+ */
+- (BOOL)isPureInteger;
+
+/**
+ 判断是否为浮点数，可做小数判断
+ */
+- (BOOL)isPureFloat;
+
+/**
+ 判断字符串内是否含有中文
+ */
+- (BOOL)isChinese;
+
+#pragma mark -  separate
+
+/**
+ 从start处开始截取到end处结束，不包含start和end的字符串
+ */
+- (NSString *)separateStart:(NSString *)start end:(NSString *)end;
+
+/**
+ 多次从start处开始截取到end处结束，不包含start和end的字符串
+ @return 返回的是个数组
+ */
+- (NSArray *)multiSeparateStart:(NSString *)start end:(NSString *)end;
+
+#pragma mark - reverse
+
+/**
+ 反转字符串
+ */
+- (NSString *)reverseString;
+
+#pragma mark - 拼音
+
+/**
+ 汉字转换成拼音
+ */
+- (NSString *)trans;
+
+/**
+ 阿拉伯数字转中文格式
+ */
+- (NSString *)translation;
+
+#pragma mark - 格式化
+
+/**
+ 设置NSNumber输出的格式
+ @param style  格式
+ @param number NSNumber数据
+ */
++ (NSString *)stringFormatter:(NSNumberFormatterStyle)style number:(NSNumber *)number;
+
+/**
+ 输出格式：123,456；每隔三个就有,
+ */
++ (NSString *)stringFormatterWithDecimal:(NSNumber *)number;
+
+/**
+ number转换百分比： 12,345,600%
+ */
++ (NSString *)stringFormatterWithPercent:(NSNumber *)number;
+
 @end

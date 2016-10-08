@@ -8,21 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger,JCAttributeType) {
-    JCAttributeTypeUnknown     = 0,    // unknown
-    JCAttributeTypeVoid        = 1,    // void
-    JCAttributeTypeBOOL        = 2,    // BOOL
-    JCAttributeTypeInt         = 3,    // int
-    JCAttributeTypeInteger     = 4,    // NSInteger
-    JCAttributeTypeFloat       = 5,    // float
-    JCAttributeTypeDouble      = 6,    // double
-    JCAttributeTypeChat        = 7,    // chat
-    JCAttributeTypeObject      = 8,    // 对象
-};
-
-JCAttributeType JCGetObjectAttributeType(const char *attribute);
-
-
 @interface NSObject (JCJSON)
 
 /**

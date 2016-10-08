@@ -7,6 +7,7 @@
 //
 
 #import "UIApplication+JCApplication.h"
+#import "UIDevice+JCDevice.h"
 
 @implementation UIApplication (JCApplication)
 
@@ -25,5 +26,16 @@
 - (NSString *)appBuildVersion {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
+
+/**
+ 手动更改状态栏的颜色
+ */
+- (void)setStatusBarBackgtoundColor:(UIColor *)color {
+    UIView *statusBar = [[self valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    if (statusBar && [statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+    }
+}
+
 
 @end

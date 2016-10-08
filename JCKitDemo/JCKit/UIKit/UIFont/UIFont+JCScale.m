@@ -26,4 +26,18 @@
     return [UIFont fontWithName:fontName size:fontSize];
 }
 
+/**
+ 粗体
+ */
++ (UIFont *)fontNameWithHelveticaBold:(CGFloat)size {
+    return [UIFont scaleFontWithName:@"Helvetica-Bold" size:size];
+}
+
+/**
+ 斜体
+ */
++ (UIFont *)fontNameWithHelveticaOblique:(CGFloat)size {
+    return [UIFont scaleFontWithName:@"Helvetica-Oblique" size:size];
+}
+
 @end

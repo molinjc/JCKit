@@ -279,4 +279,140 @@
     return sum;
 }
 
+#pragma mark - 字符串内容判断
+
+/**
+ 判断是否是为整数
+ */
+- (BOOL)isPureInteger {
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    NSInteger integerValue;
+    return [scanner scanInteger:&integerValue] && [scanner isAtEnd];
+}
+
+/**
+ 判断是否为浮点数，可做小数判断
+ */
+- (BOOL)isPureFloat {
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    float floatValue;
+    return [scanner scanFloat:&floatValue] && [scanner isAtEnd];
+}
+
+/**
+ 判断字符串内是否含有中文
+ */
+- (BOOL)isChinese {
+    for (int i=0; i<self.length; i++) {
+        unichar ch = [self characterAtIndex:i];
+        if (0x4E00 <= ch && ch <= 0x9FA5) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+#pragma mark -  separate
+
+/**
+ 从start处开始截取到end处结束，不包含start和end的字符串
+ */
+- (NSString *)separateStart:(NSString *)start end:(NSString *)end {
+    if (self.length == 0) {
+        return nil;
+    }
+    NSRange startRange = [self rangeOfString:start];
+    NSRange endRange = [self rangeOfString:end];
+    if (startRange.length && end.length) {
+        NSRange separateRange = NSMakeRange(startRange.length + startRange.location, endRange.location - (startRange.length + startRange.location));
+        return [self substringWithRange:separateRange];
+    }
+    return nil;
+}
+
+/**
+ 多次从start处开始截取到end处结束，不包含start和end的字符串
+ @return 返回的是个数组
+ */
+- (NSArray *)multiSeparateStart:(NSString *)start end:(NSString *)end {
+    NSMutableArray *array = @[].mutableCopy;
+    NSString *separate = [self separateStart:start end:end];
+    while (separate) {
+        [array addObject:separate];
+        [separate separateStart:start end:end];
+    }
+    return array;
+}
+
+#pragma mark - reverse
+
+/**
+ 反转字符串
+ */
+- (NSString *)reverseString {
+    NSMutableString *reverseString = [NSMutableString stringWithCapacity:self.length];
+    [self enumerateSubstringsInRange:NSMakeRange(0, self.length) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
+        [reverseString appendString:substring];
+    }];
+    return reverseString;
+}
+
+#pragma mark - 拼音
+
+/**
+ 汉字转换成拼音
+ */
+- (NSString *)trans {
+    NSMutableString *pinyin = self.mutableCopy;
+    
+    // 将汉字转换为拼音
+    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
+    
+    // 去掉拼音的音标
+    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
+    return pinyin;
+}
+
+/**
+ 阿拉伯数字转中文格式
+ */
+- (NSString *)translation {
+    if (self.length > 13) {
+        return nil;
+    }
+    
+    // 这里需要判断是不是全数字
+    if (!self.isPureInteger) {
+        return nil;
+    }
+    return [NSString stringFormatter:NSNumberFormatterSpellOutStyle number:[NSNumber numberWithInteger:[self integerValue]]];
+}
+
+#pragma mark - 格式化
+
+/**
+ 输出格式：123,456；每隔三个就有,
+ */
++ (NSString *)stringFormatterWithDecimal:(NSNumber *)number {
+    return [NSString stringFormatter:NSNumberFormatterDecimalStyle number:number];
+}
+
+/**
+ number转换百分比： 12,345,600%
+ */
++ (NSString *)stringFormatterWithPercent:(NSNumber *)number {
+    return [NSString stringFormatter:NSNumberFormatterPercentStyle number:number];
+}
+
+/**
+ 设置NSNumber输出的格式
+ @param style  格式
+ @param number NSNumber数据
+ */
++ (NSString *)stringFormatter:(NSNumberFormatterStyle)style number:(NSNumber *)number {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle  = style;
+    return [formatter stringFromNumber:number];
+}
+
 @end

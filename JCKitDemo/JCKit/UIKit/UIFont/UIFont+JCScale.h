@@ -17,4 +17,14 @@
 /// fontWithName:size:
 + (nullable UIFont *)scaleFontWithName:(nonnull NSString *)fontName size:(CGFloat)fontSize;
 
+/**
+ 粗体
+ */
++ (nullable UIFont *)fontNameWithHelveticaBold:(CGFloat)size;
+
+/**
+ 斜体
+ */
++ (nullable UIFont *)fontNameWithHelveticaOblique:(CGFloat)size;
+
 @end

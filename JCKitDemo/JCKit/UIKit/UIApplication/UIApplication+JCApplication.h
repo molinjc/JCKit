@@ -15,4 +15,9 @@
 @property (nonatomic, readonly) NSString *appVersion;
 @property (nonatomic, readonly) NSString *appBuildVersion;
 
+/**
+ 手动更改状态栏的颜色
+ */
+- (void)setStatusBarBackgtoundColor:(UIColor *)color;
+
 @end

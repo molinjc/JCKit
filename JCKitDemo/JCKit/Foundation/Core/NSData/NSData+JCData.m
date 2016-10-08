@@ -10,9 +10,52 @@
 
 @implementation NSData (JCData)
 
+/**
+ NSData转NSString
+ */
+- (NSString *)utf8String {
+    if (self.length >0) {
+        return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+    }
+    return nil;
+}
+
+/**
+ 从资源里获取data数据
+ */
++ (NSData *)dataForResource:(NSString *)name {
+    return [NSData dataForResource:name ofType:@""];
+}
+
++ (NSData *)dataForResource:(NSString *)name ofType:(NSString *)ext {
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:ext];
+    if (!path) {
+        return nil;
+    }
+    return [NSData dataWithContentsOfFile:path];
+}
+
 @end
 
 @implementation NSData (JCImage)
+
+/**
+ 压缩图片成Data数据
+ */
++ (NSData *)compressedImage:(UIImage *)image {
+    return [NSData compressedImage:image quality:1.0];
+}
+
+/**
+ 根据压缩质量压缩图片成Data数据
+ */
++ (NSData *)compressedImage:(UIImage *)image quality:(CGFloat)quality {
+    NSData *data = UIImageJPEGRepresentation(image, quality);
+    if (!data) {
+        data = UIImagePNGRepresentation(image);
+    }
+    return data;
+}
 
 /**
  *  压缩图片在设定的大小内

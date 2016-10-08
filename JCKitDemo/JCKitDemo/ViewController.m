@@ -8,13 +8,20 @@
 
 #import "ViewController.h"
 #import "JCKitMacro.h"
-#import "NSObject+JCObserverKVO.h"
+//#import "NSObject+JCObserverKVO.h"
+#import "UIImage+JCImage.h"
+#import "NSObject+JCObject.h"
+
+#import "NSObject+JCStram.h"
 
 @interface ViewController ()<UITableViewDelegate,
                              UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSMutableArray *classNames;
+
+@property (nonatomic, strong) UIImageView *imageView;
+
 @end
 
 @implementation ViewController
@@ -30,11 +37,30 @@
     [self addCell:@"UIKit Example" class:@"JCUIKitExampleViewController"];
     [self.view addSubview:self.tableView];
     
-    [self test_String];
+    [self.view addSubview:self.imageView];
+    self.imageView.frame = CGRectMake(0, 0, 200, 150);
+    self.imageView.center = self.view.center;
+    
+    [[self.imageView.addStream addKeyPath:@"image"] observeValueForBlock:^(__weak id obj, NSString *keyPath, id oldValue, id newValue) {
+        NSLog(@"keyPath:%@",keyPath);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.imageView.image = [UIImage imageNamed:@"banner1"];
+    
+    /*
+     UIImageOrientationUp: 正常
+     UIImageOrientationDown: 180度倒
+     UIImageOrientationLeft: 顺时针旋转270度，向左
+     UIImageOrientationRight: 顺时针旋转90度，向右
+     UIImageOrientationUpMirrored: 翻转，像照镜子里的样子
+     UIImageOrientationDownMirrored: 180度倒 翻转
+     UIImageOrientationLeftMirrored: 顺时针旋转270度，向左翻转
+     UIImageOrientationRightMirrored: 顺时针旋转90度，向右翻转
+     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +115,12 @@
     return _tableView;
 }
 
+- (UIImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [[UIImageView alloc] init];
+    }
+    return _imageView;
+}
 
 #pragma mark - Test Methods(测试方法)
 
@@ -99,6 +131,25 @@
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     string = [components componentsJoinedByString:@" "];
     JCLog(@"string:%@",string);
+    
+    NSString *v = @"1.9.3";
+    NSString *v1 = @"0.a.0";
+//    vstring characterAtIndex:0];
+    int sum = 0;
+    int sum1 = 0;
+    for (int i=0; i<v.length; i++) {
+        int s = [v characterAtIndex:i];
+        int s1 = [v1 characterAtIndex:i];
+        JCLog(@"%d -- %d",s,s1);
+        sum += s;
+        sum1 += s1;
+    }
+    JCLog(@"sum:%d--%d",sum,sum1);
+    if (sum1 > sum) {
+        JCLog(@"%@",v1);
+    }else {
+        JCLog(@"%@",v);
+    }
 }
 
 /**

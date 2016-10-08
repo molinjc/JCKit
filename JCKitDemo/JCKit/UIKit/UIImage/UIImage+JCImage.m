@@ -12,6 +12,8 @@
 
 @implementation UIImage (JCImage)
 
+#pragma mark - 颜色
+
 - (UIImage *)tintedImageWithColor:(UIColor *)color {
     return [self tintedImageWithColor:color rect:CGRectMake(0, 0, self.size.width, self.size.height) alpha:1.0];
 }
@@ -49,6 +51,22 @@
 }
 
 /**
+ 生成一张纯色的图片
+ */
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
+    CGRect rect = CGRectMake(0.0, 0.0, size.width, size.height);
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *colorImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return colorImage;
+}
+
+#pragma mark - Image Size
+
+/**
  等比例缩放图片
  */
 - (UIImage *)toScale:(CGFloat)scale {
@@ -77,6 +95,15 @@
 }
 
 /**
+ 所占的内存大小
+ */
+- (NSUInteger)memorySize {
+    return CGImageGetHeight(self.CGImage) * CGImageGetBytesPerRow(self.CGImage);
+}
+
+#pragma mark - 截图
+
+/**
  将View转换成图片(截图)
  */
 + (UIImage *)imageWithView:(UIView *)view {
@@ -86,6 +113,8 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
+#pragma mark - 方向
 
 /**
  根据图片名设置图片方向
@@ -118,6 +147,51 @@
  */
 - (UIImage *)orientation:(UIImageOrientation)orientation {
     return [UIImage imageWithCGImage:self.CGImage scale:self.scale orientation:orientation];
+}
+
+#pragma mark - 绘制
+
+- (UIImage *)imageWithText:(NSString *)text fontSize:(CGFloat)fontSize {
+    return [self imageWithText:text textColor:[UIColor whiteColor] fontSize:fontSize];
+}
+
+- (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor fontSize:(CGFloat)fontSize {
+    // 文字居中显示在画布上
+    NSMutableParagraphStyle *paragraphStyle = [NSParagraphStyle defaultParagraphStyle].mutableCopy;
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paragraphStyle.alignment = NSTextAlignmentCenter;   // 文字居中
+    return [self imageWithText:text textColor:textColor fontSize:fontSize paragraphStyle:paragraphStyle];
+}
+
+/**
+ 图片上绘制文字
+ @param text      所要绘制的文字
+ @param textColor 文字的颜色
+ @param fontSize  文字的大小，这里没有 * __scale，所以要文字适配，可能要在传入参数之前就要做适配了。
+ @param paragraphStyle 文字的样式
+ @return 返回新的图片
+ */
+- (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor fontSize:(CGFloat)fontSize paragraphStyle:(NSParagraphStyle *)paragraphStyle {
+    UIFont *font = [UIFont systemFontOfSize:fontSize];
+    CGSize size = CGSizeMake(self.size.width, self.size.height);  // 画布大小
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);        // 创建一个基于位图的上下文
+    [self drawAtPoint:CGPointMake(0.0, 0.0)];
+    
+   
+    CGSize textSize = [text boundingRectWithSize:self.size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+    CGRect rect = CGRectMake((size.width - textSize.width) / 2,
+                             (size.height - textSize.height) / 2,
+                             textSize.width,
+                             textSize.height);
+    // 绘制文字
+    [text drawInRect:rect withAttributes:@{NSFontAttributeName:font,
+                                           NSForegroundColorAttributeName:textColor,
+                                           NSParagraphStyleAttributeName:paragraphStyle}];
+    
+    // 返回绘制的新图形
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 @end

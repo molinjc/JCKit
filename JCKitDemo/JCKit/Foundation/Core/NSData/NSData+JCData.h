@@ -11,9 +11,30 @@
 
 @interface NSData (JCData)
 
+/**
+ NSData转NSString
+ */
+- (NSString *)utf8String;
+
+/**
+ 从资源里获取data数据
+ */
++ (NSData *)dataForResource:(NSString *)name;
++ (NSData *)dataForResource:(NSString *)name ofType:(NSString *)ext;
+
 @end
 
 @interface NSData (JCImage)
+
+/**
+ 压缩图片成Data数据
+ */
++ (NSData *)compressedImage:(UIImage *)image;
+
+/**
+ 根据压缩质量压缩图片成Data数据
+ */
++ (NSData *)compressedImage:(UIImage *)image quality:(CGFloat)quality;
 
 /**
  *  压缩图片在设定的大小内
