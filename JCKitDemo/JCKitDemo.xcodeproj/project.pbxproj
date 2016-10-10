@@ -40,6 +40,11 @@
 		252C11971D9DF58100D2E8F0 /* JCPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11961D9DF58100D2E8F0 /* JCPerson.m */; };
 		259313EB1DA550FB006A4897 /* JCStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 259313EA1DA550FB006A4897 /* JCStream.m */; };
 		259414BC1DA79BF9004FE594 /* NSObject+JCStram.m in Sources */ = {isa = PBXBuildFile; fileRef = 259414BB1DA79BF9004FE594 /* NSObject+JCStram.m */; };
+		25AD33BF1DAA387B0027667D /* JCCustomerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */; };
+		25AD33C31DAA38FF0027667D /* JCPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33C21DAA38FF0027667D /* JCPopupViewController.m */; };
+		25AD33C71DAB27630027667D /* UIControl+JCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33C61DAB27630027667D /* UIControl+JCControl.m */; };
+		25AD33F61DAB39630027667D /* UIAlertView+JCStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33F51DAB39630027667D /* UIAlertView+JCStream.m */; };
+		25AD33FA1DAB5EF60027667D /* NSException+JCException.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33F91DAB5EF60027667D /* NSException+JCException.m */; };
 		25C505901D9E6D3D00F3063D /* JCFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */; };
 		25C505961DA0C70A00F3063D /* NSObject+JCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505951DA0C70A00F3063D /* NSObject+JCObject.m */; };
 		25C5059B1DA0CBBA00F3063D /* UITextField+JCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C5059A1DA0CBBA00F3063D /* UITextField+JCTextField.m */; };
@@ -47,6 +52,13 @@
 		25C505A41DA0E67F00F3063D /* JCEncodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505A21DA0E67F00F3063D /* JCEncodeModel.m */; };
 		25C505AB1DA1371C00F3063D /* UIView+JCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505AA1DA1371C00F3063D /* UIView+JCView.m */; };
 		25C505AF1DA1500100F3063D /* UIWebView+JCJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505AE1DA1500100F3063D /* UIWebView+JCJavaScript.m */; };
+		25F840291DA8D09B006DF28B /* JCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F840281DA8D09B006DF28B /* JCBaseViewController.m */; };
+		25F840561DA9E12C006DF28B /* JCWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F840551DA9E12C006DF28B /* JCWeakProxy.m */; };
+		25F840651DAA149B006DF28B /* UIView+JCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F840621DAA149B006DF28B /* UIView+JCLayout.m */; };
+		25F840661DAA149B006DF28B /* UIView+JCRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F840641DAA149B006DF28B /* UIView+JCRect.m */; };
+		25F8406A1DAA1B3B006DF28B /* NSArray+JCBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F840691DAA1B3B006DF28B /* NSArray+JCBlock.m */; };
+		25F8406E1DAA219D006DF28B /* NSDictionary+JCBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F8406D1DAA219D006DF28B /* NSDictionary+JCBlock.m */; };
+		25F840731DAA2B77006DF28B /* JCPopupBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F840721DAA2B77006DF28B /* JCPopupBaseView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +137,16 @@
 		259313EA1DA550FB006A4897 /* JCStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCStream.m; sourceTree = "<group>"; };
 		259414BA1DA79BF9004FE594 /* NSObject+JCStram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCStram.h"; sourceTree = "<group>"; };
 		259414BB1DA79BF9004FE594 /* NSObject+JCStram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JCStram.m"; sourceTree = "<group>"; };
+		25AD33BD1DAA387B0027667D /* JCCustomerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCustomerDemoViewController.h; sourceTree = "<group>"; };
+		25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCustomerDemoViewController.m; sourceTree = "<group>"; };
+		25AD33C11DAA38FF0027667D /* JCPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPopupViewController.h; sourceTree = "<group>"; };
+		25AD33C21DAA38FF0027667D /* JCPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPopupViewController.m; sourceTree = "<group>"; };
+		25AD33C51DAB27630027667D /* UIControl+JCControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+JCControl.h"; sourceTree = "<group>"; };
+		25AD33C61DAB27630027667D /* UIControl+JCControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+JCControl.m"; sourceTree = "<group>"; };
+		25AD33F41DAB39630027667D /* UIAlertView+JCStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+JCStream.h"; sourceTree = "<group>"; };
+		25AD33F51DAB39630027667D /* UIAlertView+JCStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+JCStream.m"; sourceTree = "<group>"; };
+		25AD33F81DAB5EF60027667D /* NSException+JCException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+JCException.h"; sourceTree = "<group>"; };
+		25AD33F91DAB5EF60027667D /* NSException+JCException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+JCException.m"; sourceTree = "<group>"; };
 		25C5058E1D9E6D3D00F3063D /* JCFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCFontViewController.h; sourceTree = "<group>"; };
 		25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCFontViewController.m; sourceTree = "<group>"; };
 		25C505941DA0C70A00F3063D /* NSObject+JCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCObject.h"; sourceTree = "<group>"; };
@@ -140,6 +162,20 @@
 		25C505AA1DA1371C00F3063D /* UIView+JCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JCView.m"; sourceTree = "<group>"; };
 		25C505AD1DA1500100F3063D /* UIWebView+JCJavaScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+JCJavaScript.h"; sourceTree = "<group>"; };
 		25C505AE1DA1500100F3063D /* UIWebView+JCJavaScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+JCJavaScript.m"; sourceTree = "<group>"; };
+		25F840271DA8D09B006DF28B /* JCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCBaseViewController.h; sourceTree = "<group>"; };
+		25F840281DA8D09B006DF28B /* JCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBaseViewController.m; sourceTree = "<group>"; };
+		25F840541DA9E12C006DF28B /* JCWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCWeakProxy.h; sourceTree = "<group>"; };
+		25F840551DA9E12C006DF28B /* JCWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCWeakProxy.m; sourceTree = "<group>"; };
+		25F840611DAA149B006DF28B /* UIView+JCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JCLayout.h"; sourceTree = "<group>"; };
+		25F840621DAA149B006DF28B /* UIView+JCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JCLayout.m"; sourceTree = "<group>"; };
+		25F840631DAA149B006DF28B /* UIView+JCRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JCRect.h"; sourceTree = "<group>"; };
+		25F840641DAA149B006DF28B /* UIView+JCRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JCRect.m"; sourceTree = "<group>"; };
+		25F840681DAA1B3B006DF28B /* NSArray+JCBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JCBlock.h"; sourceTree = "<group>"; };
+		25F840691DAA1B3B006DF28B /* NSArray+JCBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JCBlock.m"; sourceTree = "<group>"; };
+		25F8406C1DAA219D006DF28B /* NSDictionary+JCBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JCBlock.h"; sourceTree = "<group>"; };
+		25F8406D1DAA219D006DF28B /* NSDictionary+JCBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JCBlock.m"; sourceTree = "<group>"; };
+		25F840711DAA2B77006DF28B /* JCPopupBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPopupBaseView.h; sourceTree = "<group>"; };
+		25F840721DAA2B77006DF28B /* JCPopupBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPopupBaseView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +220,7 @@
 		252C10FD1D9AA5EC00D2E8F0 /* JCKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				25AD33BC1DAA38600027667D /* CustomerDemo */,
 				252C11661D9CBCCC00D2E8F0 /* UIKitDemo */,
 				252C11651D9CBCB600D2E8F0 /* FoundationDemo */,
 				252C11011D9AA5EC00D2E8F0 /* AppDelegate.h */,
@@ -191,6 +228,8 @@
 				252C11041D9AA5EC00D2E8F0 /* ViewController.h */,
 				252C11051D9AA5EC00D2E8F0 /* ViewController.m */,
 				252C10FE1D9AA5EC00D2E8F0 /* Supporting Files */,
+				25F840271DA8D09B006DF28B /* JCBaseViewController.h */,
+				25F840281DA8D09B006DF28B /* JCBaseViewController.m */,
 			);
 			path = JCKitDemo;
 			sourceTree = "<group>";
@@ -220,6 +259,7 @@
 		252C11161D9AA66500D2E8F0 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				25F840531DA9E124006DF28B /* Utility */,
 				259313E81DA550E1006A4897 /* Stream */,
 				25C5059E1DA0E67400F3063D /* Archive */,
 				252C113F1D9B628F00D2E8F0 /* SQL */,
@@ -257,6 +297,9 @@
 		252C11321D9B61DB00D2E8F0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				25AD33F71DAB5ED60027667D /* NSException */,
+				25F8406B1DAA218D006DF28B /* NSDictionary */,
+				25F840671DAA1B2D006DF28B /* NSArray */,
 				25C505931DA0C6F400F3063D /* NSObject */,
 				252C11801D9D165100D2E8F0 /* NSNumber */,
 				252C11461D9B640A00D2E8F0 /* NSString */,
@@ -324,6 +367,10 @@
 		252C11501D9BBEF100D2E8F0 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				25AD33F31DAB394C0027667D /* UIAlertView */,
+				25AD33C41DAB274C0027667D /* UIControl */,
+				25F8406F1DAA2B1D006DF28B /* Customer */,
+				25F840601DAA147E006DF28B /* Layout */,
 				25C505AC1DA14FF600F3063D /* UIWebView */,
 				25C505A81DA1370A00F3063D /* UIView */,
 				25C505981DA0CBA700F3063D /* UITextField */,
@@ -464,6 +511,52 @@
 			path = Stream;
 			sourceTree = "<group>";
 		};
+		25AD33BC1DAA38600027667D /* CustomerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				25AD33C01DAA38ED0027667D /* JCPopupBaseView */,
+				25AD33BD1DAA387B0027667D /* JCCustomerDemoViewController.h */,
+				25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */,
+			);
+			path = CustomerDemo;
+			sourceTree = "<group>";
+		};
+		25AD33C01DAA38ED0027667D /* JCPopupBaseView */ = {
+			isa = PBXGroup;
+			children = (
+				25AD33C11DAA38FF0027667D /* JCPopupViewController.h */,
+				25AD33C21DAA38FF0027667D /* JCPopupViewController.m */,
+			);
+			path = JCPopupBaseView;
+			sourceTree = "<group>";
+		};
+		25AD33C41DAB274C0027667D /* UIControl */ = {
+			isa = PBXGroup;
+			children = (
+				25AD33C51DAB27630027667D /* UIControl+JCControl.h */,
+				25AD33C61DAB27630027667D /* UIControl+JCControl.m */,
+			);
+			path = UIControl;
+			sourceTree = "<group>";
+		};
+		25AD33F31DAB394C0027667D /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				25AD33F41DAB39630027667D /* UIAlertView+JCStream.h */,
+				25AD33F51DAB39630027667D /* UIAlertView+JCStream.m */,
+			);
+			path = UIAlertView;
+			sourceTree = "<group>";
+		};
+		25AD33F71DAB5ED60027667D /* NSException */ = {
+			isa = PBXGroup;
+			children = (
+				25AD33F81DAB5EF60027667D /* NSException+JCException.h */,
+				25AD33F91DAB5EF60027667D /* NSException+JCException.m */,
+			);
+			path = NSException;
+			sourceTree = "<group>";
+		};
 		25C5058D1D9E6D1A00F3063D /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +611,62 @@
 				25C505AE1DA1500100F3063D /* UIWebView+JCJavaScript.m */,
 			);
 			path = UIWebView;
+			sourceTree = "<group>";
+		};
+		25F840531DA9E124006DF28B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				25F840541DA9E12C006DF28B /* JCWeakProxy.h */,
+				25F840551DA9E12C006DF28B /* JCWeakProxy.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		25F840601DAA147E006DF28B /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				25F840611DAA149B006DF28B /* UIView+JCLayout.h */,
+				25F840621DAA149B006DF28B /* UIView+JCLayout.m */,
+				25F840631DAA149B006DF28B /* UIView+JCRect.h */,
+				25F840641DAA149B006DF28B /* UIView+JCRect.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		25F840671DAA1B2D006DF28B /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				25F840681DAA1B3B006DF28B /* NSArray+JCBlock.h */,
+				25F840691DAA1B3B006DF28B /* NSArray+JCBlock.m */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
+		25F8406B1DAA218D006DF28B /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				25F8406C1DAA219D006DF28B /* NSDictionary+JCBlock.h */,
+				25F8406D1DAA219D006DF28B /* NSDictionary+JCBlock.m */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
+		25F8406F1DAA2B1D006DF28B /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				25F840701DAA2B36006DF28B /* Popup(弹窗) */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		25F840701DAA2B36006DF28B /* Popup(弹窗) */ = {
+			isa = PBXGroup;
+			children = (
+				25F840711DAA2B77006DF28B /* JCPopupBaseView.h */,
+				25F840721DAA2B77006DF28B /* JCPopupBaseView.m */,
+			);
+			name = "Popup(弹窗)";
+			path = Popup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,26 +778,38 @@
 				252C11421D9B629D00D2E8F0 /* JCSQLite3.m in Sources */,
 				252C11861D9D61C000D2E8F0 /* JCClassInfo.m in Sources */,
 				252C11291D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.m in Sources */,
+				25AD33C31DAA38FF0027667D /* JCPopupViewController.m in Sources */,
 				252C113E1D9B620000D2E8F0 /* NSTimer+JCBlock.m in Sources */,
 				252C11281D9B59EF00D2E8F0 /* NSObject+JCBind.m in Sources */,
 				252C11731D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m in Sources */,
 				259313EB1DA550FB006A4897 /* JCStream.m in Sources */,
 				252C11771D9CEB5C00D2E8F0 /* UIApplication+JCApplication.m in Sources */,
+				25AD33C71DAB27630027667D /* UIControl+JCControl.m in Sources */,
 				252C11541D9BBF8200D2E8F0 /* UIColor+JCColor.m in Sources */,
 				252C113D1D9B620000D2E8F0 /* NSDate+JCDate.m in Sources */,
 				252C11031D9AA5EC00D2E8F0 /* AppDelegate.m in Sources */,
 				25C505961DA0C70A00F3063D /* NSObject+JCObject.m in Sources */,
 				252C11271D9B59EF00D2E8F0 /* JCObserver.m in Sources */,
 				252C115B1D9BD20200D2E8F0 /* UIButton+JCButtonSimplify.m in Sources */,
+				25F8406A1DAA1B3B006DF28B /* NSArray+JCBlock.m in Sources */,
+				25AD33BF1DAA387B0027667D /* JCCustomerDemoViewController.m in Sources */,
+				25AD33FA1DAB5EF60027667D /* NSException+JCException.m in Sources */,
 				252C11631D9BD52100D2E8F0 /* UIDevice+JCDevice.m in Sources */,
+				25F8406E1DAA219D006DF28B /* NSDictionary+JCBlock.m in Sources */,
+				25F840731DAA2B77006DF28B /* JCPopupBaseView.m in Sources */,
 				252C115F1D9BD24700D2E8F0 /* UIScreen+JCScale.m in Sources */,
+				25F840661DAA149B006DF28B /* UIView+JCRect.m in Sources */,
 				25C505A41DA0E67F00F3063D /* JCEncodeModel.m in Sources */,
 				252C11831D9D167E00D2E8F0 /* NSNumber+JCNumber.m in Sources */,
+				25F840291DA8D09B006DF28B /* JCBaseViewController.m in Sources */,
 				259414BC1DA79BF9004FE594 /* NSObject+JCStram.m in Sources */,
 				25C505A31DA0E67F00F3063D /* JCArchiveTool.m in Sources */,
 				252C11491D9B641A00D2E8F0 /* NSString+JCString.m in Sources */,
+				25F840651DAA149B006DF28B /* UIView+JCLayout.m in Sources */,
 				252C116C1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m in Sources */,
+				25AD33F61DAB39630027667D /* UIAlertView+JCStream.m in Sources */,
 				252C116F1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m in Sources */,
+				25F840561DA9E12C006DF28B /* JCWeakProxy.m in Sources */,
 				25C5059B1DA0CBBA00F3063D /* UITextField+JCTextField.m in Sources */,
 				252C11001D9AA5EC00D2E8F0 /* main.m in Sources */,
 				252C113C1D9B620000D2E8F0 /* NSData+JCData.m in Sources */,
@@ -787,6 +948,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JCKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = molin.JCKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -799,6 +961,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JCKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = molin.JCKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

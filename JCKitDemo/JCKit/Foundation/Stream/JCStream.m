@@ -35,6 +35,7 @@
 {
     NSMutableArray *_observerKeyPaths;
     NSMutableArray *_notificationNames;
+    NSMutableDictionary *_delegateBlockDic;
 }
 
 - (instancetype)initWithHold:(id)hold {
@@ -186,10 +187,69 @@
 
 @end
 
-
 /**
  Delegate
  */
 @implementation JCStream (JCDelegate)
+
+- (instancetype)initWithDelegate:(id)delegate {
+    if (self = [super init]) {
+        self.delegate = delegate;
+        _delegateBlockDic = @{}.mutableCopy;
+    }
+    return self;
+}
+
+- (JCStream *)addDelegateMethod:(SEL)selector block:(id)block {
+    _delegateBlockDic[NSStringFromSelector(selector)] = [block copy];
+    return self;
+}
+
+- (id)blockWithMethod:(SEL)selector {
+    return _delegateBlockDic[NSStringFromSelector(selector)];
+}
+
+static void *const kDelegateMethodKey = @"DelegateMethodKey";
+
+// 添加自己的方法，与selector交换
+- (JCStream *)addDelegateMethod:(SEL)selector exchangeIMP:(IMP)exchangeIMP {
+    NSMutableDictionary *methodDicM = objc_getAssociatedObject(self, kDelegateMethodKey);
+    if (!methodDicM) {
+        methodDicM = [NSMutableDictionary new];
+        objc_setAssociatedObject(self, kDelegateMethodKey, methodDicM, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    NSString *originallyName = NSStringFromSelector(selector);
+    NSString *exchangeName = methodDicM[originallyName];
+    
+    // 存在了
+    if (exchangeName) {
+        return self;
+    }
+    exchangeName = [NSString stringWithFormat:@"jc_exchange_%@",originallyName];  // 新的方法名，也就是要添加的方法
+    methodDicM[originallyName] = exchangeName;
+    Method originallyM = class_getInstanceMethod([self.delegate class], selector);
+    
+    if (!originallyM) {  // 判断方法是否没实现，没有实现就添加方法进去，然后再次获取
+        class_addMethod([self.delegate class], NSSelectorFromString(originallyName), (IMP)delegateMethodReality, "v@:");
+        originallyM = class_getInstanceMethod([self.delegate class], selector);
+    }
+    
+    // 添加要交换的方法，返回YES就两个交换
+    if (class_addMethod([self.delegate class], NSSelectorFromString(exchangeName), exchangeIMP, method_getTypeEncoding(originallyM))) {
+        Method exchangeM = class_getInstanceMethod([self.delegate class], NSSelectorFromString(exchangeName));
+        method_exchangeImplementations(originallyM,exchangeM);
+    };
+    return self;
+}
+
+// 代理方法没实现，这个用来指定代理方法要实现的函数地址
+void delegateMethodReality(id self, SEL _cmd) {
+}
+
+// 更改为自己设定的替换代理方法的方法
+SEL delegateExchangeMethodName(SEL _cmd) {
+    NSString *methodName = [NSString stringWithFormat:@"jc_exchange_%@",NSStringFromSelector(_cmd)];
+    return NSSelectorFromString(methodName);
+}
 
 @end

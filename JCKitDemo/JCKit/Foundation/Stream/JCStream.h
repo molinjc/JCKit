@@ -20,6 +20,8 @@ typedef void(^JCTargetBlock)(id sender);
 
 @property (nonatomic, weak) UIControl *control;
 
+@property (nonatomic, weak) id delegate;
+
 - (instancetype)initWithHold:(id)hold;
 
 @end
@@ -72,5 +74,16 @@ typedef void(^JCTargetBlock)(id sender);
  Delegate
  */
 @interface JCStream (JCDelegate)
+
+- (instancetype)initWithDelegate:(id)delegate;
+
+- (JCStream *)addDelegateMethod:(SEL)selector block:(id)block;
+
+- (id)blockWithMethod:(SEL)selector;
+
+- (JCStream *)addDelegateMethod:(SEL)selector exchangeIMP:(IMP)exchangeIMP;
+
+// 更改为自己设定的替换代理方法的方法
+SEL delegateExchangeMethodName(SEL _cmd);
 
 @end

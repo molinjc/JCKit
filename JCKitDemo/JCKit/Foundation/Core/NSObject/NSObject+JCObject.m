@@ -52,7 +52,10 @@ JCAttributeType JCGetObjectAttributeType(const char *attribute) {
 - (id)jc_performSelector:(SEL)sel {
     if ([self respondsToSelector:sel]) {
         // ???
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         return [self performSelector:sel];
+#pragma clang diagnostic pop
     }
     
     NSAssert(nil, @"📍类与方法:%s,😱😱没有实现该方法☝️☝️ ",__func__);

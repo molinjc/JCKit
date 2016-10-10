@@ -7,6 +7,8 @@
 //
 
 #import "NSTimer+JCBlock.h"
+#import "JCWeakProxy.h"
+
 
 @implementation NSTimer (JCBlock)
 
