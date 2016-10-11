@@ -12,6 +12,13 @@
 
 @implementation UIImage (JCImage)
 
+/**
+ 原图
+ */
+- (UIImage *)originalImage {
+    return [self imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 #pragma mark - 颜色
 
 - (UIImage *)tintedImageWithColor:(UIColor *)color {

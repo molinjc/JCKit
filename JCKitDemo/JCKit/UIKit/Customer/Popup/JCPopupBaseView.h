@@ -13,6 +13,12 @@
 @property (nonatomic, strong) UILabel *messageLabel;
 
 /**
+ 初始化方法，将外部的View添加进来
+ @param view 外部的View
+ */
+- (instancetype)initWithPopupView:(UIView *)view;
+
+/**
  *  显示该页面
  */
 - (void)show;
@@ -21,6 +27,11 @@
  *  页面消失
  */
 - (void)disappear;
+
+/**
+ 延时消失
+ */
+- (void)delayedDisappear:(NSTimeInterval)delay;
 
 /**
  底部显示文本信息，2s消失掉
@@ -49,5 +60,10 @@
  */
 + (void)popupWithTitle:(NSString *)title message:(NSString *)message actionTitle1:(NSString *)actionTitle1 actionTitle2:(NSString *)actionTitle2;
 + (void)popupWithTitle:(NSString *)title message:(NSString *)message actionTitle1:(NSString *)actionTitle1 actionTitle2:(NSString *)actionTitle2 handler:(void (^)(NSInteger selectIndex))block;
+
+/**
+ 选择照片
+ */
++ (void)photoSelectPopupView:(void (^)(UIImage *image))block;
 
 @end

@@ -45,6 +45,7 @@
 		25AD33C71DAB27630027667D /* UIControl+JCControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33C61DAB27630027667D /* UIControl+JCControl.m */; };
 		25AD33F61DAB39630027667D /* UIAlertView+JCStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33F51DAB39630027667D /* UIAlertView+JCStream.m */; };
 		25AD33FA1DAB5EF60027667D /* NSException+JCException.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33F91DAB5EF60027667D /* NSException+JCException.m */; };
+		25AD33FE1DAB86600027667D /* UIImagePickerController+JCStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33FD1DAB86600027667D /* UIImagePickerController+JCStream.m */; };
 		25C505901D9E6D3D00F3063D /* JCFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */; };
 		25C505961DA0C70A00F3063D /* NSObject+JCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505951DA0C70A00F3063D /* NSObject+JCObject.m */; };
 		25C5059B1DA0CBBA00F3063D /* UITextField+JCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C5059A1DA0CBBA00F3063D /* UITextField+JCTextField.m */; };
@@ -147,6 +148,8 @@
 		25AD33F51DAB39630027667D /* UIAlertView+JCStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+JCStream.m"; sourceTree = "<group>"; };
 		25AD33F81DAB5EF60027667D /* NSException+JCException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSException+JCException.h"; sourceTree = "<group>"; };
 		25AD33F91DAB5EF60027667D /* NSException+JCException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSException+JCException.m"; sourceTree = "<group>"; };
+		25AD33FC1DAB86600027667D /* UIImagePickerController+JCStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+JCStream.h"; sourceTree = "<group>"; };
+		25AD33FD1DAB86600027667D /* UIImagePickerController+JCStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+JCStream.m"; sourceTree = "<group>"; };
 		25C5058E1D9E6D3D00F3063D /* JCFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCFontViewController.h; sourceTree = "<group>"; };
 		25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCFontViewController.m; sourceTree = "<group>"; };
 		25C505941DA0C70A00F3063D /* NSObject+JCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCObject.h"; sourceTree = "<group>"; };
@@ -367,6 +370,7 @@
 		252C11501D9BBEF100D2E8F0 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				25AD33FB1DAB864F0027667D /* UIImagePickerController */,
 				25AD33F31DAB394C0027667D /* UIAlertView */,
 				25AD33C41DAB274C0027667D /* UIControl */,
 				25F8406F1DAA2B1D006DF28B /* Customer */,
@@ -555,6 +559,15 @@
 				25AD33F91DAB5EF60027667D /* NSException+JCException.m */,
 			);
 			path = NSException;
+			sourceTree = "<group>";
+		};
+		25AD33FB1DAB864F0027667D /* UIImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				25AD33FC1DAB86600027667D /* UIImagePickerController+JCStream.h */,
+				25AD33FD1DAB86600027667D /* UIImagePickerController+JCStream.m */,
+			);
+			path = UIImagePickerController;
 			sourceTree = "<group>";
 		};
 		25C5058D1D9E6D1A00F3063D /* UIFont */ = {
@@ -798,6 +811,7 @@
 				25F8406E1DAA219D006DF28B /* NSDictionary+JCBlock.m in Sources */,
 				25F840731DAA2B77006DF28B /* JCPopupBaseView.m in Sources */,
 				252C115F1D9BD24700D2E8F0 /* UIScreen+JCScale.m in Sources */,
+				25AD33FE1DAB86600027667D /* UIImagePickerController+JCStream.m in Sources */,
 				25F840661DAA149B006DF28B /* UIView+JCRect.m in Sources */,
 				25C505A41DA0E67F00F3063D /* JCEncodeModel.m in Sources */,
 				252C11831D9D167E00D2E8F0 /* NSNumber+JCNumber.m in Sources */,

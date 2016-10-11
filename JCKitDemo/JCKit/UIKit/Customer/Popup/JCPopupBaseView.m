@@ -25,6 +25,10 @@
 #import "UIAlertView+JCStream.h"
 #endif
 
+#if __has_include("UIImagePickerController+JCStream.h")
+#import "UIImagePickerController+JCStream.h"
+#endif
+
 @interface JCPopupBaseView ()
 
 @end
@@ -32,6 +36,19 @@
 @implementation JCPopupBaseView
 
 #pragma mark - init(初始化)
+
+/**
+ 初始化方法，将外部的View添加进来
+ @param view 外部的View
+ */
+- (instancetype)initWithPopupView:(UIView *)view {
+    if (self = [super init]) {
+        self.backgroundColor = [UIColor colorWithRed:((float)((0x252525 & 0xFF0000) >> 16))/255.0 green:((float)((0x252525 & 0xFF00) >> 8))/255.0 blue:((float)(0x252525 & 0xFF))/255.0 alpha:0.7];
+        self.frame = [UIScreen mainScreen].bounds;
+        [self addSubview:view];
+    }
+    return self;
+}
 
 #pragma mark - System Methods(系统方法)
 #pragma mark - Custom Methods(自定义方法，外部可调用)
@@ -49,6 +66,15 @@
 - (void)disappear {
     [self removeFromSuperview];
 }
+
+/**
+ 延时消失
+ */
+- (void)delayedDisappear:(NSTimeInterval)delay {
+    [self performSelector:@selector(disappear) withObject:nil afterDelay:delay];
+}
+
+#pragma mark - 底部提示框
 
 + (void)showPopupView:(NSString *)message {
     [JCPopupBaseView showPopupView:message buttom:64];
@@ -149,6 +175,55 @@
     };
     [alertView show];
 #endif
+}
+
+#pragma mark - 选择照片
+
+/**
+ 选择照片
+ */
++ (void)photoSelectPopupView:(void (^)(UIImage *image))block {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        //sourceType 是用来确认用户界面的样式， 选择相机
+        UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.finishPickingMediaWithInfo = ^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info){
+            if (block) {
+                block([info objectForKey:UIImagePickerControllerOriginalImage]);
+            }
+        };
+        //允许编辑弹框
+        imagePicker.allowsEditing = NO;
+        //是用相机照相来获取图片
+        imagePicker.sourceType = sourceType;
+        //模态推出pickViewController
+        [AppDelegate.window.rootViewController presentViewController:imagePicker animated:YES completion:nil];
+        
+    }];
+    UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //sourceType 是用来确认用户界面样式，选择相册
+        UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.finishPickingMediaWithInfo = ^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info){
+            if (block) {
+                block([info objectForKey:UIImagePickerControllerOriginalImage]);
+            }
+        };
+        //允许编辑弹框
+        imagePicker.allowsEditing = NO;
+        //是用手机相册来获取图片的
+        imagePicker.sourceType = sourceType;
+        //模态推出pickViewController
+        [AppDelegate.window.rootViewController presentViewController:imagePicker animated:YES completion:nil];
+    }];
+    UIAlertAction *alertAction3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:alertAction1];
+    [alertController addAction:alertAction2];
+    [alertController addAction:alertAction3];
+    [AppDelegate.window.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Private Methods(自定义方法，只有自己调用)

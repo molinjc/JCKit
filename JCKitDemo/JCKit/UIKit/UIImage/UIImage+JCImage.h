@@ -10,6 +10,11 @@
 
 @interface UIImage (JCImage)
 
+/**
+ 原图
+ */
+- (UIImage *)originalImage;
+
 #pragma mark - 颜色
 
 /**
