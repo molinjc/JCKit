@@ -87,7 +87,7 @@
         string = self.placeholderLabel.attributedText.string;
     }
     
-    CGSize size = [string boundingRectWithSize:CGSizeMake(self.placeholderLabel.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.placeholderLabel.font} context:nil].size;
+    CGSize size = [string boundingRectWithSize:CGSizeMake(self.placeholderLabel.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.placeholderLabel.font} context:nil].size;
     CGFloat height = 22;
     if (size.height >= self.frame.size.height) {
         height = self.frame.size.height;
