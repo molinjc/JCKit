@@ -51,6 +51,7 @@
 		25AD34A21DACDFF30027667D /* UIWebView+JCJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34961DACDFF30027667D /* UIWebView+JCJavaScript.m */; };
 		25AD34A61DACE1B80027667D /* JCKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34A51DACE1B80027667D /* JCKeyboardManager.m */; };
 		25AD34AA1DACE5E90027667D /* JCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34A91DACE5E90027667D /* JCTextView.m */; };
+		25AD34AE1DACEBBD0027667D /* JCAdvertisementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34AD1DACEBBD0027667D /* JCAdvertisementView.m */; };
 		25C505901D9E6D3D00F3063D /* JCFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */; };
 		25C505961DA0C70A00F3063D /* NSObject+JCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505951DA0C70A00F3063D /* NSObject+JCObject.m */; };
 		25C505A31DA0E67F00F3063D /* JCArchiveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505A01DA0E67F00F3063D /* JCArchiveTool.m */; };
@@ -163,6 +164,8 @@
 		25AD34A51DACE1B80027667D /* JCKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCKeyboardManager.m; sourceTree = "<group>"; };
 		25AD34A81DACE5E90027667D /* JCTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTextView.h; sourceTree = "<group>"; };
 		25AD34A91DACE5E90027667D /* JCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTextView.m; sourceTree = "<group>"; };
+		25AD34AC1DACEBBD0027667D /* JCAdvertisementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAdvertisementView.h; sourceTree = "<group>"; };
+		25AD34AD1DACEBBD0027667D /* JCAdvertisementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAdvertisementView.m; sourceTree = "<group>"; };
 		25C5058E1D9E6D3D00F3063D /* JCFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCFontViewController.h; sourceTree = "<group>"; };
 		25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCFontViewController.m; sourceTree = "<group>"; };
 		25C505941DA0C70A00F3063D /* NSObject+JCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCObject.h"; sourceTree = "<group>"; };
@@ -638,6 +641,15 @@
 			path = TextView;
 			sourceTree = "<group>";
 		};
+		25AD34AB1DACEBB10027667D /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				25AD34AC1DACEBBD0027667D /* JCAdvertisementView.h */,
+				25AD34AD1DACEBBD0027667D /* JCAdvertisementView.m */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
 		25C5058D1D9E6D1A00F3063D /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +720,7 @@
 		25F8406F1DAA2B1D006DF28B /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				25AD34AB1DACEBB10027667D /* ImageView */,
 				25AD34A71DACE5DE0027667D /* TextView */,
 				25F840701DAA2B36006DF28B /* Popup(弹窗) */,
 			);
@@ -830,6 +843,7 @@
 				25C505901D9E6D3D00F3063D /* JCFontViewController.m in Sources */,
 				252C11061D9AA5EC00D2E8F0 /* ViewController.m in Sources */,
 				252C11421D9B629D00D2E8F0 /* JCSQLite3.m in Sources */,
+				25AD34AE1DACEBBD0027667D /* JCAdvertisementView.m in Sources */,
 				252C11861D9D61C000D2E8F0 /* JCClassInfo.m in Sources */,
 				252C11291D9B59EF00D2E8F0 /* NSObject+JCObserverKVO.m in Sources */,
 				25AD33C31DAA38FF0027667D /* JCPopupViewController.m in Sources */,
