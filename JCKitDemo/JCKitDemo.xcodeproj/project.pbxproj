@@ -50,6 +50,7 @@
 		25AD34A11DACDFF30027667D /* UIView+JCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34931DACDFF30027667D /* UIView+JCView.m */; };
 		25AD34A21DACDFF30027667D /* UIWebView+JCJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34961DACDFF30027667D /* UIWebView+JCJavaScript.m */; };
 		25AD34A61DACE1B80027667D /* JCKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34A51DACE1B80027667D /* JCKeyboardManager.m */; };
+		25AD34AA1DACE5E90027667D /* JCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD34A91DACE5E90027667D /* JCTextView.m */; };
 		25C505901D9E6D3D00F3063D /* JCFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */; };
 		25C505961DA0C70A00F3063D /* NSObject+JCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505951DA0C70A00F3063D /* NSObject+JCObject.m */; };
 		25C505A31DA0E67F00F3063D /* JCArchiveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C505A01DA0E67F00F3063D /* JCArchiveTool.m */; };
@@ -160,6 +161,8 @@
 		25AD34961DACDFF30027667D /* UIWebView+JCJavaScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+JCJavaScript.m"; sourceTree = "<group>"; };
 		25AD34A41DACE1B80027667D /* JCKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCKeyboardManager.h; sourceTree = "<group>"; };
 		25AD34A51DACE1B80027667D /* JCKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCKeyboardManager.m; sourceTree = "<group>"; };
+		25AD34A81DACE5E90027667D /* JCTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTextView.h; sourceTree = "<group>"; };
+		25AD34A91DACE5E90027667D /* JCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTextView.m; sourceTree = "<group>"; };
 		25C5058E1D9E6D3D00F3063D /* JCFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCFontViewController.h; sourceTree = "<group>"; };
 		25C5058F1D9E6D3D00F3063D /* JCFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCFontViewController.m; sourceTree = "<group>"; };
 		25C505941DA0C70A00F3063D /* NSObject+JCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCObject.h"; sourceTree = "<group>"; };
@@ -626,6 +629,15 @@
 			path = Keyboard;
 			sourceTree = "<group>";
 		};
+		25AD34A71DACE5DE0027667D /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				25AD34A81DACE5E90027667D /* JCTextView.h */,
+				25AD34A91DACE5E90027667D /* JCTextView.m */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
 		25C5058D1D9E6D1A00F3063D /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +708,7 @@
 		25F8406F1DAA2B1D006DF28B /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				25AD34A71DACE5DE0027667D /* TextView */,
 				25F840701DAA2B36006DF28B /* Popup(弹窗) */,
 			);
 			path = Customer;
@@ -828,6 +841,7 @@
 				25AD349A1DACDFF30027667D /* UIColor+JCSeries.m in Sources */,
 				252C11731D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m in Sources */,
 				259313EB1DA550FB006A4897 /* JCStream.m in Sources */,
+				25AD34AA1DACE5E90027667D /* JCTextView.m in Sources */,
 				252C113D1D9B620000D2E8F0 /* NSDate+JCDate.m in Sources */,
 				252C11031D9AA5EC00D2E8F0 /* AppDelegate.m in Sources */,
 				25C505961DA0C70A00F3063D /* NSObject+JCObject.m in Sources */,
