@@ -37,7 +37,13 @@
 
 @property (nonatomic, weak) id<JCAdvertisementViewDataSource> dataSource;
 
-- (instancetype)initWithSize:(CGSize)size dataSource:(id<JCAdvertisementViewDataSource>)dataSource;
+@property (nonatomic, assign) NSTimeInterval rollInterval;
+
+@property (nonatomic, strong) UIColor *pageIndicatorTintColor;
+
+@property (nonatomic, strong) UIColor *currentPageIndicatorTintColor;
+
+- (instancetype)initWithDataSource:(id<JCAdvertisementViewDataSource>)dataSource;
 
 /**
  *  重新加载

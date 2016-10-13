@@ -35,18 +35,23 @@
     if (self = [super init]) {
         [self addSubview:self.scrollView];
         [self addSubview:self.pageControl];
-        self.scrollView.layoutLeft(0).layoutRight(0).layoutTop(0).layoutBottom(0);
-        self.pageControl.layoutLeft(0).layoutRight(0).layoutBottom(5).layoutHeight(20);
+        self.rollInterval = 15.0;
     }
     return self;
 }
 
-- (instancetype)initWithSize:(CGSize)size dataSource:(id<JCAdvertisementViewDataSource>)dataSource {
+- (instancetype)initWithDataSource:(id<JCAdvertisementViewDataSource>)dataSource {
     if (self = [self init]) {
-        self.scrollView.contentSize = size;
         self.dataSource = dataSource;
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.scrollView.frame = self.bounds;
+    self.pageControl.frame = CGRectMake(0, self.bounds.size.height - 25, self.bounds.size.width, 20);
+    [self loadData];
 }
 
 /**
@@ -63,10 +68,11 @@
  */
 - (void)loadData {
     [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    CGSize size = self.scrollView.size;
     _count = [self.dataSource numberOfSectionsInAdvertisementView:self];
+     CGSize size = self.scrollView.size;
+   
     self.pageControl.numberOfPages = _count;
-    self.scrollView.contentSize = CGSizeMake(size.width * (_count + 2), size.height);
+    self.scrollView.contentSize = CGSizeMake(size.width * (_count + 2), size.height * 0.5);
     for (NSInteger i=0; i < _count + 2; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         [self.scrollView addSubview:imageView];
@@ -87,7 +93,7 @@
         [imageView addGestureRecognizer:tapGestureRecongnizer];
         imageView.userInteractionEnabled = YES;
     }
-    [self setRollTimeInterval:15.0];
+    [self setRollTimeInterval:self.rollInterval];
 }
 
 /**
@@ -118,10 +124,9 @@
     }
 }
 
-#pragma mark - UISc
+#pragma mark - UISscrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    [self.rollTimer setFireDate:[NSDate distantFuture]]; // 暂停定时器
     NSInteger page = scrollView.contentOffset.x / self.frame.size.width;
     if (page == _count + 1) {
         [scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
@@ -135,7 +140,6 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    [self.rollTimer setFireDate:[NSDate distantPast]];// 开启定时器
     NSInteger page = scrollView.contentOffset.x / self.frame.size.width;
     if (page == _count + 1) {
         [scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
@@ -148,6 +152,15 @@
     }
 }
 
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.rollTimer invalidate];
+    self.rollTimer = nil;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self setRollTimeInterval:self.rollInterval];
+}
 
 #pragma mark - Set/Get 
 
@@ -178,11 +191,14 @@
     return _pageControl;
 }
 
-- (NSMutableArray *)datas {
-    if (!_datas) {
-        _datas = [NSMutableArray new];
-    }
-    return _datas;
+- (void)setCurrentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor {
+    self.pageControl.currentPageIndicatorTintColor = currentPageIndicatorTintColor;
+    _currentPageIndicatorTintColor = currentPageIndicatorTintColor;
+}
+
+- (void)setPageIndicatorTintColor:(UIColor *)pageIndicatorTintColor {
+    self.pageControl.pageIndicatorTintColor = pageIndicatorTintColor;
+    _pageIndicatorTintColor = pageIndicatorTintColor;
 }
 
 @end

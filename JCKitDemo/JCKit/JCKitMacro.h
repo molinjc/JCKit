@@ -13,7 +13,7 @@
  *  打印
  *  本质是NSLog()
  */
-#define JCLog(string,...) NSLog(@"📍行号:%d,📍类与方法:%s,📍内容:%@",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__]);
+#define JCLog(string,...) NSLog(@"📍行号:%d,📍类与方法:%s,📍内容:%@ \n",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__]);
 
 /**
  *  弱引用、强引用，成对用于block
