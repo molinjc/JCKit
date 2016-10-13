@@ -7,6 +7,8 @@
 //
 
 #import "JCAdvertisementView.h"
+#import "UIView+JCLayout.h"
+#import "UIView+JCRect.h"
 
 @interface JCAdvertisementView ()<UIScrollViewDelegate>
 
@@ -170,8 +172,8 @@
     if (!_pageControl) {
         _pageControl = [[UIPageControl alloc]init];
         _pageControl.userInteractionEnabled = NO;    //设置控件是否接收用户的事件消息（用户交互），不能
-        _pageControl.currentPageIndicatorTintColor = JC_COLOCR_RGB16(0x0086D1); //设置当前页的显示颜色
-        _pageControl.pageIndicatorTintColor = JC_COLOCR_RGB16(0xE1E1E1);         //设置未使用状态的颜色
+        _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor]; //设置当前页的显示颜色
+        _pageControl.pageIndicatorTintColor = [UIColor grayColor];         //设置未使用状态的颜色
     }
     return _pageControl;
 }

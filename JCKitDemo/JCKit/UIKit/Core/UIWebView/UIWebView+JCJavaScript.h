@@ -19,7 +19,7 @@
  *  @param callback JavaScript中的函数名
  *  @param block    OC要实现的代码
  */
-- (void)javaScriptCallback:(nonnull NSString *)callback achieved:(void (^)(NSArray *args))block;
+- (void)javaScriptCallback:(nonnull NSString *)callback achieved:(nullable void (^)(NSArray *args))block;
 
 /**
  *  JavaScript回调，实现OC的方法

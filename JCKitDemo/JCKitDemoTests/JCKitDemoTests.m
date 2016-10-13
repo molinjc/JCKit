@@ -56,12 +56,16 @@
 - (void)testPreson {
     
     NSDictionary *dic = [self.person togetherIntoDictionary];
-    NSString *ss = [NSString numberFormatter:NSNumberFormatterCurrencyAccountingStyle number:[NSNumber numberWithInteger:123456]];
-    NSLog(@"?????:%@",ss);
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle  = NSNumberFormatterSpellOutStyle;
-    NSNumber *num = [formatter numberFromString:@"十二万三千四百五十六元"];
-    NSLog(@"!!!!%@",num);
+    NSLog(@"dic:%@",dic);
+    
+    
+    
+//    NSString *ss = [NSString numberFormatter:NSNumberFormatterCurrencyAccountingStyle number:[NSNumber numberWithInteger:123456]];
+//    NSLog(@"?????:%@",ss);
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+//    formatter.numberStyle  = NSNumberFormatterSpellOutStyle;
+//    NSNumber *num = [formatter numberFromString:@"十二万三千四百五十六元"];
+//    NSLog(@"!!!!%@",num);
 
 //    XCTAssertEqualObjects(dic, nil, @"😂😂不行！！");
 }

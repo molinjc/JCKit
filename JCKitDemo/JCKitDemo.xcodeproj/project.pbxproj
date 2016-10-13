@@ -32,6 +32,8 @@
 		252C11971D9DF58100D2E8F0 /* JCPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11961D9DF58100D2E8F0 /* JCPerson.m */; };
 		259313EB1DA550FB006A4897 /* JCStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 259313EA1DA550FB006A4897 /* JCStream.m */; };
 		259414BC1DA79BF9004FE594 /* NSObject+JCStram.m in Sources */ = {isa = PBXBuildFile; fileRef = 259414BB1DA79BF9004FE594 /* NSObject+JCStram.m */; };
+		25A509AE1DAE3B4800798CFD /* JCClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A509AD1DAE3B4800798CFD /* JCClearCache.m */; };
+		25A509B21DAF1B5E00798CFD /* JCMarqueeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A509B11DAF1B5E00798CFD /* JCMarqueeControl.m */; };
 		25AD33BF1DAA387B0027667D /* JCCustomerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */; };
 		25AD33C31DAA38FF0027667D /* JCPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33C21DAA38FF0027667D /* JCPopupViewController.m */; };
 		25AD33FA1DAB5EF60027667D /* NSException+JCException.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33F91DAB5EF60027667D /* NSException+JCException.m */; };
@@ -125,6 +127,10 @@
 		259313EA1DA550FB006A4897 /* JCStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCStream.m; sourceTree = "<group>"; };
 		259414BA1DA79BF9004FE594 /* NSObject+JCStram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCStram.h"; sourceTree = "<group>"; };
 		259414BB1DA79BF9004FE594 /* NSObject+JCStram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JCStram.m"; sourceTree = "<group>"; };
+		25A509AC1DAE3B4800798CFD /* JCClearCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClearCache.h; sourceTree = "<group>"; };
+		25A509AD1DAE3B4800798CFD /* JCClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClearCache.m; sourceTree = "<group>"; };
+		25A509B01DAF1B5E00798CFD /* JCMarqueeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMarqueeControl.h; sourceTree = "<group>"; };
+		25A509B11DAF1B5E00798CFD /* JCMarqueeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMarqueeControl.m; sourceTree = "<group>"; };
 		25AD33BD1DAA387B0027667D /* JCCustomerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCustomerDemoViewController.h; sourceTree = "<group>"; };
 		25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCustomerDemoViewController.m; sourceTree = "<group>"; };
 		25AD33C11DAA38FF0027667D /* JCPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPopupViewController.h; sourceTree = "<group>"; };
@@ -379,6 +385,8 @@
 		252C11501D9BBEF100D2E8F0 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				25A509AF1DAF1B5300798CFD /* Text */,
+				25A509AB1DAE3B3100798CFD /* Cache */,
 				25AD34A31DACE1AF0027667D /* Keyboard */,
 				25AD34721DACDFF30027667D /* Core */,
 				25AD34691DACDFE50027667D /* Stream */,
@@ -446,6 +454,24 @@
 				259414BB1DA79BF9004FE594 /* NSObject+JCStram.m */,
 			);
 			path = Stream;
+			sourceTree = "<group>";
+		};
+		25A509AB1DAE3B3100798CFD /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				25A509AC1DAE3B4800798CFD /* JCClearCache.h */,
+				25A509AD1DAE3B4800798CFD /* JCClearCache.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		25A509AF1DAF1B5300798CFD /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				25A509B01DAF1B5E00798CFD /* JCMarqueeControl.h */,
+				25A509B11DAF1B5E00798CFD /* JCMarqueeControl.m */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 		25AD33BC1DAA38600027667D /* CustomerDemo */ = {
@@ -849,10 +875,12 @@
 				25AD33C31DAA38FF0027667D /* JCPopupViewController.m in Sources */,
 				252C113E1D9B620000D2E8F0 /* NSTimer+JCBlock.m in Sources */,
 				25AD34A01DACDFF30027667D /* UITextField+JCTextField.m in Sources */,
+				25A509B21DAF1B5E00798CFD /* JCMarqueeControl.m in Sources */,
 				25AD34711DACDFE50027667D /* UIImagePickerController+JCStream.m in Sources */,
 				252C11281D9B59EF00D2E8F0 /* NSObject+JCBind.m in Sources */,
 				25AD34971DACDFF30027667D /* UIApplication+JCApplication.m in Sources */,
 				25AD349A1DACDFF30027667D /* UIColor+JCSeries.m in Sources */,
+				25A509AE1DAE3B4800798CFD /* JCClearCache.m in Sources */,
 				252C11731D9CC1AA00D2E8F0 /* JCUIDeviceExampleViewController.m in Sources */,
 				259313EB1DA550FB006A4897 /* JCStream.m in Sources */,
 				25AD34AA1DACE5E90027667D /* JCTextView.m in Sources */,
