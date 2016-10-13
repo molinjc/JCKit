@@ -36,6 +36,14 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.label.frame = CGRectMake(0, 0, self.label.frame.size.width, self.frame.size.height);
+    if (self.isMarquee) {
+        [self marquee];
+    }
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     CFTimeInterval pausedTime = [self.label.layer convertTime:CACurrentMediaTime() fromLayer:nil];
     self.label.layer.speed = 0.0;
@@ -97,17 +105,10 @@
 
 #pragma mark - set/get
 
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    self.label.frame = CGRectMake(0, 0, self.label.frame.size.width, self.frame.size.height);
-}
-
 - (void)setIsMarquee:(BOOL)isMarquee {
     _isMarquee = isMarquee;
-    if (isMarquee) {
-        [self marquee];
-    }else {
-        [self stopMarquee];
+    if (!isMarquee) {
+       [self stopMarquee];
     }
 }
 

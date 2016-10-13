@@ -34,6 +34,7 @@
 		259414BC1DA79BF9004FE594 /* NSObject+JCStram.m in Sources */ = {isa = PBXBuildFile; fileRef = 259414BB1DA79BF9004FE594 /* NSObject+JCStram.m */; };
 		25A509AE1DAE3B4800798CFD /* JCClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A509AD1DAE3B4800798CFD /* JCClearCache.m */; };
 		25A509B21DAF1B5E00798CFD /* JCMarqueeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A509B11DAF1B5E00798CFD /* JCMarqueeControl.m */; };
+		25A509B61DAF1C3000798CFD /* JCMarqueeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A509B51DAF1C3000798CFD /* JCMarqueeViewController.m */; };
 		25AD33BF1DAA387B0027667D /* JCCustomerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */; };
 		25AD33C31DAA38FF0027667D /* JCPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33C21DAA38FF0027667D /* JCPopupViewController.m */; };
 		25AD33FA1DAB5EF60027667D /* NSException+JCException.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD33F91DAB5EF60027667D /* NSException+JCException.m */; };
@@ -131,6 +132,8 @@
 		25A509AD1DAE3B4800798CFD /* JCClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClearCache.m; sourceTree = "<group>"; };
 		25A509B01DAF1B5E00798CFD /* JCMarqueeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMarqueeControl.h; sourceTree = "<group>"; };
 		25A509B11DAF1B5E00798CFD /* JCMarqueeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMarqueeControl.m; sourceTree = "<group>"; };
+		25A509B41DAF1C3000798CFD /* JCMarqueeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMarqueeViewController.h; sourceTree = "<group>"; };
+		25A509B51DAF1C3000798CFD /* JCMarqueeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMarqueeViewController.m; sourceTree = "<group>"; };
 		25AD33BD1DAA387B0027667D /* JCCustomerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCustomerDemoViewController.h; sourceTree = "<group>"; };
 		25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCustomerDemoViewController.m; sourceTree = "<group>"; };
 		25AD33C11DAA38FF0027667D /* JCPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPopupViewController.h; sourceTree = "<group>"; };
@@ -474,9 +477,19 @@
 			path = Text;
 			sourceTree = "<group>";
 		};
+		25A509B31DAF1C1D00798CFD /* JCMarqueeControl */ = {
+			isa = PBXGroup;
+			children = (
+				25A509B41DAF1C3000798CFD /* JCMarqueeViewController.h */,
+				25A509B51DAF1C3000798CFD /* JCMarqueeViewController.m */,
+			);
+			path = JCMarqueeControl;
+			sourceTree = "<group>";
+		};
 		25AD33BC1DAA38600027667D /* CustomerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				25A509B31DAF1C1D00798CFD /* JCMarqueeControl */,
 				25AD33C01DAA38ED0027667D /* JCPopupBaseView */,
 				25AD33BD1DAA387B0027667D /* JCCustomerDemoViewController.h */,
 				25AD33BE1DAA387B0027667D /* JCCustomerDemoViewController.m */,
@@ -904,6 +917,7 @@
 				259414BC1DA79BF9004FE594 /* NSObject+JCStram.m in Sources */,
 				25AD34981DACDFF30027667D /* UIButton+JCButtonSimplify.m in Sources */,
 				25C505A31DA0E67F00F3063D /* JCArchiveTool.m in Sources */,
+				25A509B61DAF1C3000798CFD /* JCMarqueeViewController.m in Sources */,
 				252C11491D9B641A00D2E8F0 /* NSString+JCString.m in Sources */,
 				25F840651DAA149B006DF28B /* UIView+JCLayout.m in Sources */,
 				252C116C1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m in Sources */,

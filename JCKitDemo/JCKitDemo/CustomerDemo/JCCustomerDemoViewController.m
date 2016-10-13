@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addCell:@"JCPopupBaseView" class:@"JCPopupViewController"];
+    [self addCell:@"跑马灯View" class:@"JCMarqueeViewController"];
 }
 
 - (void)didReceiveMemoryWarning {
