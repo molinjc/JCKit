@@ -29,9 +29,9 @@
             NSString *key = [NSString stringWithUTF8String:name];
             
             // 获取属性
-            const char * attributes = property_getAttributes(property);
+//            const char * attributes = property_getAttributes(property);
             
-            NSString *attributesKey = [NSString stringWithUTF8String:attributes];
+//            NSString *attributesKey = [NSString stringWithUTF8String:attributes];
             
             [self setValue:[decoder decodeObjectForKey:key] forKey:key];
         }
@@ -58,9 +58,9 @@
         NSString *key = [NSString stringWithUTF8String:name];
         
         // 获取属性
-        const char * attributes = property_getAttributes(property);
+//        const char * attributes = property_getAttributes(property);
         
-        NSString *attributesKey = [NSString stringWithUTF8String:attributes];
+//        NSString *attributesKey = [NSString stringWithUTF8String:attributes];
         
         [self setValue:@"" forKey:key];
     }

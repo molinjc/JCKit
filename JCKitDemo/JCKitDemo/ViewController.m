@@ -14,6 +14,8 @@
 
 #import "NSObject+JCStram.h"
 
+#import "JCSQLite3.h"
+
 #if __has_include("NSObject+JCObserverKVO.h")
 #define kSCALE 2.0
 #else
@@ -44,6 +46,16 @@
     }];
     JCLog(@"%f",kSCALE);
     [self test_Array];
+    
+    [JCSQLite3 sharedSQLite3].sqliteName = @"test123";
+    if ([[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"CREATE TABLE \"test\" (\"column1\" INTEGER, \"column2\" FLOAT, \"column3\" TEXT)"]) {
+        NSLog(@"失败");
+    }
+    [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"replace into \'test\' (\'column1\',\'column2\',\'column3\') values (\'1\',\'2.34\',\'测试啦\')"];
+    
+    [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"SELECT * from \"test\";" consequence:^(id data) {
+        JCLog(@"%@",data);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

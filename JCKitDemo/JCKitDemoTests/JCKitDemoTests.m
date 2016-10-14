@@ -38,6 +38,7 @@
     self.person.age = 1222;
     
     self.text = @"123456789.78";
+  
 }
 
 - (void)tearDown {
@@ -58,7 +59,7 @@
     NSDictionary *dic = [self.person togetherIntoDictionary];
     NSLog(@"dic:%@",dic);
     
-    
+   
     
 //    NSString *ss = [NSString numberFormatter:NSNumberFormatterCurrencyAccountingStyle number:[NSNumber numberWithInteger:123456]];
 //    NSLog(@"?????:%@",ss);
