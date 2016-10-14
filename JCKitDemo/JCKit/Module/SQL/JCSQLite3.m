@@ -59,6 +59,7 @@
 - (BOOL)sqlite3ExistsAtName:(NSString *)name {
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     self.sqlite3Path = [NSString stringWithFormat:@"%@/%@",path,name];
+    NSLog(@"sqlite3Path:%@",self.sqlite3Path );
     // 创建文件管理器
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:self.sqlite3Path]) {
@@ -110,18 +111,22 @@
     }
     NSRange range = [statement rangeOfString:@"select"];
     NSRange range1 = [statement rangeOfString:@"SELECT"];
-    
+    BOOL isRange = range.length ? YES : range1.length ? YES : NO;
     char *errorChar;
-    if (!range.length || !range1.length) {
+    if (!isRange) {
         int result = sqlite3_exec(_db, [statement UTF8String], NULL, NULL, &errorChar);
         if (result != SQLITE_OK) {
-            userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithUTF8String:errorChar]};
+            if (errorChar) {
+                userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithUTF8String:errorChar]};
+            }else {
+                userInfo = @{NSLocalizedDescriptionKey:@"表已经存在"};
+            }
             error = [NSError errorWithDomain:kSQLITE3ERROR code:-1 userInfo:userInfo];
             return error;
         }
     }else {
         sqlite3_stmt  *stmt;
-        int result = sqlite3_prepare_v2(_db, [statement UTF8String], -1, &stmt, nil);
+        int result = sqlite3_prepare_v2(_db, [statement UTF8String], -1, &stmt, NULL);
         if (result == SQLITE_OK) {
             NSMutableArray *dataArray = [NSMutableArray new];
             while (sqlite3_step(stmt) == SQLITE_ROW) {
@@ -161,7 +166,7 @@
                 self.consequence(data);
             }
         }else {
-            userInfo = @{NSLocalizedDescriptionKey:@"SQLite语句执行失败"};
+            userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"SQLite语句执行失败 %d",result]};
             error = [NSError errorWithDomain:kSQLITE3ERROR code:-1 userInfo:userInfo];
             return error;
         }
