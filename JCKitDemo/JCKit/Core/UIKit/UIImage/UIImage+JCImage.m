@@ -221,11 +221,20 @@
  根据Gif图片名生成UImage对象
  */
 + (UIImage *)animatedGIFNamed:(NSString *)name {
+    NSString *ext = name.pathExtension;
+    if (!ext.length) {
+        ext = @"gif";
+    }else {
+        ext = nil;
+    }
     NSString *gifName = name;
     if ([UIScreen mainScreen].scale > 1.0f) {
         gifName = [name stringByAppendingString:@"@2x"];
     }
-    NSString *retinaPath = [[NSBundle mainBundle] pathForResource:[name stringByAppendingString:@"@2x"] ofType:@"gif"];
+    NSString *retinaPath = [[NSBundle mainBundle] pathForResource:gifName ofType:ext];
+    if (!retinaPath) {
+        retinaPath = [[NSBundle mainBundle] pathForResource:name ofType:ext];
+    }
     NSData *data = [NSData dataWithContentsOfFile:retinaPath];
     if (data) {
         return [UIImage animatedGIFWithData:data];

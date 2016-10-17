@@ -9,6 +9,7 @@
 #import "JCSQLite3.h"
 
 #define kSQLITE3ERROR @"SQLite3Error"
+#define kTernary(condition, valueTrue, valueFalse) condition ? valueTrue : valueFalse
 
 @interface JCSQLite3 () {
     sqlite3 *_db;  // 定义数据库对象
@@ -110,9 +111,10 @@
     }
     NSRange range = [statement rangeOfString:@"select"];
     NSRange range1 = [statement rangeOfString:@"SELECT"];
+//    kTernary(range.length ? range1.length ? YES : NO : NO)
     
     char *errorChar;
-    if (!range.length || !range1.length) {
+    if (!kTernary(range.length, kTernary(range1.length, YES, NO), NO)) {
         int result = sqlite3_exec(_db, [statement UTF8String], NULL, NULL, &errorChar);
         if (result != SQLITE_OK) {
             userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithUTF8String:errorChar]};

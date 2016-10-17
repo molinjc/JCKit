@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2505A6801DB4696800884C39 /* JCImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2505A67F1DB4696800884C39 /* JCImageViewController.m */; };
+		2505A6821DB46A5300884C39 /* waiting.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2505A6811DB46A5300884C39 /* waiting.gif */; };
 		252C11001D9AA5EC00D2E8F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C10FF1D9AA5EC00D2E8F0 /* main.m */; };
 		252C11031D9AA5EC00D2E8F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11021D9AA5EC00D2E8F0 /* AppDelegate.m */; };
 		252C11061D9AA5EC00D2E8F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11051D9AA5EC00D2E8F0 /* ViewController.m */; };
@@ -80,6 +82,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2505A67E1DB4696800884C39 /* JCImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCImageViewController.h; sourceTree = "<group>"; };
+		2505A67F1DB4696800884C39 /* JCImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCImageViewController.m; sourceTree = "<group>"; };
+		2505A6811DB46A5300884C39 /* waiting.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = waiting.gif; sourceTree = "<group>"; };
 		252C10FB1D9AA5EC00D2E8F0 /* JCKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		252C10FF1D9AA5EC00D2E8F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		252C11011D9AA5EC00D2E8F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -221,6 +226,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2505A67D1DB4694A00884C39 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				2505A6811DB46A5300884C39 /* waiting.gif */,
+				2505A67E1DB4696800884C39 /* JCImageViewController.h */,
+				2505A67F1DB4696800884C39 /* JCImageViewController.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
 		252C10F21D9AA5EC00D2E8F0 = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +306,7 @@
 		252C11661D9CBCCC00D2E8F0 /* UIKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2505A67D1DB4694A00884C39 /* UIImage */,
 				25C5058D1D9E6D1A00F3063D /* UIFont */,
 				252C11701D9CC19B00D2E8F0 /* UIDeviceExample */,
 				252C116D1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.h */,
@@ -872,6 +888,7 @@
 			files = (
 				252C110E1D9AA5EC00D2E8F0 /* LaunchScreen.storyboard in Resources */,
 				252C110B1D9AA5EC00D2E8F0 /* Assets.xcassets in Resources */,
+				2505A6821DB46A5300884C39 /* waiting.gif in Resources */,
 				252C11091D9AA5EC00D2E8F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -931,6 +948,7 @@
 				25A50B211DB1E32A00798CFD /* UIView+JCView.m in Sources */,
 				25A50B331DB1E32A00798CFD /* NSObject+JCStram.m in Sources */,
 				25A50B1A1DB1E32A00798CFD /* UIColor+JCSeries.m in Sources */,
+				2505A6801DB4696800884C39 /* JCImageViewController.m in Sources */,
 				252C116F1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m in Sources */,
 				25A50B2A1DB1E32A00798CFD /* JCObserver.m in Sources */,
 				25A50B0F1DB1E32A00798CFD /* NSData+JCData.m in Sources */,
