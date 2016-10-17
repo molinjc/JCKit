@@ -9,6 +9,8 @@
 #ifndef JCKitMacro_h
 #define JCKitMacro_h
 
+#import <sys/time.h>
+
 /**
  *  打印
  *  本质是NSLog()
@@ -21,7 +23,7 @@
  *  @param obj 要引用的对象
  */
 #define weakify(obj) autoreleasepool {} __weak typeof(obj) weak##obj = obj;
-#define strongify(obj) autoreleasepool {} __strong typeof(weak##obj) obj = weak##obj;
+#define strongify(obj) autoreleasepool {} __strong typeof(weak##obj) strong##obj = weak##obj;
 
 /**
  *  断言
@@ -38,5 +40,24 @@
  *  @return 所要的值
  */
 #define JCTernary(condition, valueTrue, valueFalse) condition ? valueTrue : valueFalse
+
+
+static inline NSDate *JCCompileTime() {
+    NSString *timeStr = [NSString stringWithFormat:@"%s %s",__DATE__, __TIME__];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd yyyy HH:mm:ss"];
+    [formatter setLocale:locale];
+    return [formatter dateFromString:timeStr];
+}
+
+static inline void JCBenchmark(void (^block)(void), void (^complete)(double ms)) {
+    struct timeval t0, t1;
+    gettimeofday(&t0, NULL);
+    block();
+    gettimeofday(&t1, NULL);
+    double ms = (double)(t1.tv_sec - t0.tv_sec) * 1e3 + (double)(t1.tv_usec - t0.tv_usec) * 1e-3;
+    complete(ms);
+}
 
 #endif /* JCKitMacro_h */
