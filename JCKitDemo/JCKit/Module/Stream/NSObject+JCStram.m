@@ -17,7 +17,7 @@
     if (!stream) {
         stream = [[JCStream alloc] initWithHold:self];
         objc_setAssociatedObject(self, _cmd, stream, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        [self swizzleDealloc];
+        
     }
     return stream;
 }

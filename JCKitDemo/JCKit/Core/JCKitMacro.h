@@ -19,14 +19,9 @@
  *  弱引用、强引用，成对用于block
  *  @autoreleasepool {} 加在前面，其实啥事都没干，只为了可以加@，用来显眼
  *  @param obj 要引用的对象
-     Example:
-             @weakify(self)
-             [self doSomething^{
-                 @strongify(self)
-             }];
  */
 #define weakify(obj) autoreleasepool {} __weak typeof(obj) weak##obj = obj;
-#define strongify(obj) autoreleasepool {} __strong typeof(obj) obj = weak##obj;
+#define strongify(obj) autoreleasepool {} __strong typeof(weak##obj) obj = weak##obj;
 
 /**
  *  断言
@@ -36,42 +31,12 @@
 #define JCAssert(condition) NSAssert((condition), @"🛠 行号:%d,🛠 类与方法:%s,😱😱不满足条件:%@☝️☝️ ",__LINE__,__func__, @#condition)
 
 /**
- 获取编译的时间
- @return NSDate
+ *  三目运算符
+ *  @param condition  条件
+ *  @param valueTrue  真的值
+ *  @param valueFalse 假的值
+ *  @return 所要的值
  */
-static inline NSDate * JCCompileTime() {
-    NSString *timeString = [NSString stringWithFormat:@"%s %s",__DATE__, __TIME__];
-    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMM dd yyyy HH:mm:ss"];
-    [formatter setLocale:locale];
-    return [formatter dateFromString:timeString];
-}
-
-#import <sys/time.h>
-
-/**
- 测试一段代码的运行时间
- @param ^block 要测试的代码
- @param ^complete 该段代码的运行时间
-     Example:
-         JCBenchmark(^{
-             // code
-         }, ^(double ms) {
-             NSLog("time cost: %.2f ms",ms);
-         });
- */
-static inline void JCBenchmark(void (^block)(void), void (^complete)(double ms)) {
-    struct timeval t0,t1;
-    gettimeofday(&t0, NULL);
-    if (block) {
-        block();
-    }
-    gettimeofday(&t1, NULL);
-    double ms = (double)(t1.tv_sec - t0.tv_sec) * 1e3 + (double)(t1.tv_usec - t0.tv_usec) * 1e-3;
-    if (complete) {
-        complete(ms);
-    }
-}
+#define JCTernary(condition, valueTrue, valueFalse) condition ? valueTrue : valueFalse
 
 #endif /* JCKitMacro_h */

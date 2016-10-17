@@ -48,18 +48,26 @@
     [self test_Array];
     
     [JCSQLite3 sharedSQLite3].sqliteName = @"test123";
-    if ([[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"CREATE TABLE \"test\" (\"column1\" INTEGER, \"column2\" FLOAT, \"column3\" TEXT)"]) {
-        NSLog(@"失败");
-    }
-    [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"replace into \'test\' (\'column1\',\'column2\',\'column3\') values (\'1\',\'2.34\',\'测试啦\')"];
-    
-    [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"SELECT * from \"test\";" consequence:^(id data) {
-        JCLog(@"%@",data);
-    }];
+    JCBenchmark(^{
+        if ([[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"CREATE TABLE \"test\" (\"column1\" INTEGER, \"column2\" FLOAT, \"column3\" TEXT)"]) {
+            NSLog(@"失败");
+        }
+        [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"replace into \'test\' (\'column1\',\'column2\',\'column3\') values (\'1\',\'2.34\',\'测试啦\')"];
+        
+        [[JCSQLite3 sharedSQLite3] openSQLite3];
+        [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"SELECT * FROM 'test'" consequence:^(id data) {
+            JCLog(@"数据库：%@",data);
+        }];
+        [[JCSQLite3 sharedSQLite3] closeSQLite3];
+    },^(double ms) {
+        JCLog(@"JCSQLite3运行的时间：%2f",ms)
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    JCLog(@"timeStr:%@",JCCompileTime());
     
     self.imageView.image = [UIImage imageNamed:@"banner1"];
     
