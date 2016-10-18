@@ -41,7 +41,9 @@
  */
 #define JCTernary(condition, valueTrue, valueFalse) condition ? valueTrue : valueFalse
 
-
+/**
+ 获取编译的时间
+ */
 static inline NSDate *JCCompileTime() {
     NSString *timeStr = [NSString stringWithFormat:@"%s %s",__DATE__, __TIME__];
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
@@ -51,6 +53,17 @@ static inline NSDate *JCCompileTime() {
     return [formatter dateFromString:timeStr];
 }
 
+/**
+ 运行时间差
+ @param ^block 所要得知时间差的代码
+ @param ^complete 时间差(double)
+     Usage:
+         YYBenchmark(^{
+             // code
+         }, ^(double ms) {
+             NSLog("time cost: %.2f ms",ms);
+         });
+ */
 static inline void JCBenchmark(void (^block)(void), void (^complete)(double ms)) {
     struct timeval t0, t1;
     gettimeofday(&t0, NULL);

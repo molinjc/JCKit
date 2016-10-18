@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2505A6801DB4696800884C39 /* JCImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2505A67F1DB4696800884C39 /* JCImageViewController.m */; };
 		2505A6821DB46A5300884C39 /* waiting.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2505A6811DB46A5300884C39 /* waiting.gif */; };
+		2505A69D1DB60E0D00884C39 /* JCTableViewDelegateManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2505A69C1DB60E0D00884C39 /* JCTableViewDelegateManage.m */; };
+		2505A6A11DB60E2E00884C39 /* JCTableViewDelegateBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2505A6A01DB60E2E00884C39 /* JCTableViewDelegateBase.m */; };
+		2505A6A61DB60E4300884C39 /* JCTableViewDelegateHeaderHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 2505A6A31DB60E4300884C39 /* JCTableViewDelegateHeaderHeight.m */; };
+		2505A6A71DB60E4300884C39 /* JCTableViewDelegateSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2505A6A51DB60E4300884C39 /* JCTableViewDelegateSection.m */; };
 		252C11001D9AA5EC00D2E8F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C10FF1D9AA5EC00D2E8F0 /* main.m */; };
 		252C11031D9AA5EC00D2E8F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11021D9AA5EC00D2E8F0 /* AppDelegate.m */; };
 		252C11061D9AA5EC00D2E8F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C11051D9AA5EC00D2E8F0 /* ViewController.m */; };
@@ -85,6 +89,14 @@
 		2505A67E1DB4696800884C39 /* JCImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCImageViewController.h; sourceTree = "<group>"; };
 		2505A67F1DB4696800884C39 /* JCImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCImageViewController.m; sourceTree = "<group>"; };
 		2505A6811DB46A5300884C39 /* waiting.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = waiting.gif; sourceTree = "<group>"; };
+		2505A69B1DB60E0D00884C39 /* JCTableViewDelegateManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTableViewDelegateManage.h; sourceTree = "<group>"; };
+		2505A69C1DB60E0D00884C39 /* JCTableViewDelegateManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTableViewDelegateManage.m; sourceTree = "<group>"; };
+		2505A69F1DB60E2E00884C39 /* JCTableViewDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTableViewDelegateBase.h; sourceTree = "<group>"; };
+		2505A6A01DB60E2E00884C39 /* JCTableViewDelegateBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTableViewDelegateBase.m; sourceTree = "<group>"; };
+		2505A6A21DB60E4300884C39 /* JCTableViewDelegateHeaderHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTableViewDelegateHeaderHeight.h; sourceTree = "<group>"; };
+		2505A6A31DB60E4300884C39 /* JCTableViewDelegateHeaderHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTableViewDelegateHeaderHeight.m; sourceTree = "<group>"; };
+		2505A6A41DB60E4300884C39 /* JCTableViewDelegateSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTableViewDelegateSection.h; sourceTree = "<group>"; };
+		2505A6A51DB60E4300884C39 /* JCTableViewDelegateSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTableViewDelegateSection.m; sourceTree = "<group>"; };
 		252C10FB1D9AA5EC00D2E8F0 /* JCKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		252C10FF1D9AA5EC00D2E8F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		252C11011D9AA5EC00D2E8F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -234,6 +246,29 @@
 				2505A67F1DB4696800884C39 /* JCImageViewController.m */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		2505A69A1DB60DF200884C39 /* TableDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2505A69E1DB60E1700884C39 /* Delegate */,
+				2505A69B1DB60E0D00884C39 /* JCTableViewDelegateManage.h */,
+				2505A69C1DB60E0D00884C39 /* JCTableViewDelegateManage.m */,
+			);
+			path = TableDelegate;
+			sourceTree = "<group>";
+		};
+		2505A69E1DB60E1700884C39 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2505A69F1DB60E2E00884C39 /* JCTableViewDelegateBase.h */,
+				2505A6A01DB60E2E00884C39 /* JCTableViewDelegateBase.m */,
+				2505A6A21DB60E4300884C39 /* JCTableViewDelegateHeaderHeight.h */,
+				2505A6A31DB60E4300884C39 /* JCTableViewDelegateHeaderHeight.m */,
+				2505A6A41DB60E4300884C39 /* JCTableViewDelegateSection.h */,
+				2505A6A51DB60E4300884C39 /* JCTableViewDelegateSection.m */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		252C10F21D9AA5EC00D2E8F0 = {
@@ -630,6 +665,7 @@
 		25A50ADC1DB1E32A00798CFD /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				2505A69A1DB60DF200884C39 /* TableDelegate */,
 				25A50ADD1DB1E32A00798CFD /* Archive */,
 				25A50AE21DB1E32A00798CFD /* Cache */,
 				25A50AE51DB1E32A00798CFD /* Keyboard */,
@@ -909,6 +945,7 @@
 			files = (
 				25A50B1D1DB1E32A00798CFD /* UIFont+JCScale.m in Sources */,
 				25A50B191DB1E32A00798CFD /* UIColor+JCColor.m in Sources */,
+				2505A69D1DB60E0D00884C39 /* JCTableViewDelegateManage.m in Sources */,
 				25A50B121DB1E32A00798CFD /* NSException+JCException.m in Sources */,
 				25A50B2B1DB1E32A00798CFD /* NSObject+JCBind.m in Sources */,
 				25C505901D9E6D3D00F3063D /* JCFontViewController.m in Sources */,
@@ -941,9 +978,11 @@
 				25A50B201DB1E32A00798CFD /* UITextField+JCTextField.m in Sources */,
 				25A50B341DB1E32A00798CFD /* UIAlertView+JCStream.m in Sources */,
 				252C116C1D9CBD4C00D2E8F0 /* JCFoundationExampleViewController.m in Sources */,
+				2505A6A11DB60E2E00884C39 /* JCTableViewDelegateBase.m in Sources */,
 				25A50B1B1DB1E32A00798CFD /* UIControl+JCControl.m in Sources */,
 				25A50B2F1DB1E32A00798CFD /* JCClassInfo.m in Sources */,
 				25A50B111DB1E32A00798CFD /* NSDictionary+JCBlock.m in Sources */,
+				2505A6A61DB60E4300884C39 /* JCTableViewDelegateHeaderHeight.m in Sources */,
 				25A50B241DB1E32A00798CFD /* JCPopupBaseView.m in Sources */,
 				25A50B211DB1E32A00798CFD /* UIView+JCView.m in Sources */,
 				25A50B331DB1E32A00798CFD /* NSObject+JCStram.m in Sources */,
@@ -962,6 +1001,7 @@
 				25A50B0E1DB1E32A00798CFD /* NSArray+JCBlock.m in Sources */,
 				25A50B271DB1E32A00798CFD /* JCEncodeModel.m in Sources */,
 				25A50B131DB1E32A00798CFD /* NSNumber+JCNumber.m in Sources */,
+				2505A6A71DB60E4300884C39 /* JCTableViewDelegateSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
