@@ -29,7 +29,11 @@
 #import "UIImagePickerController+JCStream.h"
 #endif
 
+#define kPopupScreenSize [UIScreen mainScreen].bounds.size
+
 @interface JCPopupBaseView ()
+
+@property (nonatomic, copy) void (^touchStateBlock)(JCPopupViewTouch state);
 
 @end
 
@@ -51,6 +55,25 @@
 }
 
 #pragma mark - System Methods(系统方法)
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchStateBlock) {
+        self.touchStateBlock(0);
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchStateBlock) {
+        self.touchStateBlock(1);
+    }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.touchStateBlock) {
+        self.touchStateBlock(2);
+    }
+}
+
 #pragma mark - Custom Methods(自定义方法，外部可调用)
 
 /**
@@ -72,6 +95,13 @@
  */
 - (void)delayedDisappear:(NSTimeInterval)delay {
     [self performSelector:@selector(disappear) withObject:nil afterDelay:delay];
+}
+
+/**
+ 触摸状态
+ */
+- (void)touchesState:(void (^)(JCPopupViewTouch state))block {
+    self.touchStateBlock = block;
 }
 
 #pragma mark - 底部提示框
@@ -224,6 +254,23 @@
     [alertController addAction:alertAction2];
     [alertController addAction:alertAction3];
     [AppDelegate.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+/**
+ 显示菊花视图
+ @return 返回JCPopupBaseView对象，让外面去关闭弹窗
+ */
++ (JCPopupBaseView *)showActivityIndicatorView {
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator.frame = CGRectMake(0, 0, 80, 80);//CGSizeMake(80, 80);
+    indicator.center = CGPointMake(kPopupScreenSize.width / 2, kPopupScreenSize.height / 2);
+    indicator.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.670];
+    indicator.clipsToBounds = YES;
+    indicator.layer.cornerRadius = 6;
+    [indicator startAnimating];
+    JCPopupBaseView *popupView = [[JCPopupBaseView alloc] initWithPopupView:indicator];
+    [popupView show];
+    return popupView;
 }
 
 #pragma mark - Private Methods(自定义方法，只有自己调用)

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, JCPopupViewTouch) {
+    JCPopupViewTouchBegan = 0,
+    JCPopupViewTouchMoved,
+    JCPopupViewTouchEnded,
+};
+
 @interface JCPopupBaseView : UIView
 
 @property (nonatomic, strong) UILabel *messageLabel;
@@ -32,6 +38,11 @@
  延时消失
  */
 - (void)delayedDisappear:(NSTimeInterval)delay;
+
+/**
+ 触摸状态
+ */
+- (void)touchesState:(void (^)(JCPopupViewTouch state))block;
 
 /**
  底部显示文本信息，2s消失掉
@@ -65,5 +76,11 @@
  选择照片
  */
 + (void)photoSelectPopupView:(void (^)(UIImage *image))block;
+
+/**
+ 显示菊花视图
+ @return 返回JCPopupBaseView对象，让外面去关闭弹窗
+ */
++ (JCPopupBaseView *)showActivityIndicatorView;
 
 @end
