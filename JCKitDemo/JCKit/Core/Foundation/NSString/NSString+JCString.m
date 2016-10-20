@@ -233,6 +233,13 @@
     return @"((2[0-4]\\\\d|25[0-5]|[01]?\\\\d\\\\d?)\\.){3}(2[0-4]\\\\d|25[0-5]|[01]?\\\\d\\\\d?)";
 }
 
+/**
+ HTTP链接 (例如 http://www.baidu.com )
+ */
+- (NSString *)regexpHTTPFormat {
+    return @"([hH]ttp[s]{0,1})://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\-~!@#$%^&*+?:_/=<>.\',;]*)?";
+}
+
 #pragma mark - 沙盒路径
 
 + (NSString *)pathDocument {

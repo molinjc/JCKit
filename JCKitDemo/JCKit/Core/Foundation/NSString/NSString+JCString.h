@@ -95,6 +95,11 @@
  */
 - (NSString *)regexpIpFormat;
 
+/**
+ HTTP链接 (例如 http://www.baidu.com )
+ */
+- (NSString *)regexpHTTPFormat;
+
 #pragma mark - 沙盒路径
 
 + (NSString *)pathDocument;
