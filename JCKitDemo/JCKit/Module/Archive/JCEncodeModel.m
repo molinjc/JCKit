@@ -22,7 +22,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        _propertys = [self allPropertys];
+        _propertys = [self allModelPropertys];
         
         for (NSDictionary *dic in _propertys) {
             NSString *key = dic[@"key"];
@@ -60,7 +60,7 @@
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     if (!_propertys) {
-        _propertys = [self allPropertys];
+        _propertys = [self allModelPropertys];
     }
     for (NSDictionary *dic in _propertys) {
         NSString *key = dic[@"key"];
@@ -73,7 +73,7 @@
  */
 - (void)allClear {
     if (!_propertys) {
-        _propertys = [self allPropertys];
+        _propertys = [self allModelPropertys];
     }
     for (NSDictionary *dic in _propertys) {
         NSString *key = dic[@"key"];
@@ -90,7 +90,7 @@
 /**
  *  获取属性
  */
-- (NSMutableArray *)allPropertys {
+- (NSMutableArray *)allModelPropertys {
     unsigned int count;
     NSMutableArray *propertyArray = [NSMutableArray new];
     // 获取指向该类所有属性的指针
