@@ -42,6 +42,11 @@
  */
 - (NSDictionary *)togetherIntoDictionary;
 
+/**
+ 将JSON转换成字典
+ @param name JSON文件名
+ @return 字典对象
+ */
 + (NSDictionary *)dictionaryWithJSONName:(NSString *)name;
 
 @end

@@ -30,7 +30,7 @@
     if (!model) {
         return nil;
     }
-    [model setValuesForKeysWithDictionary:dic];
+    [model setValuesForKeysWithDictionary:changeWrongfulValue(dic)];
     return model;
 }
 
@@ -48,7 +48,7 @@
         jsonData = json;
     }
     if (jsonData) {
-        dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        dic = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:nil];
         if (![dic isKindOfClass:[NSDictionary class]]) {
             dic = nil;
         }
@@ -56,8 +56,8 @@
     }
     Class className = [self class];
     NSObject *model = [className new];
-//    [model setValuesForKeysWithDictionary:dic]; // 系统的方法
-    [model changeValuesMethods:dic];
+    [model setValuesForKeysWithDictionary:changeWrongfulValue(dic)]; // 系统的方法
+//    [model changeValuesMethods:dic];
     return model;
 }
 
@@ -105,6 +105,53 @@
             }
         }
     }];
+}
+
+
+static inline NSDictionary * changeWrongfulValue(NSDictionary *dic) {
+    if (!dic) return nil;
+    
+    static NSDictionary *legalDic;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        legalDic = @{@"TRUE" :   @(YES),
+                     @"TRUE" :   @(YES),
+                     @"True" :   @(YES),
+                     @"true" :   @(YES),
+                     @"FALSE" :  @(NO),
+                     @"False" :  @(NO),
+                     @"false" :  @(NO),
+                     @"YES" :    @(YES),
+                     @"Yes" :    @(YES),
+                     @"yes" :    @(YES),
+                     @"NO" :     @(NO),
+                     @"No" :     @(NO),
+                     @"no" :     @(NO),
+                     @"NIL" :    (id)kCFNull,
+                     @"Nil" :    (id)kCFNull,
+                     @"nil" :    (id)kCFNull,
+                     @"NULL" :   (id)kCFNull,
+                     @"Null" :   (id)kCFNull,
+                     @"null" :   (id)kCFNull,
+                     @"(NULL)" : (id)kCFNull,
+                     @"(Null)" : (id)kCFNull,
+                     @"(null)" : (id)kCFNull,
+                     @"<NULL>" : (id)kCFNull,
+                     @"<Null>" : (id)kCFNull,
+                     @"<null>" : (id)kCFNull
+                     };
+    });
+    
+    NSMutableDictionary *dicM = [NSMutableDictionary new];
+    [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        id legalValue = legalDic[[NSString stringWithFormat:@"%@",obj]];
+        if (legalValue) {
+            dicM[key] = legalValue;
+        }else {
+            dicM[key] = obj;
+        }
+    }];
+    return dicM;
 }
 
 @end
