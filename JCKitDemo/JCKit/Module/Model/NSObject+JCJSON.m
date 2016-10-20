@@ -30,7 +30,7 @@
     if (!model) {
         return nil;
     }
-    [model setValuesForKeysWithDictionary:changeWrongfulValue(dic)];
+    [model setValuesForKeysWithDictionary:changeWrongfulValue(dic, [model modelAllPropertys])];
     return model;
 }
 
@@ -52,18 +52,41 @@
         if (![dic isKindOfClass:[NSDictionary class]]) {
             dic = nil;
         }
-        
     }
     Class className = [self class];
     NSObject *model = [className new];
-    [model setValuesForKeysWithDictionary:changeWrongfulValue(dic)]; // 系统的方法
-//    [model changeValuesMethods:dic];
+    [model setValuesForKeysWithDictionary:changeWrongfulValue(dic, [model modelAllPropertys])]; // 系统的方法
     return model;
 }
 
 + (NSData *)dataWithJSONName:(NSString *)name {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
     return [NSData dataWithContentsOfFile:path];
+}
+
+
+- (NSDictionary *)modelAllPropertys {
+    unsigned int count;
+    NSMutableDictionary *propertyDic = [NSMutableDictionary new];
+    objc_property_t *propertys = class_copyPropertyList([self class], &count);
+    for (int i=0; i<count; i++) {
+        objc_property_t property = propertys[i];
+        const char *name = property_getName(property);
+        NSString *key = [NSString stringWithUTF8String:name];
+        
+        objc_property_attribute_t *attributes =  property_copyAttributeList(property,  nil);
+        objc_property_attribute_t attribute_t = attributes[0];
+        char *type = (char *)attribute_t.value;
+        if (*type == '@') {
+            NSString *t = [NSString stringWithUTF8String:attribute_t.value];
+            if (!([t rangeOfString:@"NS"].location != NSNotFound)) {
+                propertyDic[key] = [t substringWithRange:NSMakeRange(2, t.length - 3)];
+            }
+        }
+        free(attributes);
+    }
+    free(propertys);
+    return propertyDic;
 }
 
 /**
@@ -90,25 +113,8 @@
     return dicM;
 }
 
-/**
- 用KVC赋值，遇到NSNull的给@""值
- *
- *  @param dictionary <#dictionary description#>
- */
-- (void)changeValuesMethods:(NSDictionary *)dictionary {
-    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, id value, BOOL * _Nonnull stop) {
-        if (value) {
-            if ([value isKindOfClass:[NSNull class]]) {
-                [self setValue:@"" forKey:key];
-            }else {
-                [self setValue:value forKey:key];
-            }
-        }
-    }];
-}
 
-
-static inline NSDictionary * changeWrongfulValue(NSDictionary *dic) {
+static inline NSDictionary * changeWrongfulValue(NSDictionary *dic ,NSDictionary *modelPropertys) {
     if (!dic) return nil;
     
     static NSDictionary *legalDic;
@@ -148,7 +154,14 @@ static inline NSDictionary * changeWrongfulValue(NSDictionary *dic) {
         if (legalValue) {
             dicM[key] = legalValue;
         }else {
-            dicM[key] = obj;
+            Class className = NSClassFromString(modelPropertys[key]);
+            if (className) {
+                NSObject *model = [className new];
+                [model setValuesForKeysWithDictionary:changeWrongfulValue(obj, [model modelAllPropertys])];
+                dicM[key] = model;
+            }else {
+                dicM[key] = obj;
+            }
         }
     }];
     return dicM;
