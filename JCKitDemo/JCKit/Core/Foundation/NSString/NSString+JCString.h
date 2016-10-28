@@ -126,6 +126,13 @@
 #pragma mark - 字符串内容判断
 
 /**
+ 是否包含某字符串
+ @param contain 被包含的字符串
+ @return NO：没包含 YES：包含
+ */
+- (BOOL)containOfString:(NSString *)contain;
+
+/**
  判断是否是为整数
  */
 - (BOOL)isPureInteger;
