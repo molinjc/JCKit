@@ -11,11 +11,28 @@
 
 #import <sys/time.h>
 
+#if DEBUG
+
 /**
  *  打印
  *  本质是NSLog()
  */
-#define JCLog(string,...) NSLog(@"🛠 行号:%d,🛠 类与方法:%s,🛠内容:%@ \n",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__]);
+#define JCLog(string,...) NSLog(@"\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__],@"\n\n");
+
+/**
+ *  断言
+ *  断言为真，则表明程序运行正常，而断言为假，则意味着它已经在代码中发现了意料之外的错误
+ *  @param condition 判定的条件
+ */
+#define JCAssert(condition) NSAssert((condition), @"\n🛠 行号:%d\n🛠 类与方法:%s\n😱😱不满足条件:%@☝️☝️ %@",__LINE__,__func__, @#condition,@"\n\n")
+
+#else
+
+#define JCLog(string,...)
+
+#define JCAssert(condition)
+
+#endif
 
 /**
  *  弱引用、强引用，成对用于block
@@ -25,12 +42,6 @@
 #define weakify(obj) autoreleasepool {} __weak typeof(obj) weak##obj = obj;
 #define strongify(obj) autoreleasepool {} __strong typeof(weak##obj) strong##obj = weak##obj;
 
-/**
- *  断言
- *  断言为真，则表明程序运行正常，而断言为假，则意味着它已经在代码中发现了意料之外的错误
- *  @param condition 判定的条件
- */
-#define JCAssert(condition) NSAssert((condition), @"🛠 行号:%d,🛠 类与方法:%s,😱😱不满足条件:%@☝️☝️ ",__LINE__,__func__, @#condition)
 
 /**
  *  三目运算符
