@@ -73,6 +73,14 @@
     return UIImagePNGRepresentation(image);
 }
 
++ (NSData *)compressedImageTo100K:(UIImage *)image {
+    return [NSData compressedImage:image limitSize:100];
+}
+
++ (NSData *)compressedImageTo500K:(UIImage *)image {
+    return [NSData compressedImage:image limitSize:500];
+}
+
 /**
  图片的Data数据判断是哪个格式图片
  */

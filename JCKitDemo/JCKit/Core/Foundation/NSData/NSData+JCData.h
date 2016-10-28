@@ -43,6 +43,8 @@
  *  @return data
  */
 + (NSData *)compressedImage:(UIImage *)image limitSize:(NSInteger)size;
++ (NSData *)compressedImageTo100K:(UIImage *)image;
++ (NSData *)compressedImageTo500K:(UIImage *)image;
 
 /**
  图片的Data数据判断是哪个格式图片
