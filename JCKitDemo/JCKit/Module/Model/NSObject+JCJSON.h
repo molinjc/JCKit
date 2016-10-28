@@ -50,3 +50,13 @@
 + (NSDictionary *)dictionaryWithJSONName:(NSString *)name;
 
 @end
+
+
+
+
+
+@interface NSArray (JCJSON)
+
+- (NSArray *)modelsWithClass:(Class)cla;
+
+@end

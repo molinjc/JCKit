@@ -169,3 +169,24 @@ static inline NSDictionary * changeWrongfulValue(NSDictionary *dic ,NSDictionary
 
 @end
 
+
+
+
+
+@implementation NSArray (JCJSON)
+
+- (NSArray *)modelsWithClass:(Class)cla {
+    NSMutableArray *models = [NSMutableArray new];
+    for (id data in self) {
+        if ([data isKindOfClass:[NSDictionary class]]) {
+            NSObject *model = [cla new];
+            [model setValuesForKeysWithDictionary:changeWrongfulValue(data, [model modelAllPropertys])];
+            [models addObject:model];
+        }else {
+            [models addObject:data];
+        }
+    }
+    return models;
+}
+
+@end
