@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSPredicate *predicate;
 @property (nonatomic, copy) void (^predicateBlock)(BOOL);
+@property (nonatomic, copy) NSString *notificationName;
 
 - (instancetype)initWithPredicate:(NSString *)predicate;
 - (void)setPredicateFormat:(NSString *)predicate;
@@ -39,9 +40,15 @@
     _predicateBlock = [block copy];
 }
 
+- (void)addNotificationName:(NSString *)notificationName {
+    _notificationName = notificationName;
+}
+
 - (void)invoke:(UITextField *)sender {
     if (_predicateBlock) {
         _predicateBlock([_predicate evaluateWithObject:sender.text]);
+    }else if (_notificationName.length) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:_notificationName object:nil userInfo:@{@"kPredicate":@([_predicate evaluateWithObject:sender.text])}];
     }
 }
 
@@ -67,6 +74,19 @@
     
     [_target setPredicateFormat:predicate];
     [_target addPredicateBlock:block];
+    [self addTarget:_target action:@selector(invoke:) forControlEvents:UIControlEventEditingChanged];
+}
+
+- (void)addPredicate:(NSString *)predicate notificationName:(NSString *)notificationName {
+    _JCTextPredicateTarget *_target = [self _actionTargets][kPredicate];
+    if (!_target) {
+        _target = [[_JCTextPredicateTarget alloc] init];
+        NSMutableDictionary *targets = [self _actionTargets];
+        targets[kPredicate] = _target;
+    }
+    [_target setPredicateFormat:predicate];
+    [_target addPredicateBlock:nil];
+    [_target addNotificationName:notificationName];
     [self addTarget:_target action:@selector(invoke:) forControlEvents:UIControlEventEditingChanged];
 }
 
