@@ -10,6 +10,9 @@
 
 @implementation UIView (JCView)
 
+/**
+ 获取View所在的控制器，响应链上的第一个Controller
+ */
 - (UIViewController *)viewController {
     UIResponder *nextResponder = self;
     do {
@@ -19,6 +22,25 @@
         }
     } while (nextResponder != nil);
     return nil;
+}
+
+/**
+ 清空所有子视图
+ */
+- (void)removeAllSubviews {
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
+/**
+ 视图快照(截图)
+ @return UIImage对象
+ */
+- (UIImage *)snapshotImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
 }
 
 @end

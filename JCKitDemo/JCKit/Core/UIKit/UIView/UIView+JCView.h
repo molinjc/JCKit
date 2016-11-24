@@ -10,6 +10,20 @@
 
 @interface UIView (JCView)
 
+/**
+ 获取View所在的控制器，响应链上的第一个Controller
+ */
 - (UIViewController *)viewController;
+
+/**
+ 清空所有子视图
+ */
+- (void)removeAllSubviews;
+
+/**
+ 视图快照(截图)
+ @return UIImage对象
+ */
+- (UIImage *)snapshotImage;
 
 @end
