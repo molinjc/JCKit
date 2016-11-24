@@ -28,4 +28,9 @@
  */
 @property (nonatomic, readonly) CGFloat alpha;
 
+/**
+ 整数的RGB值转换成颜色类
+ */
++ (UIColor *)colorWithIntRed:(int)red green:(int)green blue:(int)blue alpha:(CGFloat)alpha;
+
 @end

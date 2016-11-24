@@ -8,6 +8,7 @@
 
 #import "UIColor+JCColor.h"
 
+#define MaxRGB 255.0
 
 @implementation UIColor (JCColor)
 
@@ -99,6 +100,13 @@
         default:
             return @"ColorSpaceInvalid";
     }
+}
+
+/**
+ 整数的RGB值转换成颜色类
+ */
++ (UIColor *)colorWithIntRed:(int)red green:(int)green blue:(int)blue alpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:red/MaxRGB green:green/MaxRGB blue:blue/MaxRGB alpha:alpha];
 }
 
 @end
