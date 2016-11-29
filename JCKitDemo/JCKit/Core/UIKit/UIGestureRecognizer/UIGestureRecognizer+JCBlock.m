@@ -10,9 +10,11 @@
 #import <objc/runtime.h>
 
 @interface _JCGestureRecognizerActionTarget : NSObject
+
 @property (nonatomic, copy) void (^actionBlock)(id);
 - (instancetype)initWithBlock:(void (^)(id))block;
 - (void)invoke:(id)sender;
+
 @end
 
 @implementation _JCGestureRecognizerActionTarget
@@ -57,17 +59,12 @@
     return [[UIGestureRecognizer alloc] initWithActionBlock:block];
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
-
 - (instancetype)initWithActionBlock:(void (^)(id))block {
-    if (self = [super init]) {
+    if (self = [self init]) {
         [self addActionBlock:block];
     }
     return self;
 }
-
-#pragma clang diagnostic pop
 
 - (void)addActionBlock:(void (^)(id))block {
     _JCGestureRecognizerActionTarget *target = [[_JCGestureRecognizerActionTarget alloc] initWithBlock:block];
