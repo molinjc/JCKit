@@ -87,7 +87,7 @@
  *  @return YES 关闭成功， NO 关闭失败
  */
 - (BOOL)closeSQLite3 {
-    int rst = sqlite3_close_v2(_db);
+    int rst = sqlite3_close(_db);
     if (rst == SQLITE_OK) {
         return YES;
     }
@@ -111,7 +111,6 @@
     }
     NSRange range = [statement rangeOfString:@"select"];
     NSRange range1 = [statement rangeOfString:@"SELECT"];
-//    kTernary(range.length ? range1.length ? YES : NO : NO)
     
     char *errorChar;
     if (!kTernary(range.length, kTernary(range1.length, YES, NO), NO)) {
