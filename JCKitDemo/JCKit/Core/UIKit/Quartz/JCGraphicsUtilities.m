@@ -59,6 +59,13 @@ CGMutablePathRef CGPathCreateWithRectAndRadius(CGRect rect, CGFloat radius) {
     return pathRef;
 }
 
+/**
+ 创建多个点的路径
+ @param count 个数
+ @param point 点(CGPoint)
+ @param ... 点(CGPoint)
+ @return CGMutablePathRef
+ */
 CGMutablePathRef CGPathCreateWithPoints(int count, CGPoint point, ...) {
     CGMutablePathRef pathRef = CGPathCreateMutable();
     CGPathMoveToPoint(pathRef, &CGAffineTransformIdentity, point.x, point.y);
