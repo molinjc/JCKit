@@ -26,4 +26,12 @@
  */
 - (UIImage *)snapshotImage;
 
+/**
+ 视图快照(截图)
+ 屏幕会闪下
+ @param afterUpdates 截图后是否刷新屏幕
+ @return UIImage对象
+ */
+- (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates;
+
 @end
