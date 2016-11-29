@@ -8,7 +8,7 @@
 
 #import "JCMarqueeControl.h"
 
-@interface JCMarqueeControl ()
+@interface JCMarqueeControl ()<CAAnimationDelegate>
 
 @property (nonatomic, strong) UILabel *label;
 
