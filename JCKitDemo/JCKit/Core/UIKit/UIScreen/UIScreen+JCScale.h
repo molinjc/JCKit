@@ -22,9 +22,18 @@
 
 @interface UIScreen (JCScale)
 
+#pragma mark - 函数
+
 CGFloat JCScreenSetScale(CGSize size);
 
 CGSize JCSize(CGFloat width, CGFloat height);
+
+/**
+ 屏幕的大小
+ */
+CGSize JCScreenSize();
+
+#pragma mark -
 
 @property (nonatomic, assign, readonly) CGFloat _scale_;
 
@@ -38,5 +47,9 @@ CGSize JCSize(CGFloat width, CGFloat height);
  @param orientation 界面的当前旋转方向
  */
 - (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation;
+
+- (CGSize)sizeInPixel;
+
+- (CGFloat)pixelsPerInch;
 
 @end
