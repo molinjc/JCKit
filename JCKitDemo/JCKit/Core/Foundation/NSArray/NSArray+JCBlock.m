@@ -24,7 +24,7 @@ NSRegularExpression *regularExp = [[NSRegularExpression alloc] initWithPattern:r
         *stop = YES;\
     }\
 }];\
-NSLog(@"\n1️⃣%@\n2️⃣%@\n3️⃣%@",exception.name,exception.reason,mainCallStackSymbolMsg);\
+NSLog(@"\n1️⃣%@\n2️⃣%@\n3️⃣%@",exception.name,exception.reason,mainCallStackSymbolMsg); \
 
 #endif
 
