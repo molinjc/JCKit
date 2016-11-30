@@ -60,4 +60,20 @@
     return snap;
 }
 
+/**
+ 根据触摸点，获取子视图
+ @param touches 触摸点集合
+ @return 子视图
+ */
+- (id)getSubviewWithTouches:(NSSet<UITouch *> *)touches {
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    for (UIView *_subview in self.subviews) {
+        if (CGRectContainsPoint(_subview.frame, point)) {
+            return _subview;
+        }
+    }
+    return nil;
+}
+
 @end

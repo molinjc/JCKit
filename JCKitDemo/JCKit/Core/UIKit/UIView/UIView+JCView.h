@@ -34,4 +34,11 @@
  */
 - (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates;
 
+/**
+ 根据触摸点，获取子视图
+ @param touches 触摸点集合
+ @return 子视图
+ */
+- (id)getSubviewWithTouches:(NSSet<UITouch *> *)touches;
+
 @end
