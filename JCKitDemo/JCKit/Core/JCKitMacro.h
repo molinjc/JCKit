@@ -175,4 +175,18 @@ static inline CGPoint CGRectCenter(CGRect rect) {
     return CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
 }
 
+/**
+ 点转换成像素
+ */
+static inline CGFloat CGFloatToPixel(CGFloat value) {
+    return value * [UIScreen mainScreen].scale;
+}
+
+/**
+ 像素转换成点
+ */
+static inline CGFloat CGFloatFromPixel(CGFloat value) {
+    return value / [UIScreen mainScreen].scale;
+}
+
 #endif /* JCKitMacro_h */
