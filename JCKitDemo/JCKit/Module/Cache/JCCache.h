@@ -70,6 +70,19 @@
  */
 - (NSData *)diskDataBySearchingAllPathsForKey:(NSString *)key;
 
+#pragma mark - remove
+
+- (void)removeFromCacheForKey:(NSString *)key;
+
+- (void)removeDiskDataFromCacheForKey:(NSString *)key;
+
+#pragma mark - Size
+
+/**
+ 磁盘缓存大小
+ */
+- (NSUInteger)diskCacheSize;
+
 @end
 
 @interface JCCache (UIImage)

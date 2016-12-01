@@ -149,6 +149,42 @@ static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1周
     return nil;
 }
 
+#pragma mark - remove
+
+- (void)removeFromCacheForKey:(NSString *)key {
+    if (!key) {
+        return;
+    }
+    
+    [self.memoryCache removeObjectForKey:key];
+    [self removeDiskDataFromCacheForKey:key];
+}
+
+- (void)removeDiskDataFromCacheForKey:(NSString *)key {
+    dispatch_async(dispatch_queue_create("com.JCKit.JCCache", DISPATCH_QUEUE_SERIAL), ^{
+        NSString *path = [self cachePathForKey:key];
+        [self.fileManager removeItemAtPath:path error:nil];
+    });
+}
+
+#pragma mark - Size
+
+/**
+ 磁盘缓存大小
+ */
+- (NSUInteger)diskCacheSize {
+    __block NSUInteger size = 0;
+    dispatch_sync(dispatch_queue_create("com.JCKit.JCCache", DISPATCH_QUEUE_SERIAL), ^{
+        NSDirectoryEnumerator *fileEnumerator = [self.fileManager enumeratorAtPath:self.diskCachePath];
+        for (NSString *fileName in fileEnumerator) {
+            NSString *filePath = [self.diskCachePath stringByAppendingPathComponent:fileName];
+            NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+            size += [attrs fileSize];
+        }
+    });
+    return size;
+}
+
 #pragma mark - 路径相关操作
 
 /**
