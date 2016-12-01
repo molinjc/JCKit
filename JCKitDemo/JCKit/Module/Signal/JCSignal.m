@@ -10,6 +10,10 @@
 
 #define kKey(obj,key) [NSString stringWithFormat:@"<%@-%@>",obj,key]
 
+static const NSString *kObserve = @"observe";
+static const NSString *kKeyPath = @"keyPath";
+static const NSString *kSubscriptionNumber = @"subscriptionNumber";
+
 static  NSMutableDictionary  *_senderDictionary = nil;
 
 @implementation JCSignal
@@ -18,18 +22,13 @@ static  NSMutableDictionary  *_senderDictionary = nil;
     NSMutableDictionary * _keyPaths;
 }
 
-+ (JCSignal *)signal {
-    return [[self alloc] init];
-}
+#pragma mark - 功能实现
 
-- (instancetype)init {
-    if (self = [super init]) {
-        _subscriptionNumbers = [NSMutableDictionary new];
-    }
-    return self;
-}
-
-
+/**
+ 发送这个订阅号，subscriptionNumber:callback:的block就会启动
+ @param subscriptionNumber 订阅号
+ @param value 值
+ */
 - (void)sendSubscriptionNumber:(NSString *)subscriptionNumber withValue:(id)value {
     NSParameterAssert(subscriptionNumber);
     
@@ -45,6 +44,11 @@ static  NSMutableDictionary  *_senderDictionary = nil;
     }
 }
 
+/**
+ 订阅
+ @param subscriptionNumber 订阅好
+ @param block 回调
+ */
 - (void)subscriptionNumber:(NSString *)subscriptionNumber callback:(void (^)())block {
     NSParameterAssert(subscriptionNumber);
     if (block) {
@@ -52,11 +56,21 @@ static  NSMutableDictionary  *_senderDictionary = nil;
     }
 }
 
+/**
+ 删除订阅
+ @param subscriptionNumber 订阅号
+ */
 - (void)removeSubscriptionNumber:(NSString *)subscriptionNumber {
     NSParameterAssert(subscriptionNumber);
     [_subscriptionNumbers removeObjectForKey:subscriptionNumber];
 }
 
+/**
+ 订阅KVO
+ @param subscriptionNumber 订阅号
+ @param observe 被观察者
+ @param keyPath 被观察者的属性路径
+ */
 - (void)subscriptionNumber:(NSString *)subscriptionNumber observe:(id)observe keyPath:(NSString *)keyPath {
     NSParameterAssert(subscriptionNumber);
     NSParameterAssert(observe);
@@ -69,12 +83,17 @@ static  NSMutableDictionary  *_senderDictionary = nil;
     if (!_keyPaths) {
         _keyPaths = [NSMutableDictionary new];
     }
-    [_keyPaths setObject:@{@"observe":observe,
-                           @"keyPath":keyPath,
-                           @"subscriptionNumber":subscriptionNumber}
+    [_keyPaths setObject:@{kObserve:observe,
+                           kKeyPath:keyPath,
+                           kSubscriptionNumber:subscriptionNumber}
                   forKey:kKey(observe, keyPath)];
 }
 
+/**
+ 删除KVO
+ @param observe 被观察者
+ @param keyPath 被观察者的属性路径
+ */
 - (void)removeObserve:(id)observe keyPath:(NSString *)keyPath {
     NSParameterAssert(observe);
     NSParameterAssert(keyPath);
@@ -83,6 +102,11 @@ static  NSMutableDictionary  *_senderDictionary = nil;
     [observe removeObserver:self forKeyPath:key];
 }
 
+/**
+ 订阅通知，订阅号就是通知名
+ @param notification 订阅号，也是通知名
+ @param block 回调
+ */
 - (void)subscribeNotification:(NSString *)notification callback:(void (^)(NSNotification *))block {
     NSParameterAssert(notification);
     if (block) {
@@ -91,16 +115,39 @@ static  NSMutableDictionary  *_senderDictionary = nil;
     }
 }
 
+#pragma mark - 
+
+- (void)sendNext:(id)block {
+    NSLog(@"111111");
+}
+
+#pragma mark - 初始化
+
++ (JCSignal *)signal {
+    return [[self alloc] init];
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _subscriptionNumbers = [NSMutableDictionary new];
+    }
+    return self;
+}
+
+#pragma mark - dealloc
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_keyPaths enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDictionary *dic, BOOL * _Nonnull stop) {
-        id obj = dic[@"observe"];
-        NSString *keyPath = dic[@"keyPath"];
+        id obj = dic[kObserve];
+        NSString *keyPath = dic[kKeyPath];
         [obj removeObserver:self forKeyPath:keyPath];
     }];
     
     [_keyPaths removeAllObjects];
 }
+
+#pragma mark - 回调
 
 /**
  通知回调
@@ -128,7 +175,7 @@ static  NSMutableDictionary  *_senderDictionary = nil;
         return;
     }
     
-    NSString *subscriptionNumber = [_keyPaths objectForKey:kKey(object, keyPath)][@"subscriptionNumber"];
+    NSString *subscriptionNumber = [_keyPaths objectForKey:kKey(object, keyPath)][kSubscriptionNumber];
     void (^callback)() = [_subscriptionNumbers objectForKey:subscriptionNumber];
     if (callback) {
         callback(object,newVal,oldVal);
