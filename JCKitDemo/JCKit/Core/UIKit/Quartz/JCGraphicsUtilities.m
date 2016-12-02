@@ -10,9 +10,6 @@
 
 /**
  创建一个可变的路径
- @param rect 坐标
- @param radius 半径
- @return CGMutablePathRef
  */
 CGMutablePathRef CGPathCreateWithRectAndRadius(CGRect rect, CGFloat radius) {
     CGPoint x1, x2, x3, x4;  // 四个顶点
@@ -61,10 +58,6 @@ CGMutablePathRef CGPathCreateWithRectAndRadius(CGRect rect, CGFloat radius) {
 
 /**
  创建多个点的路径
- @param count 个数
- @param point 点(CGPoint)
- @param ... 点(CGPoint)
- @return CGMutablePathRef
  */
 CGMutablePathRef CGPathCreateWithPoints(int count, CGPoint point, ...) {
     CGMutablePathRef pathRef = CGPathCreateMutable();
@@ -83,8 +76,6 @@ CGMutablePathRef CGPathCreateWithPoints(int count, CGPoint point, ...) {
 
 /**
  画矩形
- @param rect 坐标
- @param color 颜色
  */
 void JCDrawRectangle(CGRect rect, UIColor *color) {
     CGContextRef _contextRef = UIGraphicsGetCurrentContext();
@@ -97,8 +88,6 @@ void JCDrawRectangle(CGRect rect, UIColor *color) {
 
 /**
  画虚线
- @param p1 起点
- @param p2 终点
  */
 void JCDrawDottedLine(CGPoint p1, CGPoint p2) {
     JCDrawColorDottedLine(p1, p2, [UIColor grayColor]);
@@ -106,9 +95,6 @@ void JCDrawDottedLine(CGPoint p1, CGPoint p2) {
 
 /**
  画有颜色的虚线
- @param p1 起点
- @param p2 终点
- @param color 颜色
  */
 void JCDrawColorDottedLine(CGPoint p1, CGPoint p2, UIColor *color) {
     CGContextRef _contextRef = UIGraphicsGetCurrentContext();
@@ -123,11 +109,6 @@ void JCDrawColorDottedLine(CGPoint p1, CGPoint p2, UIColor *color) {
 
 /**
  画直线
- @param p1 起点
- @param p2 终点
- @param width 线宽
- @param color 颜色
- @param cap 线结点的样式
  */
 void JCDrawLineCap(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color, CGLineCap cap) {
     CGContextRef _contextRef = UIGraphicsGetCurrentContext();
@@ -142,12 +123,26 @@ void JCDrawLineCap(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color, CGLine
 
 /**
  画直线
- @param p1 起点
- @param p2 终点
- @param width 线宽
- @param color 颜色
  */
 void JCDrawLine(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color) {
     JCDrawLineCap(p1, p2, width, color, kCGLineCapRound);
 }
+
+/**
+ 类似刮刮乐的效果
+ */
+UIImage * JCImageScratch(CALayer *layer, CGSize size, CGRect clearRect) {
+    //设置一张与imageView同大小的上下文
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    //获取到此上下文
+    CGContextRef ref = UIGraphicsGetCurrentContext();
+    //将上下文添加到layer层
+    [layer renderInContext:ref];
+    //清除上下文中需要清理的rect
+    CGContextClearRect(ref, clearRect);
+    //获取清理后的上下文，以Image形式
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    return image;
+}
+
 

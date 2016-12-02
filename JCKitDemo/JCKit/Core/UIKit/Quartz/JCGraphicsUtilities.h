@@ -51,3 +51,14 @@ void JCDrawDottedLine(CGPoint p1, CGPoint p2);
  */
 void JCDrawLineCap(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color, CGLineCap cap);
 void JCDrawLine(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color);
+
+/**
+ 类似刮刮乐的效果
+ @param layer 被刮的图层
+ @param size  设置image大小
+ @param clearRect 被刮的位置
+ @return UIImage
+ @Example:
+ UIImage *image = JCImageScratch(imageView.layer, imageView.bounds.size, CGRectMake(x, y, w, h));
+ */
+UIImage * JCImageScratch(CALayer *layer, CGSize size, CGRect clearRect);
