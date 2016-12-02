@@ -12,6 +12,11 @@
 @interface JCCache : NSObject
 
 /**
+ 缓存机制名
+ */
+@property (copy, readonly) NSString *name;
+
+/**
  最大的内存成本
  */
 @property (nonatomic, assign) NSUInteger maxMemoryCost;

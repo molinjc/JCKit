@@ -62,8 +62,13 @@ static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1周
 }
 
 - (instancetype)init {
+    return [self initWithNamespace:@"Default"];
+}
+
+- (instancetype)initWithNamespace:(NSString *)namespace {
     if (self = [super init]) {
-        NSString *fullNamespace =  @"com.JCKit.JCCache.Default";
+        _name = namespace;
+        NSString *fullNamespace =  [NSString stringWithFormat:@"com.JCKit.JCCache.%@",namespace];
         _memoryCache = [[_JCMemoryCache alloc] init];
         _memoryCache.name = fullNamespace;
         _fileManager = [[NSFileManager alloc] init];
