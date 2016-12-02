@@ -289,6 +289,36 @@
 #pragma mark - 字符串内容判断
 
 /**
+ 判断字符串是否为空,为空的话返回 @""
+ */
++ (NSString *)isNotNull:(id)string {
+    if ([self isBlankString:string]){
+        string = @"";
+    }
+    return string;
+}
+
+/**
+ 判断字符串是否为空字符的方法
+ */
++ (BOOL)isBlankString:(id)string {
+    NSString * str = (NSString*)string;
+    if ([str isEqualToString:@"(null)"]) {
+        return YES;
+    }
+    if (str == nil || str == NULL) {
+        return YES;
+    }
+    if ([str isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    if ([[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
+        return YES;
+    }
+    return NO;
+}
+
+/**
  是否包含某字符串
  @param contain 被包含的字符串
  @return NO：没包含 YES：包含
@@ -373,7 +403,7 @@
     return reverseString;
 }
 
-#pragma mark - 拼音
+#pragma mark - 转换
 
 /**
  汉字转换成拼音
@@ -402,6 +432,67 @@
         return nil;
     }
     return [NSString stringFormatter:NSNumberFormatterSpellOutStyle number:[NSNumber numberWithInteger:[self integerValue]]];
+}
+
+/**
+ 驼峰转下划线（loveYou -> love_you）
+ */
+- (NSString *)underlineFromCamel {
+    if (self.length == 0) return self;
+    NSMutableString *string = [NSMutableString string];
+    for (NSUInteger i = 0; i<self.length; i++) {
+        unichar c = [self characterAtIndex:i];
+        NSString *cString = [NSString stringWithFormat:@"%c", c];
+        NSString *cStringLower = [cString lowercaseString];
+        if ([cString isEqualToString:cStringLower]) {
+            [string appendString:cStringLower];
+        } else {
+            [string appendString:@"_"];
+            [string appendString:cStringLower];
+        }
+    }
+    return string;
+}
+
+/**
+ 下划线转驼峰（love_you -> loveYou）
+ */
+- (NSString *)camelFromUnderline {
+    if (self.length == 0) return self;
+    NSMutableString *string = [NSMutableString string];
+    NSArray *cmps = [self componentsSeparatedByString:@"_"];
+    for (NSUInteger i = 0; i<cmps.count; i++) {
+        NSString *cmp = cmps[i];
+        if (i && cmp.length) {
+            [string appendString:[NSString stringWithFormat:@"%c", [cmp characterAtIndex:0]].uppercaseString];
+            if (cmp.length >= 2) [string appendString:[cmp substringFromIndex:1]];
+        } else {
+            [string appendString:cmp];
+        }
+    }
+    return string;
+}
+
+/**
+ 首字母变大写
+ */
+- (NSString *)firstCharUpper {
+    if (self.length == 0) return self;
+    NSMutableString *string = [NSMutableString string];
+    [string appendString:[NSString stringWithFormat:@"%c", [self characterAtIndex:0]].uppercaseString];
+    if (self.length >= 2) [string appendString:[self substringFromIndex:1]];
+    return string;
+}
+
+/**
+ 首字母变小写
+ */
+- (NSString *)firstCharLower {
+    if (self.length == 0) return self;
+    NSMutableString *string = [NSMutableString string];
+    [string appendString:[NSString stringWithFormat:@"%c", [self characterAtIndex:0]].lowercaseString];
+    if (self.length >= 2) [string appendString:[self substringFromIndex:1]];
+    return string;
 }
 
 #pragma mark - 格式化

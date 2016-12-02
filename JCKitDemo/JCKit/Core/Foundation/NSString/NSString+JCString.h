@@ -126,6 +126,16 @@
 #pragma mark - 字符串内容判断
 
 /**
+ 判断字符串是否为空,为空的话返回 @""
+ */
++ (NSString *)isNotNull:(NSString *)string;
+
+/**
+ 判断字符串是否为空字符的方法
+ */
++ (BOOL)isBlankString:(NSString *)string;
+
+/**
  是否包含某字符串
  @param contain 被包含的字符串
  @return NO：没包含 YES：包含
@@ -167,7 +177,7 @@
  */
 - (NSString *)reverseString;
 
-#pragma mark - 拼音
+#pragma mark - 转换
 
 /**
  汉字转换成拼音
@@ -178,6 +188,21 @@
  阿拉伯数字转中文格式
  */
 - (NSString *)translation;
+
+/**
+ 驼峰转下划线（loveYou -> love_you）
+ */
+- (NSString *)underlineFromCamel;
+
+/**
+ 首字母变大写
+ */
+- (NSString *)firstCharUpper;
+
+/**
+ 首字母变小写
+ */
+- (NSString *)firstCharLower;
 
 #pragma mark - 格式化
 
