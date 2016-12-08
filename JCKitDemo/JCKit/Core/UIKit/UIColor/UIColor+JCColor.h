@@ -33,4 +33,9 @@
  */
 + (UIColor *)colorWithIntRed:(int)red green:(int)green blue:(int)blue alpha:(CGFloat)alpha;
 
+/**
+ 将颜色转换成16进制的字符串
+ */
+- (NSString *)stringForRGB16;
+
 @end

@@ -109,4 +109,15 @@
     return [UIColor colorWithRed:red/MaxRGB green:green/MaxRGB blue:blue/MaxRGB alpha:alpha];
 }
 
+/**
+ 将颜色转换成16进制的字符串
+ */
+- (NSString *)stringForRGB16 {
+    int r = (int)(self.RGB_red * 255);
+    int g = (int)(self.RGB_green * 255);
+    int b = (int)(self.RGB_blue * 255);
+    NSString *webColor = [NSString stringWithFormat:@"#%02X%02X%02X", r, g, b];
+    return webColor;
+}
+
 @end
