@@ -41,4 +41,9 @@
  */
 - (id)getSubviewWithTouches:(NSSet<UITouch *> *)touches;
 
+/**
+ 添加多个子控件
+ */
+- (void)addSubviews:(NSArray <UIView *> *)views;
+
 @end

@@ -76,4 +76,13 @@
     return nil;
 }
 
+/**
+ 添加多个子控件
+ */
+- (void)addSubviews:(NSArray <UIView *> *)views {
+    [views enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self addSubview:subview];
+    }];
+}
+
 @end
