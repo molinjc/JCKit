@@ -189,4 +189,46 @@ static inline CGFloat CGFloatFromPixel(CGFloat value) {
     return value / [UIScreen mainScreen].scale;
 }
 
+
+/**
+ 给定一个数据，转换成NSValue/NSNumber
+ @param value 数据类型
+ @return NSValue/NSNumber
+ */
+#define JCBoxValue(value) _JCBoxValue(@encode(__typeof__((value))), (value))
+static inline id _JCBoxValue(const char *type, ...) {
+    va_list v;
+    va_start(v, type);
+    id obj = nil;
+    if (strcmp(type, @encode(id)) == 0) {
+        id actual = va_arg(v, id);
+        obj = actual;
+    } else if (strcmp(type, @encode(CGPoint)) == 0) {
+        CGPoint actual = (CGPoint)va_arg(v, CGPoint);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(CGSize)) == 0) {
+        CGSize actual = (CGSize)va_arg(v, CGSize);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(UIEdgeInsets)) == 0) {
+        UIEdgeInsets actual = (UIEdgeInsets)va_arg(v, UIEdgeInsets);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(double)) == 0) {
+        double actual = (double)va_arg(v, double);
+        obj = [NSNumber numberWithDouble:actual];
+    } else if (strcmp(type, @encode(float)) == 0) {
+        float actual = (float)va_arg(v, double);
+        obj = [NSNumber numberWithFloat:actual];
+    } else if (strcmp(type, @encode(int)) == 0) {
+        int actual = (int)va_arg(v, int);
+        obj = [NSNumber numberWithInt:actual];
+    } else if (strcmp(type, @encode(long)) == 0) {
+        long actual = (long)va_arg(v, long);
+        obj = [NSNumber numberWithLong:actual];
+    } else if (strcmp(type, @encode(long long)) == 0) {
+        long long actual = (long long)va_arg(v, long long);
+        obj = [NSNumber numberWithLongLong:actual];
+    }
+    return obj;
+}
+
 #endif /* JCKitMacro_h */
