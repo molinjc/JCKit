@@ -57,6 +57,11 @@
  */
 + (UIImage *)imageWithView:(UIView *)view;
 
+/**
+ 截取image里的rect区域内的图片
+ */
+- (UIImage *)subimageInRect:(CGRect)rect;
+
 #pragma mark - 方向
 
 /**
@@ -92,7 +97,7 @@
 
 @end
 
-#pragma mark - 
+#pragma mark - GIF
 
 @interface UIImage (JCGIF)
 

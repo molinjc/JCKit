@@ -121,6 +121,16 @@
     return image;
 }
 
+/**
+ 截取image里的rect区域内的图片
+ */
+- (UIImage *)subimageInRect:(CGRect)rect {
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    UIImage *image = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return image;
+}
+
 #pragma mark - 方向
 
 /**
@@ -202,6 +212,8 @@
 }
 
 @end
+
+#pragma mark - GIF
 
 @implementation UIImage (JCGIF)
 
