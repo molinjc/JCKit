@@ -898,4 +898,11 @@ static const void *kLayoutConstraints = &kLayoutConstraints;
     objc_setAssociatedObject(self, kLayoutConstraints, layoutConstraints, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+#pragma mark - 
+
+- (void)updateLayout {
+    NSParameterAssert(self.superview);
+    [self.superview layoutSubviews];
+}
+
 @end

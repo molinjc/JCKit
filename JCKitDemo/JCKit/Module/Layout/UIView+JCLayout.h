@@ -150,4 +150,8 @@
 // 参照同层级view的bottom，在同层级view的底边（bottom），也就是同层级view在self的顶边（top），self.top = 同层级view.bottom * multiplier + constant
 @property (nonatomic, weak, readonly) UIView *(^layoutAtSameLayerBottomWithMultiplier)(UIView *sameLayerView, CGFloat multiplier, CGFloat constant);
 
+#pragma mark - 
+
+- (void)updateLayout;
+
 @end
