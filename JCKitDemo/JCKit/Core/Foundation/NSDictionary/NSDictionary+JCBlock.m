@@ -102,6 +102,184 @@ NSLog(@"\n1️⃣%@\n2️⃣%@\n3️⃣%@",exception.name,exception.reason,mainC
     }
 }
 
+#pragma mark - getObject
+
+#define kNSDictionarySimplifyJudgeCode(v) \
+id value = [self objectForKey:key];\
+if (!value || value == [NSNull null]) { \
+return v; \
+}
+
+- (NSInteger)integerForKey:(id)key {
+    NSNumber *number = [self numberForKey:key];
+    if (!number) {
+        return 0;
+    }
+    return [number integerValue];
+}
+
+- (int)intForKey:(id)key {
+    NSNumber *number = [self numberForKey:key];
+    if (!number) {
+        return 0;
+    }
+    return [number intValue];
+}
+
+- (float)floatForKey:(id)key {
+    NSNumber *number = [self numberForKey:key];
+    if (!number) {
+        return NO;
+    }
+    return [number boolValue];
+}
+
+- (double)doubleForKey:(id)key {
+    NSNumber *number = [self numberForKey:key];
+    if (!number) {
+        return 0;
+    }
+    return [number doubleValue];
+}
+
+- (BOOL)boolForKey:(id)key {
+    NSNumber *number = [self numberForKey:key];
+    if (!number) {
+        return 0;
+    }
+    return [number floatValue];
+}
+
+- (char)charForKey:(id)key {
+    NSNumber *number = [self numberForKey:key];
+    if (!number) {
+        return 0;
+    }
+    return [number charValue];
+}
+
+- (CGFloat)CGFloatForKey:(id)key {
+    CGFloat f = [self[key] doubleValue];
+    return f;
+}
+
+- (CGSize)CGSizeForKey:(id)key {
+    CGSize size = CGSizeFromString(self[key]);
+    return size;
+}
+
+- (CGPoint)CGPointForKey:(id)key {
+    CGPoint point = CGPointFromString(self[key]);
+    return point;
+}
+
+- (CGRect)CGRectForKey:(id)key {
+    CGRect rect = CGRectFromString(self[key]);
+    return rect;
+}
+
+- (NSString *)stringForKey:(id)key {
+    kNSDictionarySimplifyJudgeCode(nil)
+    
+    if ([value isKindOfClass:[NSString class]]) {
+        return value;
+    }
+    
+    if ([value isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber *)value stringValue];
+    }
+    return nil;
+}
+
+- (NSNumber *)numberForKey:(id)key {
+    kNSDictionarySimplifyJudgeCode(nil)
+    
+    if ([value isKindOfClass:[NSString class]]) {
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterNoStyle];
+        return [f numberFromString:(NSString*)value];
+    }
+    
+    if ([value isKindOfClass:[NSNumber class]]) {
+        return (NSNumber*)value;
+    }
+    return nil;
+}
+
+- (NSValue *)valueForKey:(id)key {
+    kNSDictionarySimplifyJudgeCode(nil)
+    
+    if ([value isKindOfClass:[NSValue class]]) {
+        return (NSValue *)value;
+    }
+    return nil;
+}
+
+- (NSArray *)arrayForKey:(id)key {
+    kNSDictionarySimplifyJudgeCode(nil)
+    
+    if ([value isKindOfClass:[NSArray class]]) {
+        return (NSArray *)value;
+    }
+    
+    if ([value isKindOfClass:[NSMutableArray class]]) {
+        return (NSMutableArray *)value;
+    }
+    return nil;
+}
+
+- (NSMutableArray *)mutableArrayForKey:(id)key {
+    kNSDictionarySimplifyJudgeCode(nil)
+    
+    if ([value isKindOfClass:[NSArray class]]) {
+        return (NSMutableArray *)value;
+    }
+    
+    if ([value isKindOfClass:[NSMutableArray class]]) {
+        return (NSMutableArray *)value;
+    }
+    return nil;
+}
+
+- (NSDictionary *)dictionaryForKey:(id)key {
+    kNSDictionarySimplifyJudgeCode(nil)
+    
+    if ([value isKindOfClass:[NSDictionary class]]) {
+        return (NSDictionary *)value;
+    }
+    
+    if ([value isKindOfClass:[NSMutableArray class]]) {
+        return value;
+    }
+    return nil;
+}
+
+- (NSMutableDictionary *)mutableDictionaryForKey:(id)key {
+    kNSDictionarySimplifyJudgeCode(nil)
+    
+    if ([value isKindOfClass:[NSDictionary class]]) {
+        return (NSMutableDictionary *)value;
+    }
+    
+    if ([value isKindOfClass:[NSMutableArray class]]) {
+        return value;
+    }
+    return nil;
+}
+
+/**
+ 两个字典合并
+ */
+- (NSDictionary *)merging:(NSDictionary *)dic {
+    NSMutableDictionary * result = [NSMutableDictionary dictionaryWithDictionary:dic];
+    [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if (![dic objectForKey:key]) {
+            [result setObject:obj forKey:key];
+        }
+    }];
+    return result;
+}
+
 @end
 
 @implementation NSMutableDictionary (JCBlock)
