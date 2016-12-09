@@ -112,6 +112,13 @@
 #endif
 
 /**
+ 获取变量的名字
+ @param variable 变量
+ @return 变量名（字符串）
+ */
+#define JCGetVariableName(variable) [NSString stringWithFormat:@"%@",@"" # variable]
+
+/**
  获取编译的时间
  */
 static inline NSDate *JCCompileTime() {
@@ -188,7 +195,6 @@ static inline CGFloat CGFloatToPixel(CGFloat value) {
 static inline CGFloat CGFloatFromPixel(CGFloat value) {
     return value / [UIScreen mainScreen].scale;
 }
-
 
 /**
  给定一个数据，转换成NSValue/NSNumber
