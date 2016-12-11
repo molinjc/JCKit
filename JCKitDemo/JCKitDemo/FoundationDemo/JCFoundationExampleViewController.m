@@ -14,24 +14,35 @@
 
 @implementation JCFoundationExampleViewController
 
+#pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self addCell:@"JSON" class:@"JCJSONViewController"];
+    [self addCell:@"NSUserDefaults" class:@"JCNSUserDefaultsViewController"];
+    [self addCell:@"NSCache" class:@"JCNSCacheViewController"];
+    
+    
+//    Class class = NSClassFromString(@"JCJSONViewController"); // 根据给定的类名创建一个类
+//    if (class) {
+//        UIViewController *ctrl = class.new;  // 也可以用[class new],把类给UIViewController
+//        ctrl.title = @"JSON";
+//        [self.navigationController pushViewController:ctrl animated:YES];
+//    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - Custom Methods(自定义方法，外部可调用)
+#pragma mark - Private Methods(自定义方法，只有自己调用)
+#pragma mark - Custom Delegate(自定义的代理)
+#pragma mark - System Delegate(系统类的代理)
+#pragma mark - Setter/Getter(懒加载)
 
 @end

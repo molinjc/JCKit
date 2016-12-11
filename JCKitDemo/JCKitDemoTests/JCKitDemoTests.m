@@ -39,6 +39,9 @@
     
     self.text = @"123456789.78";
   
+    
+//    NSString *str = @"{\n\"name\": \"Harry Potter\",\n\"age\": 512,\n\"sex\": \"<null>\",\n\"f\": \"YES\",\n\"ppp\": {\n\"name\": \"Harry Potter PPP\",\n\"age\": 513,\n\"sex\": \"nil\",\n\"f\": \"true\"\n}\n}";
+//    self.person = [JCPerson modelWithJSON:str];
 }
 
 - (void)tearDown {
@@ -55,10 +58,18 @@
 }
 
 - (void)testPreson {
+
+    
     
     NSDictionary *dic = [self.person togetherIntoDictionary];
     NSLog(@"dic:%@",dic);
     
+    NSLog(@"%@",[self.person.ppp class]);
+    
+    NSLog(@"\n name:%@\nsex:%@\nage:%zd\nf:%d",self.person.ppp.name,self.person.ppp.sex,self.person.ppp.age,self.person.ppp.f);
+    if (!self.person.sex.length) {
+        NSLog(@"++++++++++++");
+    }
    
     
 //    NSString *ss = [NSString numberFormatter:NSNumberFormatterCurrencyAccountingStyle number:[NSNumber numberWithInteger:123456]];

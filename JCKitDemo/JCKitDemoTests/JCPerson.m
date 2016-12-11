@@ -8,6 +8,7 @@
 
 #import "JCPerson.h"
 #include <objc/runtime.h>
+#import "NSObject+JCJSON.h"
 
 @implementation JCPerson
 
@@ -102,5 +103,15 @@
 - (void)work {
     NSLog(@"工作");
 }
+
+- (NSDictionary *)modelPropertyGenericClass {
+    return @{@"ppp":[JCPerson class]};
+}
+//
+//- (void)setPpp:(JCPerson *)ppp {
+//    if ([ppp isKindOfClass:[NSDictionary class]]) {
+//        _ppp = [JCPerson modelWithJSON:ppp];
+//    }
+//}
 
 @end

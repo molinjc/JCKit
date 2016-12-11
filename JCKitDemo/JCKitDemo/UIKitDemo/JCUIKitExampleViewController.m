@@ -7,6 +7,9 @@
 //
 
 #import "JCUIKitExampleViewController.h"
+#import "JCWebViewController.h"
+
+#import "UIColor+JCColor.h"
 
 @interface JCUIKitExampleViewController ()<UITableViewDelegate,
                                            UITableViewDataSource>
@@ -27,15 +30,36 @@
     self.classNames = @[].mutableCopy;
     [self addCell:@"UIDevice Example" class:@"JCUIDeviceExampleViewController"];
     [self addCell:@"UIFont" class:@"JCFontViewController"];
+    [self addCell:@"UIImage" class:@"JCImageViewController"];
+    [self addCell:@"Recognizer" class:@"JCRecognizerViewController"];
+    [self addCell:@"UITextField" class:@"JCTextFieldViewController"];
+    [self addCell:@"JCWebViewController" class:@"JCWebViewController"];
+    [self addCell:@"MVP的V与P之间的通信" class:@"JCMVPViewController"];
+    [self addCell:@"UIPasteboard" class:@"JCUIPasteboardViewController"];
+    [self addCell:@"动画" class:@"JCAnimationViewController"];
     [self.view addSubview:self.tableView];
+    
+    NSString *j = @"12";
+    int i = strcmp(@encode(__typeof__((j))), @encode(NSString));
+    NSLog(@"====:%d;",i);
+    
+    
+    UIColor *color = [UIColor redColor];
+    NSLog(@"====:%@",[color stringForRGB16]);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear:%@",self.navigationController.viewControllers);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"viewDidDisappear:%@",self.navigationController.viewControllers);
 }
 
 #pragma mark - Custom Methods(自定义方法，外部可调用)
@@ -68,9 +92,16 @@
     NSString *className = self.classNames[indexPath.row];
     Class class = NSClassFromString(className); // 根据给定的类名创建一个类
     if (class) {
-        UIViewController *ctrl = class.new;  // 也可以用[class new],把类给UIViewController
-        ctrl.title = _titles[indexPath.row];
-        [self.navigationController pushViewController:ctrl animated:YES];
+        
+        if ([className isEqualToString:@"JCWebViewController"]) {
+            JCWebViewController *ctrl = [[JCWebViewController alloc] initWithURLString:@"http://www.baidu.com"];
+            ctrl.title = _titles[indexPath.row];
+            [self.navigationController pushViewController:ctrl animated:YES];
+        }else {
+            UIViewController *ctrl = class.new;  // 也可以用[class new],把类给UIViewController
+            ctrl.title = _titles[indexPath.row];
+            [self.navigationController pushViewController:ctrl animated:YES];
+        }
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

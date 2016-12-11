@@ -6,8 +6,8 @@
 //  Copyright © 2016年 molin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JCBaseViewController.h"
 
-@interface JCFoundationExampleViewController : UIViewController
+@interface JCFoundationExampleViewController : JCBaseViewController
 
 @end

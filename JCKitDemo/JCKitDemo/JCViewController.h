@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JCBaseViewController.h"
-@interface ViewController : JCBaseViewController
+
+@interface JCViewController : UIViewController
 
 
 @end

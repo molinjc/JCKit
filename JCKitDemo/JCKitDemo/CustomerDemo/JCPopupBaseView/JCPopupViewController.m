@@ -31,6 +31,8 @@
     [self addCell:@"测试showPopupView" sel:@"test_showPopupView"];
     [self addCell:@"popupWithTitle:message:" sel:@"test_popupWithTitle_message"];
     [self addCell:@"popupWithTitle:message:actionTitle1:actionTitle2:" sel:@"test_popupWithTitle_message_2"];
+    [self addCell:@"showActivityIndicatorView" sel:@"test_showActivityIndicatorView"];
+    [self addCell:@"networkActivityIndicatorVisible" sel:@"test_networkActivityIndicatorVisible"];
     [self.view addSubview:self.tableView];
 }
 
@@ -60,6 +62,22 @@
 
 - (void)test_popupWithTitle_message_2 {
     [JCPopupBaseView popupWithTitle:@"提示" message:@"提示详情" actionTitle1:@"确定" actionTitle2:@"取消"];
+}
+
+- (void)test_showActivityIndicatorView {
+    JCPopupBaseView *popupView = [JCPopupBaseView showActivityIndicatorView];
+    
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC, 0.00001 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        [popupView disappear];
+        NSLog(@"dispatch_source_set_event_handler");
+    });
+    dispatch_resume(timer);
+}
+
+- (void)test_networkActivityIndicatorVisible {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;  // 开启菊花转
 }
 
 #pragma mark - Custom Delegate(自定义的代理)

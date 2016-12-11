@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "JCViewController.h"
+
+#import "JCGraphicsUtilities.h"
 
 @interface AppDelegate ()
 
@@ -17,12 +19,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    ViewController *vc = [[ViewController alloc] init];
+    JCViewController *vc = [[JCViewController alloc] init];
     UINavigationController *rootNavigationC = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = rootNavigationC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+//    CGPathCreateWithPoints(3,CGPointMake(0, 10),CGPointMake(0, 0),CGPointMake(20, 30));
+    
     return YES;
 }
 
