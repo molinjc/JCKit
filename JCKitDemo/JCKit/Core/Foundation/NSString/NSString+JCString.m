@@ -254,7 +254,7 @@
     return NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES).firstObject;
 }
 
-#pragma mark - 
+#pragma mark - UUID
 
 + (NSString *)stringWithUUID {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
