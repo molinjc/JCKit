@@ -26,6 +26,8 @@ JCAttributeType JCGetObjectAttributeType(const char *attribute);
 
 - (id)jc_performSelector:(SEL)sel;
 
+- (NSArray *)allPropertys;
+
 /**
  获取该类下的所有子类
  */
