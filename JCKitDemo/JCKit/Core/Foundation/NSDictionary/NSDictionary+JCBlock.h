@@ -50,8 +50,6 @@
 
 - (NSNumber *)numberForKey:(id)key;
 
-- (NSValue *)valueForKey:(id)key;
-
 - (NSArray *)arrayForKey:(id)key;
 
 - (NSMutableArray *)mutableArrayForKey:(id)key;

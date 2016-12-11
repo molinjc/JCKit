@@ -102,8 +102,8 @@ NSLog(@"\n1️⃣%@\n2️⃣%@\n3️⃣%@",exception.name,exception.reason,mainC
     }
 }
 
-#pragma mark - getObject
-
+//#pragma mark - getObject
+//
 #define kNSDictionarySimplifyJudgeCode(v) \
 id value = [self objectForKey:key];\
 if (!value || value == [NSNull null]) { \
@@ -202,15 +202,6 @@ return v; \
     
     if ([value isKindOfClass:[NSNumber class]]) {
         return (NSNumber*)value;
-    }
-    return nil;
-}
-
-- (NSValue *)valueForKey:(id)key {
-    kNSDictionarySimplifyJudgeCode(nil)
-    
-    if ([value isKindOfClass:[NSValue class]]) {
-        return (NSValue *)value;
     }
     return nil;
 }
