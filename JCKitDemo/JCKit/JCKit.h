@@ -52,6 +52,7 @@
 #import "JCTextView.h"
 #import "JCTableViewCell.h"
 #import "JCUIKitFactory.h"
+#import "JCCodedLockView.h"
 
 #import "JCSignal.h"
 #import "JCSystemManager.h"
