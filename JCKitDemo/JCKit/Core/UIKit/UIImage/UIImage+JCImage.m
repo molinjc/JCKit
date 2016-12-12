@@ -108,6 +108,13 @@
     return CGImageGetHeight(self.CGImage) * CGImageGetBytesPerRow(self.CGImage);
 }
 
+/**
+ 从中心向外拉伸
+ */
+- (UIImage *)centerOutwardStretching {
+    return [self stretchableImageWithLeftCapWidth:self.size.width * 0.5 topCapHeight:self.size.height * 0.5];
+}
+
 #pragma mark - 截图
 
 /**

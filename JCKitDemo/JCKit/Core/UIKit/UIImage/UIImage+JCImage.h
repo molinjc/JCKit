@@ -50,6 +50,11 @@
  */
 - (NSUInteger)memorySize;
 
+/**
+ 从中心向外拉伸
+ */
+- (UIImage *)centerOutwardStretching;
+
 #pragma mark - 截图
 
 /**
