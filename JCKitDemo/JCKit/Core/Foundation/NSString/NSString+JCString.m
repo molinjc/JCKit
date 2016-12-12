@@ -207,6 +207,27 @@
     return [self stringByTrimmingCharactersInSet:set];
 }
 
+/**
+ 替换掉某个字符串
+ */
+- (NSString *)stringReplacement:(NSString *)replacement target:(NSString *)target , ... {
+    if (!replacement) {
+        return nil;
+    }
+    if (!target) {
+        return nil;
+    }
+    NSString *complete = [self stringByReplacingOccurrencesOfString:target withString:replacement];
+    va_list arglist;
+    va_start(arglist, target);
+    NSString *nextTarget;
+    while ((nextTarget = va_arg(arglist, NSString *))) {
+        complete = [complete stringByReplacingOccurrencesOfString:nextTarget withString:replacement];
+    }
+    va_end(arglist);
+    return complete;
+}
+
 #pragma mark - 正则表达式
 
 /**

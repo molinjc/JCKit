@@ -76,6 +76,14 @@
  */
 - (NSString *)stringByTrimSpace;
 
+/**
+ 替换掉某个字符串, 记得要在target之后加nil
+ @param replacement 要替换成的字符串
+ @param target 要被替换的字符串
+ @return 新的字符串
+ */
+- (NSString *)stringReplacement:(NSString *)replacement target:(NSString *)target , ... ;
+
 #pragma mark - 正则表达式
 
 /**
