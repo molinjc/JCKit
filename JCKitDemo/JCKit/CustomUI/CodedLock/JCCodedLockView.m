@@ -183,12 +183,7 @@ int const columnCount = 3;
 
 #pragma mark 连线
 
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     
     if (self.selectedBtns.count == 0) {
         
@@ -220,7 +215,6 @@ int const columnCount = 3;
     [path addLineToPoint:self.currentPoint];
     
     [path stroke];
-
 }
 
 
