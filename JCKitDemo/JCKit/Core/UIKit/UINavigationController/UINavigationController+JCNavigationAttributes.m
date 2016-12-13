@@ -102,4 +102,55 @@
     };
 }
 
+/**
+ 动画跳转到下一个viewController
+ */
+- (void)pushViewController:(UIViewController *)viewController transition:(UIViewAnimationTransition)transition {
+    [UIView beginAnimations:nil context:NULL];
+    [self pushViewController:viewController animated:NO];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationTransition:transition forView:self.view cache:YES];
+    [UIView commitAnimations];
+}
+
+/**
+ 动画跳转到上一个viewController
+ */
+- (UIViewController *)popViewControllerTransition:(UIViewAnimationTransition)transition {
+    [UIView beginAnimations:nil context:NULL];
+    UIViewController *controller = [self popViewControllerAnimated:NO];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationTransition:transition forView:self.view cache:YES];
+    [UIView commitAnimations];
+    return controller;
+}
+
+/**
+ 回到上层
+ */
+- (NSArray<UIViewController *> *)popToViewControllerWithLevel:(NSInteger)level
+                                                     animated:(BOOL)animated {
+    NSInteger count = self.viewControllers.count;
+    if (count > level) {
+        NSInteger index = count - level - 1;
+        UIViewController *viewController = self.viewControllers[index];
+        return [self popToViewController:viewController animated:animated];
+    }
+    return [self popToRootViewControllerAnimated:animated];
+}
+
+/**
+ 回到指定类名的上层
+ */
+- (NSArray<UIViewController *> *)popToViewControllerWithClassName:(NSString *)className animated:(BOOL)animated {
+    for (UIViewController *viewController in self.viewControllers) {
+        if ([viewController isKindOfClass:NSClassFromString(className)]) {
+            return [self popToViewController:viewController animated:animated];
+        }
+    }
+    return self.viewControllers;
+}
+
 @end

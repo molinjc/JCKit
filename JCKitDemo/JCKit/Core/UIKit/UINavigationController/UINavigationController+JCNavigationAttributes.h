@@ -50,4 +50,31 @@
  */
 @property (nonatomic, weak, readonly) UINavigationController *(^navigationBarHidden)(BOOL hidden, BOOL animated);
 
+/**
+ 动画跳转到下一个viewController
+ */
+- (void)pushViewController:(UIViewController *)viewController transition:(UIViewAnimationTransition)transition;
+
+/**
+ 动画跳转到上一个viewController
+ */
+- (UIViewController *)popViewControllerTransition:(UIViewAnimationTransition)transition;
+
+/**
+ 回到上层
+ @param level 第几层
+ @param animated 动画
+ @return 数组（UIViewController）
+ */
+- (NSArray<UIViewController *> *)popToViewControllerWithLevel:(NSInteger)level
+                                                     animated:(BOOL)animated;
+
+/**
+ 回到指定类名的上层
+ @param className 类名
+ @param animated 动画
+ @return 数组（UIViewController）
+ */
+- (NSArray<UIViewController *> *)popToViewControllerWithClassName:(NSString *)className animated:(BOOL)animated;
+
 @end
