@@ -9,7 +9,8 @@
 #import "NSMutableAttributedString+JCAttributedString.h"
 #import "NSString+JCString.h"
 
-static NSString *kNSFont = @"NSFont";
+static NSString *kNSFont           = @"NSFont";
+static NSString *kNSParagraphStyle = @"NSParagraphStyle";
 
 @implementation NSMutableAttributedString (JCAttributedString)
 
@@ -89,7 +90,11 @@ static NSString *kNSFont = @"NSFont";
     [self enumerateAttributesInRange:NSMakeRange(0, self.string.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
         NSString *text = [self.string substringWithRange:range];
         UIFont *font = attrs[kNSFont];
+        NSParagraphStyle *paragraphStyle = attrs[kNSParagraphStyle];
         CGSize textSize = [text sizeForFont:font size:size mode:lineBreakMode];
+        if (paragraphStyle) {
+            height += paragraphStyle.paragraphSpacing + paragraphStyle.paragraphSpacingBefore * 1.5 + paragraphStyle.lineSpacing;
+        }
         width += textSize.width;
         height += textSize.height;
     }];
