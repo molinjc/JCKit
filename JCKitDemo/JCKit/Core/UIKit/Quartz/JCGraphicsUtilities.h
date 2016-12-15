@@ -26,6 +26,26 @@ CGMutablePathRef CGPathCreateWithRectAndRadius(CGRect rect, CGFloat radius);
 CGMutablePathRef CGPathCreateWithPoints(int count, CGPoint point, ...);
 
 /**
+ 创建一条波浪纹路径
+ @param amplitude 振幅
+ @param cycle 周期
+ @param drift 位移
+ @param size 波浪纹的高宽
+ @return CGMutablePathRef 路径
+ */
+CGMutablePathRef JCWavePathRef(CGFloat amplitude, CGFloat cycle, CGFloat drift, CGSize size);
+
+/**
+ 画一条波浪纹
+ @param shapeLayer 画笔图层
+ @param amplitude 振幅
+ @param cycle 周期
+ @param drift 位移
+ @param size 波浪纹的高宽
+ */
+void JCWaveShapeLayer(CAShapeLayer *shapeLayer, CGFloat amplitude, CGFloat cycle, CGFloat drift, CGSize size);
+
+/**
  画矩形
  @param rect 坐标
  @param color 颜色
@@ -62,3 +82,4 @@ void JCDrawLine(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color);
  UIImage *image = JCImageScratch(imageView.layer, imageView.bounds.size, CGRectMake(x, y, w, h));
  */
 UIImage * JCImageScratch(CALayer *layer, CGSize size, CGRect clearRect);
+

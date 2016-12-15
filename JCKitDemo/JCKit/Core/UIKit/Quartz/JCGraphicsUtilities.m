@@ -145,4 +145,39 @@ UIImage * JCImageScratch(CALayer *layer, CGSize size, CGRect clearRect) {
     return image;
 }
 
+/**
+ 画一条波浪纹
+ */
+void JCWaveShapeLayer(CAShapeLayer *shapeLayer, CGFloat amplitude, CGFloat cycle, CGFloat drift, CGSize size) {
+    CGMutablePathRef wavePath = JCWavePathRef(amplitude, cycle, drift, size);
+    shapeLayer.path = wavePath;
+    //使用layer 而没用CurrentContext
+    CGPathRelease(wavePath);
+}
 
+/**
+ 创建一条波浪纹路径
+ @param amplitude 振幅
+ @param cycle 周期
+ @param drift 位移
+ @param size 波浪纹的高宽
+ @return CGMutablePathRef 路径
+ */
+CGMutablePathRef JCWavePathRef(CGFloat amplitude, CGFloat cycle, CGFloat drift, CGSize size) {
+    CGMutablePathRef wavePath = CGPathCreateMutable();
+    CGFloat y = size.height;
+    //将点移动到 x=0,y=size.height的位置
+    CGPathMoveToPoint(wavePath, NULL, 0, y);
+    
+    for (int i = 0; i <= size.width; i++) {
+        //正弦函数波浪公式
+        y = amplitude * sin(cycle * i + drift) + size.height;
+        //将点连成线
+        CGPathAddLineToPoint(wavePath, NULL, i, y);
+    }
+    
+    CGPathAddLineToPoint(wavePath, NULL, size.width, 0);
+    CGPathAddLineToPoint(wavePath, NULL, 0, 0);
+    CGPathCloseSubpath(wavePath);
+    return wavePath;
+}
