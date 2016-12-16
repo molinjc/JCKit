@@ -10,6 +10,28 @@
 
 @implementation UIView (JCView)
 
+- (UIView *(^)(CGFloat))cornerRadius {
+    return ^(CGFloat cornerRadius) {
+        self.clipsToBounds = YES;
+        self.layer.cornerRadius = cornerRadius;
+        return self;
+    };
+}
+
+- (UIView *(^)(CGFloat))borderWidth {
+    return ^(CGFloat borderWidth) {
+        self.layer.borderWidth = borderWidth;
+        return self;
+    };
+}
+
+- (UIView *(^)(UIColor *))borderColor {
+    return ^(UIColor *borderColor) {
+        self.layer.borderColor = borderColor.CGColor;
+        return self;
+    };
+}
+
 /**
  获取View所在的控制器，响应链上的第一个Controller
  */
@@ -58,6 +80,30 @@
     UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return snap;
+}
+
+/**
+ 生成快照PDF
+ */
+- (NSData *)snapshotPDF {
+    CGRect bounds = self.bounds;
+    NSMutableData *data = [NSMutableData data];
+    CGDataConsumerRef consumer = CGDataConsumerCreateWithCFData((__bridge CFMutableDataRef)data);
+    CGContextRef context = CGPDFContextCreate(consumer, &bounds, NULL);
+    CGDataConsumerRelease(consumer);
+    
+    if (!context) {
+        return nil;
+    }
+    
+    CGPDFContextBeginPage(context, NULL);
+    CGContextTranslateCTM(context, 0, bounds.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    [self.layer renderInContext:context];
+    CGPDFContextEndPage(context);
+    CGPDFContextClose(context);
+    CGContextRelease(context);
+    return data;
 }
 
 /**

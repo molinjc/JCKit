@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (JCView)
+@property (nonatomic, weak, readonly) UIView * (^cornerRadius)(CGFloat cornerRadius);  // < 设置圆角 >
+@property (nonatomic, weak, readonly) UIView * (^borderWidth)(CGFloat borderWidth);    // < 边界宽度 >
+@property (nonatomic, weak, readonly) UIView * (^borderColor)(UIColor *borderColor);   // < 边界颜色 >
 
 /**
  获取View所在的控制器，响应链上的第一个Controller
@@ -33,6 +36,11 @@
  @return UIImage对象
  */
 - (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates;
+
+/**
+ 生成快照PDF
+ */
+- (NSData *)snapshotPDF;
 
 /**
  根据触摸点，获取子视图
