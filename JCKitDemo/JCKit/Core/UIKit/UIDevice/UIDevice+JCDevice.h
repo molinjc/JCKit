@@ -67,17 +67,17 @@
 #pragma mark - 磁盘空间
 
 /**
- 磁盘总空间
+ 磁盘总空间，总的存储空间
  */
 @property (nonatomic, readonly) int64_t diskSpace;
 
 /**
- 空闲的磁盘空间
+ 空闲的磁盘空间，空余存储空间
  */
 @property (nonatomic, readonly) int64_t diskSpaceFree;
 
 /**
- 使用的磁盘空间
+ 使用的磁盘空间，已使用的存储空间
  */
 @property (nonatomic, readonly) int64_t diskSpaceUsed;
 
