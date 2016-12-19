@@ -146,6 +146,20 @@ UIImage * JCImageScratch(CALayer *layer, CGSize size, CGRect clearRect) {
 }
 
 /**
+ 保留rect内的像素，之外不要，颜色为layer的背景颜色
+ */
+UIImage *JCImagePictureClip(CALayer *layer, CGRect rect) {
+    UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, 0);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];   // 设置裁剪区域
+    [path addClip];
+    CGContextRef ref = UIGraphicsGetCurrentContext();   // 获取当前上下文
+    [layer renderInContext:ref];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();   // 关闭上下文
+    return image;
+}
+
+/**
  画一条波浪纹
  */
 void JCWaveShapeLayer(CAShapeLayer *shapeLayer, CGFloat amplitude, CGFloat cycle, CGFloat drift, CGSize size) {

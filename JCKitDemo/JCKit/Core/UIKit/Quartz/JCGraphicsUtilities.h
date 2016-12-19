@@ -83,3 +83,10 @@ void JCDrawLine(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color);
  */
 UIImage * JCImageScratch(CALayer *layer, CGSize size, CGRect clearRect);
 
+/**
+ 保留rect内的像素，之外不要，颜色为layer的背景颜色
+ @param layer 被截的图层
+ @param rect 要保留的像素范围
+ @return UIImage
+ */
+UIImage *JCImagePictureClip(CALayer *layer, CGRect rect);
