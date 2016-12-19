@@ -34,4 +34,14 @@
  */
 - (void)removePredicateTarget;
 
+/**
+ 设置文字左边留出的空白宽度
+ */
+- (void)setContentPaddingLeft:(CGFloat)width;
+
+/**
+ 设置文字右边留出的空白宽度
+ */
+- (void)setContentPaddingRight:(CGFloat)width;
+
 @end

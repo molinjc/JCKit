@@ -106,4 +106,20 @@
     return targets;
 }
 
+/**
+ 设置文字左边留出的空白宽度
+ */
+- (void)setContentPaddingLeft:(CGFloat)width {
+    self.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, self.frame.size.height)];
+    self.leftViewMode = UITextFieldViewModeAlways;
+}
+
+/**
+ 设置文字右边留出的空白宽度
+ */
+- (void)setContentPaddingRight:(CGFloat)width {
+    self.rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, self.frame.size.height)];
+    self.rightViewMode = UITextFieldViewModeAlways;
+}
+
 @end
