@@ -17,4 +17,6 @@
 
 @property (nullable, nonatomic, copy) NSAttributedString     *attributedPlaceholder;
 
+@property (nullable, nonatomic, strong) UIColor *placeholderColor;
+
 @end

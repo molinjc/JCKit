@@ -111,6 +111,10 @@
     [self updatePlaceholderLabelHeight];
 }
 
+- (void)setPlaceholderColor:(UIColor *)placeholderColor {
+    self.placeholderLabel.textColor = placeholderColor;
+}
+
 - (UILabel *)placeholderLabel {
     if (!_placeholderLabel) {
         _placeholderLabel = [[UILabel alloc] init];
