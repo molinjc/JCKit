@@ -33,6 +33,11 @@
  */
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
+/**
+ 设置图片透明度
+ */
+- (UIImage *)imageByApplyingAlpha:(CGFloat)alpha;
+
 #pragma mark - Image Size
 
 /**
