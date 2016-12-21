@@ -71,6 +71,23 @@
     return colorImage;
 }
 
+/**
+ 灰度图片
+ */
+- (UIImage*)grayImage {
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef context = CGBitmapContextCreate (nil,self.size.width,self.size.height, 8, 0, colorSpace, kCGImageAlphaNone);
+    CGColorSpaceRelease(colorSpace);
+    if (context == NULL) {
+        return nil;
+    }
+    CGContextDrawImage(context,CGRectMake(0, 0, self.size.width, self.size.height), self.CGImage);
+    CGImageRef contextRef = CGBitmapContextCreateImage(context);
+    UIImage *grayImage = [UIImage imageWithCGImage:contextRef];
+    CGContextRelease(context);
+    CGImageRelease(contextRef);
+    return grayImage;
+}
 
 /**
  设置图片透明度

@@ -34,6 +34,11 @@
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 /**
+ 灰度图片
+ */
+- (UIImage*)grayImage;
+
+/**
  设置图片透明度
  */
 - (UIImage *)imageByApplyingAlpha:(CGFloat)alpha;
