@@ -7,6 +7,7 @@
 //
 
 #import "UIButton+JCButtonSimplify.h"
+#import <objc/runtime.h>
 
 @implementation UIButton (JCButtonSimplify)
 
@@ -85,6 +86,28 @@
         [self setBackgroundImage:image forState:state];
         return self;
     };
+}
+
+#pragma mark - 设置触摸区域
+
+// 系统的方法
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    UIEdgeInsets touchAreaInsets = self.touchAreaInsets;
+    CGRect bounds = self.bounds;
+    bounds = CGRectMake(bounds.origin.x - touchAreaInsets.left,
+                        bounds.origin.y - touchAreaInsets.top,
+                        bounds.size.width + touchAreaInsets.left + touchAreaInsets.right,
+                        bounds.size.height + touchAreaInsets.top + touchAreaInsets.bottom);
+    return CGRectContainsPoint(bounds, point);
+}
+
+- (void)setTouchAreaInsets:(UIEdgeInsets)touchAreaInsets {
+    NSValue *value = [NSValue valueWithUIEdgeInsets:touchAreaInsets];
+    objc_setAssociatedObject(self, @selector(touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIEdgeInsets)touchAreaInsets {
+    return [objc_getAssociatedObject(self, _cmd) UIEdgeInsetsValue];
 }
 
 @end

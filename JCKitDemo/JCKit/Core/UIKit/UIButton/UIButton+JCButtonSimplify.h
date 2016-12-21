@@ -43,4 +43,7 @@
 // 设置背景图片和状态
 @property (nonatomic, weak, readonly) UIButton *(^backgroundImageOrStateSet)(UIImage *,UIControlState);
 
+// 设置触摸区域
+@property (nonatomic, assign) UIEdgeInsets touchAreaInsets;
+
 @end
