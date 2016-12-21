@@ -36,3 +36,21 @@
                   actionBlock:(void (^)(id sender))actionBlock;
 
 @end
+
+/**
+ 角标
+ */
+@interface UIBarButtonItem (JCBadge)
+
+@property (nonatomic, copy) NSString *badgeValue;                 // 角标的字符串
+
+@property (nonatomic, copy, readwrite) UIColor *badgeColor;       // 设置角标背景颜色
+
+@property (nonatomic, copy, readwrite) UIColor *badgeTextColor;   // 设置字体颜色
+
+/**
+ 角标富文本
+ */
+- (void)setBadgeTextAttributes:(NSDictionary<NSString *,id> *)textAttributes;
+
+@end

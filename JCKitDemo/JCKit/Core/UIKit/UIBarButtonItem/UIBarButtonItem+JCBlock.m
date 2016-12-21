@@ -96,6 +96,68 @@ static void *const kTarget = @"Target";
                         action:@selector(barButtonItem_invoke:)];
 }
 
+@end
 
+@implementation UIBarButtonItem (JCBadge)
+@dynamic badgeColor;
+@dynamic badgeTextColor;
+
+- (UILabel *)badgeLabel {
+    UILabel *_badgeLabel = objc_getAssociatedObject(self, _cmd);
+    
+    if (!_badgeLabel) {
+        _badgeLabel = [[UILabel alloc] init];
+        objc_setAssociatedObject(self, _cmd, _badgeLabel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self badgeLabelInit:_badgeLabel];
+        [self.customView addSubview:_badgeLabel];
+    }
+    return _badgeLabel;
+}
+
+- (void)badgeLabelInit:(UILabel *)_badgeLabel {
+    CGFloat defaultX = 0;
+    UIView *superview = nil;
+    if (self.customView) {
+        superview = self.customView;
+        superview.clipsToBounds = NO;
+        defaultX = superview.frame.size.width - 10;
+    }else if ([self respondsToSelector:@selector(view)] && [(id)self view]) {
+        superview = [(id)self view];
+        defaultX = superview.frame.size.width - 10;
+    }
+    _badgeLabel.frame = CGRectMake(defaultX, -4, 20, 20);
+    _badgeLabel.font = [UIFont systemFontOfSize:12.0f];
+    _badgeLabel.backgroundColor = [UIColor redColor];
+    _badgeLabel.textColor = [UIColor whiteColor];
+    _badgeLabel.textAlignment = NSTextAlignmentCenter;
+    _badgeLabel.layer.cornerRadius = _badgeLabel.frame.size.height / 2;
+    _badgeLabel.layer.masksToBounds = YES;
+    [superview addSubview:_badgeLabel];
+}
+
+- (void)setBadgeValue:(NSString *)badgeValue {
+    UILabel *_badgeLabel = self.badgeLabel;
+    _badgeLabel.text = badgeValue;
+}
+
+- (NSString *)badgeValue {
+    return  self.badgeLabel.text;
+}
+
+- (void)setBadgeColor:(UIColor *)badgeColor {
+    UILabel *_badgeLabel = self.badgeLabel;
+    _badgeLabel.backgroundColor = [badgeColor copy];
+}
+
+- (void)setBadgeTextColor:(UIColor *)badgeTextColor {
+    UILabel *_badgeLabel = self.badgeLabel;
+    _badgeLabel.textColor = [badgeTextColor copy];
+}
+
+- (void)setBadgeTextAttributes:(NSDictionary<NSString *,id> *)textAttributes {
+    UILabel *_badgeLabel = self.badgeLabel;
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:_badgeLabel.text attributes:textAttributes];
+    _badgeLabel.attributedText = attributedString;
+}
 
 @end
