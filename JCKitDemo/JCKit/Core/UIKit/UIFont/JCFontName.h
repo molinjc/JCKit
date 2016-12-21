@@ -12,9 +12,9 @@
 
 #pragma mark - Thonburi
 
-#define Font_Thonburi-Bold                        @"Thonburi-Bold"
+#define Font_Thonburi_Bold                        @"Thonburi-Bold"
 #define Font_Thonburi                             @"Thonburi"
-#define Font_Thonburi-Light                       @"Thonburi-Light"
+#define Font_Thonburi_Light                       @"Thonburi-Light"
 
 #pragma mark - Khmer Sangam MN
 
@@ -22,14 +22,14 @@
 
 #pragma mark - Kohinoor Telugu
 
-#define Font_KohinoorTelugu-Regular               @"KohinoorTelugu-Regular"
-#define Font_KohinoorTelugu-Light                 @"KohinoorTelugu-Light"
-#define Font_KohinoorTelugu-Medium                @"KohinoorTelugu-Medium"
+#define Font_KohinoorTelugu_Regular               @"KohinoorTelugu-Regular"
+#define Font_KohinoorTelugu_Light                 @"KohinoorTelugu-Light"
+#define Font_KohinoorTelugu_Medium                @"KohinoorTelugu-Medium"
 
 #pragma mark - Snell Roundhand
 
-#define Font_SnellRoundhand-Black                 @"SnellRoundhand-Black"
-#define Font_SnellRoundhand-Bold                  @"SnellRoundhand-Bold"
+#define Font_SnellRoundhand_Black                 @"SnellRoundhand-Black"
+#define Font_SnellRoundhand_Bold                  @"SnellRoundhand-Bold"
 #define Font_SnellRoundhand                       @"SnellRoundhand"
 
 #pragma mark - Academy Engraved LET
@@ -38,27 +38,27 @@
 
 #pragma mark - Marker Felt
 
-#define Font_MarkerFelt-Thin                      @"MarkerFelt-Thin"
-#define Font_MarkerFelt-Wide                      @"MarkerFelt-Wide"
+#define Font_MarkerFelt_Thin                      @"MarkerFelt-Thin"
+#define Font_MarkerFelt_Wide                      @"MarkerFelt-Wide"
 
 #pragma mark - Avenir
 
-#define Font_Avenir-Heavy                         @"Avenir-Heavy"
-#define Font_Avenir-Oblique                       @"Avenir-Oblique"
-#define Font_Avenir-Black                         @"Avenir-Black"
-#define Font_Avenir-Book                          @"Avenir-Book"
-#define Font_Avenir-BlackOblique                  @"Avenir-BlackOblique"
-#define Font_Avenir-HeavyOblique                  @"Avenir-HeavyOblique"
-#define Font_Avenir-Light                         @"Avenir-Light"
-#define Font_Avenir-MediumOblique                 @"Avenir-MediumOblique"
-#define Font_Avenir-Medium                        @"Avenir-Medium"
-#define Font_Avenir-LightOblique                  @"Avenir-LightOblique"
-#define Font_Avenir-Roman                         @"Avenir-Roman"
-#define Font_Avenir-BookOblique                   @"Avenir-BookOblique"
+#define Font_Avenir_Heavy                         @"Avenir-Heavy"
+#define Font_Avenir_Oblique                       @"Avenir-Oblique"
+#define Font_Avenir_Black                         @"Avenir-Black"
+#define Font_Avenir_Book                          @"Avenir-Book"
+#define Font_Avenir_BlackOblique                  @"Avenir-BlackOblique"
+#define Font_Avenir_HeavyOblique                  @"Avenir-HeavyOblique"
+#define Font_Avenir_Light                         @"Avenir-Light"
+#define Font_Avenir_MediumOblique                 @"Avenir-MediumOblique"
+#define Font_Avenir_Medium                        @"Avenir-Medium"
+#define Font_Avenir_LightOblique                  @"Avenir-LightOblique"
+#define Font_Avenir_Roman                         @"Avenir-Roman"
+#define Font_Avenir_BookOblique                   @"Avenir-BookOblique"
 
 #pragma mark - Geeza Pro
 
-#define Font_GeezaPro-Bold                        @"GeezaPro-Bold"
+#define Font_GeezaPro_Bold                        @"GeezaPro-Bold"
 #define Font_GeezaPro                             @"GeezaPro"
 
 #pragma mark - Arial Rounded MT Bold
@@ -67,83 +67,83 @@
 
 #pragma mark - Trebuchet MS
 
-#define Font_Trebuchet-BoldItalic                 @"Trebuchet-BoldItalic"
+#define Font_Trebuchet_BoldItalic                 @"Trebuchet-BoldItalic"
 #define Font_TrebuchetMS                          @"TrebuchetMS"
-#define Font_TrebuchetMS-Bold                     @"TrebuchetMS-Bold"
-#define Font_TrebuchetMS-Italic                   @"TrebuchetMS-Italic"
+#define Font_TrebuchetMS_Bold                     @"TrebuchetMS-Bold"
+#define Font_TrebuchetMS_Italic                   @"TrebuchetMS-Italic"
 
 #pragma mark - Arial
 
 #define Font_ArialMT                              @"ArialMT"
-#define Font_Arial-BoldItalicMT                   @"Arial-BoldItalicMT"
-#define Font_Arial-ItalicMT                       @"Arial-ItalicMT"
-#define Font_Arial-BoldMT                         @"Arial-BoldMT"
+#define Font_Arial_BoldItalicMT                   @"Arial-BoldItalicMT"
+#define Font_Arial_ItalicMT                       @"Arial-ItalicMT"
+#define Font_Arial_BoldMT                         @"Arial-BoldMT"
 
 #pragma mark - Menlo
 
-#define Font_Menlo-BoldItalic                     @"Menlo-BoldItalic"
-#define Font_Menlo-Regular                        @"Menlo-Regular"
-#define Font_Menlo-Bold                           @"Menlo-Bold"
-#define Font_Menlo-Italic                         @"Menlo-Italic"
+#define Font_Menlo_BoldItalic                     @"Menlo-BoldItalic"
+#define Font_Menlo_Regular                        @"Menlo-Regular"
+#define Font_Menlo_Bold                           @"Menlo-Bold"
+#define Font_Menlo_Italic                         @"Menlo-Italic"
 
 #pragma mark - Gurmukhi MN
 
-#define Font_GurmukhiMN-Bold                      @"GurmukhiMN-Bold"
+#define Font_GurmukhiMN_Bold                      @"GurmukhiMN-Bold"
 #define Font_GurmukhiMN                           @"GurmukhiMN"
 
 #pragma mark - Malayalam Sangam MN
 
 #define Font_MalayalamSangamMN                    @"MalayalamSangamMN"
-#define Font_MalayalamSangamMN-Bold               @"MalayalamSangamMN-Bold"
+#define Font_MalayalamSangamMN_Bold               @"MalayalamSangamMN-Bold"
 
 #pragma mark - Kannada Sangam MN
 
 #define Font_KannadaSangamMN                      @"KannadaSangamMN"
-#define Font_KannadaSangamMN-Bold                 @"KannadaSangamMN-Bold"
+#define Font_KannadaSangamMN_Bold                 @"KannadaSangamMN-Bold"
 
 #pragma mark - Bradley Hand
 
-#define Font_BradleyHandITCTT-Bold                @"BradleyHandITCTT-Bold"
+#define Font_BradleyHandITCTT_Bold                @"BradleyHandITCTT-Bold"
 
 #pragma mark - Bodoni 72 Oldstyle
 
-#define Font_BodoniSvtyTwoOSITCTT-BookIt          @"BodoniSvtyTwoOSITCTT-BookIt"
-#define Font_BodoniSvtyTwoOSITCTT-Bold            @"BodoniSvtyTwoOSITCTT-Bold"
-#define Font_BodoniSvtyTwoOSITCTT-Book            @"BodoniSvtyTwoOSITCTT-Book"
+#define Font_BodoniSvtyTwoOSITCTT_BookIt          @"BodoniSvtyTwoOSITCTT-BookIt"
+#define Font_BodoniSvtyTwoOSITCTT_Bold            @"BodoniSvtyTwoOSITCTT-Bold"
+#define Font_BodoniSvtyTwoOSITCTT_Book            @"BodoniSvtyTwoOSITCTT-Book"
 
 #pragma mark - Cochin
 
-#define Font_Cochin-Bold                          @"Cochin-Bold"
-#define Font_Cochin-BoldItalic                    @"Cochin-BoldItalic"
-#define Font_Cochin-Italic                        @"Cochin-Italic"
+#define Font_Cochin_Bold                          @"Cochin-Bold"
+#define Font_Cochin_BoldItalic                    @"Cochin-BoldItalic"
+#define Font_Cochin_Italic                        @"Cochin-Italic"
 #define Font_Cochin                               @"Cochin"
 
 #pragma mark - Sinhala Sangam MN
 
 #define Font_SinhalaSangamMN                      @"SinhalaSangamMN"
-#define Font_SinhalaSangamMN-Bold                 @"SinhalaSangamMN-Bold"
+#define Font_SinhalaSangamMN_Bold                 @"SinhalaSangamMN-Bold"
 
 #pragma mark - PingFang HK
 
-#define Font_PingFangHK-Light                     @"PingFangHK-Light"
-#define Font_PingFangHK-Semibold                  @"PingFangHK-Semibold"
-#define Font_PingFangHK-Thin                      @"PingFangHK-Thin"
-#define Font_PingFangHK-Medium                    @"PingFangHK-Medium"
-#define Font_PingFangHK-Ultralight                @"PingFangHK-Ultralight"
-#define Font_PingFangHK-Regular                   @"PingFangHK-Regular"
+#define Font_PingFangHK_Light                     @"PingFangHK-Light"
+#define Font_PingFangHK_Semibold                  @"PingFangHK-Semibold"
+#define Font_PingFangHK_Thin                      @"PingFangHK-Thin"
+#define Font_PingFangHK_Medium                    @"PingFangHK-Medium"
+#define Font_PingFangHK_Ultralight                @"PingFangHK-Ultralight"
+#define Font_PingFangHK_Regular                   @"PingFangHK-Regular"
 
 #pragma mark - Iowan Old Style
 
-#define Font_IowanOldStyle-Bold                   @"IowanOldStyle-Bold"
-#define Font_IowanOldStyle-BoldItalic             @"IowanOldStyle-BoldItalic"
-#define Font_IowanOldStyle-Italic                 @"IowanOldStyle-Italic"
-#define Font_IowanOldStyle-Roman                  @"IowanOldStyle-Roman"
+#define Font_IowanOldStyle_Bold                   @"IowanOldStyle-Bold"
+#define Font_IowanOldStyle_BoldItalic             @"IowanOldStyle-BoldItalic"
+#define Font_IowanOldStyle_Italic                 @"IowanOldStyle-Italic"
+#define Font_IowanOldStyle_Roman                  @"IowanOldStyle-Roman"
 
 #pragma mark - Kohinoor Bangla
 
-#define Font_KohinoorBangla-Semibold              @"KohinoorBangla-Semibold"
-#define Font_KohinoorBangla-Regular               @"KohinoorBangla-Regular"
-#define Font_KohinoorBangla-Light                 @"KohinoorBangla-Light"
+#define Font_KohinoorBangla_Semibold              @"KohinoorBangla-Semibold"
+#define Font_KohinoorBangla_Regular               @"KohinoorBangla-Regular"
+#define Font_KohinoorBangla_Light                 @"KohinoorBangla-Light"
 
 #pragma mark - Damascus
 
@@ -155,7 +155,7 @@
 
 #pragma mark - Al Nile
 
-#define Font_AlNile-Bold                          @"AlNile-Bold"
+#define Font_AlNile_Bold                          @"AlNile-Bold"
 #define Font_AlNile                               @"AlNile"
 
 #pragma mark - Farah
@@ -164,15 +164,15 @@
 
 #pragma mark - Papyrus
 
-#define Font_Papyrus-Condensed                    @"Papyrus-Condensed"
+#define Font_Papyrus_Condensed                    @"Papyrus-Condensed"
 #define Font_Papyrus                              @"Papyrus"
 
 #pragma mark - Verdana
 
-#define Font_Verdana-BoldItalic                   @"Verdana-BoldItalic"
-#define Font_Verdana-Italic                       @"Verdana-Italic"
+#define Font_Verdana_BoldItalic                   @"Verdana-BoldItalic"
+#define Font_Verdana_Italic                       @"Verdana-Italic"
 #define Font_Verdana                              @"Verdana"
-#define Font_Verdana-Bold                         @"Verdana-Bold"
+#define Font_Verdana_Bold                         @"Verdana-Bold"
 
 #pragma mark - Zapf Dingbats
 
@@ -180,47 +180,47 @@
 
 #pragma mark - Avenir Next Condensed
 
-#define Font_AvenirNextCondensed-Regular          @"AvenirNextCondensed-Regular"
-#define Font_AvenirNextCondensed-MediumItalic     @"AvenirNextCondensed-MediumItalic"
-#define Font_AvenirNextCondensed-UltraLightItalic @"AvenirNextCondensed-UltraLightItalic"
-#define Font_AvenirNextCondensed-UltraLight       @"AvenirNextCondensed-UltraLight"
-#define Font_AvenirNextCondensed-BoldItalic       @"AvenirNextCondensed-BoldItalic"
-#define Font_AvenirNextCondensed-Italic           @"AvenirNextCondensed-Italic"
-#define Font_AvenirNextCondensed-Medium           @"AvenirNextCondensed-Medium"
-#define Font_AvenirNextCondensed-HeavyItalic      @"AvenirNextCondensed-HeavyItalic"
-#define Font_AvenirNextCondensed-Heavy            @"AvenirNextCondensed-Heavy"
-#define Font_AvenirNextCondensed-DemiBoldItalic   @"AvenirNextCondensed-DemiBoldItalic"
-#define Font_AvenirNextCondensed-DemiBold         @"AvenirNextCondensed-DemiBold"
-#define Font_AvenirNextCondensed-Bold             @"AvenirNextCondensed-Bold"
+#define Font_AvenirNextCondensed_Regular          @"AvenirNextCondensed-Regular"
+#define Font_AvenirNextCondensed_MediumItalic     @"AvenirNextCondensed-MediumItalic"
+#define Font_AvenirNextCondensed_UltraLightItalic @"AvenirNextCondensed-UltraLightItalic"
+#define Font_AvenirNextCondensed_UltraLight       @"AvenirNextCondensed-UltraLight"
+#define Font_AvenirNextCondensed_BoldItalic       @"AvenirNextCondensed-BoldItalic"
+#define Font_AvenirNextCondensed_Italic           @"AvenirNextCondensed-Italic"
+#define Font_AvenirNextCondensed_Medium           @"AvenirNextCondensed-Medium"
+#define Font_AvenirNextCondensed_HeavyItalic      @"AvenirNextCondensed-HeavyItalic"
+#define Font_AvenirNextCondensed_Heavy            @"AvenirNextCondensed-Heavy"
+#define Font_AvenirNextCondensed_DemiBoldItalic   @"AvenirNextCondensed-DemiBoldItalic"
+#define Font_AvenirNextCondensed_DemiBold         @"AvenirNextCondensed-DemiBold"
+#define Font_AvenirNextCondensed_Bold             @"AvenirNextCondensed-Bold"
 
 #pragma mark - Courier
 
 #define Font_Courier                              @"Courier"
-#define Font_Courier-Oblique                      @"Courier-Oblique"
-#define Font_Courier-BoldOblique                  @"Courier-BoldOblique"
-#define Font_Courier-Bold                         @"Courier-Bold"
+#define Font_Courier_Oblique                      @"Courier-Oblique"
+#define Font_Courier_BoldOblique                  @"Courier-BoldOblique"
+#define Font_Courier_Bold                         @"Courier-Bold"
 
 #pragma mark - Hoefler Text
 
-#define Font_HoeflerText-Regular                  @"HoeflerText-Regular"
-#define Font_HoeflerText-BlackItalic              @"HoeflerText-BlackItalic"
-#define Font_HoeflerText-Italic                   @"HoeflerText-Italic"
-#define Font_HoeflerText-Black                    @"HoeflerText-Black"
+#define Font_HoeflerText_Regular                  @"HoeflerText-Regular"
+#define Font_HoeflerText_BlackItalic              @"HoeflerText-BlackItalic"
+#define Font_HoeflerText_Italic                   @"HoeflerText-Italic"
+#define Font_HoeflerText_Black                    @"HoeflerText-Black"
 
 #pragma mark - Euphemia UCAS
 
 #define Font_EuphemiaUCAS                         @"EuphemiaUCAS"
-#define Font_EuphemiaUCAS-Bold                    @"EuphemiaUCAS-Bold"
-#define Font_EuphemiaUCAS-Italic                  @"EuphemiaUCAS-Italic"
+#define Font_EuphemiaUCAS_Bold                    @"EuphemiaUCAS-Bold"
+#define Font_EuphemiaUCAS_Italic                  @"EuphemiaUCAS-Italic"
 
 #pragma mark - Helvetica
 
-#define Font_Helvetica-Oblique                    @"Helvetica-Oblique"
-#define Font_Helvetica-Light                      @"Helvetica-Light"
-#define Font_Helvetica-Bold                       @"Helvetica-Bold"
+#define Font_Helvetica_Oblique                    @"Helvetica-Oblique"
+#define Font_Helvetica_Light                      @"Helvetica-Light"
+#define Font_Helvetica_Bold                       @"Helvetica-Bold"
 #define Font_Helvetica                            @"Helvetica"
-#define Font_Helvetica-BoldOblique                @"Helvetica-BoldOblique"
-#define Font_Helvetica-LightOblique               @"Helvetica-LightOblique"
+#define Font_Helvetica_BoldOblique                @"Helvetica-BoldOblique"
+#define Font_Helvetica_LightOblique               @"Helvetica-LightOblique"
 
 #pragma mark - Lao Sangam MN
 
@@ -228,8 +228,8 @@
 
 #pragma mark - Hiragino Mincho ProN
 
-#define Font_HiraMinProN-W6                       @"HiraMinProN-W6"
-#define Font_HiraMinProN-W3                       @"HiraMinProN-W3"
+#define Font_HiraMinProN_W6                       @"HiraMinProN-W6"
+#define Font_HiraMinProN_W3                       @"HiraMinProN-W3"
 
 #pragma mark - Bodoni Ornaments
 
@@ -245,30 +245,30 @@
 
 #pragma mark - Optima
 
-#define Font_Optima-Regular                       @"Optima-Regular"
-#define Font_Optima-Italic                        @"Optima-Italic"
-#define Font_Optima-Bold                          @"Optima-Bold"
-#define Font_Optima-BoldItalic                    @"Optima-BoldItalic"
-#define Font_Optima-ExtraBlack                    @"Optima-ExtraBlack"
+#define Font_Optima_Regular                       @"Optima-Regular"
+#define Font_Optima_Italic                        @"Optima-Italic"
+#define Font_Optima_Bold                          @"Optima-Bold"
+#define Font_Optima_BoldItalic                    @"Optima-BoldItalic"
+#define Font_Optima_ExtraBlack                    @"Optima-ExtraBlack"
 
 #pragma mark - Gujarati Sangam MN
 
-#define Font_GujaratiSangamMN-Bold                @"GujaratiSangamMN-Bold"
+#define Font_GujaratiSangamMN_Bold                @"GujaratiSangamMN-Bold"
 #define Font_GujaratiSangamMN                     @"GujaratiSangamMN"
 
 #pragma mark - Devanagari Sangam MN
 
 #define Font_DevanagariSangamMN                   @"DevanagariSangamMN"
-#define Font_DevanagariSangamMN-Bold              @"DevanagariSangamMN-Bold"
+#define Font_DevanagariSangamMN_Bold              @"DevanagariSangamMN-Bold"
 
 #pragma mark - PingFang SC
 
-#define Font_PingFangSC-Semibold                  @"PingFangSC-Semibold"
-#define Font_PingFangSC-Regular                   @"PingFangSC-Regular"
-#define Font_PingFangSC-Thin                      @"PingFangSC-Thin"
-#define Font_PingFangSC-Light                     @"PingFangSC-Light"
-#define Font_PingFangSC-Ultralight                @"PingFangSC-Ultralight"
-#define Font_PingFangSC-Medium                    @"PingFangSC-Medium"
+#define Font_PingFangSC_Semibold                  @"PingFangSC-Semibold"
+#define Font_PingFangSC_Regular                   @"PingFangSC-Regular"
+#define Font_PingFangSC_Thin                      @"PingFangSC-Thin"
+#define Font_PingFangSC_Light                     @"PingFangSC-Light"
+#define Font_PingFangSC_Ultralight                @"PingFangSC-Ultralight"
+#define Font_PingFangSC_Medium                    @"PingFangSC-Medium"
 
 #pragma mark - Savoye LET
 
@@ -276,47 +276,47 @@
 
 #pragma mark - Times New Roman
 
-#define Font_TimesNewRomanPS-BoldItalicMT         @"TimesNewRomanPS-BoldItalicMT"
+#define Font_TimesNewRomanPS_BoldItalicMT         @"TimesNewRomanPS-BoldItalicMT"
 #define Font_TimesNewRomanPSMT                    @"TimesNewRomanPSMT"
-#define Font_TimesNewRomanPS-BoldMT               @"TimesNewRomanPS-BoldMT"
-#define Font_TimesNewRomanPS-ItalicMT             @"TimesNewRomanPS-ItalicMT"
+#define Font_TimesNewRomanPS_BoldMT               @"TimesNewRomanPS-BoldMT"
+#define Font_TimesNewRomanPS_ItalicMT             @"TimesNewRomanPS-ItalicMT"
 
 #pragma mark - Kailasa
 
 #define Font_Kailasa                              @"Kailasa"
-#define Font_Kailasa-Bold                         @"Kailasa-Bold"
+#define Font_Kailasa_Bold                         @"Kailasa-Bold"
 
 #pragma mark - Apple SD Gothic Neo
 
-#define Font_AppleSDGothicNeo-Thin                @"AppleSDGothicNeo-Thin"
-#define Font_AppleSDGothicNeo-UltraLight          @"AppleSDGothicNeo-UltraLight"
-#define Font_AppleSDGothicNeo-SemiBold            @"AppleSDGothicNeo-SemiBold"
-#define Font_AppleSDGothicNeo-Medium              @"AppleSDGothicNeo-Medium"
-#define Font_AppleSDGothicNeo-Regular             @"AppleSDGothicNeo-Regular"
-#define Font_AppleSDGothicNeo-Bold                @"AppleSDGothicNeo-Bold"
-#define Font_AppleSDGothicNeo-Light               @"AppleSDGothicNeo-Light"
+#define Font_AppleSDGothicNeo_Thin                @"AppleSDGothicNeo-Thin"
+#define Font_AppleSDGothicNeo_UltraLight          @"AppleSDGothicNeo-UltraLight"
+#define Font_AppleSDGothicNeo_SemiBold            @"AppleSDGothicNeo-SemiBold"
+#define Font_AppleSDGothicNeo_Medium              @"AppleSDGothicNeo-Medium"
+#define Font_AppleSDGothicNeo_Regular             @"AppleSDGothicNeo-Regular"
+#define Font_AppleSDGothicNeo_Bold                @"AppleSDGothicNeo-Bold"
+#define Font_AppleSDGothicNeo_Light               @"AppleSDGothicNeo-Light"
 
 #pragma mark - Futura
 
-#define Font_Futura-Medium                        @"Futura-Medium"
-#define Font_Futura-CondensedMedium               @"Futura-CondensedMedium"
-#define Font_Futura-MediumItalic                  @"Futura-MediumItalic"
-#define Font_Futura-CondensedExtraBold            @"Futura-CondensedExtraBold"
+#define Font_Futura_Medium                        @"Futura-Medium"
+#define Font_Futura_CondensedMedium               @"Futura-CondensedMedium"
+#define Font_Futura_MediumItalic                  @"Futura-MediumItalic"
+#define Font_Futura_CondensedExtraBold            @"Futura-CondensedExtraBold"
 
 #pragma mark - Bodoni 72
 
-#define Font_BodoniSvtyTwoITCTT-Book              @"BodoniSvtyTwoITCTT-Book"
-#define Font_BodoniSvtyTwoITCTT-Bold              @"BodoniSvtyTwoITCTT-Bold"
-#define Font_BodoniSvtyTwoITCTT-BookIta           @"BodoniSvtyTwoITCTT-BookIta"
+#define Font_BodoniSvtyTwoITCTT_Book              @"BodoniSvtyTwoITCTT-Book"
+#define Font_BodoniSvtyTwoITCTT_Bold              @"BodoniSvtyTwoITCTT-Bold"
+#define Font_BodoniSvtyTwoITCTT_BookIta           @"BodoniSvtyTwoITCTT-BookIta"
 
 #pragma mark - Baskerville
 
-#define Font_Baskerville-Bold                     @"Baskerville-Bold"
-#define Font_Baskerville-SemiBoldItalic           @"Baskerville-SemiBoldItalic"
-#define Font_Baskerville-BoldItalic               @"Baskerville-BoldItalic"
+#define Font_Baskerville_Bold                     @"Baskerville-Bold"
+#define Font_Baskerville_SemiBoldItalic           @"Baskerville-SemiBoldItalic"
+#define Font_Baskerville_BoldItalic               @"Baskerville-BoldItalic"
 #define Font_Baskerville                          @"Baskerville"
-#define Font_Baskerville-SemiBold                 @"Baskerville-SemiBold"
-#define Font_Baskerville-Italic                   @"Baskerville-Italic"
+#define Font_Baskerville_SemiBold                 @"Baskerville-SemiBold"
+#define Font_Baskerville_Italic                   @"Baskerville-Italic"
 
 #pragma mark - Symbol
 
@@ -325,8 +325,8 @@
 #pragma mark - Copperplate
 
 #define Font_Copperplate                          @"Copperplate"
-#define Font_Copperplate-Light                    @"Copperplate-Light"
-#define Font_Copperplate-Bold                     @"Copperplate-Bold"
+#define Font_Copperplate_Light                    @"Copperplate-Light"
+#define Font_Copperplate_Bold                     @"Copperplate-Bold"
 
 #pragma mark - Party LET
 
@@ -334,43 +334,43 @@
 
 #pragma mark - American Typewriter
 
-#define Font_AmericanTypewriter-Light             @"AmericanTypewriter-Light"
-#define Font_AmericanTypewriter-CondensedLight    @"AmericanTypewriter-CondensedLight"
-#define Font_AmericanTypewriter-CondensedBold     @"AmericanTypewriter-CondensedBold"
+#define Font_AmericanTypewriter_Light             @"AmericanTypewriter-Light"
+#define Font_AmericanTypewriter_CondensedLight    @"AmericanTypewriter-CondensedLight"
+#define Font_AmericanTypewriter_CondensedBold     @"AmericanTypewriter-CondensedBold"
 #define Font_AmericanTypewriter                   @"AmericanTypewriter"
-#define Font_AmericanTypewriter-Condensed         @"AmericanTypewriter-Condensed"
-#define Font_AmericanTypewriter-Bold              @"AmericanTypewriter-Bold"
+#define Font_AmericanTypewriter_Condensed         @"AmericanTypewriter-Condensed"
+#define Font_AmericanTypewriter_Bold              @"AmericanTypewriter-Bold"
 
 #pragma mark - Chalkboard SE
 
-#define Font_ChalkboardSE-Light                   @"ChalkboardSE-Light"
-#define Font_ChalkboardSE-Regular                 @"ChalkboardSE-Regular"
-#define Font_ChalkboardSE-Bold                    @"ChalkboardSE-Bold"
+#define Font_ChalkboardSE_Light                   @"ChalkboardSE-Light"
+#define Font_ChalkboardSE_Regular                 @"ChalkboardSE-Regular"
+#define Font_ChalkboardSE_Bold                    @"ChalkboardSE-Bold"
 
 #pragma mark - Avenir Next
 
-#define Font_AvenirNext-MediumItalic              @"AvenirNext-MediumItalic"
-#define Font_AvenirNext-Bold                      @"AvenirNext-Bold"
-#define Font_AvenirNext-UltraLight                @"AvenirNext-UltraLight"
-#define Font_AvenirNext-DemiBold                  @"AvenirNext-DemiBold"
-#define Font_AvenirNext-HeavyItalic               @"AvenirNext-HeavyItalic"
-#define Font_AvenirNext-Heavy                     @"AvenirNext-Heavy"
-#define Font_AvenirNext-Medium                    @"AvenirNext-Medium"
-#define Font_AvenirNext-Italic                    @"AvenirNext-Italic"
-#define Font_AvenirNext-UltraLightItalic          @"AvenirNext-UltraLightItalic"
-#define Font_AvenirNext-BoldItalic                @"AvenirNext-BoldItalic"
-#define Font_AvenirNext-Regular                   @"AvenirNext-Regular"
-#define Font_AvenirNext-DemiBoldItalic            @"AvenirNext-DemiBoldItalic"
+#define Font_AvenirNext_MediumItalic              @"AvenirNext-MediumItalic"
+#define Font_AvenirNext_Bold                      @"AvenirNext-Bold"
+#define Font_AvenirNext_UltraLight                @"AvenirNext-UltraLight"
+#define Font_AvenirNext_DemiBold                  @"AvenirNext-DemiBold"
+#define Font_AvenirNext_HeavyItalic               @"AvenirNext-HeavyItalic"
+#define Font_AvenirNext_Heavy                     @"AvenirNext-Heavy"
+#define Font_AvenirNext_Medium                    @"AvenirNext-Medium"
+#define Font_AvenirNext_Italic                    @"AvenirNext-Italic"
+#define Font_AvenirNext_UltraLightItalic          @"AvenirNext-UltraLightItalic"
+#define Font_AvenirNext_BoldItalic                @"AvenirNext-BoldItalic"
+#define Font_AvenirNext_Regular                   @"AvenirNext-Regular"
+#define Font_AvenirNext_DemiBoldItalic            @"AvenirNext-DemiBoldItalic"
 
 #pragma mark - Noteworthy
 
-#define Font_Noteworthy-Bold                      @"Noteworthy-Bold"
-#define Font_Noteworthy-Light                     @"Noteworthy-Light"
+#define Font_Noteworthy_Bold                      @"Noteworthy-Bold"
+#define Font_Noteworthy_Light                     @"Noteworthy-Light"
 
 #pragma mark - Hiragino Sans
 
-#define Font_HiraginoSans-W6                      @"HiraginoSans-W6"
-#define Font_HiraginoSans-W3                      @"HiraginoSans-W3"
+#define Font_HiraginoSans_W6                      @"HiraginoSans-W6"
+#define Font_HiraginoSans_W3                      @"HiraginoSans-W3"
 
 #pragma mark - Zapfino
 
@@ -379,7 +379,7 @@
 #pragma mark - Tamil Sangam MN
 
 #define Font_TamilSangamMN                        @"TamilSangamMN"
-#define Font_TamilSangamMN-Bold                   @"TamilSangamMN-Bold"
+#define Font_TamilSangamMN_Bold                   @"TamilSangamMN-Bold"
 
 #pragma mark - Chalkduster
 
@@ -387,88 +387,88 @@
 
 #pragma mark - Arial Hebrew
 
-#define Font_ArialHebrew-Bold                     @"ArialHebrew-Bold"
-#define Font_ArialHebrew-Light                    @"ArialHebrew-Light"
+#define Font_ArialHebrew_Bold                     @"ArialHebrew-Bold"
+#define Font_ArialHebrew_Light                    @"ArialHebrew-Light"
 #define Font_ArialHebrew                          @"ArialHebrew"
 
 #pragma mark - Georgia
 
-#define Font_Georgia-BoldItalic                   @"Georgia-BoldItalic"
-#define Font_Georgia-Bold                         @"Georgia-Bold"
-#define Font_Georgia-Italic                       @"Georgia-Italic"
+#define Font_Georgia_BoldItalic                   @"Georgia-BoldItalic"
+#define Font_Georgia_Bold                         @"Georgia-Bold"
+#define Font_Georgia_Italic                       @"Georgia-Italic"
 #define Font_Georgia                              @"Georgia"
 
 #pragma mark - Helvetica Neue
 
-#define Font_HelveticaNeue-BoldItalic             @"HelveticaNeue-BoldItalic"
-#define Font_HelveticaNeue-Light                  @"HelveticaNeue-Light"
-#define Font_HelveticaNeue-Italic                 @"HelveticaNeue-Italic"
-#define Font_HelveticaNeue-UltraLightItalic       @"HelveticaNeue-UltraLightItalic"
-#define Font_HelveticaNeue-CondensedBold          @"HelveticaNeue-CondensedBold"
-#define Font_HelveticaNeue-MediumItalic           @"HelveticaNeue-MediumItalic"
-#define Font_HelveticaNeue-Thin                   @"HelveticaNeue-Thin"
-#define Font_HelveticaNeue-Medium                 @"HelveticaNeue-Medium"
-#define Font_HelveticaNeue-ThinItalic             @"HelveticaNeue-ThinItalic"
-#define Font_HelveticaNeue-UltraLight             @"HelveticaNeue-UltraLight"
-#define Font_HelveticaNeue-LightItalic            @"HelveticaNeue-LightItalic"
-#define Font_HelveticaNeue-Bold                   @"HelveticaNeue-Bold"
+#define Font_HelveticaNeue_BoldItalic             @"HelveticaNeue-BoldItalic"
+#define Font_HelveticaNeue_Light                  @"HelveticaNeue-Light"
+#define Font_HelveticaNeue_Italic                 @"HelveticaNeue-Italic"
+#define Font_HelveticaNeue_UltraLightItalic       @"HelveticaNeue-UltraLightItalic"
+#define Font_HelveticaNeue_CondensedBold          @"HelveticaNeue-CondensedBold"
+#define Font_HelveticaNeue_MediumItalic           @"HelveticaNeue-MediumItalic"
+#define Font_HelveticaNeue_Thin                   @"HelveticaNeue-Thin"
+#define Font_HelveticaNeue_Medium                 @"HelveticaNeue-Medium"
+#define Font_HelveticaNeue_ThinItalic             @"HelveticaNeue-ThinItalic"
+#define Font_HelveticaNeue_UltraLight             @"HelveticaNeue-UltraLight"
+#define Font_HelveticaNeue_LightItalic            @"HelveticaNeue-LightItalic"
+#define Font_HelveticaNeue_Bold                   @"HelveticaNeue-Bold"
 #define Font_HelveticaNeue                        @"HelveticaNeue"
-#define Font_HelveticaNeue-CondensedBlack         @"HelveticaNeue-CondensedBlack"
+#define Font_HelveticaNeue_CondensedBlack         @"HelveticaNeue-CondensedBlack"
 
 #pragma mark - Gill Sans
 
 #define Font_GillSans                             @"GillSans"
-#define Font_GillSans-SemiBoldItalic              @"GillSans-SemiBoldItalic"
-#define Font_GillSans-Italic                      @"GillSans-Italic"
-#define Font_GillSans-BoldItalic                  @"GillSans-BoldItalic"
-#define Font_GillSans-Light                       @"GillSans-Light"
-#define Font_GillSans-LightItalic                 @"GillSans-LightItalic"
-#define Font_GillSans-UltraBold                   @"GillSans-UltraBold"
-#define Font_GillSans-Bold                        @"GillSans-Bold"
-#define Font_GillSans-SemiBold                    @"GillSans-SemiBold"
+#define Font_GillSans_SemiBoldItalic              @"GillSans-SemiBoldItalic"
+#define Font_GillSans_Italic                      @"GillSans-Italic"
+#define Font_GillSans_BoldItalic                  @"GillSans-BoldItalic"
+#define Font_GillSans_Light                       @"GillSans-Light"
+#define Font_GillSans_LightItalic                 @"GillSans-LightItalic"
+#define Font_GillSans_UltraBold                   @"GillSans-UltraBold"
+#define Font_GillSans_Bold                        @"GillSans-Bold"
+#define Font_GillSans_SemiBold                    @"GillSans-SemiBold"
 
 #pragma mark - Kohinoor Devanagari
 
-#define Font_KohinoorDevanagari-Regular           @"KohinoorDevanagari-Regular"
-#define Font_KohinoorDevanagari-Light             @"KohinoorDevanagari-Light"
-#define Font_KohinoorDevanagari-Semibold          @"KohinoorDevanagari-Semibold"
+#define Font_KohinoorDevanagari_Regular           @"KohinoorDevanagari-Regular"
+#define Font_KohinoorDevanagari_Light             @"KohinoorDevanagari-Light"
+#define Font_KohinoorDevanagari_Semibold          @"KohinoorDevanagari-Semibold"
 
 #pragma mark - Palatino
 
-#define Font_Palatino-Roman                       @"Palatino-Roman"
-#define Font_Palatino-Italic                      @"Palatino-Italic"
-#define Font_Palatino-Bold                        @"Palatino-Bold"
-#define Font_Palatino-BoldItalic                  @"Palatino-BoldItalic"
+#define Font_Palatino_Roman                       @"Palatino-Roman"
+#define Font_Palatino_Italic                      @"Palatino-Italic"
+#define Font_Palatino_Bold                        @"Palatino-Bold"
+#define Font_Palatino_BoldItalic                  @"Palatino-BoldItalic"
 
 #pragma mark - Courier New
 
 #define Font_CourierNewPSMT                       @"CourierNewPSMT"
-#define Font_CourierNewPS-BoldMT                  @"CourierNewPS-BoldMT"
-#define Font_CourierNewPS-ItalicMT                @"CourierNewPS-ItalicMT"
-#define Font_CourierNewPS-BoldItalicMT            @"CourierNewPS-BoldItalicMT"
+#define Font_CourierNewPS_BoldMT                  @"CourierNewPS-BoldMT"
+#define Font_CourierNewPS_ItalicMT                @"CourierNewPS-ItalicMT"
+#define Font_CourierNewPS_BoldItalicMT            @"CourierNewPS-BoldItalicMT"
 
 #pragma mark - Oriya Sangam MN
 
 #define Font_OriyaSangamMN                        @"OriyaSangamMN"
-#define Font_OriyaSangamMN-Bold                   @"OriyaSangamMN-Bold"
+#define Font_OriyaSangamMN_Bold                   @"OriyaSangamMN-Bold"
 
 #pragma mark - Didot
 
-#define Font_Didot-Bold                           @"Didot-Bold"
-#define Font_Didot-Italic                         @"Didot-Italic"
+#define Font_Didot_Bold                           @"Didot-Bold"
+#define Font_Didot_Italic                         @"Didot-Italic"
 #define Font_Didot                                @"Didot"
 
 #pragma mark - PingFang TC
 
-#define Font_PingFangTC-Regular                   @"PingFangTC-Regular"
-#define Font_PingFangTC-Semibold                  @"PingFangTC-Semibold"
-#define Font_PingFangTC-Medium                    @"PingFangTC-Medium"
-#define Font_PingFangTC-Thin                      @"PingFangTC-Thin"
-#define Font_PingFangTC-Ultralight                @"PingFangTC-Ultralight"
-#define Font_PingFangTC-Light                     @"PingFangTC-Light"
+#define Font_PingFangTC_Regular                   @"PingFangTC-Regular"
+#define Font_PingFangTC_Semibold                  @"PingFangTC-Semibold"
+#define Font_PingFangTC_Medium                    @"PingFangTC-Medium"
+#define Font_PingFangTC_Thin                      @"PingFangTC-Thin"
+#define Font_PingFangTC_Ultralight                @"PingFangTC-Ultralight"
+#define Font_PingFangTC_Light                     @"PingFangTC-Light"
 
 #pragma mark - Bodoni 72 Smallcaps
 
-#define Font_BodoniSvtyTwoSCITCTT-Book            @"BodoniSvtyTwoSCITCTT-Book"
+#define Font_BodoniSvtyTwoSCITCTT_Book            @"BodoniSvtyTwoSCITCTT-Book"
 
 #endif /* JCFontName_h */
