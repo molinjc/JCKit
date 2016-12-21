@@ -46,4 +46,7 @@
 // 设置触摸区域
 @property (nonatomic, assign) UIEdgeInsets touchAreaInsets;
 
+// 是否显示菊花指示器
+@property (nonatomic, weak, readonly) UIButton *(^showIndicator)(BOOL);
+
 @end
