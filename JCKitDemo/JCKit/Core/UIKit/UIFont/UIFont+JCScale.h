@@ -12,19 +12,31 @@
 
 /************** 根据比例设置字体大小 *******/
 /// systemFontOfSize:
-+ (nullable UIFont *)scaleFontOfSize:(CGFloat)fontSize;
++ (UIFont *)scaleFontOfSize:(CGFloat)fontSize;
 
 /// fontWithName:size:
-+ (nullable UIFont *)scaleFontWithName:(nonnull NSString *)fontName size:(CGFloat)fontSize;
++ (UIFont *)scaleFontWithName:(NSString *)fontName size:(CGFloat)fontSize;
 
 /**
  粗体
  */
-+ (nullable UIFont *)fontNameWithHelveticaBold:(CGFloat)size;
++ (UIFont *)fontNameWithHelveticaBold:(CGFloat)size;
 
 /**
  斜体
  */
-+ (nullable UIFont *)fontNameWithHelveticaOblique:(CGFloat)size;
++ (UIFont *)fontNameWithHelveticaOblique:(CGFloat)size;
+
+/**
+ 加载本地TTF字体，字体大小默认15
+ */
++ (UIFont *)fontWithTTFAtPath:(NSString *)path;
+
+/**
+ 加载本地TTF字体
+ @param path 本地TTF字体的路径
+ @param size 字体大小
+ */
++ (UIFont *)fontWithTTFAtPath:(NSString *)path size:(CGFloat)size;
 
 @end
