@@ -38,4 +38,22 @@
  */
 - (NSString *)stringForRGB16;
 
+/**
+ 随机颜色，透明度默认1
+ */
++ (UIColor *)randomColor;
+
+/**
+ 随机颜色
+ */
++ (UIColor *)randomColorWithAlpha:(CGFloat)alpha;
+
+/**
+ 渐变颜色
+ @param c1 开始颜色
+ @param c2 结束颜色
+ @param height 渐变高度
+ */
++ (UIColor*)gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(CGFloat)height;
+
 @end

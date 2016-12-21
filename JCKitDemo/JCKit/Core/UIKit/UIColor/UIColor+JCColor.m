@@ -8,7 +8,7 @@
 
 #import "UIColor+JCColor.h"
 
-#define MaxRGB 255.0
+#define MaxRGB 255.0f
 
 @implementation UIColor (JCColor)
 
@@ -118,6 +118,47 @@
     int b = (int)(self.RGB_blue * 255);
     NSString *webColor = [NSString stringWithFormat:@"#%02X%02X%02X", r, g, b];
     return webColor;
+}
+
+
+/**
+ 随机颜色，透明度默认1
+ */
++ (UIColor *)randomColor {
+    return [self randomColorWithAlpha:1.0f];
+}
+
+/**
+ 随机颜色
+ */
++ (UIColor *)randomColorWithAlpha:(CGFloat)alpha {
+    NSInteger redValue = arc4random() % 255;
+    NSInteger greenValue = arc4random() % 255;
+    NSInteger blueValue = arc4random() % 255;
+    UIColor *randColor = [UIColor colorWithRed:redValue / 255.0f green:greenValue / 255.0f blue:blueValue / 255.0f alpha:alpha];
+    return randColor;
+}
+
+/**
+ 渐变颜色
+ */
++ (UIColor*)gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(CGFloat)height {
+    CGSize size = CGSizeMake(1, height);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    
+    NSArray* colors = [NSArray arrayWithObjects:(id)c1.CGColor, (id)c2.CGColor, nil];
+    CGGradientRef gradient = CGGradientCreateWithColors(colorspace, (__bridge CFArrayRef)colors, NULL);
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(0, size.height), 0);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorspace);
+    UIGraphicsEndImageContext();
+    
+    return [UIColor colorWithPatternImage:image];
 }
 
 @end
