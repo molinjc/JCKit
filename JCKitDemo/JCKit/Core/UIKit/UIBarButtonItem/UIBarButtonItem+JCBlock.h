@@ -35,6 +35,9 @@
                         style:(UIBarButtonItemStyle)style
                   actionBlock:(void (^)(id sender))actionBlock;
 
+@property (nonatomic, assign, readwrite) CGFloat imageTop;   // 设置图片的顶部间距，会对应调整底部
+@property (nonatomic, assign, readwrite) CGFloat imageLeft;  // 设置图片的左边间距，会对应调整右边
+
 @end
 
 /**

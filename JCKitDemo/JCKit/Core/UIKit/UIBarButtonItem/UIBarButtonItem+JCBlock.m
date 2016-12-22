@@ -38,6 +38,7 @@ static void *const kTarget = @"Target";
 @end
 
 @implementation UIBarButtonItem (JCBlock)
+@dynamic imageTop, imageLeft;
 
 #pragma mark - Set/Get
 
@@ -96,6 +97,16 @@ static void *const kTarget = @"Target";
                         action:@selector(barButtonItem_invoke:)];
 }
 
+- (void)setImageTop:(CGFloat)imageTop {
+    UIEdgeInsets originalImageInsets = self.imageInsets;
+    self.imageInsets = UIEdgeInsetsMake(imageTop, originalImageInsets.left, -imageTop, originalImageInsets.right);
+}
+
+- (void)setImageLeft:(CGFloat)imageLeft {
+    UIEdgeInsets originalImageInsets = self.imageInsets;
+    self.imageInsets = UIEdgeInsetsMake(originalImageInsets.top, imageLeft, originalImageInsets.bottom, -imageLeft);
+}
+
 @end
 
 @implementation UIBarButtonItem (JCBadge)
@@ -121,8 +132,8 @@ static void *const kTarget = @"Target";
         superview = self.customView;
         superview.clipsToBounds = NO;
         defaultX = superview.frame.size.width - 10;
-    }else if ([self respondsToSelector:@selector(view)] && [(id)self view]) {
-        superview = [(id)self view];
+    }else if ([self respondsToSelector:@selector(view)] && [self valueForKey:@"view"]) {
+        superview = [self valueForKey:@"view"];
         defaultX = superview.frame.size.width - 10;
     }
     _badgeLabel.frame = CGRectMake(defaultX, -4, 20, 20);
