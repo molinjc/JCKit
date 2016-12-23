@@ -12,6 +12,37 @@
 
 @implementation UIImage (JCImage)
 
++ (UIImage *)imageWithName:(NSString *)name {
+    if (!name.length) {
+        return nil;
+    }
+    // 按屏幕的比例查找对应的几x图
+    NSString *res = name.stringByDeletingPathExtension;
+    if ([UIScreen mainScreen].scale == 2.0f) {
+        res = [name stringByAppendingString:@"@2x"];
+    }else if ([UIScreen mainScreen].scale == 3.0f) {
+        res = [name stringByAppendingString:@"@3x"];
+    }
+    
+    NSString *ext = name.pathExtension;
+    NSString *path = nil;
+    NSArray *exts = ext.length > 0 ? @[ext] : @[@"", @"png", @"jpeg", @"jpg", @"gif", @"webp"];
+    
+    for (NSString *e in exts) {
+        path = [[NSBundle mainBundle] pathForResource:res ofType:e];
+        if (path) {
+            break;
+        }
+    }
+    
+    if (path) {
+        return [UIImage imageWithContentsOfFile:path];
+    }
+    
+    // 还是没查找到，就直接用系统
+    return [UIImage imageNamed:name];
+}
+
 /**
  原图
  */
@@ -214,6 +245,38 @@
  */
 - (UIImage *)orientation:(UIImageOrientation)orientation {
     return [UIImage imageWithCGImage:self.CGImage scale:self.scale orientation:orientation];
+}
+
+/**
+ 水平翻转
+ */
+- (UIImage *)flipHorizontal {
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextClipToRect(ctx, rect);
+    CGContextRotateCTM(ctx, M_PI);
+    CGContextTranslateCTM(ctx, -rect.size.width, -rect.size.height);
+    CGContextDrawImage(ctx, rect, self.CGImage);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+/**
+ 垂直翻转
+ */
+- (UIImage *)flipVertical {
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextClipToRect(ctx, rect);
+    CGContextDrawImage(ctx, rect, self.CGImage);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 #pragma mark - 绘制

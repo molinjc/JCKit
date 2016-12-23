@@ -10,6 +10,8 @@
 
 @interface UIImage (JCImage)
 
++ (UIImage *)imageWithName:(NSString *)name;
+
 /**
  原图
  */
@@ -95,6 +97,16 @@
  设置图片方向
  */
 - (UIImage *)orientation:(UIImageOrientation)orientation;
+
+/**
+ 水平翻转
+ */
+- (UIImage *)flipHorizontal;
+
+/**
+ 垂直翻转
+ */
+- (UIImage *)flipVertical;
 
 #pragma mark - 绘制
 
