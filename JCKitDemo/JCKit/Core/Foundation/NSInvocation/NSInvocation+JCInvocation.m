@@ -57,11 +57,15 @@ static const char *__BlockSignature__(id blockObj) {
  会先检查sig是否空的初始化方法，为空会抛出异常
  */
 + (instancetype)avoidCrashInvocationWithMethodSignature:(NSMethodSignature *)sig {
-    if (!sig) {
-        [NSException raise:@"方法调用出现异常" format:@"没有找到方法", nil];
-        return nil;
+    NSInvocation *invocation;
+    @try {
+        invocation = [NSInvocation avoidCrashInvocationWithMethodSignature:sig];
+    } @catch (NSException *exception) {
+        
+    } @finally {
+        
     }
-    return [NSInvocation avoidCrashInvocationWithMethodSignature:sig];
+    return invocation;
 }
 
 + (instancetype)invocationWithBlock:(id)block {
