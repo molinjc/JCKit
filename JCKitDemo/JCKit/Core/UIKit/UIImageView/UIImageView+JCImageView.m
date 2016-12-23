@@ -39,4 +39,25 @@
     [self.superview addSubview:reflectionImageView];
 }
 
+/**
+ 画水印
+ @param watermark 水印图
+ @param rect 水印图的位置
+ */
+- (void)watermark:(UIImage *)watermark inRect:(CGRect)rect {
+    if (!self.image) {
+        self.image = watermark;
+        return;
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
+    //原图
+    [self.image drawInRect:self.bounds];
+    //水印图
+    [watermark drawInRect:rect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.image = newImage;
+}
+
 @end

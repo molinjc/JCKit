@@ -15,4 +15,11 @@
  */
 - (void)imageReflect;
 
+/**
+ 画水印, 先设置image，否则watermark就赋值给image
+ @param watermark 水印图
+ @param rect 水印图的位置
+ */
+- (void)watermark:(UIImage *)watermark inRect:(CGRect)rect;
+
 @end
