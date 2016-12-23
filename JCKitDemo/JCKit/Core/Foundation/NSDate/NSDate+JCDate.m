@@ -115,4 +115,81 @@
     return [formatter stringFromDate:self];
 }
 
+#pragma mark ---- 从当前日期相对日期时间
+
+/**
+ 明天
+ */
++ (NSDate *)dateTomorrow {
+    return [NSDate dateWithDaysFromNow:1];
+}
+
+/**
+ 后几天
+ */
++ (NSDate *)dateWithDaysFromNow:(NSInteger)days {
+    return [[NSDate date] dateByAddingDays:days];
+}
+
+/**
+ 昨天
+ */
++ (NSDate *)dateYesterday {
+    return [NSDate dateWithDaysFromNow:1];
+}
+
+/**
+ 前几天
+ */
++ (NSDate *)dateWithDaysBeforeNow:(NSInteger)days {
+    return [[NSDate date] dateByAddingDays:-days];
+}
+
+/**
+ 当前小时后hours个小时
+ */
++ (NSDate *)dateWithHoursFromNow:(NSInteger)hours {
+    return [NSDate dateByAddingTimeInterval:kDATE_HOURS_SEC * hours];
+}
+
+/**
+ 当前小时前hours个小时
+ */
++ (NSDate *)dateWithHoursBeforeNow:(NSInteger)hours {
+    return [NSDate dateByAddingTimeInterval:-(kDATE_HOURS_SEC * hours)];
+}
+
+/**
+ 当前分钟后minutes个分钟
+ */
++ (NSDate *)dateWithMinutesFromNow:(NSInteger)minutes {
+    return [NSDate dateByAddingTimeInterval:kDATE_MINUTE_SEC * minutes];
+}
+
+/**
+ 当前分钟前minutes个分钟
+ */
++ (NSDate *)dateWithMinutesBeforeNow:(NSInteger)minutes {
+    return [NSDate dateByAddingTimeInterval:-(kDATE_MINUTE_SEC * minutes)];
+}
+
+/**
+ 追加天数，生成新的NSDate
+ */
+- (NSDate *)dateByAddingDays:(NSInteger)days {
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay:days];
+    NSDate *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:self options:0];
+    return newDate;
+}
+
+/**
+ 追加秒数，生成新的NSDate
+ */
++ (NSDate *)dateByAddingTimeInterval:(NSTimeInterval)ti {
+    NSTimeInterval aTimeInterval = [[NSDate date] timeIntervalSinceReferenceDate] + ti;
+    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
+    return date;
+}
+
 @end
