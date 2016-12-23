@@ -144,3 +144,19 @@
 + (UIImage *)animatedGIFWithData:(NSData *)data;
 
 @end
+
+@interface UIImage (JCQRCode)
+
+/**
+ 生成二维码图片
+ @param string 信息
+ @param size 大小
+ */
++ (UIImage *)QRCodeImageWithString:(NSString *)string size:(CGFloat)size;
+
+/**
+ 二维码图片内容信息
+ */
+- (NSString *)QRCodeImageContext;
+
+@end

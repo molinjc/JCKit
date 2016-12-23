@@ -421,3 +421,57 @@
 }
 
 @end
+
+@implementation UIImage (JCQRCode)
+
+/**
+ 生成二维码图片
+ @param string 信息
+ @param size 大小
+ */
++ (UIImage *)QRCodeImageWithString:(NSString *)string size:(CGFloat)size {
+    NSData *stringData = [[string description] dataUsingEncoding:NSUTF8StringEncoding];
+    // 创建filter
+    CIFilter *QRFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    // 设置内容和纠错级别
+    [QRFilter setValue:stringData forKey:@"inputMessage"];
+    [QRFilter setValue:@"M" forKey:@"inputCorrectionLevel"];
+    
+    CGRect extent = CGRectIntegral(QRFilter.outputImage.extent);
+    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
+    
+    // 创建bitmap;
+    size_t width = CGRectGetWidth(extent) * scale;
+    size_t height = CGRectGetHeight(extent) * scale;
+    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
+    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
+    CGColorSpaceRelease(cs);
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef bitmapImage = [context createCGImage:QRFilter.outputImage fromRect:extent];
+    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
+    CGContextScaleCTM(bitmapRef, scale, scale);
+    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+    
+    // 保存bitmap到图片
+    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
+    UIImage *reusult = [UIImage imageWithCGImage:scaledImage];
+    CGContextRelease(bitmapRef);
+    CGImageRelease(scaledImage);
+    CGImageRelease(bitmapImage);
+    return reusult;
+}
+
+/**
+ 二维码图片内容信息
+ */
+- (NSString *)QRCodeImageContext {
+    CIContext *content = [CIContext contextWithOptions:nil];
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:content options:nil];
+    CIImage *cimage = [CIImage imageWithCGImage:self.CGImage];
+    NSArray *features = [detector featuresInImage:cimage];
+    CIQRCodeFeature *f = [features firstObject];
+    return f.messageString;
+}
+
+@end
