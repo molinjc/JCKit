@@ -263,5 +263,19 @@
     });
 }
 
+/**
+ 新建相册
+ */
+- (void)addAlbumWithName:(NSString *)name photoGroup:(void (^)(NSArray <JCPhotoGroup *> *, NSError *))block {
+    __weak typeof(self) _self = self;
+    [_assetsLibray addAssetsGroupAlbumWithName:name resultBlock:^(ALAssetsGroup *group) {
+        [_self photoGroup:block];
+    } failureBlock:^(NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
 @end
 

@@ -16,6 +16,13 @@
 
 - (void)photoGroup:(void (^)(NSArray <JCPhotoGroup *> *, NSError *))block;
 
+/**
+ 新建相册
+ @param name 相册名
+ @param block 回调，获取最新相册组
+ */
+- (void)addAlbumWithName:(NSString *)name photoGroup:(void (^)(NSArray <JCPhotoGroup *> *, NSError *))block;
+
 @end
 
 
