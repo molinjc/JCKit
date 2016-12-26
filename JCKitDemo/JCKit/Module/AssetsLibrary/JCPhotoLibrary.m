@@ -145,6 +145,8 @@
 
 @end
 
+#pragma mark -
+
 @interface JCPhotoGroup ()
 - (instancetype)initWithAssetsGroup:(ALAssetsGroup *)assetsGroup;
 @end
@@ -221,6 +223,7 @@
 
 @end
 
+#pragma mark -
 
 @implementation JCPhotoLibrary
 {
@@ -275,6 +278,53 @@
             block(nil, error);
         }
     }];
+}
+
+/**
+ 保存一张图片到相册
+ */
+- (void)savedImageToPhotosAlbum:(UIImage *)image error:(void (^)(NSError *))block {
+    [_assetsLibray writeImageToSavedPhotosAlbum:image.CGImage orientation:[JCPhotoLibrary imageRefOrientation:image] completionBlock:^(NSURL *assetURL, NSError *error) {
+        if (block) {
+            block(error);
+        }
+    }];
+}
+
+/**
+ 保存视频
+ */
+- (void)savedVideoToPhotosAlbum:(NSString *)path error:(void (^)(NSError *))block {
+    [_assetsLibray writeVideoAtPathToSavedPhotosAlbum:[NSURL fileURLWithPath:path] completionBlock:^(NSURL *assetURL, NSError *error) {
+        if (block) {
+            block(error);
+        }
+    }];
+}
+
+#pragma mark -
+
++ (ALAssetOrientation)imageRefOrientation:(UIImage *)image {
+    switch (image.imageOrientation) {
+        case UIImageOrientationUp:
+            return ALAssetOrientationUp;
+        case UIImageOrientationDown:
+            return ALAssetOrientationDown;
+        case UIImageOrientationLeft:
+            return ALAssetOrientationLeft;
+        case UIImageOrientationRight:
+            return ALAssetOrientationRight;
+        case UIImageOrientationUpMirrored:
+            return ALAssetOrientationUpMirrored;
+        case UIImageOrientationDownMirrored:
+            return ALAssetOrientationDownMirrored;
+        case UIImageOrientationLeftMirrored:
+            return ALAssetOrientationLeftMirrored;
+        case UIImageOrientationRightMirrored:
+            return ALAssetOrientationRightMirrored;
+        default:
+            break;
+    }
 }
 
 @end

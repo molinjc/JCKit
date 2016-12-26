@@ -23,6 +23,18 @@
  */
 - (void)addAlbumWithName:(NSString *)name photoGroup:(void (^)(NSArray <JCPhotoGroup *> *, NSError *))block;
 
+/**
+ 保存一张图片到相册
+ */
+- (void)savedImageToPhotosAlbum:(UIImage *)image error:(void (^)(NSError *))block;
+
+/**
+ 保存视频
+ @param path 视频的路径
+ @param block 保存后的回调
+ */
+- (void)savedVideoToPhotosAlbum:(NSString *)path error:(void (^)(NSError *))block;
+
 @end
 
 
