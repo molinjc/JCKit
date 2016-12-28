@@ -247,9 +247,9 @@
                 
                 if([[_photoGroup.groupName  lowercaseString] isEqualToString:@"camera roll"] &&
                    groupType == ALAssetsGroupSavedPhotos){
-                    [_assetsGroup insertObject:group atIndex:0];
+                    [_assetsGroup insertObject:_photoGroup atIndex:0];
                 }else{
-                    [_assetsGroup addObject:group];
+                    [_assetsGroup addObject:_photoGroup];
                 }
                 
                 if (block) {
