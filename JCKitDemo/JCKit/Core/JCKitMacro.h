@@ -183,6 +183,20 @@ static inline CGPoint CGRectCenter(CGRect rect) {
 }
 
 /**
+ 获取size里最大的那个数
+ */
+static inline CGFloat CGSizeMax(CGSize size) {
+    return MAX(size.width, size.height);
+}
+
+/**
+ 获取size里最小的那个数
+ */
+static inline CGFloat CGSizeMin(CGSize size) {
+    return MIN(size.width, size.height);
+}
+
+/**
  点转换成像素
  */
 static inline CGFloat CGFloatToPixel(CGFloat value) {
