@@ -121,6 +121,40 @@
 }
 
 /**
+ 取图片某点像素的颜色
+ */
+- (UIColor *)colorAtPixel:(CGPoint)point {
+    CGFloat width = self.size.width;
+    CGFloat height = self.size.height;
+    
+    if (!CGRectContainsPoint(CGRectMake(0, 0, width, height), point)) {
+        return nil;
+    }
+    
+    CGFloat pointX = trunc(point.x);  // 取整，
+    CGFloat pointY = trunc(point.y);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    int bytesPerPixel = 4;
+    int bytesPerRow = bytesPerPixel * 1;
+    NSUInteger bitsPerComponent = 8;
+    unsigned char pixelData[4] = { 0, 0, 0, 0 };
+    
+    CGContextRef context = CGBitmapContextCreate(pixelData, 1, 1, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorSpace);
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
+    
+    CGContextTranslateCTM(context, -pointX, pointY- height);
+    CGContextDrawImage(context, CGRectMake(0.0f, 0.0f, width, height), self.CGImage);
+    CGContextRelease(context);
+    
+    CGFloat red   = (CGFloat)pixelData[0] / 255.0f;
+    CGFloat green = (CGFloat)pixelData[1] / 255.0f;
+    CGFloat blue  = (CGFloat)pixelData[2] / 255.0f;
+    CGFloat alpha = (CGFloat)pixelData[3] / 255.0f;
+    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+}
+
+/**
  设置图片透明度
  */
 - (UIImage *)imageByApplyingAlpha:(CGFloat)alpha {
@@ -173,6 +207,23 @@
     // 使当前的context出堆栈
     UIGraphicsEndImageContext();
     return resizeImage ;
+}
+
+/**
+ 设置图片圆角
+ */
+- (UIImage *)imageWithCornerRadius:(CGFloat)radius {
+    CGRect rect = (CGRect){0.f,0.f,self.size};
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    
+    //根据矩形画带圆角的曲线
+    CGContextAddPath(UIGraphicsGetCurrentContext(), [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);
+    [self drawInRect:rect];
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    //关闭上下文
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 /**
@@ -277,7 +328,43 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+
 }
+
+/**
+ 将图片旋转弧度radians
+ */
+- (UIImage *)imageRotatedByRadians:(CGFloat)radians {
+    UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.size.width, self.size.height)];
+    CGAffineTransform t = CGAffineTransformMakeRotation(radians);
+    rotatedViewBox.transform = t;
+    CGSize rotatedSize = rotatedViewBox.frame.size;
+    
+    UIGraphicsBeginImageContext(rotatedSize);
+    CGContextRef bitmap = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
+    CGContextRotateCTM(bitmap, radians);
+    CGContextScaleCTM(bitmap, 1.0, -1.0);
+    CGContextDrawImage(bitmap, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), [self CGImage]);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+/**
+ 将图片旋转角度degrees
+ */
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees {
+    return [self imageRotatedByRadians:JCDegreesToRadians(degrees)];
+}
+
+/// 由角度转换弧度
+CGFloat JCDegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
+
+/// 由弧度转换角度
+CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
 
 #pragma mark - 绘制
 

@@ -38,7 +38,12 @@
 /**
  灰度图片
  */
-- (UIImage*)grayImage;
+- (UIImage *)grayImage;
+
+/**
+ 取图片某点像素的颜色
+ */
+- (UIColor *)colorAtPixel:(CGPoint)point;
 
 /**
  设置图片透明度
@@ -56,6 +61,11 @@
  调整图片大小
  */
 - (UIImage *)resize:(CGSize)size;
+
+/**
+ 设置图片圆角
+ */
+- (UIImage *)imageWithCornerRadius:(CGFloat)radius;
 
 /**
  所占的内存大小
@@ -107,6 +117,22 @@
  垂直翻转
  */
 - (UIImage *)flipVertical;
+
+/**
+ 将图片旋转radians弧度
+ */
+- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+
+/**
+ 将图片旋转degrees角度
+ */
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+
+/// 由角度转换弧度
+CGFloat JCDegreesToRadians(CGFloat degrees);
+
+/// 由弧度转换角度
+CGFloat JCRadiansToDegrees(CGFloat radians);
 
 #pragma mark - 绘制
 
