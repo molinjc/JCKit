@@ -11,6 +11,7 @@
 
 @interface JCQRCodeScanViewBase () <AVCaptureMetadataOutputObjectsDelegate>
 @property (nonatomic, strong) AVCaptureSession *session;
+@property (nonatomic, strong) AVCaptureDevice  *device;
 @end
 
 @implementation JCQRCodeScanViewBase
@@ -34,15 +35,16 @@
  设置通知
  */
 - (void)setApplicationNotification {
+    //获取摄像设备
+    _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)startScan {
-    //获取摄像设备
-    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     //创建输入流
-    AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+    AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
     if (!input) {
         if (self.deviceError) {
             self.deviceError();
@@ -75,6 +77,24 @@
 
 - (void)stopScan {
     [self.session stopRunning];
+}
+
+/**
+ 关闭手电筒🔦
+ */
+- (void)torchOff {
+    [_device lockForConfiguration:nil];
+    [_device setTorchMode:AVCaptureTorchModeOff];
+    [_device unlockForConfiguration];
+}
+
+/**
+ 打开手电筒🔦
+ */
+- (void)torchOn {
+    [_device lockForConfiguration:nil];
+    [_device setTorchMode:AVCaptureTorchModeOn];
+    [_device unlockForConfiguration];
 }
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
