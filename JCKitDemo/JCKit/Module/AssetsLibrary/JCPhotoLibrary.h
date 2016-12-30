@@ -42,7 +42,7 @@
 
 @property (nonatomic, readonly) NSString *groupName;       // 相册名
 
-@property (nonatomic, readonly) NSInteger count;           // 相册个数
+@property (nonatomic, readonly) NSInteger count;           // 照片个数
 
 @property (nonatomic, readonly) NSInteger groupPropertyType;
 

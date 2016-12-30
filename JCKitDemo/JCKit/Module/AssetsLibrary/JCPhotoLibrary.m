@@ -167,18 +167,19 @@
  通过相册组获取里面的图片：
  */
 - (void)scanPhotos:(void (^)(NSArray <JCPhotoAsset *> *))block {
+    NSInteger count = self.count;
+    __block NSInteger _index = 0;
     __block NSMutableArray *assets = [NSMutableArray new];
     [_assetsGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
         if (result) {
             JCPhotoAsset *asset = [[JCPhotoAsset alloc] initWithAsset:result];
             [assets addObject:asset];
         }
-    }];
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if (block) {
-            block(assets.copy);
+        _index ++;
+        if (_index == count && block) {
+            block(assets);
         }
-    });
+    }];
 }
 
 /**
