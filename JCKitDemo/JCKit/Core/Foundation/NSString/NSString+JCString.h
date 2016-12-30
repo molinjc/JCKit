@@ -165,6 +165,11 @@
  */
 - (BOOL)isChinese;
 
+/**
+ 是否包含Emoji(表情)
+ */
+- (BOOL)containsEmoji;
+
 #pragma mark -  separate
 
 /**
