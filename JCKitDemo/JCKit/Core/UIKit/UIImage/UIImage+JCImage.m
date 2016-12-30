@@ -390,11 +390,22 @@ CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
  */
 - (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor fontSize:(CGFloat)fontSize paragraphStyle:(NSParagraphStyle *)paragraphStyle {
     UIFont *font = [UIFont systemFontOfSize:fontSize];
+    return [self imageWithText:text textColor:textColor font:font paragraphStyle:paragraphStyle];
+}
+
+- (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font {
+    NSMutableParagraphStyle *paragraphStyle = [NSParagraphStyle defaultParagraphStyle].mutableCopy;
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paragraphStyle.alignment = NSTextAlignmentCenter;   // 文字居中
+    return [self imageWithText:text textColor:textColor font:font paragraphStyle:paragraphStyle];
+}
+
+- (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font paragraphStyle:(NSParagraphStyle *)paragraphStyle {
     CGSize size = CGSizeMake(self.size.width, self.size.height);  // 画布大小
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);        // 创建一个基于位图的上下文
     [self drawAtPoint:CGPointMake(0.0, 0.0)];
     
-   
+    
     CGSize textSize = [text boundingRectWithSize:self.size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
     CGRect rect = CGRectMake((size.width - textSize.width) / 2,
                              (size.height - textSize.height) / 2,
