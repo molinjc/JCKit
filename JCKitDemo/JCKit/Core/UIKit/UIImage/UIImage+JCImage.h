@@ -155,6 +155,10 @@ CGFloat JCRadiansToDegrees(CGFloat radians);
 
 - (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font;
 
+#pragma mark - 表情
+
+
+
 @end
 
 #pragma mark - GIF
@@ -191,5 +195,50 @@ CGFloat JCRadiansToDegrees(CGFloat radians);
  二维码图片内容信息
  */
 - (NSString *)QRCodeImageContext;
+
+@end
+
+@interface UIImage (JCBlur)
+
+/**
+ 灰度模糊
+ */
+- (UIImage *)imageByGrayscale;
+
+/**
+ 柔软模糊
+ */
+- (UIImage *)imageByBlurSoft;
+
+/**
+ 光线模糊
+ */
+- (UIImage *)imageByBlurLight;
+
+/**
+ 额外光线模糊
+ */
+- (UIImage *)imageByBlurExtraLight;
+
+/**
+ 黑暗模糊
+ */
+- (UIImage *)imageByBlurDark;
+
+
+/**
+ 设置图片模糊的颜色
+ */
+- (UIImage *)imageByBlurWithTint:(UIColor *)tintColor;
+
+/**
+ 设置图片模糊
+ @param blurRadius 模糊度
+ @param tintColor 模糊颜色
+ @param tintBlendMode 模糊模式
+ @param saturation 饱和度
+ @param maskImage 掩码图像
+ */
+- (UIImage *)imageByBlurRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor tintMode:(CGBlendMode)tintBlendMode saturation:(CGFloat)saturation maskImage:(UIImage *)maskImage;
 
 @end
