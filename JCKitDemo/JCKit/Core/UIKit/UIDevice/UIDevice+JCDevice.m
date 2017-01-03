@@ -41,6 +41,18 @@
 }
 
 /**
+ 是否是iPhone设备
+ */
+- (BOOL)isPhone {
+    static dispatch_once_t onceToken;
+    static BOOL phone;
+    dispatch_once(&onceToken, ^{
+        phone = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+    });
+    return phone;
+}
+
+/**
  是否是模拟器
  */
 - (BOOL)isSimulator {

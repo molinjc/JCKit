@@ -23,6 +23,11 @@
 @property (nonatomic, readonly) BOOL isPad;
 
 /**
+ 是否是iPhone设备
+ */
+@property (nonatomic, readonly) BOOL isPhone;
+
+/**
  是否是模拟器
  */
 @property (nonatomic, readonly) BOOL isSimulator;
