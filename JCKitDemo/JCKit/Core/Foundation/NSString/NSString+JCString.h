@@ -144,6 +144,12 @@
 + (BOOL)isBlankString:(NSString *)string;
 
 /**
+ 判断字符串是否为空
+ @return YES：为空， NO：不为空
+ */
+- (BOOL)isEmpty;
+
+/**
  是否包含某字符串
  @param contain 被包含的字符串
  @return NO：没包含 YES：包含
