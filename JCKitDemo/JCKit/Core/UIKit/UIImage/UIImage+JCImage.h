@@ -155,10 +155,6 @@ CGFloat JCRadiansToDegrees(CGFloat radians);
 
 - (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font;
 
-#pragma mark - 表情
-
-
-
 @end
 
 #pragma mark - GIF
