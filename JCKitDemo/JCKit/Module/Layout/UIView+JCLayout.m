@@ -587,7 +587,7 @@ static const void *kLayoutConstraints = &kLayoutConstraints;
 }
 
 /**
- *  参照同层级view的width
+ *  参照同层级view的height
  */
 - (UIView *(^)(UIView *sameLayerView, CGFloat multiplier, CGFloat height))layoutSameLayerHeightWithMultiplier {
     return ^(UIView *sameLayerView, CGFloat multiplier, CGFloat height) {
@@ -786,7 +786,7 @@ static const void *kLayoutConstraints = &kLayoutConstraints;
 - (void)addToSuperviewConstraintWithSameLayerView:(UIView *)view attribute1:(NSLayoutAttribute)attribute1 attribute2:(NSLayoutAttribute)attribute2 constant:(CGFloat)constant multiplier:(CGFloat)multiplier {
     NSLayoutConstraint *layoutConstraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute1 relatedBy:NSLayoutRelationEqual toItem:view attribute:attribute2 multiplier:multiplier constant:constant];
     IFSUBVIEWS
-    layoutConstraints_SameLayer_ContraryAttribute_AddObject_forKey(attribute1)
+    layoutConstraints_SameLayer_ContraryAttribute_AddObject_forKey(attribute2)
     [self.superview addConstraint:layoutConstraint];
 //    [self.superview layoutIfNeeded];
 }
