@@ -142,6 +142,7 @@ UIImage * JCImageScratch(CALayer *layer, CGSize size, CGRect clearRect) {
     CGContextClearRect(ref, clearRect);
     //获取清理后的上下文，以Image形式
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return image;
 }
 
