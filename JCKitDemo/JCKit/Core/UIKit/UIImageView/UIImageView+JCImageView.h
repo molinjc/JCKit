@@ -11,6 +11,11 @@
 @interface UIImageView (JCImageView)
 
 /**
+ 设置图片名
+ */
+- (void)setImageNamed:(NSString *)named;
+
+/**
  倒影
  */
 - (void)imageReflect;
@@ -21,5 +26,12 @@
  @param rect 水印图的位置
  */
 - (void)watermark:(UIImage *)watermark inRect:(CGRect)rect;
+
+/**
+ 人脸识别，调整图片显示的位置
+ @param aImage 图片
+ @param fast YES： 高精度， NO： 低精度
+ */
+- (void)faceDetectWithImage:(UIImage *)aImage fast:(BOOL)fast;
 
 @end
