@@ -184,7 +184,7 @@
  */
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     if (!font) {
-        font = [UIFont systemFontOfSize:15];
+        font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     }
     NSMutableDictionary *attr = [NSMutableDictionary new];
     attr[NSFontAttributeName] = font;
@@ -540,7 +540,7 @@
 #pragma mark - 格式化
 
 /**
- 输出格式：123,456；每隔三个就有,
+ 输出格式：123,456；每隔三个就有","
  */
 + (NSString *)stringFormatterWithDecimal:(NSNumber *)number {
     return [NSString stringFormatter:NSNumberFormatterDecimalStyle number:number];
