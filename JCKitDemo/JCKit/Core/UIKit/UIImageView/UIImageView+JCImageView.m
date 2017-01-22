@@ -54,7 +54,6 @@
 - (void)watermark:(UIImage *)watermark inRect:(CGRect)rect {
     if (!self.image) {
         self.image = watermark;
-        return;
     }
     
     UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
