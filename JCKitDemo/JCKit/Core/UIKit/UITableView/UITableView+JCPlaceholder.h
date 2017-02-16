@@ -22,3 +22,9 @@
 @property (nonatomic, strong) UIView *customPlaceholderView;
 
 @end
+
+@interface UITableView (JCTableView)
+
+- (void)updateWithBlock:(void (^)(UITableView *tableView))block;
+
+@end

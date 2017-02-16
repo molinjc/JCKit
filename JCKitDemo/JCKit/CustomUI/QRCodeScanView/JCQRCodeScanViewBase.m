@@ -112,7 +112,7 @@
 #pragma mark - NSNotification
 
 - (void)_applicationWillEnterForeground:(id)sender {
-    [self.session  startRunning];
+    [self.session startRunning];
 }
 
 - (void)_applicationDidEnterBackground:(id)sender {

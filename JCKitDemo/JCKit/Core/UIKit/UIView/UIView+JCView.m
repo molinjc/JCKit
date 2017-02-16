@@ -32,6 +32,25 @@
     };
 }
 
+- (CGFloat)visibleAlpha {
+    if ([self isKindOfClass:[UIWindow class]]) {
+        if (self.hidden) return 0;
+        return self.alpha;
+    }
+    if (!self.window) return 0;
+    CGFloat alpha = 1;
+    UIView *v = self;
+    while (v) {
+        if (v.hidden) {
+            alpha = 0;
+            break;
+        }
+        alpha *= v.alpha;
+        v = v.superview;
+    }
+    return alpha;
+}
+
 /**
  获取View所在的控制器，响应链上的第一个Controller
  */
@@ -129,6 +148,45 @@
     [views enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL * _Nonnull stop) {
         [self addSubview:subview];
     }];
+}
+
+/**
+ 添加多个子控件
+ @param value 可以是View或数组
+ */
+- (void)addChild:(id)value {
+    UIView *parent = self;
+    if ([parent isKindOfClass:UIVisualEffectView.class]) {
+        parent = ((UIVisualEffectView *)parent).contentView;
+    }
+    if ([parent isKindOfClass:UITableViewCell.class]) {
+        parent = ((UITableViewCell *)parent).contentView;
+    }
+    if ([parent isKindOfClass:UICollectionViewCell.class]) {
+        parent = ((UICollectionViewCell *)parent).contentView;
+    }
+    
+    if ([value isKindOfClass:UIView.class]) {
+        [parent addSubview:value];
+    }else if ([value isKindOfClass:NSArray.class]) {
+        for (id view in value) {
+            [parent addSubview:view];
+        }
+    }else {
+        @throw @"Invalid child";
+    }
+}
+
+/**
+ 设置阴隐
+ */
+- (void)setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius {
+    self.layer.shadowColor = color.CGColor;
+    self.layer.shadowOffset = offset;
+    self.layer.shadowRadius = radius;
+    self.layer.shadowOpacity = 1;
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 @end

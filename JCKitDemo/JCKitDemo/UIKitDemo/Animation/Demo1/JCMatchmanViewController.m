@@ -9,7 +9,7 @@
 #import "JCMatchmanViewController.h"
 
 
-@interface JCMatchmanViewController ()
+@interface JCMatchmanViewController () <UIPopoverPresentationControllerDelegate>
 
 @end
 
@@ -172,6 +172,28 @@
     [animationView.layer addAnimation:animation forKey:@"position"];
 }
 
+- (void)popover {
+    UIViewController *popC = [[UIViewController alloc] init];
+    popC.modalPresentationStyle = UIModalPresentationPopover;
+    
+    // 设置依附的按钮
+    popC.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
+    
+    // 指示小箭头颜色
+    popC.popoverPresentationController.backgroundColor = [UIColor blueColor];
+    
+    // content尺寸
+    popC.preferredContentSize = CGSizeMake(300, 200);
+    
+    // 箭头方向
+    popC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    popC.popoverPresentationController.delegate = self;
+    
+    popC.view.backgroundColor = [UIColor grayColor];
+    
+    [self presentViewController:popC animated:YES completion:nil];
+}
+
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
 
 - (void)viewDidLoad {
@@ -182,6 +204,9 @@
 //    [self baseTranslationAnimation];
     
     [self baseScaleAnimation];
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStyleDone target:self action:@selector(popover)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -194,6 +219,12 @@
 
 #pragma mark - Custom Delegate(自定义的代理)
 #pragma mark - System Delegate(系统类的代理)
+
+//代理方法 ,点击即可dismiss掉每次init产生的PopViewController
+-(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{
+    return UIModalPresentationNone;
+}
+
 #pragma mark - Setter/Getter(懒加载)
 
 @end

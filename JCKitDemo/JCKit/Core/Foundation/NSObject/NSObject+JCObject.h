@@ -33,4 +33,8 @@ JCAttributeType JCGetObjectAttributeType(const char *attribute);
  */
 - (NSArray *)allSubClasses;
 
++ (NSString *)className;
+
+- (NSString *)className;
+
 @end

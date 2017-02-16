@@ -17,7 +17,7 @@
 #import "JCSQLite3.h"
 
 #import "JCFPSLabel.h"
-
+#import "UIBarButtonItem+JCBlock.h"
 #if __has_include("NSObject+JCObserverKVO.h")
 #define kSCALE 2.0
 #else
@@ -49,13 +49,15 @@ UITableViewDataSource>
     [self addCell:@"Foundation Example" class:@"JCFoundationExampleViewController"];
     [self addCell:@"UIKit Example" class:@"JCUIKitExampleViewController"];
     [self addCell:@"CustomerUI Example" class:@"JCCustomerDemoViewController"];
+    [self addCell:@"SimplifyUI Example" class:@"JCSimplifyUIExampleViewController"];
     [self.view addSubview:self.imageView];
     self.imageView.frame = CGRectMake(0, 0, 200, 150);
     self.imageView.center = self.view.center;
-    
     [[self.imageView.addStream addKeyPath:@"image"] observeValueForBlock:^(__weak id obj, NSString *keyPath, id oldValue, id newValue) {
         NSLog(@"keyPath:%@",keyPath);
     }];
+
+    
     JCLog(@"%f",kSCALE);
 //    [self test_Array];
     [self test_String];
@@ -75,6 +77,17 @@ UITableViewDataSource>
     },^(double ms) {
         JCLog(@"JCSQLite3运行的时间：%2f",ms)
     });
+    
+//    UIBarButtonItem *button = ;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"sss" style:UIBarButtonItemStylePlain target:self action:@selector(ss)];
+    self.navigationItem.rightBarButtonItem.badgeValue = @"12";
+    JCLog(@"%@ \n %@",[(id)self.navigationItem.rightBarButtonItem view].subviews, self.navigationItem.rightBarButtonItem.customView.superview);
+    self.navigationItem.rightBarButtonItem.width = -5;
+    
+}
+
+- (void)ss {
+    JCLog(@"ss");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -94,6 +107,30 @@ UITableViewDataSource>
      UIImageOrientationLeftMirrored: 顺时针旋转270度，向左翻转
      UIImageOrientationRightMirrored: 顺时针旋转90度，向右翻转
      */
+    
+    
+    /*
+    JCLog(@"%@",self.navigationController.viewControllers)
+    NSMutableArray *array = [NSMutableArray new];
+    [array addObject:self.navigationController.viewControllers.firstObject];
+    Class class = NSClassFromString(@"JCCustomerDemoViewController"); // 根据给定的类名创建一个类
+    if (class) {
+        UIViewController *ctrl = class.new;  // 也可以用[class new],把类给UIViewController
+        ctrl.title = @"CustomerUI Example";
+        [array addObject:ctrl];
+    }
+    
+    Class class1 = NSClassFromString(@"JCJCCodedLockViewController"); // 根据给定的类名创建一个类
+    if (class1) {
+        UIViewController *ctrl = class1.new;  // 也可以用[class new],把类给UIViewController
+        ctrl.title = @"密码";
+        [array addObject:ctrl];
+    }
+    [self.navigationController setViewControllers:array animated:YES];
+    JCLog(@"%@",self.navigationController.viewControllers)
+  */
+    
+//    - (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated 
 }
 
 - (void)didReceiveMemoryWarning {

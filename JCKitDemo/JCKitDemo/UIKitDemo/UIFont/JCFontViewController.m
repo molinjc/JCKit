@@ -61,7 +61,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YY"];
     }
-    cell.textLabel.text = _titles[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"JC  %@",_titles[indexPath.row]];
     cell.textLabel.font = [UIFont fontWithName:_titles[indexPath.row] size:14];
     return cell;
 }

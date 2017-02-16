@@ -37,6 +37,13 @@
     [self addCell:@"MVP的V与P之间的通信" class:@"JCMVPViewController"];
     [self addCell:@"UIPasteboard" class:@"JCUIPasteboardViewController"];
     [self addCell:@"动画" class:@"JCAnimationViewController"];
+    [self addCell:@"UIActionSheet" class:@"JCUIActionSheetViewController"];
+    [self addCell:@"UITableView" class:@"JCTableViewController"];
+    [self addCell:@"UISearchBar" class:@"JCUISearchBarViewController"];
+    [self addCell:@"UIWebView" class:@"JCUIWebViewController"];
+    [self addCell:@"UIImageView" class:@"JCUIImageViewViewController"];
+    [self addCell:@"3DTouch" class:@"JC3DTouchViewController"];
+    [self addCell:@"UISplitViewController" class:@"JCSplitViewController"];
     [self.view addSubview:self.tableView];
     
     NSString *j = @"12";

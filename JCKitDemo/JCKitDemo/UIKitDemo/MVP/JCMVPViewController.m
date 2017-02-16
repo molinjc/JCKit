@@ -8,6 +8,8 @@
 
 #import "JCMVPViewController.h"
 #import "JCMVPPresenter.h"
+#import "UIBarButtonItem+JCBlock.h"
+#import "UINavigationItem+JCLoading.h"
 
 @interface JCMVPViewController ()
 
@@ -23,10 +25,14 @@
 
 - (void)button1E:(id)sender {
     [self.mvpPresenter event1];
+    
+    [self.navigationItem startLoadingAnimating];
 }
 
 - (void)button2E:(id)sender {
     [self.mvpPresenter event2];
+    
+    [self.navigationItem stopLoadingAnimating];
 }
 
 - (void)button3E:(id)sender {
@@ -54,11 +60,32 @@
     [self.view addSubview:button3];
 }
 
+- (void)addUIBarButtonItem {
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_shareUser"] style:UIBarButtonItemStyleDone actionBlock:^(id sender) {
+        NSLog(@"dianjillllllll");
+         NSLog(@"relativeRect:%@", NSStringFromCGRect(relativeRect(self.navigationItem.rightBarButtonItem)));
+    }];
+    self.navigationItem.rightBarButtonItem = button;
+    self.navigationItem.rightBarButtonItem.width = 100;
+    NSLog(@"relativeRect:%@", NSStringFromCGRect(relativeRect(self.navigationItem.rightBarButtonItem)));
+}
+
+- (void)sss {
+    NSLog(@"dianjillllllll");
+    NSLog(@"relativeRect:%@", NSStringFromCGRect(relativeRect(self.navigationItem.rightBarButtonItem)));
+}
+
+CGRect relativeRect(UIBarButtonItem *barButtonItem)
+{
+    UIButton *button = [barButtonItem valueForKey:@"view"];
+    return [button.superview convertRect:button.frame fromView:button.superview];
+}
+
+
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     
     self.string = @"1";
@@ -80,10 +107,15 @@
     }];
     
     [self addButons];
+    [self addUIBarButtonItem];
+    NSLog(@"====ooo:%@",[(id)self.navigationItem.rightBarButtonItem view]);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    
+    self.navigationItem.rightBarButtonItem.badgeValue = @"12";
 }
 
 - (void)didReceiveMemoryWarning {

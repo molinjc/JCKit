@@ -64,6 +64,10 @@
 //当网页视图结束加载一个请求之后，得到通知
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
+    if (!self.title.length) {
+        self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    }
 }
 
 @end

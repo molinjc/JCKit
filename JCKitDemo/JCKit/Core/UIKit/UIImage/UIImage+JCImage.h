@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define IMAGE(name) [UIImage imageWithName:name]
+
 @interface UIImage (JCImage)
 
 + (UIImage *)imageWithName:(NSString *)name;

@@ -11,6 +11,20 @@
 
 #import <sys/time.h>
 
+/**
+ 简化CGRect创建
+ Usages:
+ CGRect rect = FRAME_XYWH(someView.frame);
+ FRAME_XYWH(10, 10, 100, 100);
+ FRAME_XYWH(CGPointMake(10, 10), 100, 100);
+ FRAME_XYWH(CGPointMake(10, 10), CGSizeMake(100, 100));
+ */
+#define FRAME_XYWH(...) (CGRect){__VA_ARGS__}
+
+#define SIZE_WH(...) (CGSize){__VA_ARGS__}
+
+#define POINT_XY(...) (CGPoint){__VA_ARGS__}
+
 #if DEBUG
 
 /**

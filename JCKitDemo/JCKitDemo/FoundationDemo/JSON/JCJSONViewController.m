@@ -67,6 +67,10 @@ UITableViewDataSource>
     NSString *ss = NSLocalizedString(@"A", nil);
     JCLog(@"%@",ss);
     
+    NSString *j  = @"{notificationCount:2,activityCount:1,newsCount:1,allMessageCount:4}";
+    NSDictionary *dic = [NSDictionary modelWithJSON:j];
+    JCLog(@"%@",dic);
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

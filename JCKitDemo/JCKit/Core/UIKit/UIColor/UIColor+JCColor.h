@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define COLOR(value) [UIColor colorWithColorObject:value]
+
 @interface UIColor (JCColor)
 
 /**
@@ -54,6 +56,11 @@
  @param c2 结束颜色
  @param height 渐变高度
  */
-+ (UIColor*)gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(CGFloat)height;
++ (UIColor *)gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(CGFloat)height;
+
+/**
+ object可以是UIColor对象、颜色单词、16进制、RGB值，根据这些创建对此
+ */
++ (UIColor *)colorWithColorObject:(id)object;
 
 @end

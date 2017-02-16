@@ -112,4 +112,12 @@ JCAttributeType JCGetObjectAttributeType(const char *attribute) {
     return subClasses;
 }
 
++ (NSString *)className {
+    return NSStringFromClass(self);
+}
+
+- (NSString *)className {
+    return [NSString stringWithUTF8String:class_getName([self class])];
+}
+
 @end

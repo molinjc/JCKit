@@ -161,4 +161,83 @@
     return [UIColor colorWithPatternImage:image];
 }
 
+/**
+ object可以是UIColor对象、颜色单词、16进制、RGB值，根据这些创建对此
+ */
++ (UIColor *)colorWithColorObject:(id)object {
+    if ([object isKindOfClass:UIColor.class]) {
+        return object;
+    }
+    
+    if ([object isKindOfClass:NSString.class]) {
+        CGFloat alpha = 1;
+        NSArray *componnets = [object componentsSeparatedByString:@","];
+        
+        //whether the color object contains alpha
+        if (componnets.count == 2 || componnets.count == 4) {
+            NSRange range = [object rangeOfString:@"," options:NSBackwardsSearch];
+            alpha = [[object substringFromIndex:range.location + range.length] floatValue];
+            alpha = MIN(alpha, 1);
+            object = [object substringToIndex:range.location];
+        }
+        
+        //system color
+        SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@Color", object]);
+        if ([UIColor respondsToSelector:sel]) {
+            UIColor *color = [UIColor performSelector:sel withObject:nil];
+            if (alpha != 1) color = [color colorWithAlphaComponent:alpha];
+            return color;
+        }
+        
+        
+        int r = 0, g = 0, b = 0;
+        BOOL isRGBColor = NO;
+        
+        //random
+        if ([object isEqualToString:@"random"]) {
+            r = arc4random_uniform(256);
+            g = arc4random_uniform(256);
+            b = arc4random_uniform(256);
+            isRGBColor = YES;
+            
+        } else {
+            BOOL isHex = NO;
+            
+            if ([object hasPrefix:@"#"]) {
+                object = [object substringFromIndex:1];
+                isHex = YES;
+            }
+            if ([object hasPrefix:@"0x"]) {
+                object = [object substringFromIndex:2];
+                isHex = YES;
+            }
+            
+            if (isHex) {
+                int result = sscanf([object UTF8String], "%2x%2x%2x", &r, &g, &b);     //#FFFFFF
+                
+                if (result != 3) {
+                    result = sscanf([object UTF8String], "%1x%1x%1x", &r, &g, &b);     //#FFF
+                    
+                    //convert #FFF to #FFFFFF
+                    if (result == 3) {
+                        r *= 17; g *= 17; b *= 17;
+                    }
+                }
+                isRGBColor = (result == 3);
+                
+            } else {
+                int result = sscanf([object UTF8String], "%d,%d,%d", &r, &g, &b);       //rgb
+                isRGBColor = (result == 3);
+            }
+        }
+        
+        if (isRGBColor) {
+            return [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:alpha];
+        }
+    } else if ([object isKindOfClass:[UIImage class]]) {
+        return [UIColor colorWithPatternImage:object];
+    }
+    return nil;
+}
+
 @end

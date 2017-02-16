@@ -28,6 +28,8 @@
     
 //    CGPathCreateWithPoints(3,CGPointMake(0, 10),CGPointMake(0, 0),CGPointMake(20, 30));
     
+    //application.shortcutItems = @[[self touch3D]];
+    
     return YES;
 }
 
@@ -51,6 +53,25 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    
+    NSLog(@"%@ \n %@",shortcutItem, shortcutItem.userInfo);
+    
+    /// 判断方式可根据自己需要变更
+    if ([shortcutItem.localizedTitle isEqualToString:@"test1"]) {
+        NSLog(@"test1");
+    }
+    if ([shortcutItem.localizedTitle isEqualToString:@"test2"]) {
+        NSLog(@"test2");
+    }
+}
+
+- (UIApplicationShortcutItem *)touch3D {
+    UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"2"];
+    UIApplicationShortcutItem *item1 = [[UIApplicationShortcutItem alloc] initWithType:@"test1" localizedTitle:@"test1-1" localizedSubtitle:@"test1-1-1" icon:icon1 userInfo:@{@"a":@"a"}];
+    return item1;
 }
 
 @end

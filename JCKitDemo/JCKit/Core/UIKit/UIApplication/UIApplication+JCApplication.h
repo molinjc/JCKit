@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define APP(obj) ((obj *)[UIApplication appDelegate])
+
 @interface UIApplication (JCApplication)
 
 @property (nonatomic, readonly) NSString *appBundleName;   // < Bundle Name >
@@ -31,5 +33,10 @@
  隐藏键盘
  */
 + (void)hideKeyboard;
+
+/**
+ 返回AppDelegate对象
+ */
++ (id)appDelegate;
 
 @end

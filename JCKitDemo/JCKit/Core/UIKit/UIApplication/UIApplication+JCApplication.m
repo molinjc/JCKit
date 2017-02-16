@@ -60,7 +60,8 @@
     
     name[0] = CTL_KERN;
     name[1] = KERN_PROC;
-    name[2] = KERN_PROC_PID; name[3] = getpid();
+    name[2] = KERN_PROC_PID;
+    name[3] = getpid();
     
     if (ret == (sysctl(name, 4, &info, &size, NULL, 0))) {
         return ret != 0;
@@ -71,7 +72,7 @@
 /**
  手动更改状态栏的颜色
  */
-- (void)setStatusBarBackgtoundColor:(UIColor *)color {
+- (void)setStatusBarBackgoundColor:(UIColor *)color {
     UIView *statusBar = [[self valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
     if (statusBar && [statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
         statusBar.backgroundColor = color;
@@ -84,6 +85,10 @@
 
 + (void)hideKeyboard {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
++ (id)appDelegate {
+    return [UIApplication sharedApplication].delegate;
 }
 
 #pragma mark - private

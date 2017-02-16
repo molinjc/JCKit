@@ -62,6 +62,8 @@
     [super viewDidLoad];
     
     [self addCell:@"火柴人" class:@"JCMatchmanViewController"];
+    [self addCell:@"波浪" class:@"JCWaveViewController"];
+    [self addCell:@"CoreGraphics 层聚合" class:@"JCDrawViewController"];
     
     [self test];
 }

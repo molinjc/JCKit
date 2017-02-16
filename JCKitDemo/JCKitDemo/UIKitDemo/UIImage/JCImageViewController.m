@@ -9,12 +9,15 @@
 #import "JCImageViewController.h"
 #import "UIImage+JCImage.h"
 #import "UIView+JCView.h"
+#import "JCKitMacro.h"
 
 @interface JCImageViewController ()
 
 @property (nonatomic, strong) UIImageView *imageViewGIF;
 
 @property (nonatomic, strong) UIImageView *imageViewText;
+
+@property (nonatomic, strong) UIImageView *QRCodeView;
 
 @end
 
@@ -32,8 +35,18 @@
     [self.view addSubview:self.imageViewText];
     self.imageViewText.image = [[UIImage imageNamed:@"1"] imageWithText:@"图片上绘制文字" fontSize:15];
     
+    self.imageViewText.image = [[self.imageViewText.image imageByApplyingAlpha:0.4] imageWithCornerRadius:40];
+    
+    self.QRCodeView = [[UIImageView alloc] init];
+    [self.view addSubview:self.QRCodeView];
+    self.QRCodeView.frame = CGRectMake(10, 550, 100, 100);
+    self.QRCodeView.image = [UIImage QRCodeImageWithString:@"哈哈哈哈哈" size:100];
+    NSLog(@"二维码内容: %@", [self.QRCodeView.image QRCodeImageContext]);
+    
     [self layoutSubview];
     [self addButton];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一个" style:UIBarButtonItemStyleDone target:self action:@selector(imageAction:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +75,15 @@
 
 - (void)buttonEvent:(id)sender {
     self.imageViewText.image = [self.view snapshotImageAfterScreenUpdates:NO];
+}
+
+- (void)imageAction:(id)sender {
+    Class class = NSClassFromString(@"JCImage2ViewController"); 
+    if (class) {
+        UIViewController *ctrl = class.new;
+        ctrl.title = @"image2";
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
 }
 
 #pragma mark - Custom Delegate(自定义的代理)
