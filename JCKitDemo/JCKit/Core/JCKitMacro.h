@@ -12,6 +12,18 @@
 #import <sys/time.h>
 
 /**
+ 简化AppDelegate里的window的初始化
+ 
+ @param rootViewController 根视图
+ @param backgroundColor 背景颜色
+ */
+#define JCAppDelegate_window(root, color) \
+self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];\
+self.window.rootViewController = root;\
+self.window.backgroundColor = color;\
+[self.window makeKeyAndVisible];
+
+/**
  简化CGRect创建
  Usages:
  CGRect rect = FRAME_XYWH(someView.frame);
@@ -19,11 +31,19 @@
  FRAME_XYWH(CGPointMake(10, 10), 100, 100);
  FRAME_XYWH(CGPointMake(10, 10), CGSizeMake(100, 100));
  */
-#define FRAME_XYWH(...) (CGRect){__VA_ARGS__}
+#define JCFRAME_XYWH(...) (CGRect){__VA_ARGS__}
 
-#define SIZE_WH(...) (CGSize){__VA_ARGS__}
+#define JCSIZE_WH(...) (CGSize){__VA_ARGS__}
 
-#define POINT_XY(...) (CGPoint){__VA_ARGS__}
+#define JCPOINT_XY(...) (CGPoint){__VA_ARGS__}
+
+/**
+ 简化NSString的stringWithFormat:
+ Usages:
+ NSString *str1 = STRING_FORMAT(@"Usages:%d-%d", 2, 3);
+ NSString *str1 = STRING_FORMAT(@"Usages", nil);
+ */
+#define JCSTRING_FORMAT(format, ...) [NSString stringWithFormat:format, __VA_ARGS__]
 
 #if DEBUG
 

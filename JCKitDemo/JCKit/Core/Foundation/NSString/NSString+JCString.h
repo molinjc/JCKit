@@ -58,6 +58,10 @@
  */
 + (NSString *)dateStringWithFormat:(NSString *)format;
 
+#pragma mark - NSURL
+
+- (NSURL *)url;
+
 #pragma mark - UI Size
 
 /**

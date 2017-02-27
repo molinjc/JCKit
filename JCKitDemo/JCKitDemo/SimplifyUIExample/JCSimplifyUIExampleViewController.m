@@ -11,7 +11,6 @@
 #import "JCKit.h"
 
 @interface JCSimplifyUIExampleViewController ()
-
 @end
 
 @implementation JCSimplifyUIExampleViewController
@@ -23,16 +22,24 @@
 - (void)demo1 {
     UIView *demo1 = [UIView focusUIViewInit:^(UIView *ins) {
         ins.backgroundColor = COLOR(@"blue");
-        ins.frame = FRAME_XYWH(10, 64, 100, 100);
+        ins.frame = JCFRAME_XYWH(10, 64, 100, 100);
     }];
     [self.view addSubview:demo1];
     
     UILabel *label = [UILabel focusUILabelInit:^(UILabel *ins) {
         ins.text = @"4567890-";
-        ins.frame = FRAME_XYWH(0, 0, 100, 100);
+        ins.frame = JCFRAME_XYWH(0, 0, 100, 100);
         ins.textAlignment = NSTextAlignmentCenter;
     }];
     [demo1 addSubview:label];
+}
+
+
+
+- (void)demo2 {
+//    NSString *s = [NSString stringWithFormat:@"sss%d",2];
+    NSString *s = JCSTRING_FORMAT(@"2",nil);
+    JCLog(@"%@",s);
 }
 
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
@@ -41,6 +48,7 @@
     [super viewDidLoad];
     
     [self demo1];
+    [self demo2];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

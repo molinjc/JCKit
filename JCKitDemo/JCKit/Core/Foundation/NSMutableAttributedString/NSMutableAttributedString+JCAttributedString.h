@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@interface NSAttributedString (JCAttributedString)
+
+/**
+ 加载HTML的代码
+ */
++ (NSAttributedString *)attributedStringWithHTML:(NSString *)html;
+
+@end
+
 @interface NSMutableAttributedString (JCAttributedString)
 
 /**

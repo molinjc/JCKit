@@ -153,6 +153,12 @@
     return [[NSDate date] stringWithFormat:format];
 }
 
+#pragma mark - NSURL
+
+- (NSURL *)url {
+    return [NSURL URLWithString:self];
+}
+
 #pragma mark - UI Size
 
 /**

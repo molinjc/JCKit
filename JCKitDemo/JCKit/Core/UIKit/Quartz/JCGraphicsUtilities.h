@@ -72,6 +72,10 @@ void JCDrawDottedLine(CGPoint p1, CGPoint p2);
 void JCDrawLineCap(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color, CGLineCap cap);
 void JCDrawLine(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color);
 
+//void JCDrawPolygon(CGPoint center, CGFloat radius, int number);
+
+CGMutablePathRef CGPathCreateWithPolygon(CGPoint center, CGFloat radius, int number);
+
 /**
  类似刮刮乐的效果
  @param layer 被刮的图层

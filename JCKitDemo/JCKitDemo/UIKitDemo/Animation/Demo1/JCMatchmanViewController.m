@@ -104,16 +104,16 @@
 
 // 闪烁动画
 - (void)baseSpringAnimation {
-    UIView *springView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 50, 50)];
+    UIView *springView = [[UIView alloc] initWithFrame:CGRectMake(50, 150, 50, 50)];
     [self.view addSubview:springView];
     springView.layer.borderColor = [UIColor greenColor].CGColor;
     springView.layer.borderWidth = 2;
     springView.backgroundColor = [UIColor redColor];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    animation.duration = 2;
-    animation.fromValue = @(1);
-    animation.toValue = @(0);
+    animation.duration = 5;
+    animation.fromValue = @(0);
+    animation.toValue = @(1);
     animation.removedOnCompletion = NO;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     animation.repeatCount = HUGE_VALF;
@@ -203,7 +203,8 @@
     
 //    [self baseTranslationAnimation];
     
-    [self baseScaleAnimation];
+//    [self baseScaleAnimation];
+    [self baseSpringAnimation];
     
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStyleDone target:self action:@selector(popover)];

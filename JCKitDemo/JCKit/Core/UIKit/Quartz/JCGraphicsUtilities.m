@@ -128,6 +128,37 @@ void JCDrawLine(CGPoint p1, CGPoint p2, CGFloat width, UIColor *color) {
     JCDrawLineCap(p1, p2, width, color, kCGLineCapRound);
 }
 
+///**
+// 画多边形
+// @param center <#center description#>
+// @param radius <#radius description#>
+// @param number <#number description#>
+// */
+//void JCDrawPolygon(CGPoint center, CGFloat radius, int number) {
+//    CGContextRef _contextRef = UIGraphicsGetCurrentContext();
+//    CGContextMoveToPoint(_contextRef, center.x + radius, center.y);
+//    for (int i = 1; i <= number; i++) {
+//         CGPoint point = CGPointMake(center.x + radius * cos(2 * M_PI * i / number),
+//                                     center.x + radius * sin(2 * M_PI * i / number));
+//        CGContextAddLineToPoint(_contextRef, point.x, point.y);
+//    }
+//}
+
+CGMutablePathRef CGPathCreateWithPolygon(CGPoint center, CGFloat radius, int number) {
+    CGMutablePathRef wavePath = CGPathCreateMutable();
+    for (int i = 1; i<= number; i++) {
+        CGPoint point = CGPointMake(center.x + radius * sin(2 * M_PI * i / number),
+                                    center.y + radius * cos(2 * M_PI * i / number));
+        if (i == 1) {
+            CGPathMoveToPoint(wavePath, NULL, point.x, point.y);
+        }else {
+            CGPathAddLineToPoint(wavePath, NULL, point.x, point.y);
+        }
+    }
+    CGPathCloseSubpath(wavePath);
+    return wavePath;
+}
+
 /**
  类似刮刮乐的效果
  */

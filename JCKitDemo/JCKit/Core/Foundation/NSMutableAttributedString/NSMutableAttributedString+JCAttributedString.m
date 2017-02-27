@@ -12,6 +12,20 @@
 static NSString *kNSFont           = @"NSFont";
 static NSString *kNSParagraphStyle = @"NSParagraphStyle";
 
+@implementation NSAttributedString (JCAttributedString)
+
+/**
+ 加载HTML的代码
+ */
++ (NSAttributedString *)attributedStringWithHTML:(NSString *)html {
+    return [[NSAttributedString alloc] initWithData:[html dataUsingEncoding:NSUnicodeStringEncoding]
+                                            options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType}
+                                 documentAttributes:nil
+                                              error:nil];
+}
+
+@end
+
 @implementation NSMutableAttributedString (JCAttributedString)
 
 static inline NSRange StringRange(NSMutableAttributedString *attributedString) {
