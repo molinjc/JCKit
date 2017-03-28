@@ -176,7 +176,7 @@
  创建UIToolbar对象
  */
 - (UIToolbar *)toolbar {
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 42)];
 //    [toolbar setTintColor:[UIColor whiteColor]];
     [toolbar setBarTintColor:[UIColor whiteColor]];
     [toolbar setBarStyle:UIBarStyleBlackTranslucent];

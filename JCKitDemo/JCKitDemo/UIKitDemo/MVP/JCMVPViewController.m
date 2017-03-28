@@ -162,6 +162,10 @@
     [button3 addTarget:self.mvpPresenter.mvpSignal action:@selector(sendSubscriptionNumber:withValue:) forControlEvents:UIControlEventTouchUpInside];
     button3.frame = CGRectMake(20, 174, 100, 40);
     [self.view addSubview:button3];
+    
+    [self.mvpPresenter.mvpSignal subscriptionNumber:button3 callback:^(UIButton *sender) {
+        NSLog(@"点击了button3: %@", sender);
+    }];
 }
 
 - (void)addUIBarButtonItem {

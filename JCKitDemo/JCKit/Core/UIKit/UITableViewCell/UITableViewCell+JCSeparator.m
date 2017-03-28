@@ -66,4 +66,12 @@
     objc_setAssociatedObject(self, @selector(rightSpacing), @(rightSpacing), OBJC_ASSOCIATION_ASSIGN);
 }
 
+- (void)setSelectionReaction:(BOOL)selectionReaction {
+    if (!selectionReaction) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }else {
+        self.selectionStyle = UITableViewCellSelectionStyleDefault;
+    }
+}
+
 @end

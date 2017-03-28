@@ -1,0 +1,6 @@
+framework module JCKit {
+  umbrella header "JCKit.h"
+
+  export *
+  module * { export * }
+}

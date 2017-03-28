@@ -70,6 +70,7 @@
 		256AAA9B1DF9569100C4E924 /* NSBundle+JCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AAA9A1DF9569100C4E924 /* NSBundle+JCBundle.m */; };
 		256B43751E11096500A5643C /* JCBadgeViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B43741E11096500A5643C /* JCBadgeViewViewController.m */; };
 		256B43781E11097B00A5643C /* JCBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B43771E11097B00A5643C /* JCBadgeView.m */; };
+		2573C54C1E66A51F00BB87AD /* JCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573C54B1E66A51F00BB87AD /* JCTableView.m */; };
 		257B30971DC9770E003FE509 /* JCRecognizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B30961DC9770E003FE509 /* JCRecognizerViewController.m */; };
 		257B309B1DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B309A1DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.m */; };
 		257B30A11DC9D8A1003FE509 /* JCTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B30A01DC9D8A1003FE509 /* JCTextFieldViewController.m */; };
@@ -291,6 +292,8 @@
 		256B43741E11096500A5643C /* JCBadgeViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBadgeViewViewController.m; sourceTree = "<group>"; };
 		256B43761E11097B00A5643C /* JCBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCBadgeView.h; sourceTree = "<group>"; };
 		256B43771E11097B00A5643C /* JCBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBadgeView.m; sourceTree = "<group>"; };
+		2573C54A1E66A51F00BB87AD /* JCTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTableView.h; sourceTree = "<group>"; };
+		2573C54B1E66A51F00BB87AD /* JCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTableView.m; sourceTree = "<group>"; };
 		257B30951DC9770E003FE509 /* JCRecognizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRecognizerViewController.h; sourceTree = "<group>"; };
 		257B30961DC9770E003FE509 /* JCRecognizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRecognizerViewController.m; sourceTree = "<group>"; };
 		257B30991DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+JCBlock.h"; sourceTree = "<group>"; };
@@ -766,6 +769,7 @@
 		253989FF1DFD992A00D269AB /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				2573C5491E66A50E00BB87AD /* TableView */,
 				25DFAC321E2334DF002127E9 /* Button */,
 				25CC63D51E0D56D70067C729 /* QRCodeScanView */,
 				2522096A1DFE812A007A417A /* CodedLock */,
@@ -977,6 +981,15 @@
 				256B43771E11097B00A5643C /* JCBadgeView.m */,
 			);
 			path = BadgeView;
+			sourceTree = "<group>";
+		};
+		2573C5491E66A50E00BB87AD /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				2573C54A1E66A51F00BB87AD /* JCTableView.h */,
+				2573C54B1E66A51F00BB87AD /* JCTableView.m */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		257B30941DC976E6003FE509 /* UIGestureRecognizer */ = {
@@ -1842,6 +1855,7 @@
 				25398A141DFD992A00D269AB /* JCMarqueeControl.m in Sources */,
 				258F0F791E308EFB009BA569 /* JCPartViewController.m in Sources */,
 				25C518CB1E0D1EDC0076C527 /* JCScanViewController.m in Sources */,
+				2573C54C1E66A51F00BB87AD /* JCTableView.m in Sources */,
 				252C11061D9AA5EC00D2E8F0 /* JCViewController.m in Sources */,
 				25A50B181DB1E32A00798CFD /* UIButton+JCButtonSimplify.m in Sources */,
 				2513EDD31DEEB42F0004132E /* JCNSUserDefaultsViewController.m in Sources */,
