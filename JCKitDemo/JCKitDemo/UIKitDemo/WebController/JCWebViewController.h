@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JCWebViewController : UIViewController
+@interface JCWebViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, copy) NSString *urlString;
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) UIWebView *webView;
 
 - (instancetype)initWithURLString:(NSString *)string;
 

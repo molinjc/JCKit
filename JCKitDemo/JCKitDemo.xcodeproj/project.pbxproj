@@ -154,6 +154,7 @@
 		25EE1EC11E126A4800650CAC /* JCLogBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EE1EC01E126A4800650CAC /* JCLogBaseViewController.m */; };
 		25F4AD461E0FC387001D3325 /* JCGetPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F4AD451E0FC387001D3325 /* JCGetPhotoViewController.m */; };
 		25F4AD4D1E0FFB25001D3325 /* JCPhotoLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F4AD4C1E0FFB25001D3325 /* JCPhotoLibrary.m */; };
+		25F4CCE11E8A5120001EB005 /* JCTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F4CCE01E8A5120001EB005 /* JCTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -459,6 +460,8 @@
 		25F4AD451E0FC387001D3325 /* JCGetPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCGetPhotoViewController.m; sourceTree = "<group>"; };
 		25F4AD4B1E0FFB25001D3325 /* JCPhotoLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPhotoLibrary.h; sourceTree = "<group>"; };
 		25F4AD4C1E0FFB25001D3325 /* JCPhotoLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPhotoLibrary.m; sourceTree = "<group>"; };
+		25F4CCDF1E8A5120001EB005 /* JCTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTimer.h; sourceTree = "<group>"; };
+		25F4CCE01E8A5120001EB005 /* JCTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1491,6 +1494,8 @@
 		25A50B0B1DB1E32A00798CFD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				25F4CCDF1E8A5120001EB005 /* JCTimer.h */,
+				25F4CCE01E8A5120001EB005 /* JCTimer.m */,
 				25A50B0C1DB1E32A00798CFD /* JCWeakProxy.h */,
 				25A50B0D1DB1E32A00798CFD /* JCWeakProxy.m */,
 			);
@@ -1960,6 +1965,7 @@
 				252209711DFE8175007A417A /* JCJCCodedLockViewController.m in Sources */,
 				25A50B271DB1E32A00798CFD /* JCEncodeModel.m in Sources */,
 				251C74D51E0B980100AF1D5A /* UINavigationItem+JCLoading.m in Sources */,
+				25F4CCE11E8A5120001EB005 /* JCTimer.m in Sources */,
 				2513EDD71DEEB8E90004132E /* JCNSCacheViewController.m in Sources */,
 				2558BE271E2CAEB30085ABEE /* JCNSDateViewController.m in Sources */,
 				25C5BAAE1E2E135D002B3889 /* JC3DTouchViewController.m in Sources */,

@@ -10,29 +10,19 @@
 
 @interface UIWebView (JCHTML)
 
-/**
- 获取当前网页的URL
- */
+/** 获取当前网页的URL */
 - (NSString *)currentWebURL;
 
-/**
- 获取当前网页的标题
- */
+/** 获取当前网页的标题 */
 - (NSString *)currentWebTitle;
 
-/**
- 获取当前网页的所有图片地址
- */
+/** 获取当前网页的所有图片地址 */
 - (NSArray *)currentWebAllImageURL;
 
-/**
- 获取当前网页的图片数量
- */
+/** 获取当前网页的图片数量 */
 - (NSInteger)currentWebImageNumber;
 
-/**
- 修改网页的背景颜色
- */
+/** 修改网页的背景颜色 */
 - (void)changeWebBackgroundColor:(UIColor *)color;
 
 @end

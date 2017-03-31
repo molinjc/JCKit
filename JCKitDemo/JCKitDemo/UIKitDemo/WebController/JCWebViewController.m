@@ -8,25 +8,38 @@
 
 #import "JCWebViewController.h"
 
-@interface JCWebViewController () <UIWebViewDelegate>
-{
-    NSURL     * _url;
-    UIWebView * _webView;
-}
+@interface JCWebViewController ()
+
 @end
 
 @implementation JCWebViewController
 
-- (instancetype)initWithURLString:(NSString *)string {
+- (instancetype)init {
     if (self = [super init]) {
-        _urlString = string;
-        _url = [NSURL URLWithString:_urlString];
         _webView = [[UIWebView alloc] init];
         _webView.delegate = self;
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor clearColor];
     }
     return self;
+}
+
+- (instancetype)initWithURLString:(NSString *)string {
+    if (self = [self init]) {
+        _urlString = string;
+        _url = [NSURL URLWithString:_urlString];
+    }
+    return self;
+}
+
+- (void)setUrlString:(NSString *)urlString {
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    _urlString = urlString;
+}
+
+- (void)setURL:(NSURL *)url {
+    [_webView loadRequest:[NSURLRequest requestWithURL:url]];
+    _url = url;
 }
 
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)

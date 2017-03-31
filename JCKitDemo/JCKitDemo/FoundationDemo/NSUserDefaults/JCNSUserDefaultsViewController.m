@@ -219,6 +219,13 @@ static NSString * YYReachabilityStatusFromFlags(SCNetworkReachabilityFlags flags
     JCLog(@"%@", str);
 }
 
+- (void)test9 {
+    NSString *urlS = @"http://www.jianshu.com/特殊/55c67035abb8";
+    NSURL *url1 = [NSURL URLWithString:urlS];
+    NSURL *url2 = [NSURL URLEncodeWithString:urlS];
+    JCLog(@"url1: %@, url2: %@",url1 ,url2);
+}
+
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
 
 - (void)viewDidLoad {
@@ -234,6 +241,7 @@ static NSString * YYReachabilityStatusFromFlags(SCNetworkReachabilityFlags flags
     [self test6];
     [self test7];
     [self test8];
+    [self test9];
     [self defaultEmoticons];
 }
 

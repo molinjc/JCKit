@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		256A14BC1E8E3F9900A27DA0 /* JCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 256A14BA1E8E3F9900A27DA0 /* JCWebViewController.h */; };
+		256A14BD1E8E3F9900A27DA0 /* JCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14BB1E8E3F9900A27DA0 /* JCWebViewController.m */; };
+		256A14C21E8E40B200A27DA0 /* JCSQLite3.h in Headers */ = {isa = PBXBuildFile; fileRef = 256A14C01E8E40B200A27DA0 /* JCSQLite3.h */; };
+		256A14C31E8E40B200A27DA0 /* JCSQLite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14C11E8E40B200A27DA0 /* JCSQLite3.m */; };
 		25EBD3C61E851A9D006D83B8 /* JCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 25EBD3C41E851A9D006D83B8 /* JCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25EBD3D31E851AF1006D83B8 /* JCPresenters.h in Headers */ = {isa = PBXBuildFile; fileRef = 25EBD3CE1E851AF1006D83B8 /* JCPresenters.h */; };
 		25EBD3D41E851AF1006D83B8 /* JCPresenters.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD3CF1E851AF1006D83B8 /* JCPresenters.m */; };
@@ -240,9 +244,17 @@
 		25EBD5E81E85906F006D83B8 /* JCQRCodeScanViewBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 25EBD5E61E85906F006D83B8 /* JCQRCodeScanViewBase.h */; };
 		25EBD5E91E85906F006D83B8 /* JCQRCodeScanViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD5E71E85906F006D83B8 /* JCQRCodeScanViewBase.m */; };
 		25EBD5EC1E8591E8006D83B8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EBD5EB1E8591E8006D83B8 /* AssetsLibrary.framework */; };
+		25F4CCE51E8A51DC001EB005 /* JCTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 25F4CCE31E8A51DC001EB005 /* JCTimer.h */; };
+		25F4CCE61E8A51DC001EB005 /* JCTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F4CCE41E8A51DC001EB005 /* JCTimer.m */; };
+		25F4CCEA1E8A544D001EB005 /* JCAdvertisementView.h in Headers */ = {isa = PBXBuildFile; fileRef = 25F4CCE81E8A544D001EB005 /* JCAdvertisementView.h */; };
+		25F4CCEB1E8A544D001EB005 /* JCAdvertisementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F4CCE91E8A544D001EB005 /* JCAdvertisementView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		256A14BA1E8E3F9900A27DA0 /* JCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCWebViewController.h; sourceTree = "<group>"; };
+		256A14BB1E8E3F9900A27DA0 /* JCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCWebViewController.m; sourceTree = "<group>"; };
+		256A14C01E8E40B200A27DA0 /* JCSQLite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSQLite3.h; sourceTree = "<group>"; };
+		256A14C11E8E40B200A27DA0 /* JCSQLite3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCSQLite3.m; sourceTree = "<group>"; };
 		25EBD3C11E851A9D006D83B8 /* JCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EBD3C41E851A9D006D83B8 /* JCKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCKit.h; sourceTree = "<group>"; };
 		25EBD3C51E851A9D006D83B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -478,6 +490,10 @@
 		25EBD5E61E85906F006D83B8 /* JCQRCodeScanViewBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCQRCodeScanViewBase.h; sourceTree = "<group>"; };
 		25EBD5E71E85906F006D83B8 /* JCQRCodeScanViewBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCQRCodeScanViewBase.m; sourceTree = "<group>"; };
 		25EBD5EB1E8591E8006D83B8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		25F4CCE31E8A51DC001EB005 /* JCTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTimer.h; sourceTree = "<group>"; };
+		25F4CCE41E8A51DC001EB005 /* JCTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTimer.m; sourceTree = "<group>"; };
+		25F4CCE81E8A544D001EB005 /* JCAdvertisementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAdvertisementView.h; sourceTree = "<group>"; };
+		25F4CCE91E8A544D001EB005 /* JCAdvertisementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAdvertisementView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +508,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		256A14BE1E8E40A500A27DA0 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				256A14BF1E8E40B200A27DA0 /* SQL */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		256A14BF1E8E40B200A27DA0 /* SQL */ = {
+			isa = PBXGroup;
+			children = (
+				256A14C01E8E40B200A27DA0 /* JCSQLite3.h */,
+				256A14C11E8E40B200A27DA0 /* JCSQLite3.m */,
+			);
+			path = SQL;
+			sourceTree = "<group>";
+		};
 		25EBD3B71E851A9D006D83B8 = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +545,7 @@
 		25EBD3C31E851A9D006D83B8 /* JCKit */ = {
 			isa = PBXGroup;
 			children = (
+				256A14BE1E8E40A500A27DA0 /* Store */,
 				25EBD5D21E85207A006D83B8 /* Analysis */,
 				25EBD4E51E851CF6006D83B8 /* Macro */,
 				25EBD4011E851C69006D83B8 /* BaseCategory */,
@@ -583,6 +617,8 @@
 		25EBD3E51E851B79006D83B8 /* BaseController */ = {
 			isa = PBXGroup;
 			children = (
+				256A14BA1E8E3F9900A27DA0 /* JCWebViewController.h */,
+				256A14BB1E8E3F9900A27DA0 /* JCWebViewController.m */,
 				25EBD3E61E851B81006D83B8 /* JCTableController.h */,
 				25EBD3E71E851B81006D83B8 /* JCTableController.m */,
 			);
@@ -621,6 +657,7 @@
 		25EBD3F91E851C01006D83B8 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				25F4CCE71E8A5445001EB005 /* Advertisement */,
 				25EBD5E51E85906F006D83B8 /* QRCodeScanView */,
 			);
 			path = CustomUI;
@@ -640,6 +677,7 @@
 		25EBD3FF1E851C3C006D83B8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				25F4CCE21E8A51D2001EB005 /* Timer */,
 				25EBD5D81E852195006D83B8 /* AssetsLibrary */,
 				25EBD4E81E851DBB006D83B8 /* WeakProxy */,
 			);
@@ -1326,6 +1364,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		25F4CCE21E8A51D2001EB005 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				25F4CCE31E8A51DC001EB005 /* JCTimer.h */,
+				25F4CCE41E8A51DC001EB005 /* JCTimer.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		25F4CCE71E8A5445001EB005 /* Advertisement */ = {
+			isa = PBXGroup;
+			children = (
+				25F4CCE81E8A544D001EB005 /* JCAdvertisementView.h */,
+				25F4CCE91E8A544D001EB005 /* JCAdvertisementView.m */,
+			);
+			path = Advertisement;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1356,7 +1412,9 @@
 				25EBD3DE1E851B23006D83B8 /* JCEncodeModel.h in Headers */,
 				25EBD4B41E851CB7006D83B8 /* UIButton+JCImageTitleStyle.h in Headers */,
 				25EBD4BA1E851CB7006D83B8 /* UIControl+JCControl.h in Headers */,
+				25F4CCEA1E8A544D001EB005 /* JCAdvertisementView.h in Headers */,
 				25EBD4E11E851CB7006D83B8 /* UIWebView+JCJavaScript.h in Headers */,
+				256A14BC1E8E3F9900A27DA0 /* JCWebViewController.h in Headers */,
 				25EBD4DF1E851CB7006D83B8 /* UIWebView+JCHTML.h in Headers */,
 				25EBD5911E851F64006D83B8 /* MJRefreshAutoGifFooter.h in Headers */,
 				25EBD5B11E851F64006D83B8 /* MKAnnotationView+WebCache.h in Headers */,
@@ -1378,6 +1436,7 @@
 				25EBD59B1E851F64006D83B8 /* MJRefreshBackStateFooter.h in Headers */,
 				25EBD3D51E851AF1006D83B8 /* JCSignal.h in Headers */,
 				25EBD5BF1E851F64006D83B8 /* SDWebImageManager.h in Headers */,
+				256A14C21E8E40B200A27DA0 /* JCSQLite3.h in Headers */,
 				25EBD5E81E85906F006D83B8 /* JCQRCodeScanViewBase.h in Headers */,
 				25EBD4D91E851CB7006D83B8 /* UIView+JCView.h in Headers */,
 				25EBD4B81E851CB7006D83B8 /* UIColor+JCSeries.h in Headers */,
@@ -1434,6 +1493,7 @@
 				25EBD44F1E851C9E006D83B8 /* NSTimer+JCBlock.h in Headers */,
 				25EBD5731E851F64006D83B8 /* AFAutoPurgingImageCache.h in Headers */,
 				25EBD5C61E851F64006D83B8 /* UIImage+GIF.h in Headers */,
+				25F4CCE51E8A51DC001EB005 /* JCTimer.h in Headers */,
 				25EBD4C11E851CB7006D83B8 /* UIGestureRecognizer+JCBlock.h in Headers */,
 				25EBD3F51E851BEA006D83B8 /* UIScreen+JCScale.h in Headers */,
 				25EBD4A81E851CB7006D83B8 /* CADisplayLink+JCToRunLoop.h in Headers */,
@@ -1526,12 +1586,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				25EBD4D01E851CB7006D83B8 /* UIScrollView+JCScrollView.m in Sources */,
+				25F4CCEB1E8A544D001EB005 /* JCAdvertisementView.m in Sources */,
 				25EBD4401E851C9E006D83B8 /* NSException+JCException.m in Sources */,
+				25F4CCE61E8A51DC001EB005 /* JCTimer.m in Sources */,
 				25EBD4C81E851CB7006D83B8 /* UINavigationController+JCNavigationAttributes.m in Sources */,
 				25EBD3E41E851B49006D83B8 /* JCProgressHUD.m in Sources */,
 				25EBD3D61E851AF1006D83B8 /* JCSignal.m in Sources */,
 				25EBD59A1E851F64006D83B8 /* MJRefreshBackNormalFooter.m in Sources */,
 				25EBD58C1E851F64006D83B8 /* MJRefreshComponent.m in Sources */,
+				256A14C31E8E40B200A27DA0 /* JCSQLite3.m in Sources */,
 				25EBD5B61E851F64006D83B8 /* SDImageCache.m in Sources */,
 				25EBD5741E851F64006D83B8 /* AFAutoPurgingImageCache.m in Sources */,
 				25EBD58A1E851F64006D83B8 /* MJRefreshBackFooter.m in Sources */,
@@ -1551,6 +1614,7 @@
 				25EBD5E01E858EBD006D83B8 /* JCFPSLabel.m in Sources */,
 				25EBD5761E851F64006D83B8 /* AFImageDownloader.m in Sources */,
 				25EBD4381E851C9E006D83B8 /* NSData+JCData.m in Sources */,
+				256A14BD1E8E3F9900A27DA0 /* JCWebViewController.m in Sources */,
 				25EBD4C41E851CB7006D83B8 /* UIImage+JCImage.m in Sources */,
 				25EBD5AE1E851F64006D83B8 /* UIScrollView+MJRefresh.m in Sources */,
 				25EBD58E1E851F64006D83B8 /* MJRefreshFooter.m in Sources */,

@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface NSURL (JCURL)
-/**
- 获取链接中的参数
- */
+
+@property (nonatomic, readonly) NSString * MIMEType;
+
+/** 获取链接中的参数 */
 - (NSDictionary *)parameters;
+
+/** 对链接里的中文进行编码 */
++ (instancetype)URLEncodeWithString:(NSString *)string;
 
 @end
