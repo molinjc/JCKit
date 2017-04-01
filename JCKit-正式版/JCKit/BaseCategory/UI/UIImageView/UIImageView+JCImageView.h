@@ -10,15 +10,17 @@
 
 @interface UIImageView (JCImageView)
 
-/**
- 设置图片名
- */
+/** 设置图片名 */
 - (void)setImageNamed:(NSString *)named;
 
-/**
- 倒影
- */
+/** 倒影 */
 - (void)imageReflect;
+
+/**
+ 设置渐变动画
+ @param colors 渐变颜色组, 样式为这样的: @[@[color1, color2], ... , @[colorN-1, colorN], ]
+ */
+- (void)gradientChromatoAnimationWithColors:(NSArray *)colors;
 
 /**
  画水印, 先设置image，否则watermark就赋值给image

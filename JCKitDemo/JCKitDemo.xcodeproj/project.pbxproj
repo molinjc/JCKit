@@ -65,6 +65,8 @@
 		254EDD7E1DED2C0D00FED3AA /* JCMVPPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EDD7D1DED2C0D00FED3AA /* JCMVPPresenter.m */; };
 		2558BE231E2C99C90085ABEE /* JCUIImageViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2558BE221E2C99C90085ABEE /* JCUIImageViewViewController.m */; };
 		2558BE271E2CAEB30085ABEE /* JCNSDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2558BE261E2CAEB30085ABEE /* JCNSDateViewController.m */; };
+		256A14C71E8E4CC500A27DA0 /* UILabel+JCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14C61E8E4CC500A27DA0 /* UILabel+JCLabel.m */; };
+		256A14CB1E8E4FF900A27DA0 /* JCLinearGradientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14CA1E8E4FF900A27DA0 /* JCLinearGradientController.m */; };
 		256AAA931DF9349400C4E924 /* UIWebView+JCHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AAA921DF9349400C4E924 /* UIWebView+JCHTML.m */; };
 		256AAA971DF94C1C00C4E924 /* NSURL+JCURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AAA961DF94C1C00C4E924 /* NSURL+JCURL.m */; };
 		256AAA9B1DF9569100C4E924 /* NSBundle+JCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AAA9A1DF9569100C4E924 /* NSBundle+JCBundle.m */; };
@@ -283,6 +285,10 @@
 		2558BE221E2C99C90085ABEE /* JCUIImageViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCUIImageViewViewController.m; sourceTree = "<group>"; };
 		2558BE251E2CAEB30085ABEE /* JCNSDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCNSDateViewController.h; sourceTree = "<group>"; };
 		2558BE261E2CAEB30085ABEE /* JCNSDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCNSDateViewController.m; sourceTree = "<group>"; };
+		256A14C51E8E4CC500A27DA0 /* UILabel+JCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JCLabel.h"; sourceTree = "<group>"; };
+		256A14C61E8E4CC500A27DA0 /* UILabel+JCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JCLabel.m"; sourceTree = "<group>"; };
+		256A14C91E8E4FF900A27DA0 /* JCLinearGradientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCLinearGradientController.h; sourceTree = "<group>"; };
+		256A14CA1E8E4FF900A27DA0 /* JCLinearGradientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCLinearGradientController.m; sourceTree = "<group>"; };
 		256AAA911DF9349400C4E924 /* UIWebView+JCHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+JCHTML.h"; sourceTree = "<group>"; };
 		256AAA921DF9349400C4E924 /* UIWebView+JCHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+JCHTML.m"; sourceTree = "<group>"; };
 		256AAA951DF94C1C00C4E924 /* NSURL+JCURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+JCURL.h"; sourceTree = "<group>"; };
@@ -716,6 +722,7 @@
 		252C11661D9CBCCC00D2E8F0 /* UIKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				256A14C81E8E4FED00A27DA0 /* LinearGradient */,
 				258F0F731E308803009BA569 /* UISplitViewController */,
 				25C5BAAB1E2E1354002B3889 /* 3DTouch */,
 				2558BE201E2C99BB0085ABEE /* UIImageView */,
@@ -955,6 +962,24 @@
 				2558BE261E2CAEB30085ABEE /* JCNSDateViewController.m */,
 			);
 			path = NSDate;
+			sourceTree = "<group>";
+		};
+		256A14C41E8E4CA700A27DA0 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				256A14C51E8E4CC500A27DA0 /* UILabel+JCLabel.h */,
+				256A14C61E8E4CC500A27DA0 /* UILabel+JCLabel.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		256A14C81E8E4FED00A27DA0 /* LinearGradient */ = {
+			isa = PBXGroup;
+			children = (
+				256A14C91E8E4FF900A27DA0 /* JCLinearGradientController.h */,
+				256A14CA1E8E4FF900A27DA0 /* JCLinearGradientController.m */,
+			);
+			path = LinearGradient;
 			sourceTree = "<group>";
 		};
 		256AAA941DF94BF600C4E924 /* NSURL */ = {
@@ -1220,6 +1245,7 @@
 		25A50AAD1DB1E32A00798CFD /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				256A14C41E8E4CA700A27DA0 /* UILabel */,
 				251C74E31E0BD45000AF1D5A /* UIImageView */,
 				251C74DD1E0BBDD700AF1D5A /* UIResponder */,
 				251C74D21E0B97E300AF1D5A /* UINavigationItem */,
@@ -1846,6 +1872,7 @@
 				25A50B191DB1E32A00798CFD /* UIColor+JCColor.m in Sources */,
 				25EE1EC11E126A4800650CAC /* JCLogBaseViewController.m in Sources */,
 				25F4AD4D1E0FFB25001D3325 /* JCPhotoLibrary.m in Sources */,
+				256A14C71E8E4CC500A27DA0 /* UILabel+JCLabel.m in Sources */,
 				2505A69D1DB60E0D00884C39 /* JCTableViewDelegateManage.m in Sources */,
 				25BF62D91DE7E4150017CF7F /* UIScrollView+JCScrollView.m in Sources */,
 				2599C3291DC34101000A11CD /* NSFileManager+JCFileManager.m in Sources */,
@@ -1939,6 +1966,7 @@
 				2505A6801DB4696800884C39 /* JCImageViewController.m in Sources */,
 				257B309B1DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.m in Sources */,
 				252C116F1D9CBD7000D2E8F0 /* JCUIKitExampleViewController.m in Sources */,
+				256A14CB1E8E4FF900A27DA0 /* JCLinearGradientController.m in Sources */,
 				25BF62CA1DE691300017CF7F /* JCSystemManager.m in Sources */,
 				25A50B2A1DB1E32A00798CFD /* JCObserver.m in Sources */,
 				25A50B0F1DB1E32A00798CFD /* NSData+JCData.m in Sources */,

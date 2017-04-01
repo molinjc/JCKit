@@ -44,6 +44,7 @@
     [self addCell:@"UIImageView" class:@"JCUIImageViewViewController"];
     [self addCell:@"3DTouch" class:@"JC3DTouchViewController"];
     [self addCell:@"UISplitViewController" class:@"JCSplitViewController"];
+    [self addCell:@"LinearGradient" class:@"JCLinearGradientController"];
     [self.view addSubview:self.tableView];
     
     NSString *j = @"12";

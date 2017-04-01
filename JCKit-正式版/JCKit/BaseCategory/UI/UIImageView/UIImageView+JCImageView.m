@@ -10,16 +10,12 @@
 
 @implementation UIImageView (JCImageView)
 
-/**
- 设置图片名
- */
+/** 设置图片名 */
 - (void)setImageNamed:(NSString *)named {
     self.image = [UIImage imageNamed:named];
 }
 
-/**
- 倒影
- */
+/** 倒影 */
 - (void)imageReflect {
     CGRect frame = self.frame;
     frame.origin.y += (frame.size.height + 1);
@@ -66,9 +62,7 @@
     self.image = newImage;
 }
 
-/**
- 人脸识别，调整图片显示的位置
- */
+/** 人脸识别，调整图片显示的位置 */
 - (void)faceDetectWithImage:(UIImage *)aImage fast:(BOOL)fast {
     dispatch_queue_t queue = dispatch_queue_create("com.JCKit.betterface.queue", NULL);
     dispatch_async(queue, ^{
@@ -150,6 +144,64 @@
         layer.frame = CGRectMake(offset.x, offset.y, finalSize.width, finalSize.height);
         layer.contents = (id)aImage.CGImage;
     });
+}
+
+/** 设置渐变动画 */
+- (void)gradientChromatoAnimationWithColors:(NSArray *)colors {
+    CAGradientLayer *chromatoLayer = [CAGradientLayer layer];
+    
+    NSArray *array = colors[0];
+    NSMutableArray *color = [NSMutableArray new];
+    for (UIColor *co in array) {
+        [color addObject:(__bridge id)co.CGColor];
+    }
+    
+    [chromatoLayer setColors:color];
+    [chromatoLayer setStartPoint:CGPointMake(0, 0)];
+    [chromatoLayer setEndPoint:CGPointMake(1, 0)];
+    chromatoLayer.locations = @[@(0.0f) ,@(1.0f)];
+    [chromatoLayer setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    
+    CAKeyframeAnimation *chromateAnimate = [self _chromatoAnimationWithColor:colors];
+    [chromatoLayer addAnimation:chromateAnimate forKey:@"chromateAnimate"];
+    if (chromatoLayer.superlayer == nil) {
+        [self.layer insertSublayer:chromatoLayer below:self.layer.sublayers[0]];
+    }
+}
+
+/** 实现动画 */
+- (CAKeyframeAnimation *)_chromatoAnimationWithColor:(NSArray *)colors {
+    CAKeyframeAnimation *chromateAnimate = [CAKeyframeAnimation animationWithKeyPath:@"colors"];
+    NSMutableArray *values = [NSMutableArray new];
+    NSMutableArray *keyTimes = [NSMutableArray new];
+    
+    float time = 0;
+    float t = 1.0 / (colors.count - 1);
+    
+    for (int i = 0; i < colors.count; i++) {
+        NSArray *array = colors[i];
+        NSMutableArray *values2 = [NSMutableArray new];
+        for (UIColor *color in array) {
+            [values2 addObject:(__bridge id)color.CGColor];
+        }
+        [values addObject:values2];
+        if (i == 0) {
+            [keyTimes addObject:@(i)];
+        }else if (i == colors.count - 1) {
+            [keyTimes addObject:@(1)];
+        }else {
+            time += t;
+            [keyTimes addObject:@(time)];
+        }
+    }
+    
+    chromateAnimate.values = values;
+    chromateAnimate.keyTimes = keyTimes;
+    chromateAnimate.duration = keyTimes.count / 2;
+    chromateAnimate.removedOnCompletion = NO;
+    chromateAnimate.repeatCount = MAXFLOAT;
+    
+    return chromateAnimate;
 }
 
 #define kBETTER_LAYER_NAME @"BETTER_LAYER_NAME"

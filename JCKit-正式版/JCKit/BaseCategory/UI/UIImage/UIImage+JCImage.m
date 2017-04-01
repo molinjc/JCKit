@@ -45,9 +45,7 @@
     return [UIImage imageNamed:name];
 }
 
-/**
- 原图
- */
+/** 原图 */
 - (UIImage *)originalImage {
     return [self imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
@@ -90,9 +88,7 @@
     return darkImage;
 }
 
-/**
- 生成一张纯色的图片
- */
+/** 生成一张纯色的图片 */
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     CGRect rect = CGRectMake(0.0, 0.0, size.width, size.height);
     UIGraphicsBeginImageContext(size);
@@ -104,9 +100,7 @@
     return colorImage;
 }
 
-/**
- 灰度图片
- */
+/** 灰度图片 */
 - (UIImage*)grayImage {
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
     CGContextRef context = CGBitmapContextCreate (nil,self.size.width,self.size.height, 8, 0, colorSpace, kCGImageAlphaNone);
@@ -122,9 +116,7 @@
     return grayImage;
 }
 
-/**
- 取图片某点像素的颜色
- */
+/** 取图片某点像素的颜色 */
 - (UIColor *)colorAtPixel:(CGPoint)point {
     CGFloat width = self.size.width;
     CGFloat height = self.size.height;
@@ -156,9 +148,7 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-/**
- 设置图片透明度
- */
+/** 设置图片透明度 */
 - (UIImage *)imageByApplyingAlpha:(CGFloat)alpha {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     
@@ -181,11 +171,55 @@
     return newImage;
 }
 
++ (UIImage *)imageLinearGradientWithColors:(NSArray <UIColor *> *)colors directionType:(JCGradientDirection)directionType {
+    return [self imageLinearGradientWithColors:colors directionType:directionType size:CGSizeMake(100, 100)];
+}
+
++ (UIImage *)imageLinearGradientWithColors:(NSArray <UIColor *> *)colors directionType:(JCGradientDirection)directionType size:(CGSize)size {
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    NSMutableArray *values = [NSMutableArray new];
+    
+    for (UIColor *color in colors) {
+        [values addObject:(__bridge id)color.CGColor];
+    }
+    
+    gradientLayer.colors = values;
+    gradientLayer.locations = @[@(0.0f), @(1.0f)];
+    
+    switch (directionType) {
+        case JCLinearGradientDirectionLevel: {
+            gradientLayer.startPoint = CGPointMake(0, 0);
+            gradientLayer.endPoint = CGPointMake(1, 0);
+        }
+            break;
+        case JCLinearGradientDirectionVertical: {
+            gradientLayer.startPoint = CGPointMake(0, 0);
+            gradientLayer.endPoint = CGPointMake(0, 1);
+        }
+            break;
+        case JCLinearGradientDirectionUpwardDiagonalLine: {
+            gradientLayer.startPoint = CGPointMake(0, 0);
+            gradientLayer.endPoint = CGPointMake(1, 1);
+        }
+            break;
+        case JCLinearGradientDirectionDownDiagonalLine: {
+            gradientLayer.startPoint = CGPointMake(0, 1);
+            gradientLayer.endPoint = CGPointMake(1, 0);
+        }
+            break;
+    }
+    
+    gradientLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(gradientLayer.frame.size, NO, 0);
+    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *gradientImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return gradientImage;
+}
+
 #pragma mark - Image Size
 
-/**
- 等比例缩放图片
- */
+/** 等比例缩放图片 */
 - (UIImage *)toScale:(CGFloat)scale {
     UIGraphicsBeginImageContext(CGSizeMake(self.size.width * scale, self.size.height * scale));
     [self drawInRect:CGRectMake(0.0, 0.0, self.size.width * scale, self.size.height * scale)];
@@ -194,9 +228,7 @@
     return scaleImage ;
 }
 
-/**
- 调整图片大小
- */
+/** 调整图片大小 */
 - (UIImage *)resize:(CGSize)size {
     UIGraphicsBeginImageContext(size);
     
@@ -211,9 +243,7 @@
     return resizeImage ;
 }
 
-/**
- 设置图片圆角
- */
+/** 设置图片圆角 */
 - (UIImage *)imageWithCornerRadius:(CGFloat)radius {
     CGRect rect = (CGRect){0.f,0.f,self.size};
     UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
@@ -228,25 +258,19 @@
     return image;
 }
 
-/**
- 所占的内存大小
- */
+/** 所占的内存大小 */
 - (NSUInteger)memorySize {
     return CGImageGetHeight(self.CGImage) * CGImageGetBytesPerRow(self.CGImage);
 }
 
-/**
- 从中心向外拉伸
- */
+/** 从中心向外拉伸 */
 - (UIImage *)centerOutwardStretching {
     return [self stretchableImageWithLeftCapWidth:self.size.width * 0.5 topCapHeight:self.size.height * 0.5];
 }
 
 #pragma mark - 截图
 
-/**
- 将View转换成图片(截图)
- */
+/** 将View转换成图片(截图) */
 + (UIImage *)imageWithView:(UIView *)view {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height), NO, [[UIScreen mainScreen] scale]);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -255,9 +279,7 @@
     return image;
 }
 
-/**
- 截取image里的rect区域内的图片
- */
+/** 截取image里的rect区域内的图片 */
 - (UIImage *)subimageInRect:(CGRect)rect {
     CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
     UIImage *image = [UIImage imageWithCGImage:imageRef];
@@ -267,9 +289,7 @@
 
 #pragma mark - 方向
 
-/**
- 根据图片名设置图片方向
- */
+/** 根据图片名设置图片方向 */
 + (UIImage *)imageNamed:(NSString *)name orientation:(UIImageOrientation)orientation {
     UIImage *image = [UIImage imageNamed:name];
     return [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:orientation];
@@ -280,9 +300,7 @@
     return [UIImage imageWithCGImage:image.CGImage scale:scale orientation:orientation];
 }
 
-/**
- 根据图片路径设置图片方向
- */
+/** 根据图片路径设置图片方向 */
 + (UIImage *)imageWithContentsOfFile:(NSString *)path orientation:(UIImageOrientation)orientation {
     UIImage *image = [UIImage imageWithContentsOfFile:path];
     return [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:orientation];
@@ -293,16 +311,12 @@
     return [UIImage imageWithCGImage:image.CGImage scale:scale orientation:orientation];
 }
 
-/**
- 设置图片方向
- */
+/** 设置图片方向 */
 - (UIImage *)orientation:(UIImageOrientation)orientation {
     return [UIImage imageWithCGImage:self.CGImage scale:self.scale orientation:orientation];
 }
 
-/**
- 水平翻转
- */
+/** 水平翻转 */
 - (UIImage *)flipHorizontal {
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
@@ -317,9 +331,7 @@
     return image;
 }
 
-/**
- 垂直翻转
- */
+/** 垂直翻转 */
 - (UIImage *)flipVertical {
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
@@ -333,9 +345,7 @@
 
 }
 
-/**
- 将图片旋转弧度radians
- */
+/** 将图片旋转弧度radians */
 - (UIImage *)imageRotatedByRadians:(CGFloat)radians {
     UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.size.width, self.size.height)];
     CGAffineTransform t = CGAffineTransformMakeRotation(radians);
@@ -355,17 +365,15 @@
     return newImage;
 }
 
-/**
- 将图片旋转角度degrees
- */
+/** 将图片旋转角度degrees */
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees {
     return [self imageRotatedByRadians:JCDegreesToRadians(degrees)];
 }
 
-/// 由角度转换弧度
+/** 由角度转换弧度 */
 CGFloat JCDegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 
-/// 由弧度转换角度
+/** 由弧度转换角度 */
 CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
 
 #pragma mark - 绘制
@@ -430,9 +438,7 @@ CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
 
 @implementation UIImage (JCGIF)
 
-/**
- 加载未知的Data(不知道是不是Gif)生成图片
- */
+/** 加载未知的Data(不知道是不是Gif)生成图片 */
 + (UIImage *)imageWithUnknownData:(NSData *)data {
     NSString *imageContentType = data.imageDataContentType;
     if ([imageContentType isEqualToString:@"image/gif"]) {
@@ -442,9 +448,7 @@ CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
     }
 }
 
-/**
- 根据Gif图片名生成UImage对象
- */
+/** 根据Gif图片名生成UImage对象 */
 + (UIImage *)animatedGIFNamed:(NSString *)name {
     NSString *ext = name.pathExtension;
     if (!ext.length) {
@@ -467,9 +471,7 @@ CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
     return [UIImage imageNamed:name];
 }
 
-/**
- 根据Gif图片的data数据生成UIImage对象
- */
+/** 根据Gif图片的data数据生成UIImage对象 */
 + (UIImage *)animatedGIFWithData:(NSData *)data {
     if (!data) {
         return nil;
@@ -562,9 +564,7 @@ CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
     return reusult;
 }
 
-/**
- 二维码图片内容信息
- */
+/** 二维码图片内容信息 */
 - (NSString *)QRCodeImageContext {
     CIContext *content = [CIContext contextWithOptions:nil];
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:content options:nil];
@@ -582,44 +582,32 @@ CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
 
 @implementation UIImage (JCBlur)
 
-/**
- 灰度模糊
- */
+/** 灰度模糊 */
 - (UIImage *)imageByGrayscale {
     return [self imageByBlurRadius:0 tintColor:nil tintMode:0 saturation:0 maskImage:nil];
 }
 
-/**
- 柔软模糊
- */
+/** 柔软模糊 */
 - (UIImage *)imageByBlurSoft {
     return [self imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:0.84 alpha:0.36] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
-/**
- 光线模糊
- */
+/** 光线模糊 */
 - (UIImage *)imageByBlurLight {
     return [self imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:1.0 alpha:0.3] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
-/**
- 额外光线模糊
- */
+/** 额外光线模糊 */
 - (UIImage *)imageByBlurExtraLight {
     return [self imageByBlurRadius:40 tintColor:[UIColor colorWithWhite:0.97 alpha:0.82] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
-/**
- 黑暗模糊
- */
+/** 黑暗模糊 */
 - (UIImage *)imageByBlurDark {
     return [self imageByBlurRadius:40 tintColor:[UIColor colorWithWhite:0.11 alpha:0.73] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
-/**
- 设置图片模糊的颜色
- */
+/** 设置图片模糊的颜色 */
 - (UIImage *)imageByBlurWithTint:(UIColor *)tintColor {
     const CGFloat EffectColorAlpha = 0.6;
     UIColor *effectColor = tintColor;
@@ -638,9 +626,7 @@ CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
     return [self imageByBlurRadius:20 tintColor:effectColor tintMode:kCGBlendModeNormal saturation:-1.0 maskImage:nil];
 }
 
-/**
- 设置图片模糊
- */
+/** 设置图片模糊 */
 - (UIImage *)imageByBlurRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor tintMode:(CGBlendMode)tintBlendMode saturation:(CGFloat)saturation maskImage:(UIImage *)maskImage {
     if (self.size.width < 1 || self.size.height < 1) {
         return nil;
