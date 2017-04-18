@@ -140,7 +140,6 @@ CGFloat JCRadiansToDegrees(CGFloat radians);
  @param textColor 文字的颜色
  @param fontSize  文字的大小，这里没有 * __scale，所以要文字适配，可能要在传入参数之前就要做适配了。
  @param paragraphStyle 文字的样式
- @param font  字体
  @return 返回新的图片
  */
 - (UIImage *)imageWithText:(NSString *)text textColor:(UIColor *)textColor fontSize:(CGFloat)fontSize paragraphStyle:(NSParagraphStyle *)paragraphStyle;

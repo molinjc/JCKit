@@ -7,6 +7,7 @@
 //
 
 #import "JCSystemManager.h"
+#import <AVFoundation/AVFoundation.h>
 
 typedef void (^RequestSucess) (NSDictionary * responseDict);
 typedef void (^RequestFailure) (NSError *error);
@@ -94,6 +95,27 @@ typedef void (^RequestFailure) (NSError *error);
 
 @end
 
+
+@implementation JCSystemManager (JCAuthority)
+
+- (BOOL)audioSession {
+    AVAudioSession *audioSession = [[AVAudioSession alloc] init];
+    switch ([audioSession recordPermission]) {
+        case AVAudioSessionRecordPermissionUndetermined:
+            
+            break;
+        case AVAudioSessionRecordPermissionDenied:
+            break;
+        case AVAudioSessionRecordPermissionGranted:
+            break;
+        default:
+            break;
+    }
+    
+    return NO;
+}
+
+@end
 
 @implementation JCAppInfo
 

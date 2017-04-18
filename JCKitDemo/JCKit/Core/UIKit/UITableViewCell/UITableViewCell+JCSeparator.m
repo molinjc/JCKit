@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 
 @implementation UITableViewCell (JCSeparator)
+@dynamic selectionReaction;
 
 - (JCSeparatorStyle)cellSeparatorStyle {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);

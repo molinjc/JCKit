@@ -62,16 +62,35 @@
 - (void)addChild:(id)value;
 
 /**
+ 查找该view下的所有view的tag，符合就回调
+ @param tag 指定要查找的tag
+ @param handler 回调, 要停止查找时写上 *stop = NO; 就会停止了
+ */
+- (void)viewWithTag:(NSInteger)tag handler:(void(^)(id view, BOOL *stop))handler;
+- (BOOL)viewInView:(UIView *)view tag:(NSInteger)tag handler:(void(^)(id view, BOOL *stop))handler;
+
+/**
+ 查找该view下的所有view的Class类型，符合就回调
+ @param class 指定要查找的Class类型
+ @param handler 回调, 要停止查找时写上 *stop = NO; 就会停止了
+ */
+- (void)viewWithClass:(Class)class handler:(void(^)(id view, BOOL *stop))handler;
+- (BOOL)viewInView:(UIView *)view class:(Class)class handler:(void(^)(id view, BOOL *stop))handler;
+
+/**
  设置阴隐
  @param color 阴影颜色
  @param offset 位置
  @param radius 圆角
  */
-- (void)setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius;
+- (void)setShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius;
 
 /**
  设置View的边框
  */
-- (void)setViewBorderWidth:(CGFloat)width color:(UIColor *)color;
+- (void)setBorderWidth:(CGFloat)width color:(UIColor *)color;
+
+/** 设置view为圆形 */
+- (void)setRound;
 
 @end

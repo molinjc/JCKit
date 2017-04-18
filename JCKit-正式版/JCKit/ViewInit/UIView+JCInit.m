@@ -1,6 +1,5 @@
 //
 //  UIView+JCInit.m
-//  JCViewLayout
 //
 //  Created by molin.JC on 2017/3/11.
 //  Copyright © 2017年 molin. All rights reserved.
@@ -9,6 +8,8 @@
 #import "UIView+JCInit.h"
 
 @implementation UIView (JCInit)
+
+SET_VIEW_VALUE_M(UIView);
 
 + (instancetype)viewInit:(id)init, ... {
     if (!init) {
@@ -36,6 +37,8 @@
 @end
 
 @implementation UILabel (JCInit)
+
+SET_VIEW_VALUE_M(UILabel);
 
 + (instancetype)labelInit:(id)init, ... {
     if (!init) {
@@ -76,6 +79,8 @@
 
 @implementation UIImageView (JCInit)
 
+SET_VIEW_VALUE_M(UIImageView);
+
 + (instancetype)imageViewInit:(id)init, ... {
     if (!init) {
         return IMAGE_VIEW;
@@ -104,6 +109,8 @@
 @end
 
 @implementation UIButton (JCInit)
+
+SET_VIEW_VALUE_M(UIButton);
 
 + (instancetype)buttonInit:(id)init, ... {
     if (!init) {
@@ -142,6 +149,8 @@
 @end
 
 @implementation UITableView (JCInit)
+
+SET_VIEW_VALUE_M(UITableView);
 
 + (instancetype)tableViewInit:(id)init, ... {
     if (!init) {
@@ -195,6 +204,8 @@
 
 @implementation UIScrollView (JCInit)
 
+SET_VIEW_VALUE_M(UIScrollView);
+
 + (instancetype)scrollViewInit:(id)init, ... {
     if (!init) {
         return SCROLL_VIEW;
@@ -221,6 +232,8 @@
 @end
 
 @implementation UICollectionView (JCInit)
+
+SET_VIEW_VALUE_M(UICollectionView);
 
 + (instancetype)collectionViewInit:(id)init, ... {
     if (!init) {
@@ -278,6 +291,8 @@
 
 @implementation UITextField (JCInit)
 
+SET_VIEW_VALUE_M(UITextField);
+
 + (instancetype)textFieldInit:(id)init, ... {
     if (!init) {
         return TEXT_FIELD;
@@ -315,6 +330,8 @@
 @end
 
 @implementation UITextView (JCInit)
+
+SET_VIEW_VALUE_M(UITextView);
 
 + (instancetype)textViewInit:(id)init, ... {
     if (!init) {
@@ -391,6 +408,8 @@
 
 @implementation UIViewController (JCInit)
 
+SET_VIEW_VALUE_M(UIViewController);
+
 + (instancetype)viewControllerInit:(id)init, ... {
     if (!init) {
         return VIEW_CONTROLLER;
@@ -417,6 +436,8 @@
 @end
 
 @implementation UINavigationController (JCInit)
+
+SET_VIEW_VALUE_M(UINavigationController);
 
 + (instancetype)navigationControllerInit:(id)init, ... {
     if (!init) {
@@ -452,6 +473,8 @@
 @end
 
 @implementation UITabBarController (JCInit)
+
+SET_VIEW_VALUE_M(UITabBarController);
 
 + (instancetype)tabBarControllerInit:(id)init, ... {
     if (!init) {
@@ -494,6 +517,8 @@
 
 @implementation UIWindow (JCInit)
 
+SET_VIEW_VALUE_M(UIWindow);
+
 + (instancetype)windowInit:(id)init, ... {
     if (!init) {
         return WINDOW;
@@ -524,6 +549,8 @@
 @end
 
 @implementation UIWebView (JCInit)
+
+SET_VIEW_VALUE_M(UIWebView);
 
 + (instancetype)webViewInit:(id)init, ... {
     if (!init) {

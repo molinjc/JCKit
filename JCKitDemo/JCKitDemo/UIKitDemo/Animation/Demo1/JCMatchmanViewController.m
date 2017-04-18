@@ -7,7 +7,7 @@
 //
 
 #import "JCMatchmanViewController.h"
-
+#import "UIBezierPath+JCBezierPath.h"
 
 @interface JCMatchmanViewController () <UIPopoverPresentationControllerDelegate>
 
@@ -23,7 +23,8 @@
  火柴人
  */
 - (void)matchman {
-    UIBezierPath *path = [[UIBezierPath alloc] init];
+    UIBezierPath *path = UIBezierPath.newPath.moveTo(CGPointMake(175, 100)).addArcWith(CGPointMake(150, 100), 25, 0, 2*M_PI, YES).moveTo(CGPointMake(150, 125)).addLineTo(CGPointMake(150, 175)).addLineTo(CGPointMake(125, 225)).moveTo(CGPointMake(150, 175)).addLineTo(CGPointMake(175, 225)).moveTo(CGPointMake(100, 150)).addLineTo(CGPointMake(200, 150));
+    /*
     [path moveToPoint:CGPointMake(175, 100)];
     
     [path addArcWithCenter:CGPointMake(150, 100) radius:25 startAngle:0 endAngle:2*M_PI clockwise:YES];
@@ -37,6 +38,7 @@
     
     [path moveToPoint:CGPointMake(100, 150)];
     [path addLineToPoint:CGPointMake(200, 150)];
+    */
     
     //create shape layer
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -199,7 +201,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self matchman];
+    [self matchman];
     
 //    [self baseTranslationAnimation];
     

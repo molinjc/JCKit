@@ -31,6 +31,12 @@
 
 @end
 
+@interface JCSystemManager (JCAuthority)
+
+
+
+@end
+
 @interface JCAppInfo : NSObject
 
 /**

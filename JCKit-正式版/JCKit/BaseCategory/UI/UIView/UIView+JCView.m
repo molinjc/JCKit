@@ -177,10 +177,53 @@
     }
 }
 
-/**
- 设置阴隐
- */
-- (void)setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius {
+- (void)viewWithTag:(NSInteger)tag handler:(void(^)(id view, BOOL *stop))handler {
+    if (handler) {
+        [self viewInView:self tag:tag handler:handler];
+    }
+}
+
+- (BOOL)viewInView:(UIView *)view tag:(NSInteger)tag handler:(void(^)(id view, BOOL *stop))handler {
+    __block BOOL stop = NO;
+    
+    if (view.tag == tag) {
+        handler(view, &stop);
+    }
+    if (stop) {
+        return YES;
+    }
+    
+    for (NSInteger i = view.subviews.count; i; i--) {
+        if ([self viewInView:view.subviews[i-1] tag:tag handler:handler]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)viewWithClass:(Class)class handler:(void(^)(id view, BOOL *stop))handler {
+    if (handler) {
+        [self viewInView:self class:class handler:handler];
+    }
+}
+
+- (BOOL)viewInView:(UIView *)view class:(Class)class handler:(void(^)(id view, BOOL *stop))handler {
+    __block BOOL stop = NO;
+    
+    if ([view isKindOfClass:class]) {
+        handler(view, &stop);
+    }
+    if (stop) {
+        return YES;
+    }
+    
+    for (NSInteger i = view.subviews.count; i; i--)  {
+        if ([self viewInView:view.subviews[i-1] class:class handler:handler]) return YES;
+    }
+    return NO;
+}
+
+- (void)setShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius {
     self.layer.shadowColor = color.CGColor;
     self.layer.shadowOffset = offset;
     self.layer.shadowRadius = radius;
@@ -189,12 +232,14 @@
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
-/**
- 设置View的边框
- */
-- (void)setViewBorderWidth:(CGFloat)width color:(UIColor *)color {
+- (void)setBorderWidth:(CGFloat)width color:(UIColor *)color {
     self.layer.borderColor = color.CGColor;
     self.layer.borderWidth = width;
+}
+
+- (void)setRound {
+    CGFloat w = MIN(self.bounds.size.width, self.bounds.size.height);
+    self.layer.cornerRadius = w * 0.5;
 }
 
 @end

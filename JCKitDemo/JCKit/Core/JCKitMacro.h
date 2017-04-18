@@ -43,6 +43,29 @@
 
 #define JCLog_cmd JCLog(@"%@",NSStringFromSelector(_cmd))
 
+/** 单例声明 */
+#define JCSingleton_interface +(instancetype)sharedInstance;   // .h的，声明单例方法
+/** 单例实现 */
+#define JCSingleton_implementation                     \
+static id _instance;                                   \
++ (instancetype)allocWithZone:(struct _NSZone *)zone { \
+    static dispatch_once_t once;                       \
+    dispatch_once(&once, ^{                            \
+        _instance = [super allocWithZone:zone];        \
+    });                                                \
+    return _instance;                                  \
+}                                                      \
++ (instancetype)sharedInstance {                       \
+    static dispatch_once_t once;                       \
+    dispatch_once(&once, ^{                            \
+        _instance = [[self alloc] init];               \
+    });                                                \
+    return _instance;                                  \
+}                                                      \
+- (id)copyWithZone:(NSZone *)zone {                    \
+    return _instance;                                  \
+}
+
 /**
  *  断言
  *  断言为真，则表明程序运行正常，而断言为假，则意味着它已经在代码中发现了意料之外的错误

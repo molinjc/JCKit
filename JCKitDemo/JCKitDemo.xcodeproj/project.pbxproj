@@ -73,9 +73,11 @@
 		256B43751E11096500A5643C /* JCBadgeViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B43741E11096500A5643C /* JCBadgeViewViewController.m */; };
 		256B43781E11097B00A5643C /* JCBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B43771E11097B00A5643C /* JCBadgeView.m */; };
 		2573C54C1E66A51F00BB87AD /* JCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2573C54B1E66A51F00BB87AD /* JCTableView.m */; };
+		2577D2FF1EA2307A00496D00 /* UIBezierPath+JCBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 2577D2FE1EA2307A00496D00 /* UIBezierPath+JCBezierPath.m */; };
 		257B30971DC9770E003FE509 /* JCRecognizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B30961DC9770E003FE509 /* JCRecognizerViewController.m */; };
 		257B309B1DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B309A1DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.m */; };
 		257B30A11DC9D8A1003FE509 /* JCTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257B30A01DC9D8A1003FE509 /* JCTextFieldViewController.m */; };
+		258072121E9607A200FB4C5E /* UITabBar+JCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 258072111E9607A200FB4C5E /* UITabBar+JCTabBar.m */; };
 		25823B2D1DE585AD00C672D3 /* JCGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 25823B2C1DE585AD00C672D3 /* JCGraphicsUtilities.m */; };
 		2587287D1DD4489A00B1EB36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2587287C1DD4489A00B1EB36 /* Localizable.strings */; };
 		258728821DD468E300B1EB36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258728801DD468E300B1EB36 /* LaunchScreen.storyboard */; };
@@ -301,12 +303,16 @@
 		256B43771E11097B00A5643C /* JCBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCBadgeView.m; sourceTree = "<group>"; };
 		2573C54A1E66A51F00BB87AD /* JCTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTableView.h; sourceTree = "<group>"; };
 		2573C54B1E66A51F00BB87AD /* JCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTableView.m; sourceTree = "<group>"; };
+		2577D2FD1EA2307A00496D00 /* UIBezierPath+JCBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+JCBezierPath.h"; sourceTree = "<group>"; };
+		2577D2FE1EA2307A00496D00 /* UIBezierPath+JCBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+JCBezierPath.m"; sourceTree = "<group>"; };
 		257B30951DC9770E003FE509 /* JCRecognizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRecognizerViewController.h; sourceTree = "<group>"; };
 		257B30961DC9770E003FE509 /* JCRecognizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRecognizerViewController.m; sourceTree = "<group>"; };
 		257B30991DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+JCBlock.h"; sourceTree = "<group>"; };
 		257B309A1DC9B6B8003FE509 /* UIGestureRecognizer+JCBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+JCBlock.m"; sourceTree = "<group>"; };
 		257B309F1DC9D8A1003FE509 /* JCTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTextFieldViewController.h; sourceTree = "<group>"; };
 		257B30A01DC9D8A1003FE509 /* JCTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTextFieldViewController.m; sourceTree = "<group>"; };
+		258072101E9607A200FB4C5E /* UITabBar+JCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+JCTabBar.h"; sourceTree = "<group>"; };
+		258072111E9607A200FB4C5E /* UITabBar+JCTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+JCTabBar.m"; sourceTree = "<group>"; };
 		25823B2B1DE585AD00C672D3 /* JCGraphicsUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCGraphicsUtilities.h; sourceTree = "<group>"; };
 		25823B2C1DE585AD00C672D3 /* JCGraphicsUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCGraphicsUtilities.m; sourceTree = "<group>"; };
 		2587287C1DD4489A00B1EB36 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -1020,6 +1026,15 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		2577D2FC1EA2306A00496D00 /* UIBezierPath */ = {
+			isa = PBXGroup;
+			children = (
+				2577D2FD1EA2307A00496D00 /* UIBezierPath+JCBezierPath.h */,
+				2577D2FE1EA2307A00496D00 /* UIBezierPath+JCBezierPath.m */,
+			);
+			path = UIBezierPath;
+			sourceTree = "<group>";
+		};
 		257B30941DC976E6003FE509 /* UIGestureRecognizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1045,6 +1060,15 @@
 				257B30A01DC9D8A1003FE509 /* JCTextFieldViewController.m */,
 			);
 			path = UITextField;
+			sourceTree = "<group>";
+		};
+		2580720F1E96078D00FB4C5E /* UITabBar */ = {
+			isa = PBXGroup;
+			children = (
+				258072101E9607A200FB4C5E /* UITabBar+JCTabBar.h */,
+				258072111E9607A200FB4C5E /* UITabBar+JCTabBar.m */,
+			);
+			path = UITabBar;
 			sourceTree = "<group>";
 		};
 		25823B2A1DE584C000C672D3 /* Quartz */ = {
@@ -1245,6 +1269,8 @@
 		25A50AAD1DB1E32A00798CFD /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2577D2FC1EA2306A00496D00 /* UIBezierPath */,
+				2580720F1E96078D00FB4C5E /* UITabBar */,
 				256A14C41E8E4CA700A27DA0 /* UILabel */,
 				251C74E31E0BD45000AF1D5A /* UIImageView */,
 				251C74DD1E0BBDD700AF1D5A /* UIResponder */,
@@ -1898,8 +1924,10 @@
 				25A50B311DB1E32A00798CFD /* JCSQLite3.m in Sources */,
 				25A50B1E1DB1E32A00798CFD /* UIImage+JCImage.m in Sources */,
 				25398A121DFD992A00D269AB /* JCAdvertisementView.m in Sources */,
+				258072121E9607A200FB4C5E /* UITabBar+JCTabBar.m in Sources */,
 				2510B16B1E52E6F500F53971 /* NSObject+JCRunTime.m in Sources */,
 				25A509BA1DAF276100798CFD /* JCAdvertisementViewController.m in Sources */,
+				2577D2FF1EA2307A00496D00 /* UIBezierPath+JCBezierPath.m in Sources */,
 				254856981E038C3A00BA2CE1 /* JCUIActionSheetViewController.m in Sources */,
 				25301FF61DEFD029007796B1 /* UIButton+JCWebImage.m in Sources */,
 				25A50B261DB1E32A00798CFD /* JCArchiveTool.m in Sources */,

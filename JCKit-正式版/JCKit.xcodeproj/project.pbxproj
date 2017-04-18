@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250259141EA5DBF800790D3E /* JCAuthorizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 250259121EA5DBF800790D3E /* JCAuthorizationManager.h */; };
+		250259151EA5DBF800790D3E /* JCAuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 250259131EA5DBF800790D3E /* JCAuthorizationManager.m */; };
 		256A14BC1E8E3F9900A27DA0 /* JCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 256A14BA1E8E3F9900A27DA0 /* JCWebViewController.h */; };
 		256A14BD1E8E3F9900A27DA0 /* JCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14BB1E8E3F9900A27DA0 /* JCWebViewController.m */; };
 		256A14C21E8E40B200A27DA0 /* JCSQLite3.h in Headers */ = {isa = PBXBuildFile; fileRef = 256A14C01E8E40B200A27DA0 /* JCSQLite3.h */; };
@@ -15,6 +17,17 @@
 		256A14D01E8F779600A27DA0 /* UILabel+JCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14CE1E8F779600A27DA0 /* UILabel+JCLabel.m */; };
 		256A14D31E8F77BD00A27DA0 /* UIImage+JCImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 256A14D11E8F77BD00A27DA0 /* UIImage+JCImage.h */; };
 		256A14D41E8F77BD00A27DA0 /* UIImage+JCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14D21E8F77BD00A27DA0 /* UIImage+JCImage.m */; };
+		2577D3031EA270B600496D00 /* UIBezierPath+JCBezierPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 2577D3011EA270B600496D00 /* UIBezierPath+JCBezierPath.h */; };
+		2577D3041EA270B600496D00 /* UIBezierPath+JCBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 2577D3021EA270B600496D00 /* UIBezierPath+JCBezierPath.m */; };
+		258072161E9618E200FB4C5E /* UITabBar+JCTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 258072141E9618E200FB4C5E /* UITabBar+JCTabBar.h */; };
+		258072171E9618E200FB4C5E /* UITabBar+JCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 258072151E9618E200FB4C5E /* UITabBar+JCTabBar.m */; };
+		25D71FC91E9DD78300AA80AF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D71FC81E9DD78300AA80AF /* libsqlite3.0.tbd */; };
+		25D71FCD1E9DF0AD00AA80AF /* JCKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 25D71FCB1E9DF0AD00AA80AF /* JCKeychain.h */; };
+		25D71FCE1E9DF0AD00AA80AF /* JCKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D71FCC1E9DF0AD00AA80AF /* JCKeychain.m */; };
+		25D71FD21E9DF11500AA80AF /* JCReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 25D71FD01E9DF11500AA80AF /* JCReachability.h */; };
+		25D71FD31E9DF11500AA80AF /* JCReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D71FD11E9DF11500AA80AF /* JCReachability.m */; };
+		25D71FD61E9DF16B00AA80AF /* JCRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 25D71FD41E9DF16B00AA80AF /* JCRequest.h */; };
+		25D71FD71E9DF16B00AA80AF /* JCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D71FD51E9DF16B00AA80AF /* JCRequest.m */; };
 		25EBD3C61E851A9D006D83B8 /* JCKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 25EBD3C41E851A9D006D83B8 /* JCKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25EBD3D31E851AF1006D83B8 /* JCPresenters.h in Headers */ = {isa = PBXBuildFile; fileRef = 25EBD3CE1E851AF1006D83B8 /* JCPresenters.h */; };
 		25EBD3D41E851AF1006D83B8 /* JCPresenters.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD3CF1E851AF1006D83B8 /* JCPresenters.m */; };
@@ -253,6 +266,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250259121EA5DBF800790D3E /* JCAuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAuthorizationManager.h; sourceTree = "<group>"; };
+		250259131EA5DBF800790D3E /* JCAuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAuthorizationManager.m; sourceTree = "<group>"; };
 		256A14BA1E8E3F9900A27DA0 /* JCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCWebViewController.h; sourceTree = "<group>"; };
 		256A14BB1E8E3F9900A27DA0 /* JCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCWebViewController.m; sourceTree = "<group>"; };
 		256A14C01E8E40B200A27DA0 /* JCSQLite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSQLite3.h; sourceTree = "<group>"; };
@@ -261,6 +276,17 @@
 		256A14CE1E8F779600A27DA0 /* UILabel+JCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JCLabel.m"; sourceTree = "<group>"; };
 		256A14D11E8F77BD00A27DA0 /* UIImage+JCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCImage.h"; sourceTree = "<group>"; };
 		256A14D21E8F77BD00A27DA0 /* UIImage+JCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCImage.m"; sourceTree = "<group>"; };
+		2577D3011EA270B600496D00 /* UIBezierPath+JCBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+JCBezierPath.h"; sourceTree = "<group>"; };
+		2577D3021EA270B600496D00 /* UIBezierPath+JCBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+JCBezierPath.m"; sourceTree = "<group>"; };
+		258072141E9618E200FB4C5E /* UITabBar+JCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+JCTabBar.h"; sourceTree = "<group>"; };
+		258072151E9618E200FB4C5E /* UITabBar+JCTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+JCTabBar.m"; sourceTree = "<group>"; };
+		25D71FC81E9DD78300AA80AF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		25D71FCB1E9DF0AD00AA80AF /* JCKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCKeychain.h; sourceTree = "<group>"; };
+		25D71FCC1E9DF0AD00AA80AF /* JCKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCKeychain.m; sourceTree = "<group>"; };
+		25D71FD01E9DF11500AA80AF /* JCReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCReachability.h; sourceTree = "<group>"; };
+		25D71FD11E9DF11500AA80AF /* JCReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCReachability.m; sourceTree = "<group>"; };
+		25D71FD41E9DF16B00AA80AF /* JCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRequest.h; sourceTree = "<group>"; };
+		25D71FD51E9DF16B00AA80AF /* JCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRequest.m; sourceTree = "<group>"; };
 		25EBD3C11E851A9D006D83B8 /* JCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EBD3C41E851A9D006D83B8 /* JCKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCKit.h; sourceTree = "<group>"; };
 		25EBD3C51E851A9D006D83B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -505,6 +531,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D71FC91E9DD78300AA80AF /* libsqlite3.0.tbd in Frameworks */,
 				25EBD5EC1E8591E8006D83B8 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +539,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250259111EA5DBF800790D3E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				250259121EA5DBF800790D3E /* JCAuthorizationManager.h */,
+				250259131EA5DBF800790D3E /* JCAuthorizationManager.m */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
 		256A14BE1E8E40A500A27DA0 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +572,42 @@
 				256A14CE1E8F779600A27DA0 /* UILabel+JCLabel.m */,
 			);
 			path = UILabel;
+			sourceTree = "<group>";
+		};
+		2577D3001EA270B600496D00 /* UIBezierPath */ = {
+			isa = PBXGroup;
+			children = (
+				2577D3011EA270B600496D00 /* UIBezierPath+JCBezierPath.h */,
+				2577D3021EA270B600496D00 /* UIBezierPath+JCBezierPath.m */,
+			);
+			path = UIBezierPath;
+			sourceTree = "<group>";
+		};
+		258072131E9618E200FB4C5E /* UITabBar */ = {
+			isa = PBXGroup;
+			children = (
+				258072141E9618E200FB4C5E /* UITabBar+JCTabBar.h */,
+				258072151E9618E200FB4C5E /* UITabBar+JCTabBar.m */,
+			);
+			path = UITabBar;
+			sourceTree = "<group>";
+		};
+		25D71FCA1E9DF0AD00AA80AF /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				25D71FCB1E9DF0AD00AA80AF /* JCKeychain.h */,
+				25D71FCC1E9DF0AD00AA80AF /* JCKeychain.m */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		25D71FCF1E9DF11500AA80AF /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				25D71FD01E9DF11500AA80AF /* JCReachability.h */,
+				25D71FD11E9DF11500AA80AF /* JCReachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		25EBD3B71E851A9D006D83B8 = {
@@ -690,6 +762,9 @@
 		25EBD3FF1E851C3C006D83B8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				250259111EA5DBF800790D3E /* Authorization */,
+				25D71FCF1E9DF11500AA80AF /* Reachability */,
+				25D71FCA1E9DF0AD00AA80AF /* Keychain */,
 				25F4CCE21E8A51D2001EB005 /* Timer */,
 				25EBD5D81E852195006D83B8 /* AssetsLibrary */,
 				25EBD4E81E851DBB006D83B8 /* WeakProxy */,
@@ -741,6 +816,8 @@
 		25EBD4031E851C7B006D83B8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2577D3001EA270B600496D00 /* UIBezierPath */,
+				258072131E9618E200FB4C5E /* UITabBar */,
 				256A14CC1E8F779600A27DA0 /* UILabel */,
 				25EBD4531E851CB7006D83B8 /* Quartz */,
 				25EBD45A1E851CB7006D83B8 /* UIApplication */,
@@ -1144,6 +1221,8 @@
 		25EBD4ED1E851F64006D83B8 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				25D71FD41E9DF16B00AA80AF /* JCRequest.h */,
+				25D71FD51E9DF16B00AA80AF /* JCRequest.m */,
 				25EBD4EE1E851F64006D83B8 /* AFNetworking */,
 				25EBD4FC1E851F64006D83B8 /* LICENSE */,
 				25EBD4FD1E851F64006D83B8 /* UIKit+AFNetworking */,
@@ -1373,6 +1452,7 @@
 		25EBD5EA1E8591E8006D83B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25D71FC81E9DD78300AA80AF /* libsqlite3.0.tbd */,
 				25EBD5EB1E8591E8006D83B8 /* AssetsLibrary.framework */,
 			);
 			name = Frameworks;
@@ -1406,6 +1486,7 @@
 				25EBD5A11E851F64006D83B8 /* MJRefreshStateHeader.h in Headers */,
 				25EBD5BB1E851F64006D83B8 /* SDWebImageDownloader.h in Headers */,
 				25EBD4D51E851CB7006D83B8 /* UITextField+JCTextField.h in Headers */,
+				25D71FCD1E9DF0AD00AA80AF /* JCKeychain.h in Headers */,
 				25EBD44B1E851C9E006D83B8 /* NSObject+JCObject.h in Headers */,
 				25EBD5831E851F64006D83B8 /* UIRefreshControl+AFNetworking.h in Headers */,
 				25EBD4B61E851CB7006D83B8 /* UIColor+JCColor.h in Headers */,
@@ -1425,6 +1506,7 @@
 				25EBD58B1E851F64006D83B8 /* MJRefreshComponent.h in Headers */,
 				25EBD3DE1E851B23006D83B8 /* JCEncodeModel.h in Headers */,
 				25EBD4B41E851CB7006D83B8 /* UIButton+JCImageTitleStyle.h in Headers */,
+				25D71FD61E9DF16B00AA80AF /* JCRequest.h in Headers */,
 				25EBD4BA1E851CB7006D83B8 /* UIControl+JCControl.h in Headers */,
 				25F4CCEA1E8A544D001EB005 /* JCAdvertisementView.h in Headers */,
 				25EBD4E11E851CB7006D83B8 /* UIWebView+JCJavaScript.h in Headers */,
@@ -1484,6 +1566,7 @@
 				25EBD5D61E852097006D83B8 /* NSObject+JCJSON.h in Headers */,
 				25EBD57D1E851F64006D83B8 /* UIImage+AFNetworking.h in Headers */,
 				25EBD4C91E851CB7006D83B8 /* UINavigationItem+JCLoading.h in Headers */,
+				25D71FD21E9DF11500AA80AF /* JCReachability.h in Headers */,
 				25EBD5AF1E851F64006D83B8 /* UIView+MJExtension.h in Headers */,
 				25EBD5851E851F64006D83B8 /* UIWebView+AFNetworking.h in Headers */,
 				25EBD5771E851F64006D83B8 /* AFNetworkActivityIndicatorManager.h in Headers */,
@@ -1498,6 +1581,7 @@
 				25EBD5931E851F64006D83B8 /* MJRefreshAutoNormalFooter.h in Headers */,
 				25EBD3E31E851B49006D83B8 /* JCProgressHUD.h in Headers */,
 				25EBD4491E851C9E006D83B8 /* NSNumber+JCNumber.h in Headers */,
+				2577D3031EA270B600496D00 /* UIBezierPath+JCBezierPath.h in Headers */,
 				25EBD5871E851F64006D83B8 /* MJRefreshAutoFooter.h in Headers */,
 				25EBD5B71E851F64006D83B8 /* SDWebImageCompat.h in Headers */,
 				25EBD5A81E851F64006D83B8 /* MJRefresh.h in Headers */,
@@ -1505,10 +1589,12 @@
 				25EBD5BD1E851F64006D83B8 /* SDWebImageDownloaderOperation.h in Headers */,
 				25EBD44F1E851C9E006D83B8 /* NSTimer+JCBlock.h in Headers */,
 				25EBD5731E851F64006D83B8 /* AFAutoPurgingImageCache.h in Headers */,
+				258072161E9618E200FB4C5E /* UITabBar+JCTabBar.h in Headers */,
 				25EBD5C61E851F64006D83B8 /* UIImage+GIF.h in Headers */,
 				256A14D31E8F77BD00A27DA0 /* UIImage+JCImage.h in Headers */,
 				25F4CCE51E8A51DC001EB005 /* JCTimer.h in Headers */,
 				25EBD4C11E851CB7006D83B8 /* UIGestureRecognizer+JCBlock.h in Headers */,
+				250259141EA5DBF800790D3E /* JCAuthorizationManager.h in Headers */,
 				25EBD3F51E851BEA006D83B8 /* UIScreen+JCScale.h in Headers */,
 				25EBD4A81E851CB7006D83B8 /* CADisplayLink+JCToRunLoop.h in Headers */,
 				25EBD5A31E851F64006D83B8 /* MJChiBaoZiFooter.h in Headers */,
@@ -1613,6 +1699,7 @@
 				25EBD5B61E851F64006D83B8 /* SDImageCache.m in Sources */,
 				25EBD5741E851F64006D83B8 /* AFAutoPurgingImageCache.m in Sources */,
 				25EBD58A1E851F64006D83B8 /* MJRefreshBackFooter.m in Sources */,
+				2577D3041EA270B600496D00 /* UIBezierPath+JCBezierPath.m in Sources */,
 				25EBD5E41E858F03006D83B8 /* JCTableViewCell.m in Sources */,
 				25EBD5961E851F64006D83B8 /* MJRefreshAutoStateFooter.m in Sources */,
 				25EBD4E41E851CB7006D83B8 /* UIWebView+JCProgress.m in Sources */,
@@ -1627,6 +1714,7 @@
 				25EBD5C51E851F64006D83B8 /* UIButton+WebCache.m in Sources */,
 				25EBD4341E851C9E006D83B8 /* NSArray+JCBlock.m in Sources */,
 				25EBD5E01E858EBD006D83B8 /* JCFPSLabel.m in Sources */,
+				258072171E9618E200FB4C5E /* UITabBar+JCTabBar.m in Sources */,
 				25EBD5761E851F64006D83B8 /* AFImageDownloader.m in Sources */,
 				25EBD4381E851C9E006D83B8 /* NSData+JCData.m in Sources */,
 				256A14BD1E8E3F9900A27DA0 /* JCWebViewController.m in Sources */,
@@ -1636,6 +1724,7 @@
 				25EBD4DE1E851CB7006D83B8 /* UIVisualEffectView+JCVisualEffect.m in Sources */,
 				25EBD5881E851F64006D83B8 /* MJRefreshAutoFooter.m in Sources */,
 				25EBD4441E851C9E006D83B8 /* NSInvocation+JCInvocation.m in Sources */,
+				250259151EA5DBF800790D3E /* JCAuthorizationManager.m in Sources */,
 				256A14D41E8F77BD00A27DA0 /* UIImage+JCImage.m in Sources */,
 				25EBD4BB1E851CB7006D83B8 /* UIControl+JCControl.m in Sources */,
 				25EBD59E1E851F64006D83B8 /* MJRefreshGifHeader.m in Sources */,
@@ -1661,6 +1750,7 @@
 				25EBD5D71E852097006D83B8 /* NSObject+JCJSON.m in Sources */,
 				25EBD4C61E851CB7006D83B8 /* UIImageView+JCImageView.m in Sources */,
 				25EBD4CA1E851CB7006D83B8 /* UINavigationItem+JCLoading.m in Sources */,
+				25D71FCE1E9DF0AD00AA80AF /* JCKeychain.m in Sources */,
 				25EBD4B31E851CB7006D83B8 /* UIButton+JCButtonSimplify.m in Sources */,
 				256A14D01E8F779600A27DA0 /* UILabel+JCLabel.m in Sources */,
 				25EBD4421E851C9E006D83B8 /* NSFileManager+JCFileManager.m in Sources */,
@@ -1676,6 +1766,7 @@
 				25EBD57C1E851F64006D83B8 /* UIButton+AFNetworking.m in Sources */,
 				25EBD4D81E851CB7006D83B8 /* UITextView+JCTextView.m in Sources */,
 				25EBD43E1E851C9E006D83B8 /* NSDictionary+JCBlock.m in Sources */,
+				25D71FD31E9DF11500AA80AF /* JCReachability.m in Sources */,
 				25EBD4CC1E851CB7006D83B8 /* UIResponder+JCResponder.m in Sources */,
 				25EBD5C31E851F64006D83B8 /* SDWebImagePrefetcher.m in Sources */,
 				25EBD4D41E851CB7006D83B8 /* UITableViewCell+JCSeparator.m in Sources */,
@@ -1705,6 +1796,7 @@
 				25EBD5711E851F64006D83B8 /* AFURLSessionManager.m in Sources */,
 				25EBD44E1E851C9E006D83B8 /* NSString+JCString.m in Sources */,
 				25EBD4AD1E851CB7006D83B8 /* JCGraphicsUtilities.m in Sources */,
+				25D71FD71E9DF16B00AA80AF /* JCRequest.m in Sources */,
 				25EBD5901E851F64006D83B8 /* MJRefreshHeader.m in Sources */,
 				25EBD5D11E851F64006D83B8 /* UIView+WebCacheOperation.m in Sources */,
 				25EBD5BC1E851F64006D83B8 /* SDWebImageDownloader.m in Sources */,

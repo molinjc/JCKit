@@ -35,13 +35,36 @@
 
 #if DEBUG
 
-/**
- *  打印
- *  本质是NSLog()
- */
+/** 打印, 本质是NSLog() */
 #define JCLog(string,...) NSLog(@"\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__],@"\n\n");
 
 #define JCLog_cmd JCLog(@"%@",NSStringFromSelector(_cmd))
+
+/** 简化stringWithFormat: */
+#define JCString(...) [NSString stringWithFormat:__VA_ARGS__]
+
+/** 单例声明 */
+#define JCSingleton_interface +(instancetype)sharedInstance;   // .h的，声明单例方法
+/** 单例实现 */
+#define JCSingleton_implementation                     \
+static id _instance;                                   \
++ (instancetype)allocWithZone:(struct _NSZone *)zone { \
+static dispatch_once_t once;                       \
+dispatch_once(&once, ^{                            \
+_instance = [super allocWithZone:zone];        \
+});                                                \
+return _instance;                                  \
+}                                                      \
++ (instancetype)sharedInstance {                       \
+static dispatch_once_t once;                       \
+dispatch_once(&once, ^{                            \
+_instance = [[self alloc] init];               \
+});                                                \
+return _instance;                                  \
+}                                                      \
+- (id)copyWithZone:(NSZone *)zone {                    \
+return _instance;                                  \
+}
 
 /**
  *  断言

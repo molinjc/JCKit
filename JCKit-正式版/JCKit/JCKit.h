@@ -33,12 +33,15 @@
 /** Utility 常用功能 */
 #import "JCWeakProxy.h"            // 弱引用
 #import "JCPhotoLibrary.h"         // 获取系统照片类，要导入AssetsLibrary库
+#import "JCReachability.h"         // 网络状态监控
+#import "JCKeychain.h"             // 密钥存储
+#import "JCAuthorizationManager.h" // 授权管理(权限请求)
 
 /** Analysis-JSON JSON解析 */
 #import "NSObject+JCJSON.h"
 
 /** ThirdParty 第三方库 */
-#import "AFNetworking.h"           // 网络请求
+#import "JCRequest.h"              // 网络请求
 #import "UIImageView+WebCache.h"   // 图片缓存
 #import "MJRefresh.h"              // 上拉下拉加载
 
@@ -67,6 +70,7 @@
 #import "UIView+JCView.h"
 #import "UIWebView+JCJavaScript.h"
 #import "UIWebView+JCHTML.h"
+#import "UIBezierPath+JCBezierPath.h"
 
 /** BaseCategory-NS */
 #import "NSBundle+JCBundle.h"

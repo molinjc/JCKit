@@ -90,6 +90,8 @@
     };
 }
 
+#pragma mark -
+
 /** 动画跳转到下一个viewController */
 - (void)pushViewController:(UIViewController *)viewController transition:(UIViewAnimationTransition)transition {
     [UIView beginAnimations:nil context:NULL];
@@ -133,31 +135,40 @@
     return self.viewControllers;
 }
 
-static void *const KNavigationController_Gesture_Array = @"KNavigationController_Gesture_Array";
-static void *const KNavigationController_Gesture_Full = @"KNavigationController_Gesture_Full";
+#pragma mark -
 
 - (void)interactivePop:(void (^)(UIGestureRecognizer *))block {
-    NSMutableArray *blocks = objc_getAssociatedObject(self, KNavigationController_Gesture_Array);
+    NSMutableArray *blocks = objc_getAssociatedObject(self, _cmd);
     if (!blocks) {
         [self.interactivePopGestureRecognizer addTarget:self action:@selector(_interactivePop:)];
         blocks = [NSMutableArray new];
-        objc_setAssociatedObject(self, KNavigationController_Gesture_Array, blocks, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, _cmd, blocks, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     [blocks addObject:block];
 }
+
+/** 实际的右滑返回手势的监听方法, 从这里调用数组里的block */
+- (void)_interactivePop:(UIGestureRecognizer *)sender {
+    NSMutableArray *blocks = objc_getAssociatedObject(self, @selector(interactivePop:));
+    [blocks enumerateObjectsUsingBlock:^(void (^block)(UIGestureRecognizer *), NSUInteger idx, BOOL * _Nonnull stop) {
+        block(sender);
+    }];
+}
+
+#pragma mark -
 
 - (void)fullScreenInteractivePop:(BOOL)interactive {
     
     //  获取添加系统边缘触发手势的View
     UIView *targetView = self.interactivePopGestureRecognizer.view;
-    UIPanGestureRecognizer *fullScreenGestureRecognizer = objc_getAssociatedObject(self, KNavigationController_Gesture_Full);
+    UIPanGestureRecognizer *fullScreenGestureRecognizer = objc_getAssociatedObject(self, _cmd);
     
     // interactive=YES是, 关闭边缘触发手势 防止和原有边缘手势冲突
     [self.interactivePopGestureRecognizer setEnabled:!interactive];
     
     if (!interactive) {
         [targetView removeGestureRecognizer:fullScreenGestureRecognizer];
-        objc_setAssociatedObject(self, KNavigationController_Gesture_Full, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         return;
     }
     
@@ -166,18 +177,10 @@ static void *const KNavigationController_Gesture_Full = @"KNavigationController_
         id target = self.interactivePopGestureRecognizer.delegate;
         SEL handler = NSSelectorFromString(@"handleNavigationTransition:");
         fullScreenGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:target action:handler];
-        objc_setAssociatedObject(self, KNavigationController_Gesture_Full, fullScreenGestureRecognizer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, _cmd, fullScreenGestureRecognizer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         fullScreenGestureRecognizer.delegate = self;
         [targetView addGestureRecognizer:fullScreenGestureRecognizer];
     }
-}
-
-/** 实际的右滑返回手势的监听方法, 从这里调用数组里的block */
-- (void)_interactivePop:(UIGestureRecognizer *)sender {
-    NSMutableArray *blocks = objc_getAssociatedObject(self, KNavigationController_Gesture_Array);
-    [blocks enumerateObjectsUsingBlock:^(void (^block)(UIGestureRecognizer *), NSUInteger idx, BOOL * _Nonnull stop) {
-        block(sender);
-    }];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
