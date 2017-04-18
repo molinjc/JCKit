@@ -1,6 +1,5 @@
 //
 //  JCAuthorizationManager.m
-//  JCViewLayout
 //
 //  Created by molin.JC on 2017/4/16.
 //  Copyright © 2017年 molin. All rights reserved.
@@ -21,7 +20,7 @@
 #import <HealthKit/HealthKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import <AdSupport/AdSupport.h>
-
+#import <UserNotifications/UserNotifications.h>
 @import CoreTelephony;
 
 #define _iOSVersion(version) ([[[UIDevice currentDevice] systemVersion] doubleValue] >= version)
@@ -67,6 +66,9 @@ static void _handlerWithBlock(void (^block)()) {
         case JCAuthorizationTypeAudio:
             [self requestAudioAccessWithAuthorizedHandler:authorizedHandler unAuthorizedHandler:unAuthorizedHandler];
             break;
+        case JCAuthorizationTypeNotification:
+            [self requestNotificationWithAuthorizationHandler:authorizedHandler unAuthorizedHandler:unAuthorizedHandler];
+            break;
         case JCAuthorizationTypeAddressBook:
             [self requestAddressBookWithAuthorizedHandler:authorizedHandler unAuthorizedHandler:unAuthorizedHandler];
             break;
@@ -93,13 +95,14 @@ static void _handlerWithBlock(void (^block)()) {
             break;
         case JCAuthorizationTypeAdvertisingIdentifier:
             [self requestAdvertisingWithAuthorizationHandler:authorizedHandler unAuthorizedHandler:unAuthorizedHandler];
+            break;
         default:
             NSAssert(!1, @"该方法暂不提供");
             break;
     }
 }
 
-#pragma mark - Photo Library 
+#pragma mark - Photo Library
 
 + (void)requestPhotoLibraryWithAuthorizedHandler:(void (^)())authorizedHandler unAuthorizedHandler:(void (^)())unAuthorizedHandler {
     
@@ -163,6 +166,57 @@ static void _handlerWithBlock(void (^block)()) {
         }];
     }else {
         _StatusHandle(AVAuthorizationStatusAuthorized, authorizedHandler, unAuthorizedHandler);
+    }
+}
+
+#pragma mark - Notification
+
++ (void)requestNotificationWithAuthorizationHandler:(void(^)())authorizedHandler unAuthorizedHandler:(void(^)())unAuthorizedHandler {
+    NSUInteger options;
+    
+    if (_iOSVersion(10.0)) {
+        options = UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
+    }else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        options = UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert;
+#pragma clang diagnostic pop
+    }
+    
+    [self requestNotificationWithOptions:options authorizationHandler:authorizedHandler unAuthorizedHandler:unAuthorizedHandler];
+}
+
++ (void)requestNotificationWithOptions:(NSUInteger)options authorizationHandler:(void(^)())authorizedHandler unAuthorizedHandler:(void(^)())unAuthorizedHandler {
+    if (_iOSVersion(10.0)) {
+        [[UNUserNotificationCenter currentNotificationCenter] getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings *settings) {
+            
+            if (settings.authorizationStatus == UNAuthorizationStatusNotDetermined) {
+                [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                    granted ? _handlerWithBlock(authorizedHandler) : _handlerWithBlock(unAuthorizedHandler);
+                }];
+            }else if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
+                _handlerWithBlock(authorizedHandler);
+            }else {
+                _handlerWithBlock(unAuthorizedHandler);
+            }
+        }];
+    }else if (_iOSVersion(8.0)) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        if (![UIApplication sharedApplication].isRegisteredForRemoteNotifications) {
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:options categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
+            
+            if ([UIApplication sharedApplication].currentUserNotificationSettings.types != UIUserNotificationTypeNone) {
+                _handlerWithBlock(authorizedHandler);
+            }else {
+                _handlerWithBlock(unAuthorizedHandler);
+            }
+        }else {
+            _handlerWithBlock(authorizedHandler);
+        }
+#pragma clang diagnostic pop
     }
 }
 

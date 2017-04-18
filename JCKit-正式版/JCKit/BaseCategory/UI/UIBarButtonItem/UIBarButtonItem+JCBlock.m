@@ -1,6 +1,5 @@
 //
 //  UIBarButtonItem+JCBlock.m
-//  JCKitDemo
 //
 //  Created by molin.JC on 2016/11/25.
 //  Copyright © 2016年 molin. All rights reserved.

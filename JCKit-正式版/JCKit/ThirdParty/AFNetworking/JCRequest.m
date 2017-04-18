@@ -1,6 +1,5 @@
 //
 //  JCRequest.m
-//  JCViewLayout
 //
 //  Created by molin.JC on 2017/4/10.
 //  Copyright © 2017年 molin. All rights reserved.

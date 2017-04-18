@@ -1,6 +1,5 @@
 //
 //  NSMutableAttributedString+JCAttributedString.m
-//  JCKitDemo
 //
 //  Created by molin.JC on 2016/12/13.
 //  Copyright © 2016年 molin. All rights reserved.

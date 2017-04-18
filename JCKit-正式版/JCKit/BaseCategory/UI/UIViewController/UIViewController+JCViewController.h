@@ -1,6 +1,5 @@
 //
 //  UIViewController+JCViewController.h
-//  JCKitDemo
 //
 //  Created by molin.JC on 2016/12/16.
 //  Copyright © 2016年 molin. All rights reserved.

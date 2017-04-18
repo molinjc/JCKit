@@ -1,6 +1,5 @@
 //
 //  UIBezierPath+JCBezierPath.m
-//  JCKitDemo
 //
 //  Created by molin.JC on 2017/4/15.
 //  Copyright © 2017年 molin. All rights reserved.

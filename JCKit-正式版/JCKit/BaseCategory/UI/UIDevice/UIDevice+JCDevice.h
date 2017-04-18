@@ -1,6 +1,5 @@
 //
 //  UIDevice+JCDevice.h
-//  JCKitDemo
 //
 //  Created by 林建川 on 16/9/28.
 //  Copyright © 2016年 molin. All rights reserved.

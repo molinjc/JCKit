@@ -1,6 +1,5 @@
 //
 //  JCTimer.h
-//  JCKitDemo
 //
 //  Created by molin.JC on 2017/3/28.
 //  Copyright © 2017年 molin. All rights reserved.

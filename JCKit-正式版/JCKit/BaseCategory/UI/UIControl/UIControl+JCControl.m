@@ -1,6 +1,5 @@
 //
 //  UIControl+JCControl.m
-//  JCKitDemo
 //
 //  Created by 林建川 on 16/10/10.
 //  Copyright © 2016年 molin. All rights reserved.

@@ -1,7 +1,6 @@
 //
 //  CALayer+JCLayer.m
-//  JCKitDemo
-//  
+//
 //  Created by molin.JC on 2016/11/24.
 //  Copyright © 2016年 molin. All rights reserved.
 //

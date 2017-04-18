@@ -1,6 +1,5 @@
 //
 //  JCAuthorizationManager.h
-//  JCViewLayout
 //
 //  Created by molin.JC on 2017/4/16.
 //  Copyright © 2017年 molin. All rights reserved.
@@ -34,6 +33,7 @@
  - JCAuthorizationTypePhotoLibrary:          相册/PhotoLibrary
  - JCAuthorizationTypeVideo:                 相机/Camera
  - JCAuthorizationTypeAudio:                 麦克风/Audio
+ - JCAuthorizationTypeNotification           远程推送/Notification
  - JCAuthorizationTypeAddressBook:           通讯录/AddressBook
  - JCAuthorizationTypeCalendar:              日历/Calendar
  - JCAuthorizationTypeReminder:              提醒事项/Reminder
@@ -49,6 +49,7 @@ typedef NS_ENUM(NSUInteger, JCAuthorizationType) {
     JCAuthorizationTypePhotoLibrary,
     JCAuthorizationTypeVideo,
     JCAuthorizationTypeAudio,
+    JCAuthorizationTypeNotification,
     JCAuthorizationTypeAddressBook,
     JCAuthorizationTypeCalendar,
     JCAuthorizationTypeReminder,
@@ -57,7 +58,7 @@ typedef NS_ENUM(NSUInteger, JCAuthorizationType) {
     JCAuthorizationTypeSiri,
     JCAuthorizationTypeBluetooth,
     JCAuthorizationTypeMotionActivity,
-    JCAuthorizationTypeAdvertisingIdentifier
+    JCAuthorizationTypeAdvertisingIdentifier,
 };
 
 /**
@@ -111,6 +112,13 @@ typedef NS_ENUM(NSUInteger, JCAuthorizationShareType) {
 
 /** 麦克风 */
 + (void)requestAudioAccessWithAuthorizedHandler:(void(^)())authorizedHandler unAuthorizedHandler:(void(^)())unAuthorizedHandler;
+
+#pragma mark - 远程推送
+
+/** 请求远程推送, options为UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound */
++ (void)requestNotificationWithAuthorizationHandler:(void(^)())authorizedHandler unAuthorizedHandler:(void(^)())unAuthorizedHandler;
+
++ (void)requestNotificationWithOptions:(NSUInteger)options authorizationHandler:(void(^)())authorizedHandler unAuthorizedHandler:(void(^)())unAuthorizedHandler;
 
 #pragma mark - 通讯录
 

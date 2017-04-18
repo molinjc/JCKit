@@ -1,6 +1,5 @@
 //
 //  JCWebViewController.h
-//  JCViewLayout
 //
 //  Created by molin.JC on 2017/3/29.
 //  Copyright © 2017年 molin. All rights reserved.

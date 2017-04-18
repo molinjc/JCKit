@@ -1,6 +1,5 @@
 //
 //  UITabBar+JCTabBar.m
-//  JCKitDemo
 //
 //  Created by molin.JC on 2017/4/6.
 //  Copyright © 2017年 molin. All rights reserved.
