@@ -226,6 +226,13 @@ static NSString * YYReachabilityStatusFromFlags(SCNetworkReachabilityFlags flags
     JCLog(@"url1: %@, url2: %@",url1 ,url2);
 }
 
+- (void)test10 {
+    NSString *str1 = @"llllk123sddasdas.333 asdasd000, dasdas132123";
+    NSString *str2 = @"12,asdasd2323s8zxckj3uijkc98u3jkcix981u2ejksjc981u2jkcx891oq";
+    JCLog(@"str1的所有数字:%@", str1.allNumber);
+    JCLog(@"str2的所有数字:%@", str2.allNumber);
+}
+
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
 
 - (void)viewDidLoad {
@@ -242,6 +249,7 @@ static NSString * YYReachabilityStatusFromFlags(SCNetworkReachabilityFlags flags
     [self test7];
     [self test8];
     [self test9];
+    [self test10];
     [self defaultEmoticons];
 }
 

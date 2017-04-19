@@ -10,9 +10,6 @@
 // 3. block在viewController里不要多层嵌套，在viewController写个方法，block里面调用这个方法去执行block
 
 #import <Foundation/Foundation.h>
-
-#define weakify(obj) autoreleasepool {} __weak typeof(obj) weak##obj = obj;
-#define strongify(obj) autoreleasepool {} __strong typeof(weak##obj) obj = weak##obj;
 #define Subscription(v) [NSString stringWithFormat:@"%@",v]
 
 typedef void (^callbackBlock)();

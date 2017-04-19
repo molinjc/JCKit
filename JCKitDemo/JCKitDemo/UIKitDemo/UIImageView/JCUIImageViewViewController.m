@@ -28,7 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *image = [UIImage imageNamed:@"up1"];
+    UIImage *image = /*[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"up1" ofType:nil]];*/ [UIImage imageNamed:@"up1"];
+    UIImage *image1 = [UIImage imageNamed:@"up1"];
+    NSLog(@"image<%p> == image1<%p>", image, image1);
     
     _imageView1 = UIImageView.new;
     _imageView1.frame = CGRectMake(self.view.frame.size.width / 2 - image.size.width / 2, 65, image.size.width, image.size.height/2);

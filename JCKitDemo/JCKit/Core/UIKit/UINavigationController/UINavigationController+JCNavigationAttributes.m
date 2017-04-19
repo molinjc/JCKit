@@ -114,6 +114,18 @@
     [UIView commitAnimations];
 }
 
+/** 跳转时隐藏底部的标签栏 */
+- (void)hidesBottomBarWhenPushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self pushViewController:viewController animated:animated];
+}
+
+/** 动画跳转时隐藏底部的标签栏 */
+- (void)hidesBottomBarWhenPushViewController:(UIViewController *)viewController transition:(UIViewAnimationTransition)transition {
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self pushViewController:viewController transition:transition];
+}
+
 /**
  动画跳转到上一个viewController
  */

@@ -1,6 +1,5 @@
 //
 //  UITabBarController+JCTabBarController.m
-//  JCViewLayout
 //
 //  Created by molin.JC on 2017/4/19.
 //  Copyright © 2017年 molin. All rights reserved.

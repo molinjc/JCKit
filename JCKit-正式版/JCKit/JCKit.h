@@ -49,6 +49,7 @@
 #import "JCQRCodeScanViewBase.h"   // 二维码扫描界面
 
 /** BaseCategory-UI */
+#import "UITabBarController+JCTabBarController.h"
 #import "UINavigationController+JCNavigationAttributes.h"
 #import "UIBarButtonItem+JCBlock.h"
 #import "UIScrollView+JCScrollView.h"

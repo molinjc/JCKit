@@ -47,6 +47,12 @@
 /** 动画跳转到上一个viewController */
 - (UIViewController *)popViewControllerTransition:(UIViewAnimationTransition)transition;
 
+/** 跳转时隐藏底部的标签栏 */
+- (void)hidesBottomBarWhenPushViewController:(UIViewController *)viewController animated:(BOOL)animated;
+
+/** 动画跳转时隐藏底部的标签栏 */
+- (void)hidesBottomBarWhenPushViewController:(UIViewController *)viewController transition:(UIViewAnimationTransition)transition;
+
 /**
  回到上层
  @param level 第几层

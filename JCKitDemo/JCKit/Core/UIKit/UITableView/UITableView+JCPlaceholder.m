@@ -120,7 +120,7 @@
     if (!self.customPlaceholderView) {
         [self insideWithEmpty:isEmpty];
     }else {
-        
+        [self externalWithEmpty:isEmpty];
     }
 }
 
@@ -145,9 +145,15 @@
  */
 - (void)externalWithEmpty:(BOOL)isEmpty {
     if (isEmpty) {
+        
+        if (![self.subviews containsObject:self.customPlaceholderView]) {
+            [self addSubview:self.customPlaceholderView];
+        }
         self.customPlaceholderView.hidden = NO;
+        self.scrollEnabled = NO;
     }else {
         self.customPlaceholderView.hidden = YES;
+        self.scrollEnabled = YES;
     }
 }
 

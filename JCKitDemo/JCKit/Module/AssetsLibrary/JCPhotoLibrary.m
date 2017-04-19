@@ -8,6 +8,7 @@
 
 #import "JCPhotoLibrary.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @interface JCPhotoAsset ()
 - (instancetype)initWithAsset:(ALAsset *)asset;
@@ -240,6 +241,8 @@
 
 - (void)photoGroup:(void (^)(NSArray <JCPhotoGroup *> *, NSError *))block {
     __block NSMutableArray *_assetsGroup = [NSMutableArray new];
+    
+#if 0
     dispatch_async(dispatch_get_main_queue(), ^{
         void  (^assetGroupEnumerator)(ALAssetsGroup  * ,BOOL * ) = ^(ALAssetsGroup * group,BOOL * stop){
             if(group){
@@ -265,6 +268,15 @@
         };
         [_assetsLibray enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:assetGroupEnumerator failureBlock:assetGroupEnumberatorFailure];
     });
+#else
+
+    PHAssetCollection *assetCollection = [[PHAssetCollection alloc] init];
+    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:assetCollection options:nil];
+    [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%@", obj);
+    }];
+    
+#endif
 }
 
 /**

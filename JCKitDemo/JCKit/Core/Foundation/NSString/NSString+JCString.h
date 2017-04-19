@@ -88,6 +88,9 @@
  */
 - (NSString *)stringReplacement:(NSString *)replacement target:(NSString *)target , ... ;
 
+/** 字符串中所有的数字, 多串数字用","隔开 */
+- (NSString *)allNumber;
+
 #pragma mark - 正则表达式
 
 /**

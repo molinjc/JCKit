@@ -180,10 +180,8 @@ static const NSHashTable *_signalTable = nil;
         _subscriptionNumbers = [NSMutableDictionary new];
         if (!_signalTable) {
             _signalTable = [NSHashTable weakObjectsHashTable];
-            NSLog(@"_signalArray刚创建");
         }
         [_signalTable addObject:self];
-        NSLog(@"_signalArray现有: %@", _signalTable);
     }
     return self;
 }
@@ -191,7 +189,6 @@ static const NSHashTable *_signalTable = nil;
 #pragma mark - dealloc
 
 - (void)dealloc {
-    NSLog(@"JCSignal - dealloc");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_keyPaths enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDictionary *dic, BOOL * _Nonnull stop) {
         id obj = dic[kObserve];

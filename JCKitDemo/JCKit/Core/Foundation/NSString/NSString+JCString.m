@@ -234,6 +234,23 @@
     return complete;
 }
 
+- (NSString *)allNumber {
+    NSMutableString *price = [NSMutableString new];
+    int cCount = 0;
+    for (int i = 0; i < self.length; i++) {
+        char c = [self characterAtIndex:i];
+        
+        if (c == '.' || c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9') {
+            cCount += 1;
+            [price appendFormat:@"%c", c];
+        }else if (cCount > 0) {
+            [price appendFormat:@","];
+            cCount = 0;
+        }
+    }
+    return price.copy;
+}
+
 #pragma mark - 正则表达式
 
 /**

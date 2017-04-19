@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		250259141EA5DBF800790D3E /* JCAuthorizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 250259121EA5DBF800790D3E /* JCAuthorizationManager.h */; };
 		250259151EA5DBF800790D3E /* JCAuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 250259131EA5DBF800790D3E /* JCAuthorizationManager.m */; };
+		25025B231EA72A3B00790D3E /* UITabBarController+JCTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 25025B211EA72A3B00790D3E /* UITabBarController+JCTabBarController.h */; };
+		25025B241EA72A3B00790D3E /* UITabBarController+JCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25025B221EA72A3B00790D3E /* UITabBarController+JCTabBarController.m */; };
 		256A14BC1E8E3F9900A27DA0 /* JCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 256A14BA1E8E3F9900A27DA0 /* JCWebViewController.h */; };
 		256A14BD1E8E3F9900A27DA0 /* JCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A14BB1E8E3F9900A27DA0 /* JCWebViewController.m */; };
 		256A14C21E8E40B200A27DA0 /* JCSQLite3.h in Headers */ = {isa = PBXBuildFile; fileRef = 256A14C01E8E40B200A27DA0 /* JCSQLite3.h */; };
@@ -268,6 +270,8 @@
 /* Begin PBXFileReference section */
 		250259121EA5DBF800790D3E /* JCAuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAuthorizationManager.h; sourceTree = "<group>"; };
 		250259131EA5DBF800790D3E /* JCAuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAuthorizationManager.m; sourceTree = "<group>"; };
+		25025B211EA72A3B00790D3E /* UITabBarController+JCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+JCTabBarController.h"; sourceTree = "<group>"; };
+		25025B221EA72A3B00790D3E /* UITabBarController+JCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+JCTabBarController.m"; sourceTree = "<group>"; };
 		256A14BA1E8E3F9900A27DA0 /* JCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCWebViewController.h; sourceTree = "<group>"; };
 		256A14BB1E8E3F9900A27DA0 /* JCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCWebViewController.m; sourceTree = "<group>"; };
 		256A14C01E8E40B200A27DA0 /* JCSQLite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSQLite3.h; sourceTree = "<group>"; };
@@ -548,6 +552,15 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		25025B201EA72A3300790D3E /* UITabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				25025B211EA72A3B00790D3E /* UITabBarController+JCTabBarController.h */,
+				25025B221EA72A3B00790D3E /* UITabBarController+JCTabBarController.m */,
+			);
+			path = UITabBarController;
+			sourceTree = "<group>";
+		};
 		256A14BE1E8E40A500A27DA0 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,6 +829,7 @@
 		25EBD4031E851C7B006D83B8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				25025B201EA72A3300790D3E /* UITabBarController */,
 				2577D3001EA270B600496D00 /* UIBezierPath */,
 				258072131E9618E200FB4C5E /* UITabBar */,
 				256A14CC1E8F779600A27DA0 /* UILabel */,
@@ -1528,6 +1542,7 @@
 				25EBD56E1E851F64006D83B8 /* AFURLResponseSerialization.h in Headers */,
 				25EBD3EE1E851BB9006D83B8 /* UIView+JCInit.h in Headers */,
 				25EBD5AB1E851F64006D83B8 /* UIScrollView+MJExtension.h in Headers */,
+				25025B231EA72A3B00790D3E /* UITabBarController+JCTabBarController.h in Headers */,
 				25EBD4351E851C9E006D83B8 /* NSBundle+JCBundle.h in Headers */,
 				25EBD59B1E851F64006D83B8 /* MJRefreshBackStateFooter.h in Headers */,
 				25EBD3D51E851AF1006D83B8 /* JCSignal.h in Headers */,
@@ -1786,6 +1801,7 @@
 				25EBD4DA1E851CB7006D83B8 /* UIView+JCView.m in Sources */,
 				25EBD57A1E851F64006D83B8 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				25EBD4B51E851CB7006D83B8 /* UIButton+JCImageTitleStyle.m in Sources */,
+				25025B241EA72A3B00790D3E /* UITabBarController+JCTabBarController.m in Sources */,
 				25EBD5981E851F64006D83B8 /* MJRefreshBackGifFooter.m in Sources */,
 				25EBD5781E851F64006D83B8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				25EBD5661E851F64006D83B8 /* AFHTTPSessionManager.m in Sources */,

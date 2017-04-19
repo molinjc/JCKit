@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define IMAGE(name) [UIImage imageWithName:name]
+#define _IMAGE(name) [UIImage imageWithName:name]
 
 /**
  渐变方向
@@ -124,12 +124,6 @@ typedef NS_ENUM(NSUInteger, JCGradientDirection) {
 
 /** 将图片旋转degrees角度 */
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
-
-/** 由角度转换弧度 */
-CGFloat JCDegreesToRadians(CGFloat degrees);
-
-/** 由弧度转换角度 */
-CGFloat JCRadiansToDegrees(CGFloat radians);
 
 #pragma mark - 绘制
 

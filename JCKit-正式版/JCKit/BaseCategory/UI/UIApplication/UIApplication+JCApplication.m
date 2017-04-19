@@ -79,7 +79,10 @@
 }
 
 + (void)call:(NSString *)phone {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
+#pragma clang diagnostic pop
 }
 
 + (void)hideKeyboard {

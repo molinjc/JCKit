@@ -90,7 +90,7 @@
     };
 }
 
-#pragma mark -
+#pragma mark - Push
 
 /** 动画跳转到下一个viewController */
 - (void)pushViewController:(UIViewController *)viewController transition:(UIViewAnimationTransition)transition {
@@ -101,6 +101,20 @@
     [UIView setAnimationTransition:transition forView:self.view cache:YES];
     [UIView commitAnimations];
 }
+
+/** 跳转时隐藏底部的标签栏 */
+- (void)hidesBottomBarWhenPushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self pushViewController:viewController animated:animated];
+}
+
+/** 动画跳转时隐藏底部的标签栏 */
+- (void)hidesBottomBarWhenPushViewController:(UIViewController *)viewController transition:(UIViewAnimationTransition)transition {
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self pushViewController:viewController transition:transition];
+}
+
+#pragma mark - Pop
 
 /** 动画跳转到上一个viewController */
 - (UIViewController *)popViewControllerTransition:(UIViewAnimationTransition)transition {
@@ -135,7 +149,7 @@
     return self.viewControllers;
 }
 
-#pragma mark -
+#pragma mark - Interactive Pop
 
 - (void)interactivePop:(void (^)(UIGestureRecognizer *))block {
     NSMutableArray *blocks = objc_getAssociatedObject(self, _cmd);

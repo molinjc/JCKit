@@ -21,6 +21,8 @@
     return parametersDictionary;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 + (instancetype)URLEncodeWithString:(NSString *)string {
     CFTypeRef X = CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)string, NULL, (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ", CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
     NSString *url = (NSString *)CFBridgingRelease(X);
@@ -33,5 +35,5 @@
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     return response.MIMEType;
 }
-
+#pragma clang diagnostic pop
 @end

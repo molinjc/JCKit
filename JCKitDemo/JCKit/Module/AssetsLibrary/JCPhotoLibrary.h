@@ -14,6 +14,7 @@
 
 @interface JCPhotoLibrary : NSObject
 
+/** 获取所有相册 */
 - (void)photoGroup:(void (^)(NSArray <JCPhotoGroup *> *, NSError *))block;
 
 /**

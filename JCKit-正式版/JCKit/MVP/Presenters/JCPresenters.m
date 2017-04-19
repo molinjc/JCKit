@@ -9,6 +9,10 @@
 
 @implementation JCPresenters
 
++ (instancetype)presenters {
+    return [[self alloc] init];
+}
+
 - (JCSignal *)signal {
     if (!_signal) {
         _signal = [JCSignal signal];
@@ -18,6 +22,30 @@
 
 - (void)dealloc {
     NSLog(@"%@ - dealloc", [self class]);
+}
+
+@end
+
+@implementation JCViewControllerPresenters
+
+@synthesize viewController, pushController;
+
++ (instancetype)presentersWithViewController:(UIViewController *)viewController {
+    JCViewControllerPresenters *presenter = [self presenters];
+    presenter.viewController = viewController;
+    presenter.pushController = viewController.navigationController ? viewController.navigationController : viewController.tabBarController.navigationController;
+    return presenter;
+}
+
+- (void)pushViewControllerWithModel:(id)model {}
+
+- (void)pushViewControllerWithClassName:(NSString *)name {
+    Class class = NSClassFromString(name);
+    
+    if (class) {
+        UIViewController *ctrl = class.new;
+        [self.pushController pushViewController:ctrl animated:YES];
+    }
 }
 
 @end

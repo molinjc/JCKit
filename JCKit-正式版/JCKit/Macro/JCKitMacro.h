@@ -25,46 +25,16 @@
 
 #define JCPOINT_XY(...) (CGPoint){__VA_ARGS__}
 
-/**
- 简化NSString的stringWithFormat:
- Usages:
- NSString *str1 = STRING_FORMAT(@"Usages:%d-%d", 2, 3);
- NSString *str1 = STRING_FORMAT(@"Usages", nil);
- */
-#define JCSTRING_FORMAT(format, ...) [NSString stringWithFormat:format, __VA_ARGS__]
+/** 简化stringWithFormat: */
+#define JCString(...) [NSString stringWithFormat:__VA_ARGS__]
 
 #if DEBUG
 
 /** 打印, 本质是NSLog() */
-#define JCLog(string,...) NSLog(@"\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__],@"\n\n");
+#define JCLog(string,...) NSLog(@"\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__],@"\n\n")
+#define JCPLog(string, ...) printf(@"\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__LINE__,__func__,[[NSString stringWithFormat:(string), ##__VA_ARGS__] UTF8String],@"\n\n")
 
 #define JCLog_cmd JCLog(@"%@",NSStringFromSelector(_cmd))
-
-/** 简化stringWithFormat: */
-#define JCString(...) [NSString stringWithFormat:__VA_ARGS__]
-
-/** 单例声明 */
-#define JCSingleton_interface +(instancetype)sharedInstance;   // .h的，声明单例方法
-/** 单例实现 */
-#define JCSingleton_implementation                     \
-static id _instance;                                   \
-+ (instancetype)allocWithZone:(struct _NSZone *)zone { \
-static dispatch_once_t once;                       \
-dispatch_once(&once, ^{                            \
-_instance = [super allocWithZone:zone];        \
-});                                                \
-return _instance;                                  \
-}                                                      \
-+ (instancetype)sharedInstance {                       \
-static dispatch_once_t once;                       \
-dispatch_once(&once, ^{                            \
-_instance = [[self alloc] init];               \
-});                                                \
-return _instance;                                  \
-}                                                      \
-- (id)copyWithZone:(NSZone *)zone {                    \
-return _instance;                                  \
-}
 
 /**
  *  断言
@@ -90,6 +60,29 @@ return _instance;                                  \
 #define strongify(obj) autoreleasepool {} __strong typeof(weak##obj) strong##obj = weak##obj;
 
 #define JCLocalizedString(key) [NSBundle.mainBundle localizedStringForKey:(key) value:@"" table:nil]
+
+/** 单例声明 */
+#define JCSingleton_interface +(instancetype)sharedInstance;   // .h的，声明单例方法
+/** 单例实现 */
+#define JCSingleton_implementation                     \
+static id _instance;                                   \
++ (instancetype)allocWithZone:(struct _NSZone *)zone { \
+static dispatch_once_t once;                       \
+dispatch_once(&once, ^{                            \
+_instance = [super allocWithZone:zone];        \
+});                                                \
+return _instance;                                  \
+}                                                      \
++ (instancetype)sharedInstance {                       \
+static dispatch_once_t once;                       \
+dispatch_once(&once, ^{                            \
+_instance = [[self alloc] init];               \
+});                                                \
+return _instance;                                  \
+}                                                      \
+- (id)copyWithZone:(NSZone *)zone {                    \
+return _instance;                                  \
+}
 
 /**
  *  三目运算符
@@ -175,8 +168,8 @@ static inline NSDate *JCCompileTime() {
 
 /**
  运行时间差
- @param ^block 所要得知时间差的代码
- @param ^complete 时间差(double)
+ @param block 所要得知时间差的代码
+ @param complete 时间差(double)
      Usage:
          YYBenchmark(^{
              // code
@@ -241,6 +234,16 @@ static inline CGFloat CGFloatToPixel(CGFloat value) {
 /** 像素转换成点 */
 static inline CGFloat CGFloatFromPixel(CGFloat value) {
     return value / [UIScreen mainScreen].scale;
+}
+
+/** 由角度转换弧度 */
+static inline CGFloat JCDegreesToRadians(CGFloat degrees) {
+    return degrees * M_PI / 180;
+}
+
+/** 由弧度转换角度 */
+static inline CGFloat JCRadiansToDegrees(CGFloat radians) {
+    return radians * 180 / M_PI;
 }
 
 /**

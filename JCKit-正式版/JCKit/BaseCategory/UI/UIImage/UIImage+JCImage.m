@@ -366,14 +366,11 @@
 
 /** 将图片旋转角度degrees */
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees {
-    return [self imageRotatedByRadians:JCDegreesToRadians(degrees)];
+    return [self imageRotatedByRadians:_JCDegreesToRadians(degrees)];
 }
 
 /** 由角度转换弧度 */
-CGFloat JCDegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
-
-/** 由弧度转换角度 */
-CGFloat JCRadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;}
+CGFloat _JCDegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 
 #pragma mark - 绘制
 

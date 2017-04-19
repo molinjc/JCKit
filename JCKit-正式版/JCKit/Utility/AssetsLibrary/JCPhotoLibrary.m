@@ -7,8 +7,11 @@
 
 #import "JCPhotoLibrary.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @interface JCPhotoAsset ()
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (instancetype)initWithAsset:(ALAsset *)asset;
 @end
 @implementation JCPhotoAsset
@@ -289,6 +292,6 @@
             break;
     }
 }
-
+#pragma clang diagnostic pop
 @end
 
