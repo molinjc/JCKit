@@ -156,6 +156,17 @@ return _instance;                                  \
  */
 #define JCGetVariableName(variable) [NSString stringWithFormat:@"%@",@"" # variable]
 
+/**
+ 计算参数的个数
+ @Example:
+     int count = JCParamsCount(1, 2, 3, 4, 5);
+     count => 5
+ @end
+ */
+#define JCParamsCount(...) _paramsCount_at(__VA_ARGS__, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+#define _paramsCount_at(_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, ...) _paramsCount_head(__VA_ARGS__)
+#define _paramsCount_head(FIRST, ...) FIRST
+
 /** 获取编译的时间 */
 static inline NSDate *JCCompileTime() {
     NSString *timeStr = [NSString stringWithFormat:@"%s %s",__DATE__, __TIME__];
