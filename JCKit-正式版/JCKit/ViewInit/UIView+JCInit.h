@@ -1,5 +1,6 @@
 //
 //  UIView+JCInit.h
+//  JCViewLayout
 //
 //  Created by molin.JC on 2017/3/11.
 //  Copyright © 2017年 molin. All rights reserved.
@@ -7,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#pragma mark - UIView
+@interface NSObject (JCInit)
+- (id)set:(void (^)(id init))initBlock;
+@end
 
-#define SET_VIEW_VALUE_H(cla) - (void)set##cla##Value:(void (^)(cla * init))block;
-#define SET_VIEW_VALUE_M(cla)                    \
-- (void)set##cla##Value:(void (^)(cla *))block { \
-if (block) {                                 \
-block(self);                             \
-}                                            \
-}
+#pragma mark - UIView
 
 #define VIEW            [[UIView alloc] init]
 #define VIEW_INIT(...)  [UIView viewInit:__VA_ARGS__, nil]
@@ -31,8 +28,6 @@ block(self);                             \
  @return UIView
  */
 + (instancetype)viewInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UIView);
 
 @end
 
@@ -53,9 +48,6 @@ SET_VIEW_VALUE_H(UIView);
  @return UILabel
  */
 + (instancetype)labelInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UILabel);
-
 @end
 
 #pragma mark - UIImageView
@@ -74,9 +66,6 @@ SET_VIEW_VALUE_H(UILabel);
  @return UIImageView
  */
 + (instancetype)imageViewInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UIImageView);
-
 @end
 
 #pragma mark - UIButton
@@ -96,9 +85,6 @@ SET_VIEW_VALUE_H(UIImageView);
  @return UIButton
  */
 + (instancetype)buttonInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UIButton);
-
 @end
 
 #pragma mark - UITableView
@@ -128,9 +114,6 @@ SET_VIEW_VALUE_H(UIButton);
  @return UITableView
  */
 + (instancetype)tableViewProtocol:(id)protocol init:(id)init, ...;
-
-SET_VIEW_VALUE_H(UITableView);
-
 @end
 
 #pragma mark - UIScrollView
@@ -149,9 +132,6 @@ SET_VIEW_VALUE_H(UITableView);
  @return UIScrollView
  */
 + (instancetype)scrollViewInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UIScrollView);
-
 @end
 
 #pragma mark - UICollectionView
@@ -181,9 +161,6 @@ SET_VIEW_VALUE_H(UIScrollView);
  @return UICollectionView
  */
 + (instancetype)collectionViewProtocol:(id)protocol init:(id)init, ...;
-
-SET_VIEW_VALUE_H(UICollectionView);
-
 @end
 
 #pragma mark - UITextField
@@ -204,9 +181,6 @@ SET_VIEW_VALUE_H(UICollectionView);
  @return UITextField
  */
 + (instancetype)textFieldInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UITextField);
-
 @end
 
 #pragma mark - UITextView
@@ -227,9 +201,6 @@ SET_VIEW_VALUE_H(UITextField);
  @return UITextView
  */
 + (instancetype)textViewInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UITextView);
-
 @end
 
 #pragma mark - UIFont
@@ -270,9 +241,6 @@ SET_VIEW_VALUE_H(UITextView);
  @return UIViewController
  */
 + (instancetype)viewControllerInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UIViewController);
-
 @end
 
 #pragma mark - UINavigationController
@@ -293,9 +261,6 @@ SET_VIEW_VALUE_H(UIViewController);
  @return UINavigationController
  */
 + (instancetype)navigationControllerInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UINavigationController);
-
 @end
 
 #pragma mark - UITabBarController
@@ -317,9 +282,6 @@ SET_VIEW_VALUE_H(UINavigationController);
  @return UITabBarController
  */
 + (instancetype)tabBarControllerInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UITabBarController);
-
 @end
 
 #pragma mark - UIWindow
@@ -339,12 +301,9 @@ SET_VIEW_VALUE_H(UITabBarController);
  @return UIWindow
  */
 + (instancetype)windowInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UIWindow);
-
 @end
 
-#pragma mark -
+#pragma mark - 
 
 #define WEB_VIEW [[UIWebView alloc] init]
 #define WEB_VIEW_INIT(...) [UIWebView webViewInit:_VA_ARGS__, nil]
@@ -360,7 +319,4 @@ SET_VIEW_VALUE_H(UIWindow);
  @return UIWebView
  */
 + (instancetype)webViewInit:(id)init, ...;
-
-SET_VIEW_VALUE_H(UIWebView);
-
 @end

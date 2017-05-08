@@ -39,20 +39,22 @@
  请求出错枚举
  - JCRequestErrorStatusNotNetwork: 无网络
  - JCRequestErrorStatusMimeTypeError: 请求mimeType错误(200)
+ - JCRequestErrorStatusUnsupportedURL: URL错误(400)
  - JCRequestErrorStatusRequestFail: 请求失败(404)
  - JCRequestErrorStatusServerError: 服务器出错(500)
  - JCRequestErrorStatusServerDataError: 后台返回的数据有误
  - JCRequestErrorStatusRequestTimedOut: 请求超时
- - JCRequestErrorStatusUnsupportedURL: URL错误
+ - JCRequestErrorStatusNotFoundServer: 未能找到服务器
  */
 typedef NS_ENUM(NSUInteger, JCRequestErrorStatus) {
     JCRequestErrorStatusNotNetwork = 0,
     JCRequestErrorStatusMimeTypeError,
+    JCRequestErrorStatusUnsupportedURL,
     JCRequestErrorStatusRequestFail,
     JCRequestErrorStatusServerError,
     JCRequestErrorStatusServerDataError,
     JCRequestErrorStatusRequestTimedOut,
-    JCRequestErrorStatusUnsupportedURL,
+    JCRequestErrorStatusNotFoundServer,
 };
 
 #pragma mark -

@@ -7,7 +7,24 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 垂直对齐方式
+ - JCTextVerticalAlignmentCenter: 垂直居中
+ - JCTextVerticalAlignmentTop: 垂直顶部对齐
+ - JCTextVerticalAlignmentBottom: 垂直底部对齐
+ */
+typedef NS_ENUM(NSUInteger, JCTextVerticalAlignment) {
+    JCTextVerticalAlignmentCenter = 0,
+    JCTextVerticalAlignmentTop,
+    JCTextVerticalAlignmentBottom,
+};
+
 @interface UILabel (JCLabel)
+
+/** 垂直对齐方式 */
+@property (nonatomic, assign) JCTextVerticalAlignment textVerticalAlignment;
+/** 文本显示内距 */
+@property (nonatomic, assign) UIEdgeInsets textInset;
 
 /**
  设置渐变, 两个颜色

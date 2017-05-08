@@ -9,17 +9,35 @@
 
 @interface NSFileManager (JCFileManager)
 
-/**
- 根据文件路径获取文件的属性
- @param filePath 文件路径
- @return 文件属性
- */
+/** 沙盒的主目录路径 */
++ (NSString *)homeDirectory;
+
+/** 沙盒中Documents的目录路径 */
++ (NSString *)documentDirectory;
+
+/** 沙盒中Library的目录路径 */
++ (NSString *)libraryDirectory;
+
+/** 沙盒中Libarary/Preferences的目录路径 */
++ (NSString *)preferencesDirectory;
+
+/** 沙盒中Library/Caches的目录路径 */
++ (NSString *)cachesDirectory;
+
+/** 沙盒中tmp的目录路径 */
++ (NSString *)temporaryDirectory;
+
+/** 文件夹是否存在这个路径上 */
+- (BOOL)directoryExistsAtPath:(NSString *)path;
++ (BOOL)directoryExistsAtPath:(NSString *)path;
+
+/** 文件是否存在这个路径上 */
++ (BOOL)isFileExistsAtPath:(NSString *)path;
+
+/** 根据文件路径获取文件的属性 */
 + (NSDictionary *)fileAttributesOfPath:(NSString *)filePath;
 
-/**
- 根据文件的路径获取文件的大小
- @return 文件大小
- */
+/** 根据文件的路径获取文件的大小 */
 + (float)fileSizeOfPath:(NSString *)filePath;
 
 /**

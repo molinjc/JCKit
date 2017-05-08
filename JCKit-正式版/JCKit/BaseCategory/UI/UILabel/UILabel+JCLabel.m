@@ -6,8 +6,45 @@
 //
 
 #import "UILabel+JCLabel.h"
+#import <objc/runtime.h>
 
 @implementation UILabel (JCLabel)
+
++ (void)load {
+    Method systemMethod_0 = class_getInstanceMethod(self, @selector(textRectForBounds:limitedToNumberOfLines:));
+    Method customMethod_0 = class_getInstanceMethod(self, @selector(_textRectForBounds:limitedToNumberOfLines:));
+    method_exchangeImplementations(systemMethod_0, customMethod_0);
+    
+    Method systemMethod_1 = class_getInstanceMethod(self, @selector(drawTextInRect:));
+    Method customMethod_1 = class_getInstanceMethod(self, @selector(_drawTextInRect:));
+    method_exchangeImplementations(systemMethod_1, customMethod_1);
+}
+
+- (void)_drawTextInRect:(CGRect)rect {
+    CGRect frame = [self textRectForBounds:rect limitedToNumberOfLines:self.numberOfLines];
+    [self _drawTextInRect:frame];
+}
+
+- (CGRect)_textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
+    CGRect rect = [self _textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
+    CGPoint origin = rect.origin;
+    
+    switch (self.textVerticalAlignment) {
+        case JCTextVerticalAlignmentCenter:
+            origin.y = (bounds.size.height - self.textInset.top - self.textInset.bottom) / 2.0 - rect.size.height / 2.0 + self.textInset.top;
+            break;
+        case JCTextVerticalAlignmentTop:
+            origin.y = self.textInset.top;
+            break;
+        case JCTextVerticalAlignmentBottom:
+            origin.y = bounds.size.height - self.textInset.bottom - rect.size.height;
+            break;
+        default:
+            break;
+    }
+    rect.origin = origin;
+    return rect;
+}
 
 - (void)setLinearGradientWithColor:(NSArray <UIColor *> *)colors {
     NSAssert(self.superview, @"要先添加到父视图");
@@ -89,6 +126,26 @@
     chromateAnimate.repeatCount = MAXFLOAT;
     
     return chromateAnimate;
+}
+
+#pragma mark - Set/Get
+
+- (void)setTextVerticalAlignment:(JCTextVerticalAlignment)textVerticalAlignment {
+    objc_setAssociatedObject(self, _cmd, @(textVerticalAlignment), OBJC_ASSOCIATION_ASSIGN);
+    [self setNeedsDisplay];
+}
+
+- (JCTextVerticalAlignment)textVerticalAlignment {
+    return [objc_getAssociatedObject(self, @selector(setTextVerticalAlignment:)) integerValue];
+}
+
+- (void)setTextInset:(UIEdgeInsets)textInset {
+    objc_setAssociatedObject(self, _cmd, [NSValue valueWithUIEdgeInsets:textInset], OBJC_ASSOCIATION_ASSIGN);
+    [self setNeedsDisplay];
+}
+
+- (UIEdgeInsets)textInset {
+    return [objc_getAssociatedObject(self, @selector(setTextInset:)) UIEdgeInsetsValue];
 }
 
 @end

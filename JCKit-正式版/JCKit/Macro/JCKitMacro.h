@@ -198,7 +198,7 @@ static inline void JCBenchmark(void (^block)(void), void (^complete)(double ms))
 }
 
 /**
- 取整
+ 上取整
  ceil()：取不小于给定实数的最小整数
  */
 static inline CGRect CGRectCeli(CGRect rect) {
@@ -214,10 +214,22 @@ static inline CGPoint CGPointCeli(CGPoint origin) {
 }
 
 /**
- 将origin和size合成CGRect
- @param origin x、y
- @param size   width、height
+ 下取整
+ floor(): 取不大于给定实数的最大整数
  */
+static inline CGRect CGRectFloor(CGRect rect) {
+    return CGRectMake(floor(rect.origin.x), floor(rect.origin.y), floor(rect.size.width), floor(rect.size.height));
+}
+
+static inline CGSize CGSizeFloor(CGSize size) {
+    return CGSizeMake(floor(size.width), floor(size.height));
+}
+
+static inline CGPoint CGPointFloor(CGPoint origin) {
+    return CGPointMake(floor(origin.x), floor(origin.y));
+}
+
+/** 将origin和size合成CGRect */
 static inline CGRect CGRectSynth(CGPoint origin, CGSize size) {
     return CGRectMake(origin.x, origin.y, size.width, size.height);
 }

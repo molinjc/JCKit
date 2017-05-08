@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JCSignal.h"
+#import "JCSignal-Event.h"
 
 #pragma mark - 网络请求
 

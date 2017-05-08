@@ -38,7 +38,8 @@
 #import "JCAuthorizationManager.h" // 授权管理(权限请求)
 
 /** Analysis-JSON JSON解析 */
-#import "NSObject+JCJSON.h"
+#import "NSObject+JCModel.h"
+#import "JCClassInfo.h"
 
 /** ThirdParty 第三方库 */
 #import "JCRequest.h"              // 网络请求
@@ -48,6 +49,10 @@
 /** CustomUI */
 #import "JCQRCodeScanViewBase.h"   // 二维码扫描界面
 
+/** Convenient */
+#import "JCFreeContentTableView.h"  // 自由内容的表格视图
+#import "JCAttributed.h"            // 富文本便利类
+
 /** BaseCategory-UI */
 #import "UITabBarController+JCTabBarController.h"
 #import "UINavigationController+JCNavigationAttributes.h"
@@ -56,8 +61,7 @@
 #import "UIGestureRecognizer+JCBlock.h"
 #import "UITableViewCell+JCSeparator.h"
 #import "UIApplication+JCApplication.h"
-#import "UIButton+JCImageTitleStyle.h"
-#import "UIButton+JCButtonSimplify.h"
+#import "UIButton+JCButton.h"
 #import "UIColor+JCColor.h"
 #import "UIColor+JCSeries.h"
 #import "UIControl+JCControl.h"

@@ -9,6 +9,48 @@
 
 @implementation NSFileManager (JCFileManager)
 
++ (NSString *)homeDirectory {
+    return NSHomeDirectory();
+}
+
++ (NSString *)documentDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+}
+
++ (NSString *)libraryDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+}
+
++ (NSString *)preferencesDirectory {
+    return [[self libraryDirectory] stringByAppendingPathComponent:@"Preferences"];
+}
+
++ (NSString *)cachesDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+}
+
++ (NSString *)temporaryDirectory {
+    return NSTemporaryDirectory();
+}
+
+- (BOOL)directoryExistsAtPath:(NSString *)path {
+    if (!path) {
+        return NO;
+    }
+    
+    BOOL isDirectory = NO;
+    BOOL exist = [self fileExistsAtPath:path isDirectory:&isDirectory];
+    return isDirectory && exist;
+}
+
++ (BOOL)directoryExistsAtPath:(NSString *)path {
+    return [[NSFileManager defaultManager] directoryExistsAtPath:path];
+}
+
++ (BOOL)isFileExistsAtPath:(NSString *)path {
+    return [[NSFileManager defaultManager] fileExistsAtPath:path];
+}
+
 /**
  根据文件路径获取文件的属性
  @param filePath 文件路径

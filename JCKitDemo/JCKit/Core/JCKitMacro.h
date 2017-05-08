@@ -34,8 +34,8 @@
  *  打印
  *  本质是NSLog()
  */
-#define JCLog(string, ...) NSLog(@"\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__],@"\n\n")
-#define JCPLog(string, ...) printf(@"\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__LINE__,__func__,[[NSString stringWithFormat:(string), ##__VA_ARGS__] UTF8String],@"\n\n")
+#define JCLog(string, ...) NSLog(@"\n🛠 时间:%s %s\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__DATE__, __TIME__, __LINE__,__func__,[NSString stringWithFormat:(string), ##__VA_ARGS__],@"\n\n")
+#define JCPLog(string, ...) printf(@"\n🛠时间:%s %s\n🛠 行号:%d\n🛠 类与方法:%s\n🛠 内容:%@ %@",__DATE__, __TIME__, __LINE__,__func__,[[NSString stringWithFormat:(string), ##__VA_ARGS__] UTF8String],@"\n\n")
 
 #define JCLog_cmd JCLog(@"%@",NSStringFromSelector(_cmd))
 
@@ -160,6 +160,31 @@ return _instance;                                  \
  */
 #define JCGetVariableName(variable) [NSString stringWithFormat:@"%@",@"" # variable]
 
+
+/**
+ 性能测试
+ @param desc 描述
+ @param count 测试次数
+ @param code 测试的代码
+ */
+#define JCMeasure(desc, count, code) \
+if(!DEBUG) { ^code(); return;} else { \
+uint64_t dispatch_benchmark(size_t count_t, void (^block)(void));\
+uint64_t n = dispatch_benchmark(count, ^{ @autoreleasepool {{ ^code(); }}}); \
+JCLog(@"[Measure]: The average runtime for operation is %llu ns.", n); }
+
+/** 对象方法交换 */
+#define JCReplacedInstanceMethod(cla, old, new) {\
+Method sysIMethod = class_getInstanceMethod(cla, old); \
+Method cusIMethod = class_getInstanceMethod(cla, new); \
+method_exchangeImplementations(sysIMethod, cusIMethod); }
+
+/** 类方法交换 */
+#define JCReplacedClassMethod(cla, old, new) {\
+Method sysMethod = class_getClassMethod(cla, old); \
+Method cusMethod = class_getClassMethod(cla, new); \
+method_exchangeImplementations(sysMethod, cusMethod); }
+
 /**
  获取编译的时间
  */
@@ -193,8 +218,8 @@ static inline void JCBenchmark(void (^block)(void), void (^complete)(double ms))
 }
 
 /**
- 取整
- ceil()：取不小于给定实数的最小整数
+ 上取整
+ ceil(): 取不小于给定实数的最小整数
  */
 static inline CGRect CGRectCeli(CGRect rect) {
     return CGRectMake(ceil(rect.origin.x), ceil(rect.origin.y), ceil(rect.size.width), ceil(rect.size.height));
@@ -206,6 +231,22 @@ static inline CGSize CGSizeCeli(CGSize size) {
 
 static inline CGPoint CGPointCeli(CGPoint origin) {
     return CGPointMake(ceil(origin.x), ceil(origin.y));
+}
+
+/**
+ 下取整
+ floor(): 取不大于给定实数的最大整数
+ */
+static inline CGRect CGRectFloor(CGRect rect) {
+    return CGRectMake(floor(rect.origin.x), floor(rect.origin.y), floor(rect.size.width), floor(rect.size.height));
+}
+
+static inline CGSize CGSizeFloor(CGSize size) {
+    return CGSizeMake(floor(size.width), floor(size.height));
+}
+
+static inline CGPoint CGPointFloor(CGPoint origin) {
+    return CGPointMake(floor(origin.x), floor(origin.y));
 }
 
 /**

@@ -14,6 +14,7 @@
 @interface JCBook : NSObject
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSInteger bookID;
+@property (nonatomic, assign) NSInteger price;
 @end
 @implementation JCBook
 @end
@@ -90,15 +91,17 @@ UITableViewDataSource>
 
 
 - (void)test1 {
-    JCBook *book = [JCBook modelWithJSON:@"{\n    \"name\": \"iOS 编程书\",\n    \"bookID\": 1,\n}"];
+    JCLog(@"");
+    JCBook *book = [JCBook modelWithJSON:@"{\n    \"name\": \"iOS 编程书\",\n    \"bookID\": 1,\n \"price\": \"38\",  \"discount\": \"7.5\"}"];
     JCLog(@"%@",[book togetherIntoDictionary]);
 }
 
 - (void)test2 {
-    JCBookShelf *bookShelf = [JCBookShelf modelWithJSON:@"{\n    \"bookShelfName\": \"A级书架\",\n    \"bookShelfID\": 1,\n    \"bookShelfs\": [\n        {\n            \"name\": \"iOS 编程书\",\n            \"bookID\": 1\n        },\n        {\n            \"name\": \"Android 编程书\",\n            \"bookID\": 2\n        },\n        {\n            \"name\": \"C++ 编程书\",\n            \"bookID\": 3\n        }\n    ]\n}"];
+    JCBookShelf *bookShelf = [JCBookShelf modelWithJSON:@"{\n    \"bookShelfName\": \"A级书架\",\n    \"bookShelfID\": \"1\",\n    \"bookShelfs\": [\n        {\n            \"name\": \"iOS 编程书\",\n            \"bookID\": 1\n        },\n        {\n            \"name\": \"Android 编程书\",\n            \"bookID\": 2\n        },\n        {\n            \"name\": \"C++ 编程书\",\n            \"bookID\": 3\n        }\n    ]\n}"];
     bookShelf.bookShelfs = [bookShelf.bookShelfs modelsWithClass:JCBook.class];
     JCLog(@"%@",[bookShelf togetherIntoDictionary]);
     JCLog(@"bookShelfs：%@",bookShelf.bookShelfs);
+    JCLog(@"bookShelfID: %zd", bookShelf.bookShelfID);
 }
 
 - (void)test3 {

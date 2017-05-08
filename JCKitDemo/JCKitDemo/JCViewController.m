@@ -33,6 +33,7 @@ UITableViewDataSource>
 
 @end
 
+
 @implementation JCViewController
 
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)
@@ -58,16 +59,19 @@ UITableViewDataSource>
     }];
 
     
-    JCLog(@"%f",kSCALE);
+    
+//    JCMeasure(@"测试", 10, {JCLog(@"-----------------======");});
+    
+//    JCLog(@"%f",kSCALE);
 //    [self test_Array];
-    [self test_String];
+//    [self test_String];
     
     [JCSQLite3 sharedSQLite3].sqliteName = @"test123";
     JCBenchmark(^{
         if ([[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"CREATE TABLE \"test\" (\"column1\" INTEGER, \"column2\" FLOAT, \"column3\" TEXT)"]) {
             NSLog(@"失败");
         }
-        [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"replace into \'test\' (\'column1\',\'column2\',\'column3\') values (\'1\',\'2.34\',\'测试啦\')"];
+        [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"replace into \'test\' (\'column1\',\'column2\',\'column3\', ) values (\'1\',\'2.34\',\'测试啦\' ,)"];
         
         [[JCSQLite3 sharedSQLite3] openSQLite3];
         [[JCSQLite3 sharedSQLite3] executeSQLite3Statement:@"SELECT * FROM 'test'" consequence:^(id data) {
@@ -75,7 +79,7 @@ UITableViewDataSource>
         }];
         [[JCSQLite3 sharedSQLite3] closeSQLite3];
     },^(double ms) {
-        JCLog(@"JCSQLite3运行的时间：%2f",ms)
+        JCLog(@"JCSQLite3运行的时间：%2f",ms);
     });
     
 //    UIBarButtonItem *button = ;

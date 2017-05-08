@@ -240,4 +240,8 @@
     return nil;
 }
 
+- (BOOL)isEqualToColor:(UIColor *)color {
+    return CGColorEqualToColor(self.CGColor, color.CGColor);
+}
+
 @end

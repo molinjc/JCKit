@@ -41,6 +41,10 @@
             _errorStatus = JCRequestErrorStatusUnsupportedURL;
             _errorDescription = _userInfo[@"NSLocalizedDescription"];
         }
+        case -1003: {
+            _errorStatus = JCRequestErrorStatusNotFoundServer;
+            _errorDescription = _userInfo[@"NSLocalizedDescription"];
+        }
             break;
         case 3840:{
             _errorStatus = JCRequestErrorStatusServerDataError;

@@ -1,5 +1,6 @@
 //
 //  UIView+JCInit.m
+//  JCViewLayout
 //
 //  Created by molin.JC on 2017/3/11.
 //  Copyright © 2017年 molin. All rights reserved.
@@ -7,9 +8,18 @@
 
 #import "UIView+JCInit.h"
 
-@implementation UIView (JCInit)
+@implementation NSObject (JCInit)
 
-SET_VIEW_VALUE_M(UIView);
+- (id)set:(void (^)(id))initBlock {
+    if (initBlock) {
+        initBlock(self);
+    }
+    return self;
+}
+
+@end
+
+@implementation UIView (JCInit)
 
 + (instancetype)viewInit:(id)init, ... {
     if (!init) {
@@ -37,8 +47,6 @@ SET_VIEW_VALUE_M(UIView);
 @end
 
 @implementation UILabel (JCInit)
-
-SET_VIEW_VALUE_M(UILabel);
 
 + (instancetype)labelInit:(id)init, ... {
     if (!init) {
@@ -79,8 +87,6 @@ SET_VIEW_VALUE_M(UILabel);
 
 @implementation UIImageView (JCInit)
 
-SET_VIEW_VALUE_M(UIImageView);
-
 + (instancetype)imageViewInit:(id)init, ... {
     if (!init) {
         return IMAGE_VIEW;
@@ -109,8 +115,6 @@ SET_VIEW_VALUE_M(UIImageView);
 @end
 
 @implementation UIButton (JCInit)
-
-SET_VIEW_VALUE_M(UIButton);
 
 + (instancetype)buttonInit:(id)init, ... {
     if (!init) {
@@ -149,8 +153,6 @@ SET_VIEW_VALUE_M(UIButton);
 @end
 
 @implementation UITableView (JCInit)
-
-SET_VIEW_VALUE_M(UITableView);
 
 + (instancetype)tableViewInit:(id)init, ... {
     if (!init) {
@@ -204,8 +206,6 @@ SET_VIEW_VALUE_M(UITableView);
 
 @implementation UIScrollView (JCInit)
 
-SET_VIEW_VALUE_M(UIScrollView);
-
 + (instancetype)scrollViewInit:(id)init, ... {
     if (!init) {
         return SCROLL_VIEW;
@@ -232,8 +232,6 @@ SET_VIEW_VALUE_M(UIScrollView);
 @end
 
 @implementation UICollectionView (JCInit)
-
-SET_VIEW_VALUE_M(UICollectionView);
 
 + (instancetype)collectionViewInit:(id)init, ... {
     if (!init) {
@@ -291,8 +289,6 @@ SET_VIEW_VALUE_M(UICollectionView);
 
 @implementation UITextField (JCInit)
 
-SET_VIEW_VALUE_M(UITextField);
-
 + (instancetype)textFieldInit:(id)init, ... {
     if (!init) {
         return TEXT_FIELD;
@@ -330,8 +326,6 @@ SET_VIEW_VALUE_M(UITextField);
 @end
 
 @implementation UITextView (JCInit)
-
-SET_VIEW_VALUE_M(UITextView);
 
 + (instancetype)textViewInit:(id)init, ... {
     if (!init) {
@@ -408,8 +402,6 @@ SET_VIEW_VALUE_M(UITextView);
 
 @implementation UIViewController (JCInit)
 
-SET_VIEW_VALUE_M(UIViewController);
-
 + (instancetype)viewControllerInit:(id)init, ... {
     if (!init) {
         return VIEW_CONTROLLER;
@@ -436,8 +428,6 @@ SET_VIEW_VALUE_M(UIViewController);
 @end
 
 @implementation UINavigationController (JCInit)
-
-SET_VIEW_VALUE_M(UINavigationController);
 
 + (instancetype)navigationControllerInit:(id)init, ... {
     if (!init) {
@@ -473,8 +463,6 @@ SET_VIEW_VALUE_M(UINavigationController);
 @end
 
 @implementation UITabBarController (JCInit)
-
-SET_VIEW_VALUE_M(UITabBarController);
 
 + (instancetype)tabBarControllerInit:(id)init, ... {
     if (!init) {
@@ -517,8 +505,6 @@ SET_VIEW_VALUE_M(UITabBarController);
 
 @implementation UIWindow (JCInit)
 
-SET_VIEW_VALUE_M(UIWindow);
-
 + (instancetype)windowInit:(id)init, ... {
     if (!init) {
         return WINDOW;
@@ -549,8 +535,6 @@ SET_VIEW_VALUE_M(UIWindow);
 @end
 
 @implementation UIWebView (JCInit)
-
-SET_VIEW_VALUE_M(UIWebView);
 
 + (instancetype)webViewInit:(id)init, ... {
     if (!init) {

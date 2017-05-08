@@ -41,7 +41,7 @@
 
 - (void)test {
     CGPoint point = CGPointMake(12, 12);
-    JCLog(@"%@",_JCBoxValue(@encode(__typeof__((point))),point))
+    JCLog(@"%@",_JCBoxValue(@encode(__typeof__((point))),point));
     NSValue *value = _JCBoxValue(@encode(__typeof__((point))),point);
     CGPoint point1 ;
     [value getValue:&point1];

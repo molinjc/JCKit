@@ -38,8 +38,6 @@
 
 - (void)demo2 {
 //    NSString *s = [NSString stringWithFormat:@"sss%d",2];
-    NSString *s = JCSTRING_FORMAT(@"2",nil);
-    JCLog(@"%@",s);
 }
 
 #pragma mark - ViewController Life Cycle(Viewcontroller的生命周期)

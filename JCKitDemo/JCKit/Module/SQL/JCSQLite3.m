@@ -7,12 +7,14 @@
 //
 
 #import "JCSQLite3.h"
+#import <libkern/OSAtomic.h>
 
 #define kSQLITE3ERROR @"SQLite3Error"
 #define kTernary(condition, valueTrue, valueFalse) condition ? valueTrue : valueFalse
 
 @interface JCSQLite3 () {
     sqlite3 *_db;  // 定义数据库对象
+//    OSSpinLock _dbStateLock;
 }
 
 @property (nonatomic, copy) NSString *sqlite3Path;
@@ -46,6 +48,7 @@
  */
 - (instancetype)init {
     if (self = [super init]) {
+//        _dbStateLock = OS_SPINLOCK_INIT;
     }
     return self;
 }
@@ -74,6 +77,7 @@
  *  @return YES 打开成功， NO 打开失败
  */
 - (BOOL)openSQLite3 {
+//    OSSpinLockLock(&_dbStateLock);
     int rst = sqlite3_open([self.sqlite3Path UTF8String], &_db);
     if (rst == SQLITE_OK) {
         return YES;
@@ -104,6 +108,7 @@
 - (NSError *)executeSQLite3Statement:(NSString *)statement {
     NSError *error;
     NSDictionary *userInfo;
+    
     if (!statement) {
         userInfo = @{NSLocalizedDescriptionKey:@"SQLite语句为空"};
         error = [NSError errorWithDomain:kSQLITE3ERROR code:-1 userInfo:userInfo];
@@ -114,13 +119,17 @@
     
     char *errorChar;
     if (!kTernary(range.length, kTernary(range1.length, YES, NO), NO)) {
+//        OSSpinLockLock(&_dbStateLock);
         int result = sqlite3_exec(_db, [statement UTF8String], NULL, NULL, &errorChar);
         if (result != SQLITE_OK) {
             userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithUTF8String:errorChar]};
             error = [NSError errorWithDomain:kSQLITE3ERROR code:-1 userInfo:userInfo];
+//            OSSpinLockUnlock(&_dbStateLock);
             return error;
         }
+//        OSSpinLockUnlock(&_dbStateLock);
     }else {
+//        OSSpinLockLock(&_dbStateLock);
         sqlite3_stmt  *stmt;
         int result = sqlite3_prepare_v2(_db, [statement UTF8String], -1, &stmt, nil);
         if (result == SQLITE_OK) {
@@ -161,6 +170,7 @@
             if (self.consequence) {
                 self.consequence(data);
             }
+//            OSSpinLockUnlock(&_dbStateLock);
         }else {
             userInfo = @{NSLocalizedDescriptionKey:@"SQLite语句执行失败"};
             error = [NSError errorWithDomain:kSQLITE3ERROR code:-1 userInfo:userInfo];

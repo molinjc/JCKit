@@ -59,11 +59,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YY"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YY"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"YY"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"JC  %@",_titles[indexPath.row]];
-    cell.textLabel.font = [UIFont fontWithName:_titles[indexPath.row] size:14];
+    cell.textLabel.text = @"26°";
+    cell.textLabel.font = [UIFont fontWithName:_titles[indexPath.row] size:65];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"JC  %@",_titles[indexPath.row]];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
 }
 
 #pragma mark - Setter/Getter(懒加载)

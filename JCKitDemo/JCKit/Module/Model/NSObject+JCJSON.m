@@ -24,7 +24,7 @@
 + (instancetype)modelWithJSONName:(NSString *)name {
     NSData *data = [self dataWithJSONName:name];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    NSAssert([dic isKindOfClass:[NSDictionary class]], @"📍行号:%d,📍类与方法:%s,📍不满足条件:解析出来的不是字典(Dictionary) ",__LINE__,__func__);
+    NSAssert([dic isKindOfClass:[NSDictionary class]], @"📍行号:%d,📍类与方法:%s,📍不满足条件:解析出来的不是字典(Dictionary) ", __LINE__, __func__);
     Class className = [self class];
     NSObject *model = [className new];
     if (!model) {
@@ -55,7 +55,13 @@
     }
     Class className = [self class];
     NSObject *model = [className new];
-    [model setValuesForKeysWithDictionary:changeWrongfulValue(dic, [model modelAllPropertys])]; // 系统的方法
+    
+    @try {
+        [model setValuesForKeysWithDictionary:changeWrongfulValue(dic, [model modelAllPropertys])];
+    } @catch (NSException *exception) {
+        
+    }
+    
     return model;
 }
 
@@ -74,7 +80,7 @@
         const char *name = property_getName(property);
         NSString *key = [NSString stringWithUTF8String:name];
         
-        objc_property_attribute_t *attributes =  property_copyAttributeList(property,  nil);
+        objc_property_attribute_t *attributes = property_copyAttributeList(property,  nil);
         objc_property_attribute_t attribute_t = attributes[0];
         char *type = (char *)attribute_t.value;
         if (*type == '@') {
@@ -114,7 +120,7 @@
 }
 
 
-static inline NSDictionary * changeWrongfulValue(NSDictionary *dic ,NSDictionary *modelPropertys) {
+static inline NSDictionary * changeWrongfulValue(NSDictionary *dic, NSDictionary *modelPropertys) {
     if (!dic) return nil;
     
     static NSDictionary *legalDic;
@@ -151,10 +157,12 @@ static inline NSDictionary * changeWrongfulValue(NSDictionary *dic ,NSDictionary
     NSMutableDictionary *dicM = [NSMutableDictionary new];
     [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         id legalValue = legalDic[[NSString stringWithFormat:@"%@",obj]];
+        
         if (legalValue) {
             dicM[key] = legalValue;
         }else {
             Class className = NSClassFromString(modelPropertys[key]);
+            
             if (className) {
                 NSObject *model = [className new];
                 [model setValuesForKeysWithDictionary:changeWrongfulValue(obj, [model modelAllPropertys])];

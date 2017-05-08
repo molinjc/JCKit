@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JCImageGroupItem : NSObject
+__attribute__((objc_runtime_name("molin1")))
+@interface JCImageGroupItem : NSObject 
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSURL *imageURL;
 @end
+
+
 
 @interface JCImageBrowseView : UIView
 
